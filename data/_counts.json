@@ -31,17 +31,17 @@
   },
   "politics": {
     "knowledge": 36,
-    "questions": 32,
+    "questions": 100,
     "methods": 12
   },
   "history": {
     "knowledge": 36,
-    "questions": 32,
+    "questions": 100,
     "methods": 12
   },
   "geography": {
     "knowledge": 36,
-    "questions": 32,
+    "questions": 100,
     "methods": 12
   }
 }
