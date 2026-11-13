@@ -29,7 +29,9 @@
       "hx-02"
     ],
     "questionIds": [
-      "hx-q03"
+      "hx-q03",
+      "hx-q33",
+      "hx-q71"
     ]
   },
   {
@@ -54,14 +56,18 @@
       "未冷却就过滤热的饱和溶液，晶体析出在滤纸上。"
     ],
     "methodIds": [
-      "hx-m-11"
+      "hx-m-11",
+      "hx-m-02"
     ],
     "relatedIds": [
       "hx-01",
       "hx-39"
     ],
     "questionIds": [
-      "hx-q04"
+      "hx-q04",
+      "hx-q34",
+      "hx-q71",
+      "hx-q97"
     ]
   },
   {
@@ -92,7 +98,8 @@
       "把摩尔质量的单位写成 $\\mathrm{g}$ 或把 $N_\\mathrm{A}$ 当成没有单位的纯数去约。"
     ],
     "methodIds": [
-      "hx-m-01"
+      "hx-m-01",
+      "hx-m-11"
     ],
     "relatedIds": [
       "hx-04"
@@ -100,7 +107,10 @@
     "questionIds": [
       "hx-q01",
       "hx-q02",
-      "hx-q05"
+      "hx-q05",
+      "hx-q35",
+      "hx-q54",
+      "hx-q103"
     ]
   },
   {
@@ -126,13 +136,17 @@
       "定容摇匀后发现液面下降又补水，浓度偏低。"
     ],
     "methodIds": [
-      "hx-m-11"
+      "hx-m-11",
+      "hx-m-01"
     ],
     "relatedIds": [
       "hx-03"
     ],
     "questionIds": [
-      "hx-q03"
+      "hx-q03",
+      "hx-q36",
+      "hx-q79",
+      "hx-q98"
     ]
   },
   {
@@ -158,7 +172,8 @@
       "电荷不守恒，例如把 $\\mathrm{Fe+Cu^{2+}=Fe^{2+}+Cu}$ 写成 $\\mathrm{Fe+Cu^{2+}=Fe^{3+}+Cu}$。"
     ],
     "methodIds": [
-      "hx-m-02"
+      "hx-m-02",
+      "hx-m-03"
     ],
     "relatedIds": [
       "hx-06"
@@ -166,7 +181,9 @@
     "questionIds": [
       "hx-q06",
       "hx-q07",
-      "hx-q08"
+      "hx-q08",
+      "hx-q55",
+      "hx-q72"
     ]
   },
   {
@@ -200,7 +217,9 @@
     ],
     "questionIds": [
       "hx-q09",
-      "hx-q10"
+      "hx-q10",
+      "hx-q56",
+      "hx-q72"
     ]
   },
   {
@@ -235,7 +254,9 @@
       "hx-08"
     ],
     "questionIds": [
-      "hx-q07"
+      "hx-q07",
+      "hx-q37",
+      "hx-q90"
     ]
   },
   {
@@ -269,7 +290,9 @@
       "hx-07"
     ],
     "questionIds": [
-      "hx-q24"
+      "hx-q24",
+      "hx-q38",
+      "hx-q91"
     ]
   },
   {
@@ -302,7 +325,9 @@
       "hx-10"
     ],
     "questionIds": [
-      "hx-q32"
+      "hx-q32",
+      "hx-q39",
+      "hx-q76"
     ]
   },
   {
@@ -336,7 +361,9 @@
       "hx-11"
     ],
     "questionIds": [
-      "hx-q32"
+      "hx-q32",
+      "hx-q40",
+      "hx-q76"
     ]
   },
   {
@@ -368,7 +395,10 @@
       "hx-09",
       "hx-30"
     ],
-    "questionIds": []
+    "questionIds": [
+      "hx-q41",
+      "hx-q42"
+    ]
   },
   {
     "id": "hx-12",
@@ -401,7 +431,9 @@
     ],
     "questionIds": [
       "hx-q11",
-      "hx-q12"
+      "hx-q12",
+      "hx-q43",
+      "hx-q100"
     ]
   },
   {
@@ -435,7 +467,10 @@
       "hx-14"
     ],
     "questionIds": [
-      "hx-q29"
+      "hx-q29",
+      "hx-q44",
+      "hx-q73",
+      "hx-q101"
     ]
   },
   {
@@ -473,7 +508,10 @@
     "questionIds": [
       "hx-q13",
       "hx-q14",
-      "hx-q15"
+      "hx-q15",
+      "hx-q45",
+      "hx-q73",
+      "hx-q82"
     ]
   },
   {
@@ -507,7 +545,9 @@
       "hx-16"
     ],
     "questionIds": [
-      "hx-q23"
+      "hx-q23",
+      "hx-q46",
+      "hx-q92"
     ]
   },
   {
@@ -540,7 +580,9 @@
       "hx-17"
     ],
     "questionIds": [
-      "hx-q24"
+      "hx-q24",
+      "hx-q47",
+      "hx-q93"
     ]
   },
   {
@@ -574,7 +616,10 @@
     "relatedIds": [
       "hx-16"
     ],
-    "questionIds": []
+    "questionIds": [
+      "hx-q48",
+      "hx-q83"
+    ]
   },
   {
     "id": "hx-18",
@@ -610,7 +655,9 @@
     ],
     "questionIds": [
       "hx-q16",
-      "hx-q17"
+      "hx-q17",
+      "hx-q49",
+      "hx-q77"
     ]
   },
   {
@@ -644,7 +691,10 @@
       "hx-20"
     ],
     "questionIds": [
-      "hx-q18"
+      "hx-q18",
+      "hx-q50",
+      "hx-q77",
+      "hx-q102"
     ]
   },
   {
@@ -677,7 +727,9 @@
       "hx-18"
     ],
     "questionIds": [
-      "hx-q19"
+      "hx-q19",
+      "hx-q51",
+      "hx-q99"
     ]
   },
   {
@@ -704,14 +756,18 @@
       "电极反应式电荷不守恒或忘了介质是酸性还是碱性。"
     ],
     "methodIds": [
-      "hx-m-07"
+      "hx-m-07",
+      "hx-m-01"
     ],
     "relatedIds": [
       "hx-22",
       "hx-06"
     ],
     "questionIds": [
-      "hx-q20"
+      "hx-q20",
+      "hx-q52",
+      "hx-q74",
+      "hx-q80"
     ]
   },
   {
@@ -746,7 +802,11 @@
     ],
     "questionIds": [
       "hx-q21",
-      "hx-q22"
+      "hx-q22",
+      "hx-q53",
+      "hx-q74",
+      "hx-q80",
+      "hx-q94"
     ]
   },
   {
@@ -781,7 +841,9 @@
     ],
     "questionIds": [
       "hx-q25",
-      "hx-q26"
+      "hx-q26",
+      "hx-q57",
+      "hx-q89"
     ]
   },
   {
@@ -815,7 +877,9 @@
       "hx-25"
     ],
     "questionIds": [
-      "hx-q27"
+      "hx-q27",
+      "hx-q58",
+      "hx-q75"
     ]
   },
   {
@@ -854,7 +918,10 @@
     "questionIds": [
       "hx-q26",
       "hx-q27",
-      "hx-q28"
+      "hx-q28",
+      "hx-q59",
+      "hx-q75",
+      "hx-q81"
     ]
   },
   {
@@ -886,7 +953,9 @@
       "hx-25"
     ],
     "questionIds": [
-      "hx-q28"
+      "hx-q28",
+      "hx-q60",
+      "hx-q81"
     ]
   },
   {
@@ -918,7 +987,10 @@
     "relatedIds": [
       "hx-26"
     ],
-    "questionIds": []
+    "questionIds": [
+      "hx-q61",
+      "hx-q78"
+    ]
   },
   {
     "id": "hx-28",
@@ -948,7 +1020,9 @@
       "hx-12"
     ],
     "questionIds": [
-      "hx-q11"
+      "hx-q11",
+      "hx-q62",
+      "hx-q85"
     ]
   },
   {
@@ -972,11 +1046,16 @@
       "把氨气当成正四面体或平面三角形。",
       "把二氧化硫当成直线形。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "hx-m-08"
+    ],
     "relatedIds": [
       "hx-11"
     ],
-    "questionIds": []
+    "questionIds": [
+      "hx-q63",
+      "hx-q88"
+    ]
   },
   {
     "id": "hx-30",
@@ -1006,7 +1085,11 @@
     "relatedIds": [
       "hx-11"
     ],
-    "questionIds": []
+    "questionIds": [
+      "hx-q64",
+      "hx-q86",
+      "hx-q87"
+    ]
   },
   {
     "id": "hx-31",
@@ -1032,7 +1115,8 @@
     ],
     "methodIds": [
       "hx-m-11",
-      "hx-m-12"
+      "hx-m-12",
+      "hx-m-01"
     ],
     "relatedIds": [
       "hx-04",
@@ -1040,7 +1124,10 @@
     ],
     "questionIds": [
       "hx-q30",
-      "hx-q31"
+      "hx-q31",
+      "hx-q65",
+      "hx-q79",
+      "hx-q103"
     ]
   },
   {
@@ -1073,7 +1160,9 @@
       "hx-17"
     ],
     "questionIds": [
-      "hx-q04"
+      "hx-q04",
+      "hx-q66",
+      "hx-q84"
     ]
   },
   {
@@ -1100,7 +1189,8 @@
     ],
     "methodIds": [
       "hx-m-02",
-      "hx-m-08"
+      "hx-m-08",
+      "hx-m-11"
     ],
     "relatedIds": [
       "hx-05",
@@ -1108,7 +1198,9 @@
     ],
     "questionIds": [
       "hx-q06",
-      "hx-q08"
+      "hx-q08",
+      "hx-q70",
+      "hx-q97"
     ]
   },
   {
@@ -1139,7 +1231,9 @@
       "hx-23"
     ],
     "questionIds": [
-      "hx-q25"
+      "hx-q25",
+      "hx-q67",
+      "hx-q96"
     ]
   },
   {
@@ -1172,7 +1266,9 @@
     ],
     "questionIds": [
       "hx-q14",
-      "hx-q29"
+      "hx-q29",
+      "hx-q68",
+      "hx-q82"
     ]
   },
   {
@@ -1196,11 +1292,19 @@
       "把二氧化硫和二氧化碳都当成酸雨的主要原因（酸雨主要是硫和氮的氧化物）。",
       "认为只要是燃烧就一定产生污染，而不区分燃料和燃烧条件。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "hx-m-11",
+      "hx-m-10",
+      "hx-m-08"
+    ],
     "relatedIds": [
       "hx-16",
       "hx-22"
     ],
-    "questionIds": []
+    "questionIds": [
+      "hx-q69",
+      "hx-q78",
+      "hx-q95"
+    ]
   }
 ]
