@@ -1026,6 +1026,1564 @@
     ]
   },
   {
+    "id": "en-q140",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-15",
+      "en-31"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What is the passage mainly about?",
+    "answer": "C",
+    "steps": [
+      "The passage describes a teacher's practice of asking students to write a remaining question, and how this changes the way they study. C covers the whole text. A is a detail about one student. B is not the focus (the class is chemistry, but the point is the habit). D is the opposite of her attitude."
+    ],
+    "analysis": {
+      "breakthrough": "Main idea should cover the teacher's method and what students learn from it.",
+      "method": "Look at the opening and the last paragraph together.",
+      "pitfalls": "Choosing a single example as the main idea.",
+      "variant": "'Chemistry' is the setting, not the theme."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "A boy who always finished his work early",
+      "How to balance a chemical equation",
+      "A class habit of writing down questions that are not yet settled",
+      "Why teachers should finish every question before the bell"
+    ],
+    "passage": "After a chemistry lesson, Ms. Tan did not ask the class to write down the day's answers. She asked each student to write one question they still had. \"A finished worksheet looks neat,\" she said, \"but a good question shows where your thinking stopped.\"\nAt first the room was quiet. Some students wrote questions that were only the titles of sections: \"What is equilibrium?\" Ms. Tan asked them to be more specific: What part was unclear? What would you need to know in order to take the next step? The second round of questions was smaller and sharper. One student wrote, \"If both sides of a reaction are happening at once, how can we say the amounts have 'settled'?\"\nMs. Tan pinned a few of the questions on the board, without names. The class tried to answer them together. Some were solved in minutes; others were left open and became the starting point of the next lesson. A boy who usually finished early said he had never noticed how many of his \"finished\" pages still held a gap.\nThe \"question of the day\" is now a habit in that class. Students keep a page at the back of their notebooks for questions that are not yet settled. \"I used to think asking meant I had fallen behind,\" one girl said. \"Now I think it means I know where to look next.\"\nMs. Tan is careful not to treat every question as a task that must be closed before the bell. Some questions, she tells them, are worth keeping for a week.",
+    "passageTitle": "Reading C. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q141",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-16"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What was wrong with some of the first questions students wrote?",
+    "answer": "B",
+    "steps": [
+      "The passage says some students wrote questions that were only the titles of sections, and Ms. Tan asked them to be more specific. B is correct. A is false: the first round was too general, not too long. C is not stated. D is the opposite of what she asked."
+    ],
+    "analysis": {
+      "breakthrough": "Detail questions must be traced to a line in the passage.",
+      "method": "The second paragraph contrasts first and second rounds.",
+      "pitfalls": "Mixing Ms. Tan's later comments with the first-round problem.",
+      "variant": "'Specific' is the opposite of 'section titles'."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "They were too long to pin on the board",
+      "They were too general, like section titles",
+      "They were all about sports",
+      "Ms. Tan asked them to be less specific"
+    ],
+    "passage": "After a chemistry lesson, Ms. Tan did not ask the class to write down the day's answers. She asked each student to write one question they still had. \"A finished worksheet looks neat,\" she said, \"but a good question shows where your thinking stopped.\"\nAt first the room was quiet. Some students wrote questions that were only the titles of sections: \"What is equilibrium?\" Ms. Tan asked them to be more specific: What part was unclear? What would you need to know in order to take the next step? The second round of questions was smaller and sharper. One student wrote, \"If both sides of a reaction are happening at once, how can we say the amounts have 'settled'?\"\nMs. Tan pinned a few of the questions on the board, without names. The class tried to answer them together. Some were solved in minutes; others were left open and became the starting point of the next lesson. A boy who usually finished early said he had never noticed how many of his \"finished\" pages still held a gap.\nThe \"question of the day\" is now a habit in that class. Students keep a page at the back of their notebooks for questions that are not yet settled. \"I used to think asking meant I had fallen behind,\" one girl said. \"Now I think it means I know where to look next.\"\nMs. Tan is careful not to treat every question as a task that must be closed before the bell. Some questions, she tells them, are worth keeping for a week.",
+    "passageTitle": "Reading C. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q142",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-17"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What can be inferred about the boy who usually finished early?",
+    "answer": "A",
+    "steps": [
+      "He said he had never noticed how many of his 'finished' pages still held a gap, so he used to take a neat page as a sign of complete understanding. A can be inferred. B is not said. C is not supported. D is not mentioned."
+    ],
+    "analysis": {
+      "breakthrough": "Inference must be based on what he said, without going too far.",
+      "method": "'Finished pages still held a gap' is the key line.",
+      "pitfalls": "Claiming he became the best student, which is not in the text.",
+      "variant": "Do not confuse him with the girl in the next paragraph."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "He used to treat a completed page as if nothing were missing",
+      "He refused to write any questions",
+      "He left the school after that lesson",
+      "He was the teacher’s assistant"
+    ],
+    "passage": "After a chemistry lesson, Ms. Tan did not ask the class to write down the day's answers. She asked each student to write one question they still had. \"A finished worksheet looks neat,\" she said, \"but a good question shows where your thinking stopped.\"\nAt first the room was quiet. Some students wrote questions that were only the titles of sections: \"What is equilibrium?\" Ms. Tan asked them to be more specific: What part was unclear? What would you need to know in order to take the next step? The second round of questions was smaller and sharper. One student wrote, \"If both sides of a reaction are happening at once, how can we say the amounts have 'settled'?\"\nMs. Tan pinned a few of the questions on the board, without names. The class tried to answer them together. Some were solved in minutes; others were left open and became the starting point of the next lesson. A boy who usually finished early said he had never noticed how many of his \"finished\" pages still held a gap.\nThe \"question of the day\" is now a habit in that class. Students keep a page at the back of their notebooks for questions that are not yet settled. \"I used to think asking meant I had fallen behind,\" one girl said. \"Now I think it means I know where to look next.\"\nMs. Tan is careful not to treat every question as a task that must be closed before the bell. Some questions, she tells them, are worth keeping for a week.",
+    "passageTitle": "Reading C. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q143",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-18"
+    ],
+    "methodIds": [
+      "en-m-10"
+    ],
+    "stem": "The word \"settled\" in paragraph 2 is closest in meaning to",
+    "answer": "D",
+    "steps": [
+      "In the student's question, 'the amounts have settled' follows 'both sides of a reaction are happening at once', so 'settled' means the amounts are no longer changing in a net way — become stable. D. A (left school) and B (paid) are other meanings of 'settle' that do not fit. C (argued) is unrelated."
+    ],
+    "analysis": {
+      "breakthrough": "Guess a word from the sentence around it, not from other common meanings.",
+      "method": "Here 'amounts' and the chemistry context point to 'become stable'.",
+      "pitfalls": "Choosing a familiar everyday meaning of 'settle'.",
+      "variant": "The same word can have several meanings; only one fits this sentence."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "left a place to live somewhere else",
+      "paid a bill",
+      "had an argument",
+      "become stable, with no further net change"
+    ],
+    "passage": "After a chemistry lesson, Ms. Tan did not ask the class to write down the day's answers. She asked each student to write one question they still had. \"A finished worksheet looks neat,\" she said, \"but a good question shows where your thinking stopped.\"\nAt first the room was quiet. Some students wrote questions that were only the titles of sections: \"What is equilibrium?\" Ms. Tan asked them to be more specific: What part was unclear? What would you need to know in order to take the next step? The second round of questions was smaller and sharper. One student wrote, \"If both sides of a reaction are happening at once, how can we say the amounts have 'settled'?\"\nMs. Tan pinned a few of the questions on the board, without names. The class tried to answer them together. Some were solved in minutes; others were left open and became the starting point of the next lesson. A boy who usually finished early said he had never noticed how many of his \"finished\" pages still held a gap.\nThe \"question of the day\" is now a habit in that class. Students keep a page at the back of their notebooks for questions that are not yet settled. \"I used to think asking meant I had fallen behind,\" one girl said. \"Now I think it means I know where to look next.\"\nMs. Tan is careful not to treat every question as a task that must be closed before the bell. Some questions, she tells them, are worth keeping for a week.",
+    "passageTitle": "Reading C. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q101",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-15",
+      "en-31"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What is the passage mainly about?",
+    "answer": "B",
+    "steps": [
+      "The passage follows Wei Ran from joining the radio team to learning that a good interview needs listening and space. B covers the whole story. A is only the first reason she hesitated. C is one example, not the main idea. D is not what the text argues."
+    ],
+    "analysis": {
+      "breakthrough": "Main idea should cover her change, not one scene.",
+      "method": "The last sentence echoes the theme.",
+      "pitfalls": "Treating the cafeteria example as the whole point.",
+      "variant": "'She almost walked past the notice' is only the opening."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "Why Wei Ran disliked the sound of her own voice",
+      "How a student learned that listening matters in an interview",
+      "How leftover rice was turned into snacks",
+      "Why school radio stations should be closed"
+    ],
+    "passage": "When the school radio station asked for new members, Wei Ran almost walked past the notice. She was good at writing, but she did not like the sound of her own voice. A classmate slid a note onto her desk: \"Your scripts would sound good on air.\"\nShe joined with some doubt. The first task, however, was not to speak. She sat beside a senior who was interviewing the cafeteria manager about food waste. Wei Ran had written six questions in a neat list. In the first minutes she wanted to ask them all. The senior gently closed her notebook and whispered, \"Let him finish.\"\nThe manager then told them something that was not on her list: leftover rice was later used to make snacks for evening study, and the idea had come from a student. Wei Ran realized that a prepared list can miss what is most worth hearing.\nOver the following weeks she practiced a small habit. After each answer she counted to three before she spoke again. The silence felt awkward at first, then useful. People added details they might have kept back if she had rushed. In a later program about the night library, a first-year student talked for almost a minute. Wei Ran did not interrupt. After the show the student said, \"I didn't think anyone would wait for me to find the words.\"\nWei Ran still writes scripts, but she now leaves blank spaces in them. \"A good interview,\" she told a new member, \"is not a test you give. It is a door you hold open.\" ",
+    "passageTitle": "Reading A. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q102",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-16"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What was Wei Ran’s first task on the team?",
+    "answer": "A",
+    "steps": [
+      "The passage says the first task was not to speak; she sat beside a senior who was interviewing the cafeteria manager. A is correct. B is what she wanted to do, not the task. C and D happen later."
+    ],
+    "analysis": {
+      "breakthrough": "Detail questions must be located in the text.",
+      "method": "'The first task, however, was not to speak' is the key line.",
+      "pitfalls": "Using a later program as the first task.",
+      "variant": "Do not confuse what she wanted with what she was asked to do."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "To sit in on an interview and learn, rather than to speak at once",
+      "To read all six of her questions immediately",
+      "To host a program about the night library",
+      "To write a notice asking for new members"
+    ],
+    "passage": "When the school radio station asked for new members, Wei Ran almost walked past the notice. She was good at writing, but she did not like the sound of her own voice. A classmate slid a note onto her desk: \"Your scripts would sound good on air.\"\nShe joined with some doubt. The first task, however, was not to speak. She sat beside a senior who was interviewing the cafeteria manager about food waste. Wei Ran had written six questions in a neat list. In the first minutes she wanted to ask them all. The senior gently closed her notebook and whispered, \"Let him finish.\"\nThe manager then told them something that was not on her list: leftover rice was later used to make snacks for evening study, and the idea had come from a student. Wei Ran realized that a prepared list can miss what is most worth hearing.\nOver the following weeks she practiced a small habit. After each answer she counted to three before she spoke again. The silence felt awkward at first, then useful. People added details they might have kept back if she had rushed. In a later program about the night library, a first-year student talked for almost a minute. Wei Ran did not interrupt. After the show the student said, \"I didn't think anyone would wait for me to find the words.\"\nWei Ran still writes scripts, but she now leaves blank spaces in them. \"A good interview,\" she told a new member, \"is not a test you give. It is a door you hold open.\" ",
+    "passageTitle": "Reading A. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q103",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-17"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What can be inferred about the senior’s advice?",
+    "answer": "C",
+    "steps": [
+      "The senior closed her notebook and said 'Let him finish.' Afterwards the manager told them something not on the list. The advice is that patience lets unexpected and useful information appear. C. A is too strong. B is the opposite. D is not mentioned."
+    ],
+    "analysis": {
+      "breakthrough": "Inference should follow from the advice and what happened next.",
+      "method": "The unused list and the manager's story support C.",
+      "pitfalls": "Reading the advice as 'never prepare questions'.",
+      "variant": "The senior did not say the list was useless, only that it should not rush the speaker."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "The senior wanted Wei Ran to give up writing scripts",
+      "Prepared questions should never be used",
+      "Giving the speaker time may bring out information a list would miss",
+      "The cafeteria manager was unwilling to talk"
+    ],
+    "passage": "When the school radio station asked for new members, Wei Ran almost walked past the notice. She was good at writing, but she did not like the sound of her own voice. A classmate slid a note onto her desk: \"Your scripts would sound good on air.\"\nShe joined with some doubt. The first task, however, was not to speak. She sat beside a senior who was interviewing the cafeteria manager about food waste. Wei Ran had written six questions in a neat list. In the first minutes she wanted to ask them all. The senior gently closed her notebook and whispered, \"Let him finish.\"\nThe manager then told them something that was not on her list: leftover rice was later used to make snacks for evening study, and the idea had come from a student. Wei Ran realized that a prepared list can miss what is most worth hearing.\nOver the following weeks she practiced a small habit. After each answer she counted to three before she spoke again. The silence felt awkward at first, then useful. People added details they might have kept back if she had rushed. In a later program about the night library, a first-year student talked for almost a minute. Wei Ran did not interrupt. After the show the student said, \"I didn't think anyone would wait for me to find the words.\"\nWei Ran still writes scripts, but she now leaves blank spaces in them. \"A good interview,\" she told a new member, \"is not a test you give. It is a door you hold open.\" ",
+    "passageTitle": "Reading A. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q104",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-18"
+    ],
+    "methodIds": [
+      "en-m-10"
+    ],
+    "stem": "The word \"awkward\" in paragraph 4 is closest in meaning to",
+    "answer": "D",
+    "steps": [
+      "The silence 'felt awkward at first, then useful.' It describes how a pause felt before she got used to it: uncomfortable. D. A (skillful) does not fit 'at first, then useful.' B (loud) is about sound volume. C (expensive) is irrelevant."
+    ],
+    "analysis": {
+      "breakthrough": "Use the contrast 'at first ... then useful' to guess the word.",
+      "method": "A feeling that later becomes useful was probably uncomfortable at first.",
+      "pitfalls": "Choosing a meaning that does not fit a feeling about silence.",
+      "variant": "Look at the pair 'awkward / useful'."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "skillful",
+      "loud",
+      "costly",
+      "uncomfortable or uneasy"
+    ],
+    "passage": "When the school radio station asked for new members, Wei Ran almost walked past the notice. She was good at writing, but she did not like the sound of her own voice. A classmate slid a note onto her desk: \"Your scripts would sound good on air.\"\nShe joined with some doubt. The first task, however, was not to speak. She sat beside a senior who was interviewing the cafeteria manager about food waste. Wei Ran had written six questions in a neat list. In the first minutes she wanted to ask them all. The senior gently closed her notebook and whispered, \"Let him finish.\"\nThe manager then told them something that was not on her list: leftover rice was later used to make snacks for evening study, and the idea had come from a student. Wei Ran realized that a prepared list can miss what is most worth hearing.\nOver the following weeks she practiced a small habit. After each answer she counted to three before she spoke again. The silence felt awkward at first, then useful. People added details they might have kept back if she had rushed. In a later program about the night library, a first-year student talked for almost a minute. Wei Ran did not interrupt. After the show the student said, \"I didn't think anyone would wait for me to find the words.\"\nWei Ran still writes scripts, but she now leaves blank spaces in them. \"A good interview,\" she told a new member, \"is not a test you give. It is a door you hold open.\" ",
+    "passageTitle": "Reading A. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q105",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-15",
+      "en-31"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "The author’s main purpose is to",
+    "answer": "C",
+    "steps": [
+      "The passage explains a lighting policy, its reasons, objections and a limited response, and ends with a balanced comment. The purpose is to present the issue fairly, C. A is too narrow. B is not argued. D is the opposite of the careful tone."
+    ],
+    "analysis": {
+      "breakthrough": "Purpose questions: look at what the whole text does.",
+      "method": "A balanced article presents reasons, limits and disagreements.",
+      "pitfalls": "Taking one group's view as the author's only purpose.",
+      "variant": "The last paragraph widens the issue rather than closing it with a slogan."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "tell a story about one shopkeeper",
+      "argue that all city lights should be turned off",
+      "explain a dimming policy and the arguments around it",
+      "prove that dark paths are always safe"
+    ],
+    "passage": "In several cities, street lights along parks and rivers are now dimmed after midnight. The official reasons are usually two: to save electricity, and to reduce light that confuses migrating birds and insects. A study in one city found that when lights along a river path were lowered, fewer birds circled the lamps, and the energy used by that line of lights fell by about a third.\nNot everyone is pleased. Some residents say a darker path feels less safe, especially for people walking home from late shifts. Shopkeepers near the park worry that fewer people will pass their doors. City officials have answered by keeping lights brighter at crossings and near bus stops, and by dimming only the stretch beside the water.\nSupporters argue that a city can protect both people and birds if the dimming is limited and clearly marked. Critics reply that a study of one river is not enough, and that safety must come first whenever the two aims conflict. Both sides agree on a practical point: if the city changes the lighting, it should explain the plan in advance and leave a way for residents to report a dark corner that feels unsafe.\nThe lights themselves are not the whole story. One biologist notes that windows in tall buildings also draw birds off course. \"Dimming a path helps,\" she says, \"but it is not a complete answer. It is one careful step.\" ",
+    "passageTitle": "Reading B. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q106",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-16"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "According to the study, when lights along the river path were lowered,",
+    "answer": "A",
+    "steps": [
+      "The study found that fewer birds circled the lamps and energy use fell by about a third. A is correct. B is the opposite. C and D are worries from residents and shopkeepers, not results of the study."
+    ],
+    "analysis": {
+      "breakthrough": "Match the question to the sentence about the study, not to later opinions.",
+      "method": "'Fewer birds' and 'about a third' are in the first paragraph.",
+      "pitfalls": "Mixing residents' worries with the study's findings.",
+      "variant": "The study is about birds and energy, not about shop sales."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "fewer birds circled the lamps, and energy use fell by about a third",
+      "more birds circled the lamps",
+      "shopkeepers reported higher sales",
+      "all crossings became completely dark"
+    ],
+    "passage": "In several cities, street lights along parks and rivers are now dimmed after midnight. The official reasons are usually two: to save electricity, and to reduce light that confuses migrating birds and insects. A study in one city found that when lights along a river path were lowered, fewer birds circled the lamps, and the energy used by that line of lights fell by about a third.\nNot everyone is pleased. Some residents say a darker path feels less safe, especially for people walking home from late shifts. Shopkeepers near the park worry that fewer people will pass their doors. City officials have answered by keeping lights brighter at crossings and near bus stops, and by dimming only the stretch beside the water.\nSupporters argue that a city can protect both people and birds if the dimming is limited and clearly marked. Critics reply that a study of one river is not enough, and that safety must come first whenever the two aims conflict. Both sides agree on a practical point: if the city changes the lighting, it should explain the plan in advance and leave a way for residents to report a dark corner that feels unsafe.\nThe lights themselves are not the whole story. One biologist notes that windows in tall buildings also draw birds off course. \"Dimming a path helps,\" she says, \"but it is not a complete answer. It is one careful step.\" ",
+    "passageTitle": "Reading B. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q107",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-17"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What do supporters and critics agree on?",
+    "answer": "B",
+    "steps": [
+      "The third paragraph says both sides agree that the city should explain the plan in advance and leave a way for residents to report an unsafe dark corner. B. A is the supporters' view. C is not agreed. D is the biologist's later comment, not a point of agreement between the two sides."
+    ],
+    "analysis": {
+      "breakthrough": "Agreement is usually stated directly, often with 'both sides'.",
+      "method": "Do not replace the agreed point with one side's argument.",
+      "pitfalls": "Choosing a detail from the last paragraph.",
+      "variant": "'Both sides agree on a practical point' is the sentence to read."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "Dimming should be used on every street",
+      "The city should explain the plan and allow reports of unsafe spots",
+      "Safety should always be ignored",
+      "Windows in tall buildings are the only problem"
+    ],
+    "passage": "In several cities, street lights along parks and rivers are now dimmed after midnight. The official reasons are usually two: to save electricity, and to reduce light that confuses migrating birds and insects. A study in one city found that when lights along a river path were lowered, fewer birds circled the lamps, and the energy used by that line of lights fell by about a third.\nNot everyone is pleased. Some residents say a darker path feels less safe, especially for people walking home from late shifts. Shopkeepers near the park worry that fewer people will pass their doors. City officials have answered by keeping lights brighter at crossings and near bus stops, and by dimming only the stretch beside the water.\nSupporters argue that a city can protect both people and birds if the dimming is limited and clearly marked. Critics reply that a study of one river is not enough, and that safety must come first whenever the two aims conflict. Both sides agree on a practical point: if the city changes the lighting, it should explain the plan in advance and leave a way for residents to report a dark corner that feels unsafe.\nThe lights themselves are not the whole story. One biologist notes that windows in tall buildings also draw birds off course. \"Dimming a path helps,\" she says, \"but it is not a complete answer. It is one careful step.\" ",
+    "passageTitle": "Reading B. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q108",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-18"
+    ],
+    "methodIds": [
+      "en-m-10"
+    ],
+    "stem": "The word \"confuses\" in paragraph 1 is closest in meaning to",
+    "answer": "C",
+    "steps": [
+      "Light that 'confuses migrating birds' causes them to lose their way, as later shown by birds circling lamps. C (makes them lose a clear direction) fits. A (entertains) and B (feeds) do not. D (protects) is the opposite of the problem."
+    ],
+    "analysis": {
+      "breakthrough": "Guess from 'migrating birds' and the later image of birds circling lamps.",
+      "method": "The lights are a problem for direction, not a kindness.",
+      "pitfalls": "Choosing a positive meaning that does not fit the context.",
+      "variant": "'Circling the lamps' is a clue that they are led off course."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "entertains",
+      "feeds",
+      "makes them lose a clear direction",
+      "protects them from danger"
+    ],
+    "passage": "In several cities, street lights along parks and rivers are now dimmed after midnight. The official reasons are usually two: to save electricity, and to reduce light that confuses migrating birds and insects. A study in one city found that when lights along a river path were lowered, fewer birds circled the lamps, and the energy used by that line of lights fell by about a third.\nNot everyone is pleased. Some residents say a darker path feels less safe, especially for people walking home from late shifts. Shopkeepers near the park worry that fewer people will pass their doors. City officials have answered by keeping lights brighter at crossings and near bus stops, and by dimming only the stretch beside the water.\nSupporters argue that a city can protect both people and birds if the dimming is limited and clearly marked. Critics reply that a study of one river is not enough, and that safety must come first whenever the two aims conflict. Both sides agree on a practical point: if the city changes the lighting, it should explain the plan in advance and leave a way for residents to report a dark corner that feels unsafe.\nThe lights themselves are not the whole story. One biologist notes that windows in tall buildings also draw birds off course. \"Dimming a path helps,\" she says, \"but it is not a complete answer. It is one careful step.\" ",
+    "passageTitle": "Reading B. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q109",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-19"
+    ],
+    "methodIds": [
+      "en-m-05"
+    ],
+    "stem": "Which sentence best fits blank 36?",
+    "answer": "C",
+    "steps": [
+      "第一段提出紧张的问题，后面从 First 起分步说明。这里需要一句总起：有一些实际步骤可以让准备更清楚、不那么怕。C 合适。A 过于绝对，也和文末「看着听众」矛盾。B 属于下一空。"
+    ],
+    "analysis": {
+      "breakthrough": "七选五先看空前后的逻辑和提示词。",
+      "method": "把选项放进空中，检查是否与前后句顺接。",
+      "pitfalls": "把后面步骤里的句子提前放到总起空。",
+      "variant": "注意绝对化措辞和张冠李戴的选项。"
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "That is why you should memorize every word and never look up.",
+      "One clear sentence is more useful than a page of notes.",
+      "There are practical steps that can make the work clearer and less frightening.",
+      "Leave other interesting facts out of the main talk, or keep them for questions.",
+      "Hearing your own voice is the only reliable way to test the wording and the timing.",
+      "People often remember a calm pause better than a rushed ending.",
+      "The more examples you give, the more impressive the talk will always be."
+    ],
+    "passage": "Giving a short talk in class makes many students nervous. 36. ______ First, write one sentence that states your point clearly.\n\n37. ______ If you cannot say that sentence simply, the talk is not ready, and more slides will not help.\n\nSecond, choose only two or three examples. 38. ______ A long list is hard to remember and harder for listeners to follow.\n\nThird, practice out loud, not only in your head. 39. ______ You will notice sentences that look fine on paper but are difficult to say, and you will know whether the talk fits the time.\n\nFinally, look at the audience and pause after a key idea. 40. ______ A short silence is not a failure; it gives people time to think, and it gives you time to breathe.",
+    "passageTitle": "Reading C (七选五). Read the passage and choose the best sentence for each blank. There are two extra options."
+  },
+  {
+    "id": "en-q110",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-19"
+    ],
+    "methodIds": [
+      "en-m-05"
+    ],
+    "stem": "Which sentence best fits blank 37?",
+    "answer": "B",
+    "steps": [
+      "上一句说先写下那一句中心，下一句说如果不能简单说出来，报告就还没准备好。B「一句清楚的话比一页笔记更有用」正好接上。C 已用于 36。E 说的是出声练习，位置太早。"
+    ],
+    "analysis": {
+      "breakthrough": "七选五先看空前后的逻辑和提示词。",
+      "method": "把选项放进空中，检查是否与前后句顺接。",
+      "pitfalls": "忽略「If you cannot say that sentence simply」这一提示。",
+      "variant": "注意绝对化措辞和张冠李戴的选项。"
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "That is why you should memorize every word and never look up.",
+      "One clear sentence is more useful than a page of notes.",
+      "There are practical steps that can make the work clearer and less frightening.",
+      "Leave other interesting facts out of the main talk, or keep them for questions.",
+      "Hearing your own voice is the only reliable way to test the wording and the timing.",
+      "People often remember a calm pause better than a rushed ending.",
+      "The more examples you give, the more impressive the talk will always be."
+    ],
+    "passage": "Giving a short talk in class makes many students nervous. 36. ______ First, write one sentence that states your point clearly.\n\n37. ______ If you cannot say that sentence simply, the talk is not ready, and more slides will not help.\n\nSecond, choose only two or three examples. 38. ______ A long list is hard to remember and harder for listeners to follow.\n\nThird, practice out loud, not only in your head. 39. ______ You will notice sentences that look fine on paper but are difficult to say, and you will know whether the talk fits the time.\n\nFinally, look at the audience and pause after a key idea. 40. ______ A short silence is not a failure; it gives people time to think, and it gives you time to breathe.",
+    "passageTitle": "Reading C (七选五). Read the passage and choose the best sentence for each blank. There are two extra options."
+  },
+  {
+    "id": "en-q111",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-19"
+    ],
+    "methodIds": [
+      "en-m-05"
+    ],
+    "stem": "Which sentence best fits blank 38?",
+    "answer": "D",
+    "steps": [
+      "本段要求只选两三个例子，后文说清单太长就记不住。D「其余有趣的材料可留到提问时再用」既解释了为何要少选，也给出处理办法。G 与本段意思相反。"
+    ],
+    "analysis": {
+      "breakthrough": "七选五先看空前后的逻辑和提示词。",
+      "method": "把选项放进空中，检查是否与前后句顺接。",
+      "pitfalls": "选与「少选例子」相反的 G。",
+      "variant": "注意绝对化措辞和张冠李戴的选项。"
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "That is why you should memorize every word and never look up.",
+      "One clear sentence is more useful than a page of notes.",
+      "There are practical steps that can make the work clearer and less frightening.",
+      "Leave other interesting facts out of the main talk, or keep them for questions.",
+      "Hearing your own voice is the only reliable way to test the wording and the timing.",
+      "People often remember a calm pause better than a rushed ending.",
+      "The more examples you give, the more impressive the talk will always be."
+    ],
+    "passage": "Giving a short talk in class makes many students nervous. 36. ______ First, write one sentence that states your point clearly.\n\n37. ______ If you cannot say that sentence simply, the talk is not ready, and more slides will not help.\n\nSecond, choose only two or three examples. 38. ______ A long list is hard to remember and harder for listeners to follow.\n\nThird, practice out loud, not only in your head. 39. ______ You will notice sentences that look fine on paper but are difficult to say, and you will know whether the talk fits the time.\n\nFinally, look at the audience and pause after a key idea. 40. ______ A short silence is not a failure; it gives people time to think, and it gives you time to breathe.",
+    "passageTitle": "Reading C (七选五). Read the passage and choose the best sentence for each blank. There are two extra options."
+  },
+  {
+    "id": "en-q112",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-19"
+    ],
+    "methodIds": [
+      "en-m-05"
+    ],
+    "stem": "Which sentence best fits blank 39?",
+    "answer": "E",
+    "steps": [
+      "本段讲出声练习，不要只在心里过一遍。E「只有听到自己的声音，才能可靠地检查措辞和时长」与后文「纸上看着好、说出来却别扭」相合。B、D 属于前面的步骤。"
+    ],
+    "analysis": {
+      "breakthrough": "七选五先看空前后的逻辑和提示词。",
+      "method": "把选项放进空中，检查是否与前后句顺接。",
+      "pitfalls": "把「写中心句」的选项放到练习段。",
+      "variant": "注意绝对化措辞和张冠李戴的选项。"
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "That is why you should memorize every word and never look up.",
+      "One clear sentence is more useful than a page of notes.",
+      "There are practical steps that can make the work clearer and less frightening.",
+      "Leave other interesting facts out of the main talk, or keep them for questions.",
+      "Hearing your own voice is the only reliable way to test the wording and the timing.",
+      "People often remember a calm pause better than a rushed ending.",
+      "The more examples you give, the more impressive the talk will always be."
+    ],
+    "passage": "Giving a short talk in class makes many students nervous. 36. ______ First, write one sentence that states your point clearly.\n\n37. ______ If you cannot say that sentence simply, the talk is not ready, and more slides will not help.\n\nSecond, choose only two or three examples. 38. ______ A long list is hard to remember and harder for listeners to follow.\n\nThird, practice out loud, not only in your head. 39. ______ You will notice sentences that look fine on paper but are difficult to say, and you will know whether the talk fits the time.\n\nFinally, look at the audience and pause after a key idea. 40. ______ A short silence is not a failure; it gives people time to think, and it gives you time to breathe.",
+    "passageTitle": "Reading C (七选五). Read the passage and choose the best sentence for each blank. There are two extra options."
+  },
+  {
+    "id": "en-q113",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-19"
+    ],
+    "methodIds": [
+      "en-m-05"
+    ],
+    "stem": "Which sentence best fits blank 40?",
+    "answer": "F",
+    "steps": [
+      "本段讲看向听众，并在关键处停顿。后文说短暂停顿不是失败。F「人们往往更记得从容的停顿，而不是匆忙的收尾」正好领起后句。A 要求背死每一词且绝不抬头，与本段相反。"
+    ],
+    "analysis": {
+      "breakthrough": "七选五先看空前后的逻辑和提示词。",
+      "method": "把选项放进空中，检查是否与前后句顺接。",
+      "pitfalls": "选与「停顿、看听众」相反的绝对化选项。",
+      "variant": "注意绝对化措辞和张冠李戴的选项。"
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "That is why you should memorize every word and never look up.",
+      "One clear sentence is more useful than a page of notes.",
+      "There are practical steps that can make the work clearer and less frightening.",
+      "Leave other interesting facts out of the main talk, or keep them for questions.",
+      "Hearing your own voice is the only reliable way to test the wording and the timing.",
+      "People often remember a calm pause better than a rushed ending.",
+      "The more examples you give, the more impressive the talk will always be."
+    ],
+    "passage": "Giving a short talk in class makes many students nervous. 36. ______ First, write one sentence that states your point clearly.\n\n37. ______ If you cannot say that sentence simply, the talk is not ready, and more slides will not help.\n\nSecond, choose only two or three examples. 38. ______ A long list is hard to remember and harder for listeners to follow.\n\nThird, practice out loud, not only in your head. 39. ______ You will notice sentences that look fine on paper but are difficult to say, and you will know whether the talk fits the time.\n\nFinally, look at the audience and pause after a key idea. 40. ______ A short silence is not a failure; it gives people time to think, and it gives you time to breathe.",
+    "passageTitle": "Reading C (七选五). Read the passage and choose the best sentence for each blank. There are two extra options."
+  },
+  {
+    "id": "en-q129",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-03",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 61: invite → ______",
+    "answer": "were invited",
+    "steps": [
+      "主语 students 与 invite 是被动关系，又是 Last winter 的过去时间，故 were invited。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断空格在句中的成分，再决定词形或用词。",
+      "method": "有括号先变形，无括号想冠词、介词、连词或引导词。",
+      "pitfalls": "只填原形，或忘了主谓一致和时态。",
+      "variant": "填完把整句再读一遍。"
+    },
+    "source": "精编练习",
+    "score": 2,
+    "alt": [
+      "were invited "
+    ],
+    "passage": "Last winter, a group of students 61 ______ (invite) to help at a community garden on the edge of town. It was 62 ______ unusual morning: frost was still on the leaves, and few people were around. The gardener showed us how 63 ______ (protect) young plants from the cold. The beds 64 ______ (cover) with a thin layer of straw the night before, so the soil was not frozen. We kept working 65 ______ our hands became too cold to hold the tools. It was the 66 ______ (cold) morning many of us had known that term, but nobody asked to leave. The work was slow, 67 ______ we could see our breath and the neat rows at the same time. I began to understand 68 ______ much patience a winter garden needs. That is 69 ______ I started to think about food in a new way. My respect 70 ______ the people who grow food in hard seasons has grown.",
+    "passageTitle": "语法填空 B. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q130",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-01",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 62: It was ______ unusual morning.",
+    "answer": "an",
+    "steps": [
+      "unusual 以元音音素开头，morning 为可数名词单数，故用 an。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断空格在句中的成分，再决定词形或用词。",
+      "method": "有括号先变形，无括号想冠词、介词、连词或引导词。",
+      "pitfalls": "只填原形，或忘了主谓一致和时态。",
+      "variant": "填完把整句再读一遍。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "passage": "Last winter, a group of students 61 ______ (invite) to help at a community garden on the edge of town. It was 62 ______ unusual morning: frost was still on the leaves, and few people were around. The gardener showed us how 63 ______ (protect) young plants from the cold. The beds 64 ______ (cover) with a thin layer of straw the night before, so the soil was not frozen. We kept working 65 ______ our hands became too cold to hold the tools. It was the 66 ______ (cold) morning many of us had known that term, but nobody asked to leave. The work was slow, 67 ______ we could see our breath and the neat rows at the same time. I began to understand 68 ______ much patience a winter garden needs. That is 69 ______ I started to think about food in a new way. My respect 70 ______ the people who grow food in hard seasons has grown.",
+    "passageTitle": "语法填空 B. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q131",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-05",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 63: how ______ (protect) young plants",
+    "answer": "to protect",
+    "steps": [
+      "how to do 是带疑问词的不定式，故 to protect。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断空格在句中的成分，再决定词形或用词。",
+      "method": "有括号先变形，无括号想冠词、介词、连词或引导词。",
+      "pitfalls": "只填原形，或忘了主谓一致和时态。",
+      "variant": "填完把整句再读一遍。"
+    },
+    "source": "精编练习",
+    "score": 2,
+    "passage": "Last winter, a group of students 61 ______ (invite) to help at a community garden on the edge of town. It was 62 ______ unusual morning: frost was still on the leaves, and few people were around. The gardener showed us how 63 ______ (protect) young plants from the cold. The beds 64 ______ (cover) with a thin layer of straw the night before, so the soil was not frozen. We kept working 65 ______ our hands became too cold to hold the tools. It was the 66 ______ (cold) morning many of us had known that term, but nobody asked to leave. The work was slow, 67 ______ we could see our breath and the neat rows at the same time. I began to understand 68 ______ much patience a winter garden needs. That is 69 ______ I started to think about food in a new way. My respect 70 ______ the people who grow food in hard seasons has grown.",
+    "passageTitle": "语法填空 B. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q132",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-03",
+      "en-06",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 64: The beds ______ (cover) ... the night before",
+    "answer": "had been covered",
+    "steps": [
+      "「前一晚」发生在我们到来之前，床已被盖上稻草，用过去完成时的被动 had been covered。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断空格在句中的成分，再决定词形或用词。",
+      "method": "有括号先变形，无括号想冠词、介词、连词或引导词。",
+      "pitfalls": "只填原形，或忘了主谓一致和时态。",
+      "variant": "填完把整句再读一遍。"
+    },
+    "source": "精编练习",
+    "score": 2,
+    "alt": [
+      "were covered"
+    ],
+    "passage": "Last winter, a group of students 61 ______ (invite) to help at a community garden on the edge of town. It was 62 ______ unusual morning: frost was still on the leaves, and few people were around. The gardener showed us how 63 ______ (protect) young plants from the cold. The beds 64 ______ (cover) with a thin layer of straw the night before, so the soil was not frozen. We kept working 65 ______ our hands became too cold to hold the tools. It was the 66 ______ (cold) morning many of us had known that term, but nobody asked to leave. The work was slow, 67 ______ we could see our breath and the neat rows at the same time. I began to understand 68 ______ much patience a winter garden needs. That is 69 ______ I started to think about food in a new way. My respect 70 ______ the people who grow food in hard seasons has grown.",
+    "passageTitle": "语法填空 B. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q133",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-09",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 65: We kept working ______ our hands became too cold",
+    "answer": "until",
+    "steps": [
+      "动作持续到手冷得握不住工具为止，用 until。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断空格在句中的成分，再决定词形或用词。",
+      "method": "有括号先变形，无括号想冠词、介词、连词或引导词。",
+      "pitfalls": "只填原形，或忘了主谓一致和时态。",
+      "variant": "填完把整句再读一遍。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "alt": [
+      "till"
+    ],
+    "passage": "Last winter, a group of students 61 ______ (invite) to help at a community garden on the edge of town. It was 62 ______ unusual morning: frost was still on the leaves, and few people were around. The gardener showed us how 63 ______ (protect) young plants from the cold. The beds 64 ______ (cover) with a thin layer of straw the night before, so the soil was not frozen. We kept working 65 ______ our hands became too cold to hold the tools. It was the 66 ______ (cold) morning many of us had known that term, but nobody asked to leave. The work was slow, 67 ______ we could see our breath and the neat rows at the same time. I began to understand 68 ______ much patience a winter garden needs. That is 69 ______ I started to think about food in a new way. My respect 70 ______ the people who grow food in hard seasons has grown.",
+    "passageTitle": "语法填空 B. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q134",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-33",
+      "en-13",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 66: the ______ (cold) morning",
+    "answer": "coldest",
+    "steps": [
+      "有比较范围 that term，且前有 the，用最高级 coldest。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断空格在句中的成分，再决定词形或用词。",
+      "method": "有括号先变形，无括号想冠词、介词、连词或引导词。",
+      "pitfalls": "只填原形，或忘了主谓一致和时态。",
+      "variant": "填完把整句再读一遍。"
+    },
+    "source": "精编练习",
+    "score": 2,
+    "passage": "Last winter, a group of students 61 ______ (invite) to help at a community garden on the edge of town. It was 62 ______ unusual morning: frost was still on the leaves, and few people were around. The gardener showed us how 63 ______ (protect) young plants from the cold. The beds 64 ______ (cover) with a thin layer of straw the night before, so the soil was not frozen. We kept working 65 ______ our hands became too cold to hold the tools. It was the 66 ______ (cold) morning many of us had known that term, but nobody asked to leave. The work was slow, 67 ______ we could see our breath and the neat rows at the same time. I began to understand 68 ______ much patience a winter garden needs. That is 69 ______ I started to think about food in a new way. My respect 70 ______ the people who grow food in hard seasons has grown.",
+    "passageTitle": "语法填空 B. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q135",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-26",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 67: The work was slow, ______ we could see ...",
+    "answer": "but",
+    "steps": [
+      "前后为转折：工作缓慢，但同时能看见呼吸和整齐的菜垄。用 but。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断空格在句中的成分，再决定词形或用词。",
+      "method": "有括号先变形，无括号想冠词、介词、连词或引导词。",
+      "pitfalls": "只填原形，或忘了主谓一致和时态。",
+      "variant": "填完把整句再读一遍。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "alt": [
+      "yet"
+    ],
+    "passage": "Last winter, a group of students 61 ______ (invite) to help at a community garden on the edge of town. It was 62 ______ unusual morning: frost was still on the leaves, and few people were around. The gardener showed us how 63 ______ (protect) young plants from the cold. The beds 64 ______ (cover) with a thin layer of straw the night before, so the soil was not frozen. We kept working 65 ______ our hands became too cold to hold the tools. It was the 66 ______ (cold) morning many of us had known that term, but nobody asked to leave. The work was slow, 67 ______ we could see our breath and the neat rows at the same time. I began to understand 68 ______ much patience a winter garden needs. That is 69 ______ I started to think about food in a new way. My respect 70 ______ the people who grow food in hard seasons has grown.",
+    "passageTitle": "语法填空 B. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q136",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-08",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 68: understand ______ much patience",
+    "answer": "how",
+    "steps": [
+      "understand how much patience ... 表示「多少耐心」，故填 how。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断空格在句中的成分，再决定词形或用词。",
+      "method": "有括号先变形，无括号想冠词、介词、连词或引导词。",
+      "pitfalls": "只填原形，或忘了主谓一致和时态。",
+      "variant": "填完把整句再读一遍。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "passage": "Last winter, a group of students 61 ______ (invite) to help at a community garden on the edge of town. It was 62 ______ unusual morning: frost was still on the leaves, and few people were around. The gardener showed us how 63 ______ (protect) young plants from the cold. The beds 64 ______ (cover) with a thin layer of straw the night before, so the soil was not frozen. We kept working 65 ______ our hands became too cold to hold the tools. It was the 66 ______ (cold) morning many of us had known that term, but nobody asked to leave. The work was slow, 67 ______ we could see our breath and the neat rows at the same time. I began to understand 68 ______ much patience a winter garden needs. That is 69 ______ I started to think about food in a new way. My respect 70 ______ the people who grow food in hard seasons has grown.",
+    "passageTitle": "语法填空 B. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q137",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-08",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 69: That is ______ I started to think",
+    "answer": "why",
+    "steps": [
+      "That is why ... 表示「那就是我为何开始……」，承接上文的理解。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断空格在句中的成分，再决定词形或用词。",
+      "method": "有括号先变形，无括号想冠词、介词、连词或引导词。",
+      "pitfalls": "只填原形，或忘了主谓一致和时态。",
+      "variant": "填完把整句再读一遍。"
+    },
+    "source": "精编练习",
+    "score": 2,
+    "passage": "Last winter, a group of students 61 ______ (invite) to help at a community garden on the edge of town. It was 62 ______ unusual morning: frost was still on the leaves, and few people were around. The gardener showed us how 63 ______ (protect) young plants from the cold. The beds 64 ______ (cover) with a thin layer of straw the night before, so the soil was not frozen. We kept working 65 ______ our hands became too cold to hold the tools. It was the 66 ______ (cold) morning many of us had known that term, but nobody asked to leave. The work was slow, 67 ______ we could see our breath and the neat rows at the same time. I began to understand 68 ______ much patience a winter garden needs. That is 69 ______ I started to think about food in a new way. My respect 70 ______ the people who grow food in hard seasons has grown.",
+    "passageTitle": "语法填空 B. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q138",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-12",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 70: My respect ______ the people",
+    "answer": "for",
+    "steps": [
+      "固定搭配 respect for sb.，故填 for。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断空格在句中的成分，再决定词形或用词。",
+      "method": "有括号先变形，无括号想冠词、介词、连词或引导词。",
+      "pitfalls": "只填原形，或忘了主谓一致和时态。",
+      "variant": "填完把整句再读一遍。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "passage": "Last winter, a group of students 61 ______ (invite) to help at a community garden on the edge of town. It was 62 ______ unusual morning: frost was still on the leaves, and few people were around. The gardener showed us how 63 ______ (protect) young plants from the cold. The beds 64 ______ (cover) with a thin layer of straw the night before, so the soil was not frozen. We kept working 65 ______ our hands became too cold to hold the tools. It was the 66 ______ (cold) morning many of us had known that term, but nobody asked to leave. The work was slow, 67 ______ we could see our breath and the neat rows at the same time. I began to understand 68 ______ much patience a winter garden needs. That is 69 ______ I started to think about food in a new way. My respect 70 ______ the people who grow food in hard seasons has grown.",
+    "passageTitle": "语法填空 B. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q114",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 71",
+    "answer": "A",
+    "steps": [
+      "把素描本放进书包，slipped（轻轻放进）最合适。threw、tore、sold 与拾到准备归还的情境不符。"
+    ],
+    "analysis": {
+      "breakthrough": "Putting the book away carefully, not destroying it.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "slipped",
+      "threw",
+      "tore",
+      "sold"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q115",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 72",
+    "answer": "B",
+    "steps": [
+      "在校门口她注意到一个女孩在翻书包。noticed 正确。ignored 与后文走过去相反。"
+    ],
+    "analysis": {
+      "breakthrough": "She must see the girl before she walks over.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "ignored",
+      "noticed",
+      "forgot",
+      "invented"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q116",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 73",
+    "answer": "C",
+    "steps": [
+      "她先停顿了一下，然后走过去。paused 正确。其余与「for a moment, then walked over」不顺。"
+    ],
+    "analysis": {
+      "breakthrough": "A short hesitation before helping.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "danced",
+      "slept",
+      "paused",
+      "shouted"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q117",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 74",
+    "answer": "A",
+    "steps": [
+      "女孩描述了那本蓝封面的素描本。described 正确。denied、hid 与寻物不符。"
+    ],
+    "analysis": {
+      "breakthrough": "She has to say what she lost.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "described",
+      "denied",
+      "hid",
+      "painted"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q118",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 75",
+    "answer": "D",
+    "steps": [
+      "失而复得，她捧着本子，好像不敢相信。held 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "The book has just been returned.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "dropped",
+      "lost",
+      "broke",
+      "held"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q119",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 76",
+    "answer": "B",
+    "steps": [
+      "gone for good 表示「永远没了」。是固定说法。其余不能这样搭配。"
+    ],
+    "analysis": {
+      "breakthrough": "A set phrase: gone for good.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "breakfast",
+      "good",
+      "sale",
+      "fun"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q120",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 77",
+    "answer": "C",
+    "steps": [
+      "里面的画不是一天就能再画出来（replace）的。cook、weigh 无关，borrow 不合。"
+    ],
+    "analysis": {
+      "breakthrough": "The drawings matter and cannot be made again quickly.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "cook",
+      "borrow",
+      "replace",
+      "weigh"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q121",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 78",
+    "answer": "A",
+    "steps": [
+      "正要去上课时，女孩问了她的名字。when 表示「就在这时」。"
+    ],
+    "analysis": {
+      "breakthrough": "A 'be about to ... when ...' pattern.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "when",
+      "because",
+      "although",
+      "after"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q122",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 79",
+    "answer": "B",
+    "steps": [
+      "女孩想好好感谢她。thank 正确。punish、avoid 与笑容、归还情境相反。"
+    ],
+    "analysis": {
+      "breakthrough": "She has just got the book back.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "punish",
+      "thank",
+      "forget",
+      "avoid"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q123",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 80",
+    "answer": "C",
+    "steps": [
+      "纸条附着在一幅画着公交车的铅笔画上。attached to 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "A note together with a drawing.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "opposed",
+      "similar",
+      "attached",
+      "allergic"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q124",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 81",
+    "answer": "D",
+    "steps": [
+      "感谢她没有径直走过（walk past）。其余方向与校门口这一幕不符。"
+    ],
+    "analysis": {
+      "breakthrough": "Maya almost went on to her lesson without stopping.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "upstairs",
+      "abroad",
+      "inward",
+      "past"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q125",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 82",
+    "answer": "A",
+    "steps": [
+      "她没料到会有人注意到她当时很赶，还记在心里。expected 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "The kindness came as a surprise.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "expected",
+      "forced",
+      "paid",
+      "warned"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q126",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 83",
+    "answer": "B",
+    "steps": [
+      "看着那幅画，提醒自己一次短暂停顿可以比完美的日程更重要。reminds herself 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "The drawing is a reminder.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "refuses",
+      "reminds",
+      "charges",
+      "hides"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q127",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 84",
+    "answer": "C",
+    "steps": [
+      "a short pause can matter more than a perfect schedule。matter 表示「要紧」。"
+    ],
+    "analysis": {
+      "breakthrough": "The comparison is about importance, not price.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "cost",
+      "weigh",
+      "matter",
+      "close"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q128",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 85",
+    "answer": "A",
+    "steps": [
+      "「我差一点没有停下来。」与全文「停下来帮忙」呼应。stop 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "The whole story is about almost walking past.",
+      "method": "先通读大意，再看空前后的搭配与感情色彩。",
+      "pitfalls": "只看单句、不看全篇的走向。",
+      "variant": "把故事的开头和结尾对照一下。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "stop",
+      "shout",
+      "paint",
+      "swim"
+    ],
+    "passage": "Maya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She 71 ______ it into her bag, then looked at the time: her piano lesson would start in twenty minutes.\nAt the school gate she 72 ______ a girl searching through a backpack, close to tears. Maya 73 ______ for a moment, then walked over and asked if she had lost something. The girl 74 ______ a sketchbook with a blue cover. Maya took out the one she had found. The girl 75 ______ it as if she could not quite believe it, and then smiled so widely that Maya laughed too.\n\"I thought it was gone for 76 ______,\" the girl said. \"There are drawings in it that I cannot 77 ______ in a day.\" Maya was about to leave for her lesson 78 ______ the girl asked her name. \"I want to 79 ______ you properly,\" she said. Maya told her, and ran.\nThe next afternoon, Maya found a small note in her locker, 80 ______ to a pencil drawing of the bus. The note said: \"Thank you for not walking 81 ______. I hope the piano went well.\" Maya had not 82 ______ anyone to notice her hurry, or to remember it kindly.\nShe pinned the drawing above her desk. When she is late or tired, she looks at it and 83 ______ herself that a short pause can 84 ______ more than a perfect schedule. \"I almost did not 85 ______,\" she told her brother later. \"I'm glad I did.\" ",
+    "passageTitle": "完形填空 B. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q139",
+    "subject": "english",
+    "type": "essay",
+    "difficulty": 4,
+    "knowledgeIds": [
+      "en-23",
+      "en-35"
+    ],
+    "methodIds": [
+      "en-m-09"
+    ],
+    "stem": "阅读下面短文，根据所给情节进行续写，使之构成一个完整的故事。词数 150 左右。\n\nMaya found a worn sketchbook on the bus seat just as she stood up to get off. The first page had a name and a class number from her own school. She put it in her bag and looked at the time: her piano lesson would start in twenty minutes. At the school gate she saw a girl searching through a backpack, close to tears. Maya paused, then walked over. The girl described a sketchbook with a blue cover. Maya took out the one she had found. The girl held it as if she could not quite believe it, and then smiled.\n\n注意：\n1. 续写分两段，每段开头已给出；\n2. 与原文情节连贯，人物情感合理；\n3. 词数 150 左右。\n\nParagraph 1: \"I thought it was gone for good,\" the girl said, opening the first page.\nParagraph 2: The next afternoon, Maya found a small note in her locker.",
+    "answer": "Outline example:\nParagraph 1: The girl finds her drawings safe. She tells Maya the book has work she cannot replace in a day, and asks Maya's name so that she can thank her properly. Maya is in a hurry for her piano lesson, gives her name, and runs, still glad that she stopped.\nParagraph 2: The note is attached to a pencil drawing of the bus, thanking Maya for not walking past and hoping the piano lesson went well. Maya pins the drawing above her desk. When she is late or tired, it reminds her that a short pause can matter more than a perfect schedule.\nThe ending should be warm and connected to the choice to stop and help.",
+    "steps": [
+      "先定两段各自的任务：第一段完成相遇和感谢，第二段用留言收束并点出「停下来」的意义。",
+      "对话和动作要具体，避免只写抽象道理。",
+      "词数大约 150，两段都要写完整。"
+    ],
+    "analysis": {
+      "breakthrough": "先想好第二段怎样收束，再写第一段，避免写满却无法收尾。",
+      "method": "读后续写要接住已给的首句，并与原文的人物、物品一致（素描本、钢琴课、校门口）。",
+      "pitfalls": "改变原文事实，或把第一段首句丢掉不管。",
+      "variant": "结尾最好回到「差一点走过」这一选择。"
+    },
+    "source": "精编练习",
+    "score": 25,
+    "rubric": [
+      {
+        "point": "情节与原文连贯，两段完整，有合理的收束（10 分）",
+        "score": 10
+      },
+      {
+        "point": "人物行动、对话和情感具体（8 分）",
+        "score": 8
+      },
+      {
+        "point": "语言准确、连贯，词数大致符合要求（7 分）",
+        "score": 7
+      }
+    ]
+  },
+  {
+    "id": "en-q144",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-15",
+      "en-31"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What is the passage mainly about?",
+    "answer": "B",
+    "steps": [
+      "The passage explains a spare-coat rack at a school, why it was started, how students came to use it, and what it is for. B. A is one later result. C is a suggestion the chair rejects. D is too narrow (only the washing)."
+    ],
+    "analysis": {
+      "breakthrough": "Main idea should cover the rack's purpose and use, not one detail.",
+      "method": "The last paragraph restates the purpose.",
+      "pitfalls": "Choosing a rejected suggestion as the main idea.",
+      "variant": "'Washed every two weeks' is a supporting detail."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "A boy who did well on a weekly test",
+      "A school coat rack that helps students on sudden cold days",
+      "A rule that every student must buy a heavier coat",
+      "How to wash a coat in two weeks"
+    ],
+    "passage": "Near the side door of No. 3 High School there is a plain wooden rack. On cold mornings it holds a few spare coats, some of them a little worn, each with a tag: \"Borrow if you need it. Return it when you can.\" The rack was started by a student union after a teacher noticed several first-year students standing in the wind during morning exercises, their jackets left at home or still too thin for a sudden drop in temperature.\nAt first some students were unwilling to touch the coats. They were afraid it would look like they could not take care of themselves. The union then added a second line on the tag: \"This is for a sudden cold day, not a test of anyone's pride.\" Use slowly increased. A boy who had forgotten his coat before a weekly test wrote later that he had been able to think about the questions instead of his shoulders.\nThe coats are washed every two weeks by a rotating group of volunteers. A few have gone missing; a few have come back with a note of thanks in the pocket. The union does not try to make the rack look perfect. \"If one coat is out and comes back the next day,\" the chair said, \"the idea is working.\"\nA visiting parent asked whether the school should simply require every student to own a heavier coat. The chair shook her head. \"That rule would still leave someone unprepared on one morning. The rack is not a complete answer. It is a way to get through a morning without being ashamed of the weather.\" ",
+    "passageTitle": "Reading C. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q145",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-16"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "Why were some students first unwilling to use the coats?",
+    "answer": "A",
+    "steps": [
+      "The passage says they were afraid it would look like they could not take care of themselves. A. B is not stated. C is about missing coats later, not the first reason. D is the opposite of the union's later message."
+    ],
+    "analysis": {
+      "breakthrough": "The reason is in the second paragraph.",
+      "method": "Do not use a later fact about missing coats to explain the first hesitation.",
+      "pitfalls": "Mixing the parent's suggestion with the students' first feeling.",
+      "variant": "Pride, not cleanliness, is the stated worry."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "They were afraid it would look as if they could not take care of themselves",
+      "The coats were all too small",
+      "All the coats had already gone missing",
+      "The union forbade first-year students to use them"
+    ],
+    "passage": "Near the side door of No. 3 High School there is a plain wooden rack. On cold mornings it holds a few spare coats, some of them a little worn, each with a tag: \"Borrow if you need it. Return it when you can.\" The rack was started by a student union after a teacher noticed several first-year students standing in the wind during morning exercises, their jackets left at home or still too thin for a sudden drop in temperature.\nAt first some students were unwilling to touch the coats. They were afraid it would look like they could not take care of themselves. The union then added a second line on the tag: \"This is for a sudden cold day, not a test of anyone's pride.\" Use slowly increased. A boy who had forgotten his coat before a weekly test wrote later that he had been able to think about the questions instead of his shoulders.\nThe coats are washed every two weeks by a rotating group of volunteers. A few have gone missing; a few have come back with a note of thanks in the pocket. The union does not try to make the rack look perfect. \"If one coat is out and comes back the next day,\" the chair said, \"the idea is working.\"\nA visiting parent asked whether the school should simply require every student to own a heavier coat. The chair shook her head. \"That rule would still leave someone unprepared on one morning. The rack is not a complete answer. It is a way to get through a morning without being ashamed of the weather.\" ",
+    "passageTitle": "Reading C. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q146",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-17"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What is the chair’s attitude toward a rule requiring heavier coats?",
+    "answer": "C",
+    "steps": [
+      "She shook her head and said the rule would still leave someone unprepared on one morning. She does not think a complete rule replaces the rack. C. A is the opposite. B is not said (she does not discuss cost). D is too strong: she does not attack the parent."
+    ],
+    "analysis": {
+      "breakthrough": "Attitude is shown by the action (shook her head) and her words.",
+      "method": "She treats the rack as a limited, practical help, not as a perfect system.",
+      "pitfalls": "Reading her reply as anger at parents.",
+      "variant": "'Not a complete answer' shows a careful, limited claim."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "She fully agrees with the parent",
+      "She thinks the rule is better because it is cheaper",
+      "She doubts that a rule would solve the problem of a sudden cold morning",
+      "She wants to close the rack"
+    ],
+    "passage": "Near the side door of No. 3 High School there is a plain wooden rack. On cold mornings it holds a few spare coats, some of them a little worn, each with a tag: \"Borrow if you need it. Return it when you can.\" The rack was started by a student union after a teacher noticed several first-year students standing in the wind during morning exercises, their jackets left at home or still too thin for a sudden drop in temperature.\nAt first some students were unwilling to touch the coats. They were afraid it would look like they could not take care of themselves. The union then added a second line on the tag: \"This is for a sudden cold day, not a test of anyone's pride.\" Use slowly increased. A boy who had forgotten his coat before a weekly test wrote later that he had been able to think about the questions instead of his shoulders.\nThe coats are washed every two weeks by a rotating group of volunteers. A few have gone missing; a few have come back with a note of thanks in the pocket. The union does not try to make the rack look perfect. \"If one coat is out and comes back the next day,\" the chair said, \"the idea is working.\"\nA visiting parent asked whether the school should simply require every student to own a heavier coat. The chair shook her head. \"That rule would still leave someone unprepared on one morning. The rack is not a complete answer. It is a way to get through a morning without being ashamed of the weather.\" ",
+    "passageTitle": "Reading C. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q147",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-18"
+    ],
+    "methodIds": [
+      "en-m-10"
+    ],
+    "stem": "The word \"rotating\" in paragraph 3 is closest in meaning to",
+    "answer": "D",
+    "steps": [
+      "A rotating group of volunteers takes turns, so that the work is not always done by the same people. D. A (spinning the coats) is a literal meaning that does not fit. B (from another school) and C (paid) are not in the text."
+    ],
+    "analysis": {
+      "breakthrough": "Guess from 'group of volunteers' and the regular washing.",
+      "method": "'Rotating' here is about taking turns.",
+      "pitfalls": "Choosing the physical meaning of 'rotate'.",
+      "variant": "The sentence is about who does the washing."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "spinning the coats in a circle",
+      "coming from a different school",
+      "paid by the hour",
+      "taking turns, not always the same people"
+    ],
+    "passage": "Near the side door of No. 3 High School there is a plain wooden rack. On cold mornings it holds a few spare coats, some of them a little worn, each with a tag: \"Borrow if you need it. Return it when you can.\" The rack was started by a student union after a teacher noticed several first-year students standing in the wind during morning exercises, their jackets left at home or still too thin for a sudden drop in temperature.\nAt first some students were unwilling to touch the coats. They were afraid it would look like they could not take care of themselves. The union then added a second line on the tag: \"This is for a sudden cold day, not a test of anyone's pride.\" Use slowly increased. A boy who had forgotten his coat before a weekly test wrote later that he had been able to think about the questions instead of his shoulders.\nThe coats are washed every two weeks by a rotating group of volunteers. A few have gone missing; a few have come back with a note of thanks in the pocket. The union does not try to make the rack look perfect. \"If one coat is out and comes back the next day,\" the chair said, \"the idea is working.\"\nA visiting parent asked whether the school should simply require every student to own a heavier coat. The chair shook her head. \"That rule would still leave someone unprepared on one morning. The rack is not a complete answer. It is a way to get through a morning without being ashamed of the weather.\" ",
+    "passageTitle": "Reading C. Read the passage and choose the best answer."
+  },
+  {
     "id": "en-q33",
     "subject": "english",
     "type": "single",
