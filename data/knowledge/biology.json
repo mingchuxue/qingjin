@@ -30,7 +30,9 @@
       "sw-03"
     ],
     "questionIds": [
-      "sw-q01"
+      "sw-q01",
+      "sw-q33",
+      "sw-q89"
     ]
   },
   {
@@ -65,7 +67,10 @@
       "sw-18"
     ],
     "questionIds": [
-      "sw-q02"
+      "sw-q02",
+      "sw-q34",
+      "sw-q70",
+      "sw-q98"
     ]
   },
   {
@@ -99,7 +104,9 @@
       "sw-18"
     ],
     "questionIds": [
-      "sw-q03"
+      "sw-q03",
+      "sw-q35",
+      "sw-q70"
     ]
   },
   {
@@ -126,14 +133,17 @@
       "把「需要载体」等同于「主动运输」。"
     ],
     "methodIds": [
-      "sw-m-07"
+      "sw-m-07",
+      "sw-m-11"
     ],
     "relatedIds": [
       "sw-05",
       "sw-07"
     ],
     "questionIds": [
-      "sw-q04"
+      "sw-q04",
+      "sw-q36",
+      "sw-q90"
     ]
   },
   {
@@ -166,7 +176,9 @@
       "sw-11"
     ],
     "questionIds": [
-      "sw-q05"
+      "sw-q05",
+      "sw-q37",
+      "sw-q91"
     ]
   },
   {
@@ -190,12 +202,18 @@
       "认为核孔可以让任何物质自由通过。",
       "把染色质和染色体当成两种不同的物质。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "sw-m-11",
+      "sw-m-03"
+    ],
     "relatedIds": [
       "sw-05",
       "sw-13"
     ],
-    "questionIds": []
+    "questionIds": [
+      "sw-q38",
+      "sw-q82"
+    ]
   },
   {
     "id": "sw-07",
@@ -220,13 +238,16 @@
     ],
     "methodIds": [
       "sw-m-02",
-      "sw-m-07"
+      "sw-m-07",
+      "sw-m-11"
     ],
     "relatedIds": [
       "sw-04"
     ],
     "questionIds": [
-      "sw-q04"
+      "sw-q04",
+      "sw-q39",
+      "sw-q99"
     ]
   },
   {
@@ -255,7 +276,8 @@
     "methodIds": [
       "sw-m-01",
       "sw-m-02",
-      "sw-m-12"
+      "sw-m-12",
+      "sw-m-07"
     ],
     "relatedIds": [
       "sw-02",
@@ -263,7 +285,9 @@
     ],
     "questionIds": [
       "sw-q06",
-      "sw-q08"
+      "sw-q08",
+      "sw-q71",
+      "sw-q77"
     ]
   },
   {
@@ -297,7 +321,10 @@
       "sw-11"
     ],
     "questionIds": [
-      "sw-q07"
+      "sw-q07",
+      "sw-q40",
+      "sw-q71",
+      "sw-q92"
     ]
   },
   {
@@ -325,7 +352,8 @@
     ],
     "methodIds": [
       "sw-m-02",
-      "sw-m-07"
+      "sw-m-07",
+      "sw-m-01"
     ],
     "relatedIds": [
       "sw-11",
@@ -333,7 +361,10 @@
     ],
     "questionIds": [
       "sw-q09",
-      "sw-q10"
+      "sw-q10",
+      "sw-q63",
+      "sw-q72",
+      "sw-q78"
     ]
   },
   {
@@ -362,7 +393,9 @@
     ],
     "methodIds": [
       "sw-m-02",
-      "sw-m-07"
+      "sw-m-07",
+      "sw-m-12",
+      "sw-m-01"
     ],
     "relatedIds": [
       "sw-10",
@@ -370,7 +403,10 @@
     ],
     "questionIds": [
       "sw-q10",
-      "sw-q11"
+      "sw-q11",
+      "sw-q64",
+      "sw-q72",
+      "sw-q80"
     ]
   },
   {
@@ -404,7 +440,9 @@
     ],
     "questionIds": [
       "sw-q12",
-      "sw-q13"
+      "sw-q13",
+      "sw-q65",
+      "sw-q100"
     ]
   },
   {
@@ -430,12 +468,17 @@
       "把凋亡和坏死混为一谈。",
       "以为只要有原癌基因就会得癌（原癌基因是正常细胞就有的，要突变才可能异常）。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "sw-m-11"
+    ],
     "relatedIds": [
       "sw-06",
       "sw-32"
     ],
-    "questionIds": []
+    "questionIds": [
+      "sw-q41",
+      "sw-q83"
+    ]
   },
   {
     "id": "sw-14",
@@ -468,7 +511,10 @@
       "sw-15"
     ],
     "questionIds": [
-      "sw-q13"
+      "sw-q13",
+      "sw-q48",
+      "sw-q93",
+      "sw-q100"
     ]
   },
   {
@@ -504,7 +550,11 @@
     ],
     "questionIds": [
       "sw-q14",
-      "sw-q15"
+      "sw-q15",
+      "sw-q58",
+      "sw-q59",
+      "sw-q73",
+      "sw-q79"
     ]
   },
   {
@@ -538,7 +588,11 @@
     ],
     "questionIds": [
       "sw-q16",
-      "sw-q17"
+      "sw-q17",
+      "sw-q66",
+      "sw-q67",
+      "sw-q73",
+      "sw-q79"
     ]
   },
   {
@@ -574,7 +628,9 @@
     ],
     "questionIds": [
       "sw-q03",
-      "sw-q18"
+      "sw-q18",
+      "sw-q60",
+      "sw-q81"
     ]
   },
   {
@@ -609,7 +665,10 @@
     ],
     "questionIds": [
       "sw-q19",
-      "sw-q20"
+      "sw-q20",
+      "sw-q61",
+      "sw-q62",
+      "sw-q81"
     ]
   },
   {
@@ -644,7 +703,9 @@
       "sw-14"
     ],
     "questionIds": [
-      "sw-q28"
+      "sw-q28",
+      "sw-q49",
+      "sw-q94"
     ]
   },
   {
@@ -678,7 +739,9 @@
       "sw-32"
     ],
     "questionIds": [
-      "sw-q27"
+      "sw-q27",
+      "sw-q50",
+      "sw-q76"
     ]
   },
   {
@@ -704,12 +767,16 @@
       "把地理隔离直接等同于新物种形成。"
     ],
     "methodIds": [
-      "sw-m-04"
+      "sw-m-04",
+      "sw-m-09"
     ],
     "relatedIds": [
       "sw-19"
     ],
-    "questionIds": []
+    "questionIds": [
+      "sw-q42",
+      "sw-q84"
+    ]
   },
   {
     "id": "sw-22",
@@ -740,7 +807,9 @@
       "sw-24"
     ],
     "questionIds": [
-      "sw-q32"
+      "sw-q32",
+      "sw-q51",
+      "sw-q97"
     ]
   },
   {
@@ -774,7 +843,9 @@
       "sw-22"
     ],
     "questionIds": [
-      "sw-q22"
+      "sw-q22",
+      "sw-q52",
+      "sw-q74"
     ]
   },
   {
@@ -808,7 +879,9 @@
       "sw-25"
     ],
     "questionIds": [
-      "sw-q21"
+      "sw-q21",
+      "sw-q53",
+      "sw-q74"
     ]
   },
   {
@@ -843,7 +916,9 @@
     ],
     "questionIds": [
       "sw-q23",
-      "sw-q32"
+      "sw-q32",
+      "sw-q68",
+      "sw-q74"
     ]
   },
   {
@@ -870,13 +945,16 @@
       "认为去掉顶芽后侧芽因「没有生长素」而生长（实际是浓度降低到促进范围）。"
     ],
     "methodIds": [
-      "sw-m-02"
+      "sw-m-02",
+      "sw-m-08"
     ],
     "relatedIds": [
       "sw-08"
     ],
     "questionIds": [
-      "sw-q30"
+      "sw-q30",
+      "sw-q54",
+      "sw-q96"
     ]
   },
   {
@@ -910,7 +988,10 @@
       "sw-28"
     ],
     "questionIds": [
-      "sw-q24"
+      "sw-q24",
+      "sw-q55",
+      "sw-q75",
+      "sw-q95"
     ]
   },
   {
@@ -941,7 +1022,10 @@
       "sw-27",
       "sw-29"
     ],
-    "questionIds": []
+    "questionIds": [
+      "sw-q43",
+      "sw-q85"
+    ]
   },
   {
     "id": "sw-29",
@@ -971,7 +1055,9 @@
       "sw-30"
     ],
     "questionIds": [
-      "sw-q26"
+      "sw-q26",
+      "sw-q56",
+      "sw-q95"
     ]
   },
   {
@@ -1006,7 +1092,9 @@
     ],
     "questionIds": [
       "sw-q25",
-      "sw-q26"
+      "sw-q26",
+      "sw-q69",
+      "sw-q75"
     ]
   },
   {
@@ -1036,7 +1124,10 @@
     "relatedIds": [
       "sw-30"
     ],
-    "questionIds": []
+    "questionIds": [
+      "sw-q44",
+      "sw-q75"
+    ]
   },
   {
     "id": "sw-32",
@@ -1070,7 +1161,9 @@
       "sw-18"
     ],
     "questionIds": [
-      "sw-q29"
+      "sw-q29",
+      "sw-q57",
+      "sw-q76"
     ]
   },
   {
@@ -1101,7 +1194,10 @@
     "relatedIds": [
       "sw-13"
     ],
-    "questionIds": []
+    "questionIds": [
+      "sw-q45",
+      "sw-q86"
+    ]
   },
   {
     "id": "sw-34",
@@ -1132,7 +1228,10 @@
     "relatedIds": [
       "sw-35"
     ],
-    "questionIds": []
+    "questionIds": [
+      "sw-q46",
+      "sw-q87"
+    ]
   },
   {
     "id": "sw-35",
@@ -1158,7 +1257,8 @@
     ],
     "methodIds": [
       "sw-m-01",
-      "sw-m-12"
+      "sw-m-12",
+      "sw-m-02"
     ],
     "relatedIds": [
       "sw-08",
@@ -1167,7 +1267,10 @@
     ],
     "questionIds": [
       "sw-q08",
-      "sw-q31"
+      "sw-q31",
+      "sw-q77",
+      "sw-q78",
+      "sw-q80"
     ]
   },
   {
@@ -1197,6 +1300,9 @@
       "sw-16",
       "sw-15"
     ],
-    "questionIds": []
+    "questionIds": [
+      "sw-q47",
+      "sw-q88"
+    ]
   }
 ]
