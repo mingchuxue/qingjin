@@ -27,7 +27,10 @@
       "yw-02"
     ],
     "questionIds": [
-      "yw-q01"
+      "yw-q01",
+      "yw-q47",
+      "yw-q49",
+      "yw-q95"
     ]
   },
   {
@@ -59,7 +62,10 @@
     ],
     "questionIds": [
       "yw-q01",
-      "yw-q02"
+      "yw-q02",
+      "yw-q47",
+      "yw-q48",
+      "yw-q99"
     ]
   },
   {
@@ -91,7 +97,8 @@
     ],
     "questionIds": [
       "yw-q03",
-      "yw-q04"
+      "yw-q04",
+      "yw-q91"
     ]
   },
   {
@@ -122,7 +129,9 @@
       "yw-05"
     ],
     "questionIds": [
-      "yw-q03"
+      "yw-q03",
+      "yw-q70",
+      "yw-q92"
     ]
   },
   {
@@ -147,13 +156,17 @@
       "把作者的情感说成「赞美了祖国」这类套话，与文本不合。"
     ],
     "methodIds": [
-      "yw-m-11"
+      "yw-m-11",
+      "yw-m-02"
     ],
     "relatedIds": [
       "yw-04"
     ],
     "questionIds": [
-      "yw-q29"
+      "yw-q29",
+      "yw-q50",
+      "yw-q51",
+      "yw-q52"
     ]
   },
   {
@@ -183,7 +196,11 @@
     "relatedIds": [
       "yw-02"
     ],
-    "questionIds": []
+    "questionIds": [
+      "yw-q53",
+      "yw-q54",
+      "yw-q96"
+    ]
   },
   {
     "id": "yw-07",
@@ -213,7 +230,8 @@
       "yw-08"
     ],
     "questionIds": [
-      "yw-q28"
+      "yw-q28",
+      "yw-q60"
     ]
   },
   {
@@ -241,7 +259,10 @@
     "relatedIds": [
       "yw-07"
     ],
-    "questionIds": []
+    "questionIds": [
+      "yw-q59",
+      "yw-q75"
+    ]
   },
   {
     "id": "yw-09",
@@ -266,7 +287,8 @@
       "把活用当成本来的词性。"
     ],
     "methodIds": [
-      "yw-m-03"
+      "yw-m-03",
+      "yw-m-01"
     ],
     "relatedIds": [
       "yw-10",
@@ -274,7 +296,10 @@
     ],
     "questionIds": [
       "yw-q07",
-      "yw-q24"
+      "yw-q24",
+      "yw-q33",
+      "yw-q39",
+      "yw-q89"
     ]
   },
   {
@@ -299,14 +324,17 @@
       "忽略句中语气，把疑问、反问的「其」「岂」当成代词。"
     ],
     "methodIds": [
-      "yw-m-03"
+      "yw-m-03",
+      "yw-m-01"
     ],
     "relatedIds": [
       "yw-09",
       "yw-11"
     ],
     "questionIds": [
-      "yw-q15"
+      "yw-q15",
+      "yw-q34",
+      "yw-q90"
     ]
   },
   {
@@ -331,7 +359,8 @@
       "断句时把「曰」后面的话和说话人断开错误，或把专名从中切断。"
     ],
     "methodIds": [
-      "yw-m-03"
+      "yw-m-03",
+      "yw-m-01"
     ],
     "relatedIds": [
       "yw-12",
@@ -340,7 +369,10 @@
     "questionIds": [
       "yw-q08",
       "yw-q09",
-      "yw-q31"
+      "yw-q31",
+      "yw-q35",
+      "yw-q40",
+      "yw-q100"
     ]
   },
   {
@@ -375,7 +407,10 @@
     "questionIds": [
       "yw-q07",
       "yw-q08",
-      "yw-q25"
+      "yw-q25",
+      "yw-q37",
+      "yw-q42",
+      "yw-q97"
     ]
   },
   {
@@ -398,13 +433,19 @@
       "概括时丢掉主要事件，只抓细节。"
     ],
     "methodIds": [
-      "yw-m-03"
+      "yw-m-03",
+      "yw-m-01",
+      "yw-m-12"
     ],
     "relatedIds": [
       "yw-12",
       "yw-14"
     ],
-    "questionIds": []
+    "questionIds": [
+      "yw-q36",
+      "yw-q38",
+      "yw-q41"
+    ]
   },
   {
     "id": "yw-14",
@@ -435,7 +476,9 @@
     ],
     "questionIds": [
       "yw-q23",
-      "yw-q26"
+      "yw-q26",
+      "yw-q41",
+      "yw-q85"
     ]
   },
   {
@@ -468,7 +511,9 @@
     ],
     "questionIds": [
       "yw-q10",
-      "yw-q11"
+      "yw-q11",
+      "yw-q43",
+      "yw-q45"
     ]
   },
   {
@@ -502,7 +547,9 @@
     ],
     "questionIds": [
       "yw-q10",
-      "yw-q11"
+      "yw-q11",
+      "yw-q44",
+      "yw-q46"
     ]
   },
   {
@@ -534,7 +581,9 @@
     ],
     "questionIds": [
       "yw-q12",
-      "yw-q27"
+      "yw-q27",
+      "yw-q74",
+      "yw-q84"
     ]
   },
   {
@@ -564,7 +613,9 @@
     ],
     "questionIds": [
       "yw-q13",
-      "yw-q30"
+      "yw-q30",
+      "yw-q81",
+      "yw-q87"
     ]
   },
   {
@@ -599,7 +650,9 @@
       "yw-q05",
       "yw-q06",
       "yw-q14",
-      "yw-q30"
+      "yw-q30",
+      "yw-q81",
+      "yw-q86"
     ]
   },
   {
@@ -632,7 +685,8 @@
     ],
     "questionIds": [
       "yw-q16",
-      "yw-q17"
+      "yw-q17",
+      "yw-q82"
     ]
   },
   {
@@ -657,7 +711,8 @@
       "修辞作用只写「加强语气」，不结合句子。"
     ],
     "methodIds": [
-      "yw-m-11"
+      "yw-m-11",
+      "yw-m-10"
     ],
     "relatedIds": [
       "yw-20",
@@ -665,7 +720,9 @@
     ],
     "questionIds": [
       "yw-q18",
-      "yw-q19"
+      "yw-q19",
+      "yw-q58",
+      "yw-q88"
     ]
   },
   {
@@ -688,12 +745,17 @@
       "把图表中的推测写成既成事实。"
     ],
     "methodIds": [
-      "yw-m-10"
+      "yw-m-10",
+      "yw-m-01"
     ],
     "relatedIds": [
       "yw-06"
     ],
-    "questionIds": []
+    "questionIds": [
+      "yw-q54",
+      "yw-q56",
+      "yw-q57"
+    ]
   },
   {
     "id": "yw-23",
@@ -717,7 +779,8 @@
       "立意过大过空，如只写「我们要努力」。"
     ],
     "methodIds": [
-      "yw-m-07"
+      "yw-m-07",
+      "yw-m-08"
     ],
     "relatedIds": [
       "yw-24",
@@ -725,7 +788,10 @@
     ],
     "questionIds": [
       "yw-q20",
-      "yw-q21"
+      "yw-q21",
+      "yw-q72",
+      "yw-q73",
+      "yw-q98"
     ]
   },
   {
@@ -757,7 +823,9 @@
       "yw-25"
     ],
     "questionIds": [
-      "yw-q22"
+      "yw-q22",
+      "yw-q61",
+      "yw-q83"
     ]
   },
   {
@@ -790,7 +858,9 @@
       "yw-26"
     ],
     "questionIds": [
-      "yw-q22"
+      "yw-q22",
+      "yw-q62",
+      "yw-q83"
     ]
   },
   {
@@ -816,13 +886,17 @@
     ],
     "methodIds": [
       "yw-m-07",
-      "yw-m-09"
+      "yw-m-09",
+      "yw-m-08"
     ],
     "relatedIds": [
       "yw-23"
     ],
     "questionIds": [
-      "yw-q20"
+      "yw-q20",
+      "yw-q63",
+      "yw-q72",
+      "yw-q73"
     ]
   },
   {
@@ -845,12 +919,16 @@
       "结尾喊口号，与前文脱节。"
     ],
     "methodIds": [
-      "yw-m-08"
+      "yw-m-08",
+      "yw-m-11"
     ],
     "relatedIds": [
       "yw-25"
     ],
-    "questionIds": []
+    "questionIds": [
+      "yw-q64",
+      "yw-q76"
+    ]
   },
   {
     "id": "yw-28",
@@ -872,12 +950,16 @@
       "为了对偶而写不准的判断。"
     ],
     "methodIds": [
-      "yw-m-11"
+      "yw-m-11",
+      "yw-m-10"
     ],
     "relatedIds": [
       "yw-27"
     ],
-    "questionIds": []
+    "questionIds": [
+      "yw-q65",
+      "yw-q77"
+    ]
   },
   {
     "id": "yw-29",
@@ -901,13 +983,15 @@
       "把简答题写成一篇小作文，要点反而淹没。"
     ],
     "methodIds": [
-      "yw-m-01"
+      "yw-m-01",
+      "yw-m-11"
     ],
     "relatedIds": [
       "yw-30"
     ],
     "questionIds": [
-      "yw-q32"
+      "yw-q32",
+      "yw-q66"
     ]
   },
   {
@@ -928,11 +1012,16 @@
     "pitfalls": [
       "把时间全部耗在前面的阅读选择题上，作文只剩二十分钟。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "yw-m-07"
+    ],
     "relatedIds": [
       "yw-29"
     ],
-    "questionIds": []
+    "questionIds": [
+      "yw-q67",
+      "yw-q78"
+    ]
   },
   {
     "id": "yw-31",
@@ -958,7 +1047,11 @@
     "relatedIds": [
       "yw-15"
     ],
-    "questionIds": []
+    "questionIds": [
+      "yw-q43",
+      "yw-q45",
+      "yw-q93"
+    ]
   },
   {
     "id": "yw-32",
@@ -985,7 +1078,10 @@
     "relatedIds": [
       "yw-19"
     ],
-    "questionIds": []
+    "questionIds": [
+      "yw-q55",
+      "yw-q79"
+    ]
   },
   {
     "id": "yw-33",
@@ -1005,13 +1101,16 @@
       "把「我」叙述一律说成就是作者本人（尤其是小说）。"
     ],
     "methodIds": [
-      "yw-m-02"
+      "yw-m-02",
+      "yw-m-11"
     ],
     "relatedIds": [
       "yw-04"
     ],
     "questionIds": [
-      "yw-q04"
+      "yw-q04",
+      "yw-q51",
+      "yw-q71"
     ]
   },
   {
@@ -1038,7 +1137,10 @@
     "relatedIds": [
       "yw-25"
     ],
-    "questionIds": []
+    "questionIds": [
+      "yw-q68",
+      "yw-q80"
+    ]
   },
   {
     "id": "yw-35",
@@ -1058,14 +1160,17 @@
       "课内只会背诵，不会解释字词，迁移就落空。"
     ],
     "methodIds": [
-      "yw-m-03"
+      "yw-m-03",
+      "yw-m-01"
     ],
     "relatedIds": [
       "yw-09",
       "yw-17"
     ],
     "questionIds": [
-      "yw-q25"
+      "yw-q25",
+      "yw-q39",
+      "yw-q94"
     ]
   },
   {
@@ -1093,6 +1198,9 @@
     "relatedIds": [
       "yw-21"
     ],
-    "questionIds": []
+    "questionIds": [
+      "yw-q57",
+      "yw-q69"
+    ]
   }
 ]
