@@ -542,7 +542,7 @@
               <input type="search" name="q" id="q-input" placeholder="搜索知识点、题目、方法" aria-label="搜索" autocomplete="off">
             </form>
             <div class="top-actions">
-              <span class="streak-pill" title="连续打卡">${ic("fire",16)} ${streak} <span>天</span></span>
+              ${streak?`<span class="streak-pill" title="连续打卡 ${streak} 天">${ic("fire",16)} ${streak} <span>天</span></span>`:""}
               <a class="icon-btn" href="#/review" title="待复习" aria-label="待复习">
                 ${ic("bell")}${due?`<span class="badge">${due>99?"99+":due}</span>`:""}
               </a>
@@ -720,7 +720,8 @@
       else score = 0.2;
       return {k, score, total};
     }).sort((a,b)=> b.score-a.score);
-    return ranked.filter(x => x.total===0 || (x.total>=1 && (state.mastery[x.k.id].correct/(x.total) < 0.8))).slice(0,n).map(x=>x.k);
+    // 只根据真实作答记录提示薄弱点，避免新访客看到像「已有成绩」的推荐。
+    return ranked.filter(x => x.total>=1 && (state.mastery[x.k.id].correct/x.total < 0.8)).slice(0,n).map(x=>x.k);
   }
 
   function todayTasks() {
@@ -1080,6 +1081,7 @@
           <div class="meta-row" style="margin-bottom:10px">${tagType(q.type)} ${tagDiff(q.difficulty)} <span class="tag">${esc(subjName(q.subject))}</span>
             ${(q.knowledgeIds||[]).slice(0,2).map(id=>DATA.kpIndex[id]?`<span class="tag">${esc(DATA.kpIndex[id].title)}</span>`:"").join("")}
           </div>
+          ${q.passage?`<div class="passage" id="passage"><div class="passage-title">${esc(q.passageTitle||"阅读材料")}</div><div class="passage-body">${trusted(q.passage)}</div></div>`:""}
           <div class="stem" id="stem">${trusted(q.stem)}</div>
           ${renderInput(q, answered)}
           <div class="quiz-actions" id="quiz-act">
@@ -1286,6 +1288,7 @@
           </div>
           <div class="card card-pad">
             <div class="meta-row" style="margin-bottom:10px">第 ${examSess.idx+1} 题 ${tagType(q.type)} · ${q.score||5} 分</div>
+            ${q.passage?`<div class="passage"><div class="passage-title">${esc(q.passageTitle||"阅读材料")}</div><div class="passage-body">${trusted(q.passage)}</div></div>`:""}
             <div class="stem">${trusted(q.stem)}</div>
             ${renderInput(q, answered ? {user:answered.user, result:null} : null)}
             <div class="quiz-actions">
@@ -1444,7 +1447,7 @@
       <div class="page-head"><div>${crumb([["#/","首页"],["#/stats","成绩"]])}<h1 class="h1">成绩与分析</h1>
       <p class="lead">正确率、薄弱点和模考走势都在这里。目标分可以在设置里改。</p></div></div>
       <div class="stat-nums">
-        <div class="card stat-num"><div class="n">${answered?Math.round(acc*100):"—"}<span style="font-size:16px">%</span></div><div class="l">练习正确率</div></div>
+        <div class="card stat-num"><div class="n">${answered?`${Math.round(acc*100)}<span style="font-size:16px">%</span>`:"—"}</div><div class="l">练习正确率</div></div>
         <div class="card stat-num"><div class="n">${answered}</div><div class="l">已做题次</div></div>
         <div class="card stat-num"><div class="n">${state.wrong.filter(w=>!w.mastered).length}</div><div class="l">未消化错题</div></div>
         <div class="card stat-num"><div class="n">${minutes}</div><div class="l">累计学习分钟</div></div>
@@ -1491,6 +1494,7 @@
     `;
   }
   function radarSVG(byS) {
+    if (!byS.some(d => d.n)) return `<p class="muted" style="padding:28px 12px;text-align:center">还没有各科练习记录。先去刷题，正确率会显示在这里。</p>`;
     const n = byS.length || 1;
     const R=80, cx=120, cy=100;
     const pts = byS.map((d,i)=>{
@@ -1801,7 +1805,7 @@
     if (!qq) return `<div class="page-head"><h1 class="h1">搜索</h1><p class="lead">输入知识点、方法或题目中的关键词。</p></div>`;
     const kps = allKnowledge().filter(k => (k.title+k.summary+k.chapter+(k.points||[]).join("")).toLowerCase().includes(qq));
     const mds = allMethods().filter(m => (m.name+m.when+m.explanation).toLowerCase().includes(qq));
-    const qs = allQuestions().filter(x => stripHtml(x.stem).toLowerCase().includes(qq));
+    const qs = allQuestions().filter(x => (stripHtml(x.stem)+" "+stripHtml(x.passage||"")+" "+(x.passageTitle||"")).toLowerCase().includes(qq));
     return `
       <div class="page-head"><h1 class="h1">搜索「${esc(q)}」</h1>
       <p class="lead">知识点 ${kps.length} · 方法 ${mds.length} · 题目 ${qs.length}</p></div>

@@ -108,6 +108,7 @@ img, svg { max-width: 100%; display: block; }
   align-items: center; justify-content: center; gap: 6px;
 }
 .boot-mark { margin-bottom: 10px; }
+.boot-mark img { width:64px; height:64px; border-radius:15px; display:block; }
 .boot-name { font-family: var(--serif); font-size: 32px; letter-spacing: .28em; margin: 0 0 0 .28em; font-weight: 600; }
 .boot-sub { margin: 0; color: var(--muted); letter-spacing: .22em; font-size: 13px; }
 .boot-bar {
@@ -820,3 +821,27 @@ hr.sep { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
 .katex { font-size: 1.08em; }
 .katex-display { margin: .6em 0; overflow-x: auto; overflow-y: hidden; }
 .prose .katex-display, .stem .katex-display { margin: .8em 0; }
+
+/* 阅读材料（文言文、现代文、英语阅读、材料分析等共用） */
+.passage {
+  background: var(--teal-faint, #eef5f2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 10px);
+  padding: 14px 16px 16px;
+  margin: 0 0 16px;
+  max-height: 420px;
+  overflow: auto;
+}
+.passage-title {
+  font-size: 12.5px;
+  color: var(--muted);
+  letter-spacing: .08em;
+  margin: 0 0 8px;
+}
+.passage-body {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+.passage-body p { margin: 0 0 10px; }
+.passage-body p:last-child { margin-bottom: 0; }
