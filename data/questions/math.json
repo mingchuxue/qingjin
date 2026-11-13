@@ -1704,5 +1704,2216 @@
       "$5$",
       "$6$"
     ]
+  },
+  {
+    "id": "m-q53",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-11"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "若幂函数 $f(x)=x^{\\alpha}$ 的图象过点 $(4,2)$，则 $\\alpha=$",
+    "answer": "B",
+    "steps": [
+      "由 $4^{\\alpha}=2$，即 $(2^{2})^{\\alpha}=2^{1}$，得 $2^{2\\alpha}=2^{1}$，故 $\\alpha=\\dfrac{1}{2}$。"
+    ],
+    "analysis": {
+      "breakthrough": "把点代入 $y=x^{\\alpha}$，两边写成同一底数。",
+      "method": "幂函数由一个非单位点即可确定指数。",
+      "pitfalls": "把 $4^{\\alpha}=2$ 误做成 $\\alpha=2$ 或 $\\alpha=\\dfrac{1}{4}$。",
+      "variant": "过 $(8,2)$ 时 $\\alpha=\\dfrac{1}{3}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$2$",
+      "$\\dfrac{1}{2}$",
+      "$\\dfrac{1}{4}$",
+      "$-\\dfrac{1}{2}$"
+    ]
+  },
+  {
+    "id": "m-q54",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-11"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "幂函数 $f(x)=x^{-2}$ 的定义域是 ______（用区间表示）。",
+    "answer": "$(-\\infty,0)\\cup(0,+\\infty)$",
+    "steps": [
+      "指数为负整数，自变量不能为 $0$，故定义域为 $(-\\infty,0)\\cup(0,+\\infty)$。"
+    ],
+    "analysis": {
+      "breakthrough": "看指数：负整数或负分数时要排除使表达式无意义的点。",
+      "method": "先写解析式，再谈定义域。",
+      "pitfalls": "做成 $\\mathbb{R}$ 或只写 $(0,+\\infty)$。",
+      "variant": "$x^{1/2}$ 的定义域是 $[0,+\\infty)$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "(-∞,0)∪(0,+∞)",
+      "(-∞,0)U(0,+∞)",
+      "$\\mathbb{R}\\setminus\\{0\\}$",
+      "R/{0}",
+      "R\\{0}",
+      "(-∞,0)∪(0,∞)"
+    ]
+  },
+  {
+    "id": "m-q55",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-15"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "$150^{\\circ}$ 等于",
+    "answer": "C",
+    "steps": [
+      "$150^{\\circ}=150\\times\\dfrac{\\pi}{180}=\\dfrac{5\\pi}{6}$。"
+    ],
+    "analysis": {
+      "breakthrough": "角度乘 $\\dfrac{\\pi}{180}$ 化为弧度。",
+      "method": "弧度与角度互换。",
+      "pitfalls": "漏约分或把 $180$ 与 $150$ 颠倒。",
+      "variant": "$120^{\\circ}=\\dfrac{2\\pi}{3}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$\\dfrac{3\\pi}{4}$",
+      "$\\dfrac{2\\pi}{3}$",
+      "$\\dfrac{5\\pi}{6}$",
+      "$\\dfrac{5\\pi}{4}$"
+    ]
+  },
+  {
+    "id": "m-q56",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-15"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "在半径为 $2$ 的圆中，圆心角为 $\\dfrac{\\pi}{3}$ 的扇形弧长是 ______。",
+    "answer": "$\\dfrac{2\\pi}{3}$",
+    "steps": [
+      "弧长 $l=r\\theta=2\\times\\dfrac{\\pi}{3}=\\dfrac{2\\pi}{3}$（$\\theta$ 用弧度）。"
+    ],
+    "analysis": {
+      "breakthrough": "弧长公式 $l=r\\theta$，角用弧度。",
+      "method": "不要把 $\\theta$ 再乘 $\\dfrac{\\pi}{180}$。",
+      "pitfalls": "用 $l=\\dfrac{n}{180}\\pi r$ 时把 $n$ 当成弧度。",
+      "variant": "扇形面积 $S=\\dfrac{1}{2}r^{2}\\theta=\\dfrac{2\\pi}{3}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "2π/3",
+      "$\\frac{2\\pi}{3}$",
+      "2pi/3"
+    ]
+  },
+  {
+    "id": "m-q57",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-20"
+    ],
+    "methodIds": [
+      "m-mtd-12"
+    ],
+    "stem": "已知 $\\overrightarrow{a}=2\\overrightarrow{b}$，则 $\\overrightarrow{a}$ 与 $\\overrightarrow{b}$",
+    "answer": "A",
+    "steps": [
+      "数量为正的倍数，方向相同，且 $|\\overrightarrow{a}|=2|\\overrightarrow{b}|$，故方向相同。A 正确。B 说反。C、D 把共线与相等混淆。"
+    ],
+    "analysis": {
+      "breakthrough": "向量相等要模与方向都相同；平行（共线）只要求存在实数倍。",
+      "method": "先看系数的符号，再看是否为 $1$。",
+      "pitfalls": "把 $\\overrightarrow{a}=2\\overrightarrow{b}$ 说成两向量相等。",
+      "variant": "若 $\\overrightarrow{a}=-2\\overrightarrow{b}$，则方向相反。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "方向相同，且模长之比为 $2:1$",
+      "方向相反",
+      "一定相等",
+      "不一定共线"
+    ]
+  },
+  {
+    "id": "m-q58",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-20",
+      "m-21"
+    ],
+    "methodIds": [
+      "m-mtd-12"
+    ],
+    "stem": "已知 $\\overrightarrow{a}=(1,2)$，$\\overrightarrow{b}=(3,-1)$，则 $\\overrightarrow{a}+\\overrightarrow{b}=$ ______（写成坐标）。",
+    "answer": "$(4,1)$",
+    "steps": [
+      "对应坐标相加：$(1+3,2+(-1))=(4,1)$。"
+    ],
+    "analysis": {
+      "breakthrough": "平面向量坐标运算按分量进行。",
+      "method": "加法是对应坐标相加。",
+      "pitfalls": "做成 $(4,3)$ 或写成数量积。",
+      "variant": "$\\overrightarrow{a}\\cdot\\overrightarrow{b}=3-2=1$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "(4,1)",
+      "（4，1）",
+      "4,1"
+    ]
+  },
+  {
+    "id": "m-q59",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-24"
+    ],
+    "methodIds": [
+      "m-mtd-11"
+    ],
+    "stem": "在正方体 $ABCD-A_1B_1C_1D_1$ 中，直线 $A_1C$ 与平面 $ABCD$",
+    "answer": "B",
+    "steps": [
+      "$A_1C$ 与底面交于 $C$，交点唯一，故相交而不在平面内，也不平行。B 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "看交点个数：一个交点即相交，没有交点则平行或在平面外且平行。",
+      "method": "线面平行需线不在面内且与面内一条直线平行并用来判定。",
+      "pitfalls": "把体对角线当成与底面平行。",
+      "variant": "$A_1C_1$ 与平面 $ABCD$ 平行。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "平行",
+      "相交",
+      "在平面内",
+      "异面（与平面）"
+    ]
+  },
+  {
+    "id": "m-q60",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-25"
+    ],
+    "methodIds": [
+      "m-mtd-11"
+    ],
+    "stem": "若直线 $a\\perp$ 平面 $\\alpha$，直线 $b\\subset\\alpha$，则",
+    "answer": "A",
+    "steps": [
+      "线面垂直的性质：垂直于平面的直线垂直于平面内的每一条直线，故 $a\\perp b$。A 正确。B、C、D 都不必然。"
+    ],
+    "analysis": {
+      "breakthrough": "线面垂直 $\\Rightarrow$ 与面内任意直线垂直。",
+      "method": "用性质定理，不要把判定定理说反。",
+      "pitfalls": "做成 $a\\parallel b$。",
+      "variant": "若 $a\\parallel\\alpha$，$b\\subset\\alpha$，则 $a$ 与 $b$ 可能平行或异面。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$a\\perp b$",
+      "$a\\parallel b$",
+      "$a$ 与 $b$ 一定相交",
+      "$a$ 在 $\\alpha$ 内"
+    ]
+  },
+  {
+    "id": "m-q61",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 1,
+    "knowledgeIds": [
+      "m-26"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "要从 $200$ 名同学中抽取 $20$ 人做调查，将同学按 $1$ 到 $200$ 编号，并随机确定起始号后等距抽取，这种抽样是",
+    "answer": "B",
+    "steps": [
+      "总体有编号、按固定间隔抽取，是系统抽样（等距抽样）。简单随机抽样是逐个等可能抽取；分层要先分类；整群是抽整组。"
+    ],
+    "analysis": {
+      "breakthrough": "看是否分组、是否等距。",
+      "method": "四种抽样先对号入座。",
+      "pitfalls": "把系统抽样说成简单随机抽样。",
+      "variant": "若先按年级分层再抽，是分层抽样。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "简单随机抽样",
+      "系统抽样",
+      "分层抽样",
+      "整群抽样"
+    ]
+  },
+  {
+    "id": "m-q62",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-27"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "一组数据 $2,3,3,4,8$ 的平均数是 ______。",
+    "answer": "$4$",
+    "steps": [
+      "$\\bar{x}=\\dfrac{2+3+3+4+8}{5}=\\dfrac{20}{5}=4$。"
+    ],
+    "analysis": {
+      "breakthrough": "平均数是总和除以个数。",
+      "method": "不要与中位数、众数混淆。",
+      "pitfalls": "把中位数 $3$ 或众数 $3$ 当成平均数。",
+      "variant": "这组数据的中位数是 $3$，众数是 $3$，方差可再算。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "4",
+      "4.0"
+    ]
+  },
+  {
+    "id": "m-q63",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-27"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "数据 $2,3,3,4,8$ 的中位数是 ______。",
+    "answer": "$3$",
+    "steps": [
+      "五个数已按从小到大排列，正中间是第 $3$ 个数 $3$。"
+    ],
+    "analysis": {
+      "breakthrough": "奇数个数据，中位数是最中间那个。",
+      "method": "先排序再取中间。",
+      "pitfalls": "把平均数 $4$ 当成中位数。",
+      "variant": "若有六个数据，中位数是中间两个的平均。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "3"
+    ]
+  },
+  {
+    "id": "m-q64",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-32"
+    ],
+    "methodIds": [
+      "m-mtd-12"
+    ],
+    "stem": "直线 $x-y-1=0$ 与圆 $x^{2}+y^{2}=2$ 的位置关系是",
+    "answer": "C",
+    "steps": [
+      "圆心 $(0,0)$ 到直线的距离 $d=\\dfrac{|-1|}{\\sqrt{1+1}}=\\dfrac{1}{\\sqrt{2}}=\\dfrac{\\sqrt{2}}{2}$，半径 $r=\\sqrt{2}$。因为 $d<r$，直线与圆相交。又 $d\\neq 0$，不过圆心。"
+    ],
+    "analysis": {
+      "breakthrough": "用圆心到直线的距离与半径比较。",
+      "method": "$d<r$ 相交，$d=r$ 相切，$d>r$ 相离。",
+      "pitfalls": "把 $r^{2}=2$ 当成 $r=2$。",
+      "variant": "若直线为 $x+y=0$，则 $d=0$，是直径所在直线。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "相离",
+      "相切",
+      "相交",
+      "直线过圆心且相切"
+    ]
+  },
+  {
+    "id": "m-q65",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-32"
+    ],
+    "methodIds": [
+      "m-mtd-12",
+      "m-mtd-08"
+    ],
+    "stem": "圆 $x^{2}+y^{2}=4$ 上一点 $P$ 到直线 $x-y+2=0$ 的距离的最大值是 ______。",
+    "answer": "$2+\\sqrt{2}$",
+    "steps": [
+      "圆心到直线距离 $d=\\dfrac{2}{\\sqrt{2}}=\\sqrt{2}$，圆上点到直线的距离最大值为 $d+r=\\sqrt{2}+2$。"
+    ],
+    "analysis": {
+      "breakthrough": "圆上点到直线距离的最大、最小为 $d\\pm r$。",
+      "method": "先求圆心距，再加减半径。",
+      "pitfalls": "做成 $d-r$ 或只答 $\\sqrt{2}$。",
+      "variant": "最小值为 $2-\\sqrt{2}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "2+√2",
+      "$2+\\sqrt{2}$",
+      "√2+2"
+    ]
+  },
+  {
+    "id": "m-q66",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-57"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "在线性回归 $y=bx+a$ 中，残差是",
+    "answer": "B",
+    "steps": [
+      "残差是实际值与预测值之差 $y_i-\\hat{y}_i$。残差平方和越小，拟合相对越好。B 正确。A 把残差说成相关系数。C 符号说反。D 残差不是斜率。"
+    ],
+    "analysis": {
+      "breakthrough": "残差 = 观测值 − 回归直线上的估计值。",
+      "method": "先分清 $a,b$、相关系数 $r$ 和残差。",
+      "pitfalls": "把残差与相关系数混为一谈。",
+      "variant": "相关系数 $|r|$ 越接近 $1$，线性相关越强。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "残差就是相关系数 $r$",
+      "残差是实际观测值与回归值之差",
+      "残差一定为正",
+      "残差就是回归直线的斜率"
+    ]
+  },
+  {
+    "id": "m-q67",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-59"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "把函数 $y=f(x)$ 的图象向右平移 $2$ 个单位，所得图象的解析式是",
+    "answer": "C",
+    "steps": [
+      "左加右减：向右平移 $2$ 个单位，把 $x$ 换成 $x-2$，即 $y=f(x-2)$。"
+    ],
+    "analysis": {
+      "breakthrough": "平移：左加右减，上加下减。",
+      "method": "针对 $x$ 的变化作用在自变量上。",
+      "pitfalls": "做成 $f(x+2)$ 或 $f(x)+2$。",
+      "variant": "向上平移 $2$ 是 $y=f(x)+2$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$y=f(x+2)$",
+      "$y=f(x)+2$",
+      "$y=f(x-2)$",
+      "$y=f(2-x)$"
+    ]
+  },
+  {
+    "id": "m-q68",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-04"
+    ],
+    "methodIds": [
+      "m-mtd-14"
+    ],
+    "stem": "命题“$\\exists x\\in\\mathbb{R}$，$x^{2}+1<0$”的否定是",
+    "answer": "B",
+    "steps": [
+      "存在量词的否定是全称量词，并否定结论。原命题否定为“$\\forall x\\in\\mathbb{R}$，$x^{2}+1\\ge 0$”。注意不等号方向要封闭。"
+    ],
+    "analysis": {
+      "breakthrough": "存在改全称，全称改存在，同时否定结论。",
+      "method": "否定时区间和不等号不要漏。",
+      "pitfalls": "只改量词不改结论，或把 $<$ 改成 $>$ 而不含等号。",
+      "variant": "“$\\forall x\\in\\mathbb{R}$，$x^{2}\\ge 0$”的否定是“$\\exists x\\in\\mathbb{R}$，$x^{2}<0$”。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$\\exists x\\in\\mathbb{R}$，$x^{2}+1\\ge 0$",
+      "$\\forall x\\in\\mathbb{R}$，$x^{2}+1\\ge 0$",
+      "$\\forall x\\in\\mathbb{R}$，$x^{2}+1>0$",
+      "$\\exists x\\in\\mathbb{R}$，$x^{2}+1>0$"
+    ]
+  },
+  {
+    "id": "m-q69",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-05"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "二次函数 $f(x)=x^{2}-4x+3$ 的最小值是 ______。",
+    "answer": "$-1$",
+    "steps": [
+      "$f(x)=(x-2)^{2}-1$，顶点为 $(2,-1)$，开口向上，最小值为 $-1$。"
+    ],
+    "analysis": {
+      "breakthrough": "配方或对称轴 $x=-\\dfrac{b}{2a}=2$，代入求值。",
+      "method": "开口向上有最小值。",
+      "pitfalls": "把 $f(0)=3$ 或 $f(1)=0$ 当成最小值。",
+      "variant": "最大、最小要先看开口和定义域。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "-1",
+      "（-1）"
+    ]
+  },
+  {
+    "id": "m-q70",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-06"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "不等式 $x^{2}-x-6<0$ 的解集是",
+    "answer": "A",
+    "steps": [
+      "$(x-3)(x+2)<0$，故 $-2<x<3$，即 $x\\in(-2,3)$。"
+    ],
+    "analysis": {
+      "breakthrough": "先因式分解，再看开口向上时解在两根之间。",
+      "method": "二次不等式先求根再画穿根法。",
+      "pitfalls": "做成 $(-\\infty,-2)\\cup(3,+\\infty)$（那是 $>0$ 的解）。",
+      "variant": "若是 $\\le 0$，则含端点。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$(-2,3)$",
+      "$(-\\infty,-2)\\cup(3,+\\infty)$",
+      "$[-2,3]$",
+      "$(-3,2)$"
+    ]
+  },
+  {
+    "id": "m-q71",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-07"
+    ],
+    "methodIds": [
+      "m-mtd-09"
+    ],
+    "stem": "若 $x>0$，则 $x+\\dfrac{1}{x}$ 的最小值是 ______。",
+    "answer": "$2$",
+    "steps": [
+      "由基本不等式 $x+\\dfrac{1}{x}\\ge 2\\sqrt{x\\cdot\\dfrac{1}{x}}=2$，当且仅当 $x=\\dfrac{1}{x}$ 即 $x=1$ 时取等。"
+    ],
+    "analysis": {
+      "breakthrough": "正数和的最小值，$ab$ 为定积时用基本不等式，并检查等号。",
+      "method": "$x>0$ 是用基本不等式的前提。",
+      "pitfalls": "漏掉等号条件，或把最小值做成 $1$。",
+      "variant": "若 $x<0$，则 $x+\\dfrac{1}{x}\\le -2$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "2"
+    ]
+  },
+  {
+    "id": "m-q72",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-08"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "函数 $f(x)=\\sqrt{x-1}+\\dfrac{1}{x}$ 的定义域是 ______。",
+    "answer": "$[1,+\\infty)$",
+    "steps": [
+      "需 $x-1\\ge 0$ 且 $x\\neq 0$。两者合取：$x\\ge 1$。"
+    ],
+    "analysis": {
+      "breakthrough": "根式、分母分别列条件，再取交集。",
+      "method": "不要漏掉 $x\\neq 0$，但本题 $x\\ge 1$ 已自动满足。",
+      "pitfalls": "做成 $(1,+\\infty)$ 或 $[0,+\\infty)$。",
+      "variant": "若是 $\\sqrt{1-x}$，定义域要 $x\\le 1$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "[1,+∞)",
+      "[1,∞)",
+      "$[1,\\infty)$",
+      "[1,+∞]"
+    ]
+  },
+  {
+    "id": "m-q73",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-09"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "stem": "函数 $f(x)=x^{3}$ 在 $\\mathbb{R}$ 上",
+    "answer": "A",
+    "steps": [
+      "对任意 $x_1<x_2$，有 $x_1^{3}<x_2^{3}$，故 $f$ 在 $\\mathbb{R}$ 上单调递增。导数 $f'(x)=3x^{2}\\ge 0$，仅在 $x=0$ 处为 $0$，仍是增函数。"
+    ],
+    "analysis": {
+      "breakthrough": "导数非负且在任意区间上不恒为 $0$，则递增。",
+      "method": "不要因为某点导数为 $0$ 就否定单调性。",
+      "pitfalls": "做成「在 $\\mathbb{R}$ 上不单调」。",
+      "variant": "$f(x)=x^{3}-x$ 在 $\\mathbb{R}$ 上并不单调。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "是增函数",
+      "是减函数",
+      "既不是增也不是减",
+      "只在 $(0,+\\infty)$ 上是增函数"
+    ]
+  },
+  {
+    "id": "m-q74",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-14"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "stem": "函数 $f(x)=\\ln x+x-2$ 的零点个数是 ______。",
+    "answer": "$1$",
+    "steps": [
+      "$f'(x)=\\dfrac{1}{x}+1>0$（$x>0$），$f$ 在 $(0,+\\infty)$ 上严格递增。$f(1)=-1<0$，$f(2)=\\ln 2>0$，故恰有一个零点，且位于 $(1,2)$。"
+    ],
+    "analysis": {
+      "breakthrough": "先看单调性，再看两端符号变化。",
+      "method": "零点存在定理要配合单调性才能断定个数。",
+      "pitfalls": "只由 $f(1)<0,f(2)>0$ 就说有两个零点。",
+      "variant": "$f(x)=\\ln x-x+2$ 的零点个数需要另作分析。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "1",
+      "一个",
+      "1个"
+    ]
+  },
+  {
+    "id": "m-q75",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-16"
+    ],
+    "methodIds": [
+      "m-mtd-17"
+    ],
+    "stem": "$\\sin 150^{\\circ}+\\cos 120^{\\circ}=$ ______。",
+    "answer": "$0$",
+    "steps": [
+      "$\\sin 150^{\\circ}=\\sin(180^{\\circ}-30^{\\circ})=\\sin 30^{\\circ}=\\dfrac{1}{2}$，$\\cos 120^{\\circ}=-\\cos 60^{\\circ}=-\\dfrac{1}{2}$，相加为 $0$。"
+    ],
+    "analysis": {
+      "breakthrough": "先用诱导公式化为锐角，再求值。",
+      "method": "注意象限符号。",
+      "pitfalls": "$\\cos 120^{\\circ}$ 做成 $+\\dfrac{1}{2}$。",
+      "variant": "$\\sin 150^{\\circ}=\\dfrac{1}{2}$，$\\tan 150^{\\circ}=-\\dfrac{\\sqrt{3}}{3}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "0",
+      "0.0"
+    ]
+  },
+  {
+    "id": "m-q76",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-17"
+    ],
+    "methodIds": [
+      "m-mtd-17"
+    ],
+    "stem": "$\\sin 75^{\\circ}=$ ______（写成精确值）。",
+    "answer": "$\\dfrac{\\sqrt{6}+\\sqrt{2}}{4}$",
+    "steps": [
+      "$\\sin 75^{\\circ}=\\sin(45^{\\circ}+30^{\\circ})=\\sin 45^{\\circ}\\cos 30^{\\circ}+\\cos 45^{\\circ}\\sin 30^{\\circ}=\\dfrac{\\sqrt{2}}{2}\\cdot\\dfrac{\\sqrt{3}}{2}+\\dfrac{\\sqrt{2}}{2}\\cdot\\dfrac{1}{2}=\\dfrac{\\sqrt{6}+\\sqrt{2}}{4}$。"
+    ],
+    "analysis": {
+      "breakthrough": "写成和角，套用正弦和角公式。",
+      "method": "$75^{\\circ}=45^{\\circ}+30^{\\circ}$ 是常用拆法。",
+      "pitfalls": "把加号做成减号，得到 $\\sin 15^{\\circ}$。",
+      "variant": "$\\cos 75^{\\circ}=\\dfrac{\\sqrt{6}-\\sqrt{2}}{4}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "(\\sqrt{6}+\\sqrt{2})/4",
+      "$\\frac{\\sqrt{6}+\\sqrt{2}}{4}$",
+      "(\\sqrt{2}+\\sqrt{6})/4"
+    ]
+  },
+  {
+    "id": "m-q77",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-18"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "$y=\\sin\\left(x+\\dfrac{\\pi}{3}\\right)$ 的图象可由 $y=\\sin x$ 的图象",
+    "answer": "B",
+    "steps": [
+      "$y=\\sin(x+\\varphi)$ 是把 $y=\\sin x$ 向左平移 $\\varphi$（$\\varphi>0$）。这里 $\\varphi=\\dfrac{\\pi}{3}$，向左平移 $\\dfrac{\\pi}{3}$。"
+    ],
+    "analysis": {
+      "breakthrough": "左加右减，针对自变量。",
+      "method": "不要把平移方向弄反。",
+      "pitfalls": "做成向右平移。",
+      "variant": "振幅、周期此处没有改变。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "向右平移 $\\dfrac{\\pi}{3}$ 个单位",
+      "向左平移 $\\dfrac{\\pi}{3}$ 个单位",
+      "向左平移 $3$ 个单位",
+      "向上平移 $\\dfrac{\\pi}{3}$ 个单位"
+    ]
+  },
+  {
+    "id": "m-q78",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-21"
+    ],
+    "methodIds": [
+      "m-mtd-12"
+    ],
+    "stem": "向量 $\\overrightarrow{a}=(3,4)$，$\\overrightarrow{b}=(1,0)$ 的数量积 $\\overrightarrow{a}\\cdot\\overrightarrow{b}=$ ______。",
+    "answer": "$3$",
+    "steps": [
+      "$\\overrightarrow{a}\\cdot\\overrightarrow{b}=3\\times 1+4\\times 0=3$。"
+    ],
+    "analysis": {
+      "breakthrough": "坐标数量积是对应分量乘积之和。",
+      "method": "不要做成模相乘。",
+      "pitfalls": "做成 $|\\overrightarrow{a}||\\overrightarrow{b}|=5$。",
+      "variant": "夹角余弦 $\\cos\\theta=\\dfrac{3}{5}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "3"
+    ]
+  },
+  {
+    "id": "m-q79",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-28"
+    ],
+    "methodIds": [
+      "m-mtd-16"
+    ],
+    "stem": "从 $1,2,3,4,5$ 五个数中任取两个不同的数，这两个数之和为偶数的概率是",
+    "answer": "B",
+    "steps": [
+      "总数 $\\mathrm{C}_{5}^{2}=10$。和为偶数需两奇或两偶：奇数有 $1,3,5$ 三个，偶数有 $2,4$ 两个，$\\mathrm{C}_{3}^{2}+\\mathrm{C}_{2}^{2}=3+1=4$。概率 $\\dfrac{4}{10}=\\dfrac{2}{5}$。"
+    ],
+    "analysis": {
+      "breakthrough": "古典概型：先算总数，再按「同奇或同偶」分类。",
+      "method": "和为偶数 $\\Leftrightarrow$ 奇偶性相同。",
+      "pitfalls": "做成 $\\dfrac{1}{2}$ 或漏掉两偶的一种。",
+      "variant": "和为奇数的概率是 $\\dfrac{3}{5}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$\\dfrac{1}{2}$",
+      "$\\dfrac{2}{5}$",
+      "$\\dfrac{3}{5}$",
+      "$\\dfrac{3}{10}$"
+    ]
+  },
+  {
+    "id": "m-q80",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-29"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "袋中有 $3$ 红 $2$ 白，不放回连抽两球，已知第一球是红，则第二球仍是红的概率是 ______。",
+    "answer": "$\\dfrac{1}{2}$",
+    "steps": [
+      "第一球已红，袋中剩 $2$ 红 $2$ 白共 $4$ 球，第二球为红的概率是 $\\dfrac{2}{4}=\\dfrac{1}{2}$。这就是条件概率 $P(第二红\\mid 第一红)$。"
+    ],
+    "analysis": {
+      "breakthrough": "不放回时，条件要反映袋中剩余。",
+      "method": "也可以用 $P(A|B)=\\dfrac{P(AB)}{P(B)}$ 验证。",
+      "pitfalls": "做成 $\\dfrac{3}{5}$（那是第一球为红的概率）。",
+      "variant": "若有放回，则仍是 $\\dfrac{3}{5}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "1/2",
+      "0.5",
+      "$\\frac{1}{2}$"
+    ]
+  },
+  {
+    "id": "m-q81",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-34"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "双曲线 $\\dfrac{x^{2}}{16}-\\dfrac{y^{2}}{9}=1$ 的实轴长是",
+    "answer": "B",
+    "steps": [
+      "标准形 $\\dfrac{x^{2}}{a^{2}}-\\dfrac{y^{2}}{b^{2}}=1$，$a^{2}=16$，$a=4$，实轴长 $2a=8$。焦距 $2c$，$c=\\sqrt{a^{2}+b^{2}}=5$。"
+    ],
+    "analysis": {
+      "breakthrough": "先分清 $a,b,c$，实轴长是 $2a$ 不是 $a$。",
+      "method": "焦点在 $x$ 轴上，因为 $x^{2}$ 项为正。",
+      "pitfalls": "把 $2a$ 做成 $16$ 或把 $2c=10$ 当成实轴。",
+      "variant": "虚轴长 $2b=6$，离心率 $e=\\dfrac{c}{a}=\\dfrac{5}{4}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$4$",
+      "$8$",
+      "$6$",
+      "$10$"
+    ]
+  },
+  {
+    "id": "m-q82",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-35"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "抛物线 $y^{2}=8x$ 的焦点坐标是 ______。",
+    "answer": "$(2,0)$",
+    "steps": [
+      "与 $y^{2}=2px$ 比较：$2p=8$，$p=4$，焦点 $F=\\left(\\dfrac{p}{2},0\\right)=(2,0)$。不要与 $y^{2}=4px$ 形式混用（那种形式焦点是 $(p,0)$）。"
+    ],
+    "analysis": {
+      "breakthrough": "人教 A 版 $y^{2}=2px$，焦点是 $\\left(\\dfrac{p}{2},0\\right)$。",
+      "method": "先求出 $p$，再写焦点。",
+      "pitfalls": "做成 $(4,0)$ 或 $(8,0)$。",
+      "variant": "准线 $x=-2$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "(2,0)",
+      "（2，0）",
+      "(2, 0)"
+    ]
+  },
+  {
+    "id": "m-q83",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-38"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "椭圆 $\\dfrac{x^{2}}{25}+\\dfrac{y^{2}}{9}=1$ 的离心率是",
+    "answer": "C",
+    "steps": [
+      "$a^{2}=25$，$b^{2}=9$，$c=\\sqrt{a^{2}-b^{2}}=4$，$e=\\dfrac{c}{a}=\\dfrac{4}{5}$。"
+    ],
+    "analysis": {
+      "breakthrough": "椭圆 $c=\\sqrt{a^{2}-b^{2}}$，$e=\\dfrac{c}{a}<1$。",
+      "method": "先认准焦点所在轴（分母大的一项）。",
+      "pitfalls": "做成 $\\dfrac{3}{5}$ 或 $\\dfrac{5}{4}$。",
+      "variant": "若是双曲线 $\\dfrac{x^{2}}{25}-\\dfrac{y^{2}}{9}=1$，则 $c=\\sqrt{25+9}=\\sqrt{34}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$\\dfrac{3}{5}$",
+      "$\\dfrac{3}{4}$",
+      "$\\dfrac{4}{5}$",
+      "$\\dfrac{5}{4}$"
+    ]
+  },
+  {
+    "id": "m-q84",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-39"
+    ],
+    "methodIds": [
+      "m-mtd-10"
+    ],
+    "stem": "数列 $\\{a_n\\}$ 满足 $a_1=1$，$a_{n+1}=a_n+2$，则 $a_5=$ ______。",
+    "answer": "$9$",
+    "steps": [
+      "公差 $d=2$ 的等差数列，$a_n=1+(n-1)\\times 2=2n-1$，$a_5=9$。也可依次写出 $1,3,5,7,9$。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断等差还是等比，再写通项。",
+      "method": "递推 $a_{n+1}=a_n+d$ 是等差。",
+      "pitfalls": "做成 $a_5=1+2\\times 5=11$。",
+      "variant": "$S_5=1+3+5+7+9=25$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "9"
+    ]
+  },
+  {
+    "id": "m-q85",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-41"
+    ],
+    "methodIds": [
+      "m-mtd-10"
+    ],
+    "stem": "等比数列 $2,6,18,\\ldots$ 的第 $4$ 项是 ______。",
+    "answer": "$54$",
+    "steps": [
+      "公比 $q=3$，$a_4=2\\times 3^{3}=54$。"
+    ],
+    "analysis": {
+      "breakthrough": "等比通项 $a_n=a_1 q^{n-1}$。",
+      "method": "公比是后项比前项。",
+      "pitfalls": "做成 $2\\times 3^{4}=162$。",
+      "variant": "前 $n$ 项和 $S_n=a_1\\dfrac{q^n-1}{q-1}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "54"
+    ]
+  },
+  {
+    "id": "m-q86",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-42"
+    ],
+    "methodIds": [
+      "m-mtd-10"
+    ],
+    "stem": "等差数列 $1,3,5,\\ldots,99$ 的项数是 ______。",
+    "answer": "$50$",
+    "steps": [
+      "通项 $a_n=2n-1=99$，$n=50$。这是 $1$ 到 $99$ 的全体奇数，共 $50$ 项。"
+    ],
+    "analysis": {
+      "breakthrough": "由通项解 $n$，或用项数公式 $\\dfrac{末-首}{公差}+1$。",
+      "method": "不要漏掉 $+1$。",
+      "pitfalls": "做成 $49$ 或 $99$。",
+      "variant": "和 $S_{50}=\\dfrac{50\\times(1+99)}{2}=2500$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "50"
+    ]
+  },
+  {
+    "id": "m-q87",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-43"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "stem": "曲线 $y=x^{3}$ 在 $x=1$ 处的切线斜率是 ______。",
+    "answer": "$3$",
+    "steps": [
+      "$y'=3x^{2}$，$x=1$ 时斜率为 $3$。切线方程为 $y-1=3(x-1)$。"
+    ],
+    "analysis": {
+      "breakthrough": "切线斜率就是该点的导数值。",
+      "method": "先求导再代入。",
+      "pitfalls": "做成 $y(1)=1$。",
+      "variant": "在 $x=2$ 处斜率为 $12$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "3"
+    ]
+  },
+  {
+    "id": "m-q88",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-44"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "stem": "$f(x)=x^{2}e^{x}$，则 $f'(x)=$ ______。",
+    "answer": "$(x^{2}+2x)e^{x}$",
+    "steps": [
+      "乘积导数：$(uv)'=u'v+uv'$，$u=x^{2}$，$v=e^{x}$，得 $2x e^{x}+x^{2}e^{x}=(x^{2}+2x)e^{x}$。"
+    ],
+    "analysis": {
+      "breakthrough": "乘积、商、复合要选对公式。",
+      "method": "$e^{x}$ 的导数仍是 $e^{x}$。",
+      "pitfalls": "漏掉其中一项，做成 $2xe^{x}$。",
+      "variant": "商的导数 $\\left(\\dfrac{u}{v}\\right)'=\\dfrac{u'v-uv'}{v^{2}}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "(x^2+2x)e^x",
+      "$e^{x}(x^{2}+2x)$",
+      "e^x(x^2+2x)",
+      "(x^{2}+2x)e^{x}"
+    ]
+  },
+  {
+    "id": "m-q89",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-45"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "stem": "曲线 $y=\\ln x$ 在点 $(1,0)$ 处的切线方程是 ______。",
+    "answer": "$y=x-1$",
+    "steps": [
+      "$y'=\\dfrac{1}{x}$，在 $x=1$ 处斜率为 $1$，切线 $y-0=1\\cdot(x-1)$，即 $y=x-1$。"
+    ],
+    "analysis": {
+      "breakthrough": "点斜式：$y-y_0=f'(x_0)(x-x_0)$。",
+      "method": "先求导数再代入切点。",
+      "pitfalls": "做成 $y=x$ 或 $y=\\ln x$。",
+      "variant": "法线斜率为 $-1$，法线 $y=1-x$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "y=x-1",
+      "y-x+1=0",
+      "x-y-1=0"
+    ]
+  },
+  {
+    "id": "m-q90",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-48"
+    ],
+    "methodIds": [
+      "m-mtd-01",
+      "m-mtd-02"
+    ],
+    "stem": "若对任意 $x>0$，都有 $e^{x}\\ge ax+1$，则 $a$ 的取值范围是",
+    "answer": "C",
+    "steps": [
+      "令 $g(x)=e^{x}-ax-1$，需 $g(x)\\ge 0$ 对 $x>0$ 恒成立。$g(0)=0$，$g'(x)=e^{x}-a$。若 $a\\le 1$，则 $g'(x)\\ge e^{x}-1$，在 $(0,+\\infty)$ 上 $g'(x)>0$，$g$ 递增且 $g>0$。若 $a>1$，则 $g'$ 在 $x=\\ln a$ 处为 $0$，且 $g(\\ln a)=a-a\\ln a-1$。当 $a>1$ 时 $a-1<a\\ln a$（因为 $\\ln a>\\dfrac{a-1}{a}$ 等，或由 $h(a)=a-a\\ln a-1$，$h(1)=0$，$h'(a)=-\\ln a<0$ 于 $a>1$），故 $g(\\ln a)<0$，不恒成立。因此 $a\\le 1$。在 $x\\to 0^{+}$ 处，$e^{x}=1+x+o(x)$，要 $1+x+o(x)\\ge ax+1$，即 $a\\le 1$。C 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "恒成立可构造函数，用导数看最低点，也可用切线：$y=e^{x}$ 在 $0$ 处切线是 $y=x+1$，由凸性 $e^{x}\\ge x+1$，系数再放大就不行。",
+      "method": "$e^{x}$ 在 $0$ 处的切线斜率是 $1$。",
+      "pitfalls": "做成 $a\\le e$ 或 $a\\ge 1$。",
+      "variant": "等号在 $a=1$ 且 $x=0$ 的极限意义下刚好切。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$a\\ge 1$",
+      "$a=1$",
+      "$a\\le 1$",
+      "$a\\le 0$"
+    ]
+  },
+  {
+    "id": "m-q91",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-49"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "stem": "函数 $f(x)=x^{3}-3x+1$ 在 $(0,+\\infty)$ 上的零点个数是",
+    "answer": "B",
+    "steps": [
+      "$f'(x)=3x^{2}-3=3(x^{2}-1)$，在 $(0,+\\infty)$ 上，$x=1$ 为极小点，$f(1)=-1<0$；$f(0^{+})=1>0$，$f(+\\infty)=+\\infty$。故在 $(0,1)$ 有一个零点，在 $(1,+\\infty)$ 有一个零点，共两个。"
+    ],
+    "analysis": {
+      "breakthrough": "先用导数找极值，再看极值符号与两端。",
+      "method": "不要只根据三次方程有三个实根就下结论（要限制区间）。",
+      "pitfalls": "漏掉 $(1,+\\infty)$ 上的那一个。",
+      "variant": "在 $\\mathbb{R}$ 上有三个零点。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$1$",
+      "$2$",
+      "$3$",
+      "$0$"
+    ]
+  },
+  {
+    "id": "m-q92",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-50"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "$\\displaystyle\\int_{0}^{1} 2x\\,\\mathrm{d}x=$ ______。",
+    "answer": "$1$",
+    "steps": [
+      "$\\int 2x\\,\\mathrm{d}x=x^{2}+C$，$x^{2}\\big|_{0}^{1}=1-0=1$。"
+    ],
+    "analysis": {
+      "breakthrough": "牛顿—莱布尼茨：先求原函数再代入上下限。",
+      "method": "注意下限为 $0$ 的值不要漏。",
+      "pitfalls": "做成 $2$ 或 $\\dfrac{1}{2}$。",
+      "variant": "$\\int_{0}^{1} x^{2}\\,\\mathrm{d}x=\\dfrac{1}{3}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "1"
+    ]
+  },
+  {
+    "id": "m-q93",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-51"
+    ],
+    "methodIds": [
+      "m-mtd-16"
+    ],
+    "stem": "从甲、乙、丙三人中选正、副组长各一人，不同的选法有 ______ 种。",
+    "answer": "$6$",
+    "steps": [
+      "分步：正组长 $3$ 种，副组长 $2$ 种，$3\\times 2=6$。也可 $A_{3}^{2}=6$。"
+    ],
+    "analysis": {
+      "breakthrough": "选不同职务是排列，不是组合。",
+      "method": "分步乘法。",
+      "pitfalls": "做成 $\\mathrm{C}_{3}^{2}=3$（那是只选两人不分工）。",
+      "variant": "若两人职务相同，则用组合。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "6",
+      "6种"
+    ]
+  },
+  {
+    "id": "m-q94",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-53"
+    ],
+    "methodIds": [
+      "m-mtd-16"
+    ],
+    "stem": "$(x+1)^{4}$ 的展开式中 $x^{2}$ 的系数是 ______。",
+    "answer": "$6$",
+    "steps": [
+      "二项式系数 $\\mathrm{C}_{4}^{2}=6$，项为 $\\mathrm{C}_{4}^{2}x^{2}\\cdot 1^{2}=6x^{2}$。"
+    ],
+    "analysis": {
+      "breakthrough": "$T_{r+1}=\\mathrm{C}_{n}^{r}a^{n-r}b^{r}$，对准次数。",
+      "method": "系数与二项式系数在 $b=1$ 时相同。",
+      "pitfalls": "做成 $\\mathrm{C}_{4}^{1}=4$。",
+      "variant": "$(1+x)^{n}$ 中 $x^{k}$ 的系数是 $\\mathrm{C}_{n}^{k}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "6"
+    ]
+  },
+  {
+    "id": "m-q95",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-54"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "若离散型随机变量 $X$ 的分布列为 $P(X=1)=p$，$P(X=2)=1-p$（$0<p<1$），则 $E(X)=$",
+    "answer": "B",
+    "steps": [
+      "$E(X)=1\\cdot p+2(1-p)=2-p$。"
+    ],
+    "analysis": {
+      "breakthrough": "期望是取值与概率的乘积之和。",
+      "method": "先写出全部取值再求和。",
+      "pitfalls": "做成 $p$ 或 $3p$。",
+      "variant": "$D(X)=E(X^{2})-[E(X)]^{2}$ 可再算。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$p$",
+      "$2-p$",
+      "$1+p$",
+      "$3p$"
+    ]
+  },
+  {
+    "id": "m-q96",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-56"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "若 $X\\sim N(\\mu,\\sigma^{2})$，则 $P(X\\le \\mu)=$ ______。",
+    "answer": "$\\dfrac{1}{2}$",
+    "steps": [
+      "正态分布关于 $x=\\mu$ 对称，左右各占一半，故 $P(X\\le\\mu)=\\dfrac{1}{2}$。"
+    ],
+    "analysis": {
+      "breakthrough": "正态曲线关于均值对称。",
+      "method": "不必查表即可得这一基本结论。",
+      "pitfalls": "做成与 $\\sigma$ 有关。",
+      "variant": "$P(\\mu-\\sigma\\le X\\le\\mu+\\sigma)\\approx 0.6826$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "1/2",
+      "0.5",
+      "$\\frac{1}{2}$"
+    ]
+  },
+  {
+    "id": "m-q97",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-36"
+    ],
+    "methodIds": [
+      "m-mtd-11",
+      "m-mtd-12"
+    ],
+    "stem": "在空间直角坐标系中，点 $A(1,0,0)$，$B(0,1,0)$，$C(0,0,1)$，则 $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=$",
+    "answer": "C",
+    "steps": [
+      "$\\overrightarrow{AB}=(-1,1,0)$，$\\overrightarrow{AC}=(-1,0,1)$，数量积 $(-1)(-1)+1\\cdot 0+0\\cdot 1=1$。"
+    ],
+    "analysis": {
+      "breakthrough": "先写出向量坐标，再按分量求数量积。",
+      "method": "空间向量与平面向量的坐标运算一样，多一个分量。",
+      "pitfalls": "做成 $-1$ 或 $0$。",
+      "variant": "$|\\overrightarrow{AB}|=\\sqrt{2}$，夹角余弦为 $\\dfrac{1}{2}$，夹角 $60^{\\circ}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$0$",
+      "$-1$",
+      "$1$",
+      "$2$"
+    ]
+  },
+  {
+    "id": "m-q98",
+    "subject": "math",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-02",
+      "m-01"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "已知全集 $U=\\mathbb{R}$，$A=\\{x\\mid x^{2}-3x+2\\le 0\\}$，$B=\\{x\\mid x>1\\}$，则下列结论正确的是",
+    "answer": "AC",
+    "steps": [
+      "$A=[1,2]$。$A\\cup B=[1,+\\infty)$，A 正确。$A\\cap B=(1,2]$，不是 $[1,2]$，B 错误（漏掉开闭）。$\\complement_U A=(-\\infty,1)\\cup(2,+\\infty)$，C 正确。$A\\cap\\complement_U B=\\{1\\}\\neq\\varnothing$，D 错误。故 A、C。"
+    ],
+    "analysis": {
+      "breakthrough": "先落实区间，再逐项检验交并补。",
+      "method": "集合运算先写清楚端点。",
+      "pitfalls": "开闭区间判断失误。",
+      "variant": "若 $B=[1,+\\infty)$，则 $A\\subset B$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "$A\\cup B=[1,+\\infty)$",
+      "$A\\cap B=[1,2]$",
+      "$\\complement_{U}A=(-\\infty,1)\\cup(2,+\\infty)$",
+      "$A\\cap\\complement_{U}B=\\varnothing$"
+    ]
+  },
+  {
+    "id": "m-q99",
+    "subject": "math",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-10",
+      "m-05"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "设 $f(x)$ 是定义在 $\\mathbb{R}$ 上的奇函数，且当 $x>0$ 时 $f(x)=x^{2}-x$，则",
+    "answer": "BD",
+    "steps": [
+      "奇函数必有 $f(0)=0$，A 错误。$x>0$ 时 $f(2)=4-2=2$，由奇性 $f(-2)=-f(2)=-2$，B 正确。$f'(x)=2x-1$（$x>0$），在 $(0,\\dfrac{1}{2})$ 递减、在 $(\\dfrac{1}{2},+\\infty)$ 递增，C 错误。$f(2)=2$，D 正确。故 B、D。"
+    ],
+    "analysis": {
+      "breakthrough": "先用奇偶性求 $f(0)$ 与 $x<0$ 的表达式，再看具体值与单调性。",
+      "method": "奇函数关于原点对称，$f(0)=0$。",
+      "pitfalls": "把 $f(-2)$ 做成 $-((-2)^{2}-(-2))=-6$。",
+      "variant": "$x<0$ 时 $f(x)=-(-x)^{2}-x=-x^{2}-x$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "$f(0)=1$",
+      "$f(-2)=-2$",
+      "$f(x)$ 在 $(0,+\\infty)$ 上单调递增",
+      "$f(2)=2$"
+    ]
+  },
+  {
+    "id": "m-q100",
+    "subject": "math",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-22"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "复数 $z=1+i$，则下列结论正确的是",
+    "answer": "AB",
+    "steps": [
+      "$|z|=\\sqrt{1+1}=\\sqrt{2}$，A 正确。$\\bar{z}=1-i$，B 正确。$z^{2}=(1+i)^{2}=1+2i-1=2i$，不是 $-2$，C 错误。$z+\\bar{z}=2$（实数），不是纯虚数，D 错误。故 A、B。"
+    ],
+    "analysis": {
+      "breakthrough": "模、共轭、乘方分别按定义计算，不要跳步。",
+      "method": "$z\\cdot\\bar{z}=|z|^{2}$。",
+      "pitfalls": "$(1+i)^{2}$ 漏掉 $2i$ 或符号出错。",
+      "variant": "$i^{2}=-1$，$i^{3}=-i$，$i^{4}=1$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "$|z|=\\sqrt{2}$",
+      "$\\bar{z}=1-i$",
+      "$z^{2}=-2$",
+      "$z+\\bar{z}$ 是纯虚数"
+    ]
+  },
+  {
+    "id": "m-q101",
+    "subject": "math",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-33",
+      "m-38"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "椭圆 $\\dfrac{x^{2}}{25}+\\dfrac{y^{2}}{16}=1$ 上",
+    "answer": "AD",
+    "steps": [
+      "$a=5$，$b=4$，$c=3$，焦点 $(\\pm 3,0)$，A 正确。离心率 $e=\\dfrac{3}{5}$，不是 $\\dfrac{4}{5}$，B 错误。长轴长 $2a=10$，不是 $5$，C 错误。椭圆定义：到两焦点距离之和等于 $2a=10$，D 正确。故 A、D。"
+    ],
+    "analysis": {
+      "breakthrough": "先求 $a,b,c$，再逐项对照定义与数量。",
+      "method": "焦点在 $x$ 轴，$c=\\sqrt{a^{2}-b^{2}}$。",
+      "pitfalls": "把 $a$ 与 $2a$、$e$ 与 $\\dfrac{b}{a}$ 混淆。",
+      "variant": "准线 $x=\\pm\\dfrac{a^{2}}{c}=\\pm\\dfrac{25}{3}$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "焦点为 $(\\pm 3,0)$",
+      "离心率为 $\\dfrac{4}{5}$",
+      "长轴长为 $5$",
+      "椭圆上任意一点到两个焦点的距离之和为 $10$"
+    ]
+  },
+  {
+    "id": "m-q102",
+    "subject": "math",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-40",
+      "m-41"
+    ],
+    "methodIds": [
+      "m-mtd-10"
+    ],
+    "stem": "下列数列中，既是等差又是等比的是",
+    "answer": "BC",
+    "steps": [
+      "常数列既是等差（公差 $0$）又是等比（公比 $1$，若项不为 $0$）。A：$1,2,4$ 是等比不是等差。B：$2,2,2$ 是常数列，B 正确。C：$3,3,3$ 同样正确。D：$1,3,9$ 是等比不是等差。故 B、C。注意首项为 $0$ 的常数列不是等比（公比不存在）。"
+    ],
+    "analysis": {
+      "breakthrough": "既等差又等比的非零数列必为常数列。",
+      "method": "分别验公差、公比。",
+      "pitfalls": "把公比为 $2$ 的等比当成等差。",
+      "variant": "$1,1,1$ 也是。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "$1,2,4$",
+      "$2,2,2$",
+      "$3,3,3$",
+      "$1,3,9$"
+    ]
+  },
+  {
+    "id": "m-q103",
+    "subject": "math",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-46",
+      "m-47"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "stem": "设 $f(x)=x^{3}-3x$，则",
+    "answer": "AC",
+    "steps": [
+      "$f'(x)=3x^{2}-3=3(x-1)(x+1)$。在 $(-1,1)$ 上 $f'<0$，递减；在 $(-\\infty,-1)$ 与 $(1,+\\infty)$ 上递增。A 正确。$x=-1$ 为极大点，$f(-1)=2$，B 说极小错误。$x=1$ 为极小点，$f(1)=-2$，C 正确。$f$ 在 $\\mathbb{R}$ 上不单调，D 错误。故 A、C。"
+    ],
+    "analysis": {
+      "breakthrough": "先求导数的零点，列表判断增减与极值。",
+      "method": "三次函数用导数分析，不要只看最高次系数。",
+      "pitfalls": "把极大、极小说反。",
+      "variant": "$f(x)$ 的值域是 $\\mathbb{R}$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "$f(x)$ 在 $(-1,1)$ 上单调递减",
+      "$x=-1$ 是极小值点",
+      "$f(1)=-2$ 是极小值",
+      "$f(x)$ 在 $\\mathbb{R}$ 上单调递增"
+    ]
+  },
+  {
+    "id": "m-q104",
+    "subject": "math",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-52",
+      "m-53"
+    ],
+    "methodIds": [
+      "m-mtd-16"
+    ],
+    "stem": "下列计算正确的是",
+    "answer": "AB",
+    "steps": [
+      "$\\mathrm{C}_{5}^{2}=10$，A 正确。$\\mathrm{A}_{4}^{2}=4\\times 3=12$，B 正确。$(x+y)^{3}$ 中 $x^{2}y$ 的系数是 $\\mathrm{C}_{3}^{1}=3$，不是 $6$，C 错误（$\\mathrm{C}_{3}^{2}=3$ 也对，因为 $x^{2}y$ 对应取 $1$ 个 $y$）。$\\mathrm{C}_{n}^{0}=1$ 而不是 $0$，D 错误。故 A、B。"
+    ],
+    "analysis": {
+      "breakthrough": "排列组合与二项式系数分开计算，不要记混公式。",
+      "method": "$\\mathrm{A}_{n}^{k}=\\dfrac{n!}{(n-k)!}$，$\\mathrm{C}_{n}^{k}=\\dfrac{n!}{k!(n-k)!}$。",
+      "pitfalls": "$(a+b)^{n}$ 中 $a^{n-k}b^{k}$ 的系数是 $\\mathrm{C}_{n}^{k}$。",
+      "variant": "$\\mathrm{C}_{n}^{k}=\\mathrm{C}_{n}^{n-k}$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "$\\mathrm{C}_{5}^{2}=10$",
+      "$\\mathrm{A}_{4}^{2}=12$",
+      "$(x+y)^{3}$ 展开式中 $x^{2}y$ 的系数是 $6$",
+      "$\\mathrm{C}_{n}^{0}=0$"
+    ]
+  },
+  {
+    "id": "m-q105",
+    "subject": "math",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-30",
+      "m-31"
+    ],
+    "methodIds": [
+      "m-mtd-12"
+    ],
+    "stem": "直线 $y=x+1$ 与圆 $x^{2}+y^{2}=1$ 的位置关系及有关数量，正确的是",
+    "answer": "BD",
+    "steps": [
+      "圆心到直线距离 $d=\\dfrac{1}{\\sqrt{2}}=\\dfrac{\\sqrt{2}}{2}$，$r=1$，$d<r$，相交，A 说相切错误。弦长 $2\\sqrt{r^{2}-d^{2}}=2\\sqrt{1-\\dfrac{1}{2}}=2\\cdot\\dfrac{\\sqrt{2}}{2}=\\sqrt{2}$，B 正确。交点个数为 $2$，C 错误。直线斜率为 $1$，倾斜角 $45^{\\circ}$，D 正确。故 B、D。"
+    ],
+    "analysis": {
+      "breakthrough": "先用距离判断位置，再算弦长 $2\\sqrt{r^{2}-d^{2}}$。",
+      "method": "不要把 $d=r$ 与 $d<r$ 弄混。",
+      "pitfalls": "弦长做成 $r^{2}-d^{2}$ 而忘记开方和乘 $2$。",
+      "variant": "若直线为 $x+y=\\sqrt{2}$，则 $d=1=r$，相切。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "直线与圆相切",
+      "相交弦长为 $\\sqrt{2}$",
+      "只有一个交点",
+      "直线的倾斜角为 $45^{\\circ}$"
+    ]
+  },
+  {
+    "id": "m-q106",
+    "subject": "math",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-12",
+      "m-13"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "下列结论正确的是",
+    "answer": "ACD",
+    "steps": [
+      "指数函数 $y=2^{x}$ 过 $(0,1)$，在 $\\mathbb{R}$ 上递增，A 正确。$y=\\log_{2}x$ 定义域是 $(0,+\\infty)$，不是 $\\mathbb{R}$，B 错误。$y=\\log_{1/2}x$ 在 $(0,+\\infty)$ 上递减（底数 $0<\\dfrac{1}{2}<1$），C 正确。$2^{x}=\\log_{2}x$ 互为反函数，交点若存在必在直线 $y=x$ 上，即须 $2^{x}=x$。$x\\le 0$ 时 $2^{x}>0\\ge x$，等号不能成立；$x>0$ 时 $2^{x}>x$，故无实根，两图象没有交点，D 正确。故 A、C、D。"
+    ],
+    "analysis": {
+      "breakthrough": "指数、对数的定义域、单调性由底数决定。",
+      "method": "底数大于 $1$ 递增，在 $(0,1)$ 递减。",
+      "pitfalls": "把对数定义域写成 $\\mathbb{R}$。",
+      "variant": "$y=2^{x}$ 与 $y=x$ 的交点个数是常见讨论题。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "$y=2^{x}$ 在 $\\mathbb{R}$ 上单调递增，且过点 $(0,1)$",
+      "$y=\\log_{2}x$ 的定义域是 $\\mathbb{R}$",
+      "$y=\\log_{\\frac{1}{2}}x$ 在 $(0,+\\infty)$ 上单调递减",
+      "$y=2^{x}$ 与 $y=\\log_{2}x$ 的图象没有交点"
+    ]
+  },
+  {
+    "id": "m-q107",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-40",
+      "m-42"
+    ],
+    "methodIds": [
+      "m-mtd-10"
+    ],
+    "stem": "等差数列 $\\{a_n\\}$ 的前 $n$ 项和为 $S_n$，已知 $a_1=10$，$S_3=24$。\n（1）求公差 $d$ 和通项 $a_n$；\n（2）求 $S_n$，并求 $S_n$ 的最大值及相应的 $n$。",
+    "answer": "（1）$d=-2$，$a_n=12-2n$；（2）$S_n=n(11-n)$，最大值为 $30$，在 $n=5$ 或 $n=6$ 时取到。",
+    "steps": [
+      "$S_3=3a_1+\\dfrac{3\\cdot 2}{2}d=30+3d=24$，故 $d=-2$。",
+      "$a_n=10+(n-1)(-2)=12-2n$。",
+      "$S_n=10n+\\dfrac{n(n-1)}{2}(-2)=10n-n(n-1)=11n-n^2=n(11-n)$。",
+      "$S_{n+1}-S_n=a_{n+1}=10-2n$。当 $n<5$ 时 $a_{n+1}>0$，$S_n$ 递增；当 $n=5$ 时 $a_6=0$，故 $S_5=S_6$；当 $n>5$ 时 $a_{n+1}<0$，$S_n$ 递减。",
+      "因此最大值是 $S_5=S_6=30$，在 $n=5$ 或 $n=6$ 时取得。"
+    ],
+    "analysis": {
+      "breakthrough": "由 $S_3$ 求出公差，再写通项和 $S_n$，用 $a_{n+1}$ 的符号判断增减。",
+      "method": "等差数列的通项与求和，最大项出现在由正变负附近。",
+      "pitfalls": "只写出一个 $n$，漏掉 $S_5=S_6$ 的情形。",
+      "variant": "若公差为正，则 $S_n$ 单调递增，没有最大项。"
+    },
+    "source": "精编练习",
+    "score": 13,
+    "rubric": [
+      {
+        "point": "由 $S_3$ 正确求得 $d=-2$",
+        "score": 3
+      },
+      {
+        "point": "正确写出 $a_n=12-2n$",
+        "score": 3
+      },
+      {
+        "point": "正确写出 $S_n=n(11-n)$",
+        "score": 3
+      },
+      {
+        "point": "最大值 $30$，且 $n=5$ 与 $n=6$ 都写到",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "m-q108",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-20",
+      "m-21"
+    ],
+    "methodIds": [
+      "m-mtd-12"
+    ],
+    "stem": "在平面直角坐标系中，$A(2,0)$，$B(0,2)$，$C(1,3)$。\n（1）求 $\\overrightarrow{AB}$、$\\overrightarrow{AC}$ 及它们的数量积；\n（2）求 $\\cos\\angle BAC$，并判断 $\\triangle ABC$ 是否为直角三角形（若是，指出直角顶点）。",
+    "answer": "（1）$\\overrightarrow{AB}=(-2,2)$，$\\overrightarrow{AC}=(-1,3)$，数量积为 $8$；（2）$\\cos\\angle BAC=\\dfrac{2\\sqrt{5}}{5}$，是直角三角形，直角在 $B$。",
+    "steps": [
+      "$\\overrightarrow{AB}=(0-2,2-0)=(-2,2)$，$\\overrightarrow{AC}=(1-2,3-0)=(-1,3)$。",
+      "$\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=(-2)(-1)+2\\times 3=8$。",
+      "$|\\overrightarrow{AB}|=\\sqrt{8}=2\\sqrt{2}$，$|\\overrightarrow{AC}|=\\sqrt{10}$，",
+      "$\\cos\\angle BAC=\\dfrac{8}{2\\sqrt{2}\\cdot\\sqrt{10}}=\\dfrac{4}{\\sqrt{20}}=\\dfrac{4}{2\\sqrt{5}}=\\dfrac{2\\sqrt{5}}{5}$。",
+      "$\\overrightarrow{BA}=(2,-2)$，$\\overrightarrow{BC}=(1,1)$，$\\overrightarrow{BA}\\cdot\\overrightarrow{BC}=2-2=0$，故 $\\angle ABC=90^{\\circ}$，$\\triangle ABC$ 是直角三角形，直角顶点为 $B$。"
+    ],
+    "analysis": {
+      "breakthrough": "先写向量坐标，用数量积求夹角余弦，再检查三个角中哪个可能是直角。",
+      "method": "坐标法处理平面向量。",
+      "pitfalls": "只判断 $\\angle BAC$ 不是直角就断定不是直角三角形。",
+      "variant": "$\\cos\\angle BAC=\\dfrac{2\\sqrt{5}}{5}$，也可用边长验证勾股：$AB^{2}=8$，$BC^{2}=2$，$AC^{2}=10$，$AB^{2}+BC^{2}=AC^{2}$。"
+    },
+    "source": "精编练习",
+    "score": 13,
+    "rubric": [
+      {
+        "point": "正确求出两个向量及数量积 $8$",
+        "score": 4
+      },
+      {
+        "point": "正确求出 $\\cos\\angle BAC=\\dfrac{2\\sqrt{5}}{5}$",
+        "score": 5
+      },
+      {
+        "point": "判断为直角三角形，直角在 $B$，理由充分",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "m-q109",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-46",
+      "m-47"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "stem": "已知函数 $f(x)=x^{3}-3ax$（$a>0$）。\n（1）求 $f(x)$ 的单调区间和极值；\n（2）若 $f(x)$ 在 $[0,2]$ 上的最小值为 $-2$，求 $a$。",
+    "answer": "（1）在 $(-\\infty,-\\sqrt{a}]$ 和 $[\\sqrt{a},+\\infty)$ 上递增，在 $[-\\sqrt{a},\\sqrt{a}]$ 上递减；极大值 $f(-\\sqrt{a})=2a\\sqrt{a}$，极小值 $f(\\sqrt{a})=-2a\\sqrt{a}$；（2）$a=1$。",
+    "steps": [
+      "$f'(x)=3x^{2}-3a=3(x^{2}-a)=3(x-\\sqrt{a})(x+\\sqrt{a})$。",
+      "当 $x\\in(-\\infty,-\\sqrt{a})\\cup(\\sqrt{a},+\\infty)$ 时 $f'>0$，递增；当 $x\\in(-\\sqrt{a},\\sqrt{a})$ 时 $f'<0$，递减。",
+      "$x=-\\sqrt{a}$ 为极大值点，$f(-\\sqrt{a})=(-a\\sqrt{a})-3a(-\\sqrt{a})=2a\\sqrt{a}$；$x=\\sqrt{a}$ 为极小值点，$f(\\sqrt{a})=-2a\\sqrt{a}$。",
+      "（2）在 $[0,2]$ 上：$f(0)=0$，$f(2)=8-6a$。若 $\\sqrt{a}\\in(0,2]$ 即 $0<a\\le 4$，则区间内有极小点 $x=\\sqrt{a}$，最小值为 $f(\\sqrt{a})=-2a\\sqrt{a}$（需与端点比较，端点 $f(0)=0>f(\\sqrt{a})$，$f(2)=8-6a$，当 $a\\le 4$ 时 $8-6a\\ge 8-24=-16$，但 $-2a\\sqrt{a}\\le 0$ 且 $8-6a$ 在 $a=1$ 时为 $2> -2$）。令 $-2a\\sqrt{a}=-2$，得 $a\\sqrt{a}=1$，即 $a^{3/2}=1$，$a=1$（$a>0$）。此时 $\\sqrt{a}=1\\in(0,2]$，$f(2)=2>-2$，最小值确为 $-2$。",
+      "若 $a>4$，$\\sqrt{a}>2$，在 $[0,2]$ 上 $f'<0$，单调递减，最小值为 $f(2)=8-6a=-2$，得 $a=\\dfrac{5}{3}<4$，与 $a>4$ 矛盾。故只有 $a=1$。"
+    ],
+    "analysis": {
+      "breakthrough": "先求导确定单调与极值，再按临界点是否落在给定闭区间分类讨论。",
+      "method": "导数研究单调性与最值，分类讨论参数。",
+      "pitfalls": "忘记把 $a>4$ 的情形拿出来检验，或把 $a^{3/2}=1$ 解错。",
+      "variant": "若最小值改为 $0$，则要重新比较端点。"
+    },
+    "source": "精编练习",
+    "score": 15,
+    "rubric": [
+      {
+        "point": "正确求出导数并写出单调区间",
+        "score": 4
+      },
+      {
+        "point": "正确求出极大值、极小值",
+        "score": 4
+      },
+      {
+        "point": "对 $\\sqrt{a}$ 是否在 $[0,2]$ 内分类",
+        "score": 3
+      },
+      {
+        "point": "求得 $a=1$ 并排除其他情形",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "m-q110",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-33",
+      "m-32"
+    ],
+    "methodIds": [
+      "m-mtd-06",
+      "m-mtd-12"
+    ],
+    "stem": "已知椭圆 $\\dfrac{x^{2}}{4}+y^{2}=1$，直线 $l:y=x+m$。\n（1）若直线 $l$ 与椭圆有两个不同的交点，求 $m$ 的取值范围；\n（2）当 $m=0$ 时，求两个交点的坐标及弦长。",
+    "answer": "（1）$-\\sqrt{5}<m<\\sqrt{5}$；（2）交点 $\\left(\\dfrac{2}{\\sqrt{5}},\\dfrac{2}{\\sqrt{5}}\\right)$ 与 $\\left(-\\dfrac{2}{\\sqrt{5}},-\\dfrac{2}{\\sqrt{5}}\\right)$，弦长 $\\dfrac{4\\sqrt{10}}{5}$。",
+    "steps": [
+      "把 $y=x+m$ 代入椭圆：$\\dfrac{x^{2}}{4}+(x+m)^{2}=1$，整理得 $x^{2}+4(x^{2}+2mx+m^{2})=4$，即 $5x^{2}+8mx+4m^{2}-4=0$。",
+      "有两个不同交点等价于判别式 $\\Delta>0$：$\\Delta=(8m)^{2}-4\\cdot 5\\cdot(4m^{2}-4)=64m^{2}-80m^{2}+80=-16m^{2}+80=16(5-m^{2})$。",
+      "$\\Delta>0\\Leftrightarrow m^{2}<5\\Leftrightarrow -\\sqrt{5}<m<\\sqrt{5}$。",
+      "（2）$m=0$ 时方程为 $5x^{2}-4=0$，$x=\\pm\\dfrac{2}{\\sqrt{5}}$，$y=x$，交点为 $\\left(\\dfrac{2}{\\sqrt{5}},\\dfrac{2}{\\sqrt{5}}\\right)$，$\\left(-\\dfrac{2}{\\sqrt{5}},-\\dfrac{2}{\\sqrt{5}}\\right)$。",
+      "弦长 $\\sqrt{\\left(\\dfrac{4}{\\sqrt{5}}\\right)^{2}+\\left(\\dfrac{4}{\\sqrt{5}}\\right)^{2}}=\\sqrt{\\dfrac{32}{5}}=\\dfrac{4\\sqrt{2}}{\\sqrt{5}}=\\dfrac{4\\sqrt{10}}{5}$。"
+    ],
+    "analysis": {
+      "breakthrough": "联立方程，用判别式判断交点个数，再用两点距离求弦长。",
+      "method": "直线与圆锥曲线的联立、判别式与弦长。",
+      "pitfalls": "判别式计算漏项，或弦长忘记 $\\sqrt{2}$ 倍。",
+      "variant": "也可用 $l=\\sqrt{1+k^{2}}\\cdot\\sqrt{(x_1-x_2)^{2}}=\\sqrt{2}\\cdot\\dfrac{\\sqrt{\\Delta}}{5}$ 来求弦长。"
+    },
+    "source": "精编练习",
+    "score": 15,
+    "rubric": [
+      {
+        "point": "正确得到关于 $x$ 的二次方程",
+        "score": 3
+      },
+      {
+        "point": "由 $\\Delta>0$ 得到 $-\\sqrt{5}<m<\\sqrt{5}$",
+        "score": 5
+      },
+      {
+        "point": "正确求出两个交点",
+        "score": 3
+      },
+      {
+        "point": "弦长 $\\dfrac{4\\sqrt{10}}{5}$",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "m-q111",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 4,
+    "knowledgeIds": [
+      "m-48",
+      "m-46"
+    ],
+    "methodIds": [
+      "m-mtd-01",
+      "m-mtd-02"
+    ],
+    "stem": "已知函数 $f(x)=e^{x}-a(x+1)$，其中 $a\\in\\mathbb{R}$。\n（1）当 $a=1$ 时，求 $f(x)$ 的最小值；\n（2）若对任意实数 $x$，都有 $f(x)\\ge 0$，求 $a$ 的取值范围。",
+    "answer": "（1）最小值为 $0$，在 $x=0$ 处取到；（2）$a\\in[0,1]$。",
+    "steps": [
+      "（1）当 $a=1$ 时，$f(x)=e^{x}-x-1$，$f'(x)=e^{x}-1$。$x<0$ 时 $f'<0$，$x>0$ 时 $f'>0$，$x=0$ 为极小值点，$f(0)=0$。故最小值为 $0$。",
+      "（2）先看 $a\\le 0$。若 $a<0$，当 $x\\to -\\infty$ 时，$e^{x}\\to 0$，$-a(x+1)\\to -\\infty$（因为 $-a>0$、$x+1\\to-\\infty$），故 $f(x)\\to-\\infty$，不能恒非负。若 $a=0$，$f(x)=e^{x}>0$，成立。",
+      "再看 $a>0$。$f'(x)=e^{x}-a$，驻点 $x=\\ln a$。$x<\\ln a$ 时 $f'<0$，$x>\\ln a$ 时 $f'>0$，最小值为 $f(\\ln a)=a-a(\\ln a+1)=-a\\ln a$。",
+      "要 $-a\\ln a\\ge 0$。因 $a>0$，即 $-\\ln a\\ge 0$，$\\ln a\\le 0$，$0<a\\le 1$。此时最小值非负，恒成立。",
+      "当 $a>1$ 时 $\\ln a>0$，最小值 $-a\\ln a<0$，不成立。综上，$a\\in[0,1]$。"
+    ],
+    "analysis": {
+      "breakthrough": "先对给定参数求最小，再对一般 $a$ 按符号分类，用导数找最低点。",
+      "method": "恒成立转化为函数最小值非负，注意 $a\\le 0$ 要单独看无穷远处。",
+      "pitfalls": "漏掉 $a=0$ 或 $a<0$ 时 $x\\to-\\infty$ 的分析。",
+      "variant": "$e^{x}\\ge x+1$ 是 $a=1$ 的情形，等号在 $x=0$。"
+    },
+    "source": "精编练习",
+    "score": 17,
+    "rubric": [
+      {
+        "point": "$a=1$ 时正确求得最小值为 $0$",
+        "score": 4
+      },
+      {
+        "point": "正确分析 $a<0$ 不成立，且 $a=0$ 成立",
+        "score": 4
+      },
+      {
+        "point": "求出 $a>0$ 时最小值为 $-a\\ln a$",
+        "score": 5
+      },
+      {
+        "point": "得到 $a\\in[0,1]$ 并说明 $a>1$ 不成立",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "m-q112",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 4,
+    "knowledgeIds": [
+      "m-35",
+      "m-38"
+    ],
+    "methodIds": [
+      "m-mtd-06",
+      "m-mtd-05"
+    ],
+    "stem": "已知抛物线 $C:y^{2}=4x$（按人教 A 版 $y^{2}=2px$ 理解）。\n（1）求 $C$ 的焦点坐标和准线方程；\n（2）设直线 $l:y=x+b$ 与 $C$ 交于不同两点 $A,B$，且 $AB$ 的中点横坐标为 $2$，求 $b$ 及 $|AB|$。",
+    "answer": "（1）焦点 $(1,0)$，准线 $x=-1$；（2）$b=0$，$|AB|=4\\sqrt{2}$。",
+    "steps": [
+      "与 $y^{2}=2px$ 比较，得 $2p=4$，$p=2$。焦点 $F=\\left(\\dfrac{p}{2},0\\right)=(1,0)$，准线 $x=-\\dfrac{p}{2}$，即 $x=-1$。",
+      "把 $y=x+b$ 代入 $y^{2}=4x$，得 $(x+b)^{2}=4x$，即 $x^{2}+(2b-4)x+b^{2}=0$。",
+      "设两根为 $x_1,x_2$，则 $x_1+x_2=4-2b$。中点横坐标为 $2$，故 $\\dfrac{x_1+x_2}{2}=2$，即 $4-2b=4$，解得 $b=0$。",
+      "当 $b=0$ 时，$\\Delta=(0-4)^{2}-0=16>0$，确有两个不同交点。$x_1+x_2=4$，$x_1x_2=0$，",
+      "$|AB|=\\sqrt{1+k^{2}}\\,|x_1-x_2|=\\sqrt{2}\\sqrt{(x_1+x_2)^{2}-4x_1x_2}=\\sqrt{2}\\sqrt{16}=4\\sqrt{2}$。"
+    ],
+    "analysis": {
+      "breakthrough": "先按 $y^{2}=2px$ 求出 $p$ 和焦点、准线，再联立直线用韦达定理处理中点。",
+      "method": "人教 A 版抛物线焦点是 $\\left(\\dfrac{p}{2},0\\right)$，弦长用 $\\sqrt{1+k^{2}}|x_1-x_2|$。",
+      "pitfalls": "把焦点做成 $(2,0)$（那是 $y^{2}=4px$ 形式下的记号），或中点公式用错。",
+      "variant": "若中点纵坐标给定，可同样用 $y_1+y_2$ 处理。"
+    },
+    "source": "精编练习",
+    "score": 17,
+    "rubric": [
+      {
+        "point": "正确得到焦点 $(1,0)$ 和准线 $x=-1$",
+        "score": 4
+      },
+      {
+        "point": "正确联立并得到关于 $x$ 的方程",
+        "score": 4
+      },
+      {
+        "point": "由中点条件求得 $b=0$",
+        "score": 5
+      },
+      {
+        "point": "正确求得 $|AB|=4\\sqrt{2}$",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "m-q113",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-41",
+      "m-42"
+    ],
+    "methodIds": [
+      "m-mtd-10"
+    ],
+    "stem": "等比数列 $\\{a_n\\}$ 中，$a_1=1$，公比 $q=2$，$S_n$ 为前 $n$ 项和。\n（1）求 $S_n$ 和 $a_n$；\n（2）设 $b_n=\\dfrac{n}{2^{n}}$，证明：$b_{n+1}<b_n$ 对 $n\\ge 1$ 不成立，并求使 $b_{n+1}<b_n$ 成立的正整数 $n$ 的取值范围；\n（3）求 $T_n=b_1+b_2+\\cdots+b_n$ 是否有上界（只需指出结论并说明理由，不必求出精确和）。",
+    "answer": "（1）$a_n=2^{n-1}$，$S_n=2^{n}-1$；（2）当 $n\\ge 2$ 时 $b_{n+1}<b_n$；（3）$T_n$ 有上界。",
+    "steps": [
+      "（1）$a_n=1\\cdot 2^{n-1}=2^{n-1}$，$S_n=\\dfrac{1-2^{n}}{1-2}=2^{n}-1$。",
+      "（2）$\\dfrac{b_{n+1}}{b_n}=\\dfrac{n+1}{2^{n+1}}\\cdot\\dfrac{2^{n}}{n}=\\dfrac{n+1}{2n}$。$b_{n+1}<b_n$ 等价于 $\\dfrac{n+1}{2n}<1$，即 $n+1<2n$，$n>1$。故当正整数 $n\\ge 2$ 时成立；$n=1$ 时 $\\dfrac{b_2}{b_1}=1$，即 $b_2=b_1=\\dfrac{1}{2}$，不等式不成立。",
+      "（3）由（2），从第 $2$ 项起 $\\{b_n\\}$ 递减且 $b_n>0$。因为 $\\dfrac{b_{n+1}}{b_n}\\to\\dfrac{1}{2}<1$，存在 $N$ 使 $n\\ge N$ 时 $b_{n+1}\\le \\dfrac{3}{4}b_n$，于是尾项以等比级数控制，部分和 $T_n$ 有上界。也可记住级数 $\\sum n x^{n}$ 在 $|x|<1$ 时收敛，取 $x=\\dfrac{1}{2}$。"
+    ],
+    "analysis": {
+      "breakthrough": "先写出等比通项与求和，再用相邻项之比判断增减，最后用比值判别说明级数有界。",
+      "method": "等比数列与正项级数的比较。",
+      "pitfalls": "把 $n>1$ 做成 $n\\ge 1$，或不会用比值说明有上界。",
+      "variant": "实际上 $\\sum_{n=1}^{\\infty} n/2^{n}=2$，因此 $T_n<2$。"
+    },
+    "source": "精编练习",
+    "score": 15,
+    "rubric": [
+      {
+        "point": "正确写出 $a_n$ 与 $S_n$",
+        "score": 4
+      },
+      {
+        "point": "由比值得到 $n\\ge 2$ 时递减，并说明 $n=1$ 不成立",
+        "score": 6
+      },
+      {
+        "point": "说明 $T_n$ 有上界，理由合理",
+        "score": 5
+      }
+    ]
+  },
+  {
+    "id": "m-q114",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 4,
+    "knowledgeIds": [
+      "m-54",
+      "m-55"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "袋中有 $3$ 个红球、$2$ 个白球，从中不放回地依次抽取 $2$ 个球。设随机变量 $X$ 表示抽到的红球个数。\n（1）求 $X$ 的分布列；\n（2）求 $E(X)$ 和 $D(X)$；\n（3）若按规则：抽到一个红球得 $2$ 分，抽到一个白球得 $-1$ 分，$Y$ 为两次得分之和，求 $Y$ 与 $X$ 的关系及 $E(Y)$。",
+    "answer": "（1）$P(X=0)=\\dfrac{1}{10}$，$P(X=1)=\\dfrac{3}{5}$，$P(X=2)=\\dfrac{3}{10}$；（2）$E(X)=\\dfrac{6}{5}$，$D(X)=\\dfrac{9}{25}$；（3）$Y=3X-2$，$E(Y)=\\dfrac{8}{5}$。",
+    "steps": [
+      "$X$ 可取 $0,1,2$。总抽法（有序）$A_{5}^{2}=20$，也可按组合：总的无序取法 $\\mathrm{C}_{5}^{2}=10$。下面用组合。",
+      "$P(X=0)=\\dfrac{\\mathrm{C}_{2}^{2}}{\\mathrm{C}_{5}^{2}}=\\dfrac{1}{10}$；$P(X=2)=\\dfrac{\\mathrm{C}_{3}^{2}}{\\mathrm{C}_{5}^{2}}=\\dfrac{3}{10}$；$P(X=1)=\\dfrac{\\mathrm{C}_{3}^{1}\\mathrm{C}_{2}^{1}}{\\mathrm{C}_{5}^{2}}=\\dfrac{6}{10}=\\dfrac{3}{5}$。三者之和为 $1$。",
+      "$E(X)=0\\cdot\\dfrac{1}{10}+1\\cdot\\dfrac{3}{5}+2\\cdot\\dfrac{3}{10}=\\dfrac{3}{5}+\\dfrac{3}{5}=\\dfrac{6}{5}$。",
+      "$E(X^{2})=0+1\\cdot\\dfrac{3}{5}+4\\cdot\\dfrac{3}{10}=\\dfrac{3}{5}+\\dfrac{6}{5}=\\dfrac{9}{5}$，$D(X)=E(X^{2})-[E(X)]^{2}=\\dfrac{9}{5}-\\dfrac{36}{25}=\\dfrac{45-36}{25}=\\dfrac{9}{25}$。",
+      "$Y=2X+(-1)(2-X)=3X-2$，故 $E(Y)=3E(X)-2=3\\cdot\\dfrac{6}{5}-2=\\dfrac{8}{5}$。"
+    ],
+    "analysis": {
+      "breakthrough": "先确定 $X$ 的取值与每种取法的组合数，再算期望和方差，最后用线性关系求 $Y$ 的期望。",
+      "method": "离散型随机变量的分布列、期望、方差及线性变换。",
+      "pitfalls": "有放回与不放回混淆，或 $D(X)=E(X^{2})-[E(X)]^{2}$ 用成 $E(X^{2})-E(X)$。",
+      "variant": "也可用超几何分布直接写 $X\\sim H(5,3,2)$，$E(X)=2\\cdot\\dfrac{3}{5}=\\dfrac{6}{5}$。"
+    },
+    "source": "精编练习",
+    "score": 17,
+    "rubric": [
+      {
+        "point": "正确给出 $X$ 的分布列（三个概率都对）",
+        "score": 6
+      },
+      {
+        "point": "正确求出 $E(X)=\\dfrac{6}{5}$ 和 $D(X)=\\dfrac{9}{25}$",
+        "score": 6
+      },
+      {
+        "point": "写出 $Y=3X-2$ 并求得 $E(Y)=\\dfrac{8}{5}$",
+        "score": 5
+      }
+    ]
+  },
+  {
+    "id": "m-q115",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-24"
+    ],
+    "methodIds": [
+      "m-mtd-11"
+    ],
+    "stem": "在正方体 $ABCD-A_1B_1C_1D_1$ 中，与直线 $AB$ 异面的棱中，写出一条（例如 $A_1D_1$ 或 $CC_1$ 等）______。",
+    "answer": "$CC_1$",
+    "steps": [
+      "$AB$ 在下底面。与 $AB$ 既不平行也不相交的棱即为异面，例如侧棱 $CC_1$、$DD_1$，或上底面上的 $A_1D_1$、$B_1C_1$ 等。$A_1B_1$ 与 $AB$ 平行，不是异面；$AA_1$ 与 $AB$ 相交。"
+    ],
+    "analysis": {
+      "breakthrough": "异面直线既不平行也不相交（不共面）。",
+      "method": "在正方体中用「是否共面」判断。",
+      "pitfalls": "把平行棱当成异面。",
+      "variant": "$AB$ 与 $C_1D_1$ 平行。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "CC1",
+      "$DD_1$",
+      "DD1",
+      "$A_1D_1$",
+      "A1D1",
+      "$B_1C_1$",
+      "B1C1",
+      "$C_1D$",
+      "C1D",
+      "$A_1D$",
+      "$B_1C$",
+      "$D_1C$",
+      "$C_1B$"
+    ]
+  },
+  {
+    "id": "m-q116",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-25"
+    ],
+    "methodIds": [
+      "m-mtd-11"
+    ],
+    "stem": "若平面 $\\alpha\\perp$ 平面 $\\beta$，$\\alpha\\cap\\beta=l$，直线 $a\\subset\\alpha$ 且 $a\\perp l$，则",
+    "answer": "A",
+    "steps": [
+      "面面垂直的性质：在一个平面内垂直于交线的直线垂直于另一个平面，故 $a\\perp\\beta$。A 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "面面垂直的性质定理，关键是「在一个面内垂直于交线」。",
+      "method": "不要把性质与判定说反。",
+      "pitfalls": "做成 $a\\parallel\\beta$。",
+      "variant": "判定定理是：一个平面过另一个平面的垂线，则两平面垂直。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$a\\perp\\beta$",
+      "$a\\parallel\\beta$",
+      "$a$ 一定在 $\\beta$ 内",
+      "$a\\parallel l$"
+    ]
+  },
+  {
+    "id": "m-q117",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-26"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "某校高一、高二、高三的人数之比为 $3:3:2$，要按此比例共抽取 $80$ 人，则高三应抽取",
+    "answer": "C",
+    "steps": [
+      "分层抽样按比例：$80\\times\\dfrac{2}{3+3+2}=80\\times\\dfrac{2}{8}=20$。"
+    ],
+    "analysis": {
+      "breakthrough": "分层抽样：各层抽取数 = 总样本容量 × 该层占比。",
+      "method": "先把比加起来作分母。",
+      "pitfalls": "做成 $80\\times\\dfrac{2}{3}$ 或 $30$。",
+      "variant": "高一、高二各抽 $30$ 人。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$16$",
+      "$24$",
+      "$20$",
+      "$30$"
+    ]
+  },
+  {
+    "id": "m-q118",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-57"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "对一组数据做线性回归分析，得到相关系数 $r=0.96$，则",
+    "answer": "B",
+    "steps": [
+      "$|r|$ 接近 $1$，说明线性相关程度很强，且 $r>0$ 为正相关。B 正确。$r$ 不是斜率，也不能说「一定是因果关系」。"
+    ],
+    "analysis": {
+      "breakthrough": "相关系数看方向和接近 $1$ 的程度。",
+      "method": "相关不是因果。",
+      "pitfalls": "把 $r$ 解释成因变量对自变量的因果作用。",
+      "variant": "$r=-0.96$ 则是强负相关。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "两个变量一定有因果关系",
+      "两个变量有较强的正线性相关",
+      "$r$ 就是回归直线的斜率",
+      "残差平方和一定为 $0$"
+    ]
+  },
+  {
+    "id": "m-q119",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-58"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "独立性检验中，算得 $K^{2}=4.1$。已知 $P(K^{2}\\ge 3.841)\\approx 0.05$，则",
+    "answer": "A",
+    "steps": [
+      "$4.1>3.841$，因此有 $95\\%$ 的把握认为两个分类变量有关联。不能说「已经证明有关联」，也不能用 $2.706$（约 $90\\%$）的临界值来否定。"
+    ],
+    "analysis": {
+      "breakthrough": "把统计量与临界值比较，表述要带「有……把握认为」。",
+      "method": "不要把「有把握」说成「证明」。",
+      "pitfalls": "做成「没有关联」。",
+      "variant": "临界值 $6.635$ 对应约 $99\\%$ 的把握。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "有 $95\\%$ 的把握认为两个分类变量有关联",
+      "已经证明两个变量有关联",
+      "可以断定两个变量没有关联",
+      "$K^{2}$ 必须正好等于 $3.841$ 才能下结论"
+    ]
+  },
+  {
+    "id": "m-q120",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "m-59"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "把 $y=f(x)$ 的图象向上平移 $3$ 个单位，再向左平移 $1$ 个单位，所得图象的解析式是 ______。",
+    "answer": "$y=f(x+1)+3$",
+    "steps": [
+      "先上移：$y=f(x)+3$；再左移：把 $x$ 换成 $x+1$，得 $y=f(x+1)+3$。次序在本题可以交换，结果相同。"
+    ],
+    "analysis": {
+      "breakthrough": "上加下减，左加右减。",
+      "method": "平移作用分别加在函数值和自变量上。",
+      "pitfalls": "做成 $f(x-1)+3$ 或 $f(x+1)-3$。",
+      "variant": "横向伸缩 $y=f(2x)$ 是向 $y$ 轴压缩。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "f(x+1)+3",
+      "y=3+f(x+1)",
+      "$y=3+f(x+1)$"
+    ]
   }
 ]
