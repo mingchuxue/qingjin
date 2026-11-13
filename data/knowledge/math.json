@@ -33,7 +33,8 @@
     "questionIds": [
       "m-q01",
       "m-q02",
-      "m-q48"
+      "m-q48",
+      "m-q98"
     ]
   },
   {
@@ -70,7 +71,8 @@
     ],
     "questionIds": [
       "m-q01",
-      "m-q48"
+      "m-q48",
+      "m-q98"
     ]
   },
   {
@@ -132,14 +134,16 @@
     ],
     "methodIds": [
       "m-mtd-02",
-      "m-mtd-01"
+      "m-mtd-01",
+      "m-mtd-14"
     ],
     "relatedIds": [
       "m-03",
       "m-51"
     ],
     "questionIds": [
-      "m-q38"
+      "m-q38",
+      "m-q68"
     ]
   },
   {
@@ -176,7 +180,9 @@
       "m-52"
     ],
     "questionIds": [
-      "m-q05"
+      "m-q05",
+      "m-q69",
+      "m-q99"
     ]
   },
   {
@@ -211,7 +217,8 @@
       "m-02"
     ],
     "questionIds": [
-      "m-q04"
+      "m-q04",
+      "m-q70"
     ]
   },
   {
@@ -248,7 +255,8 @@
       "m-53"
     ],
     "questionIds": [
-      "m-q07"
+      "m-q07",
+      "m-q71"
     ]
   },
   {
@@ -276,7 +284,8 @@
       "把“函数值不为零”与“定义域不为零”混淆。"
     ],
     "methodIds": [
-      "m-mtd-07"
+      "m-mtd-07",
+      "m-mtd-08"
     ],
     "relatedIds": [
       "m-09",
@@ -284,7 +293,8 @@
       "m-13"
     ],
     "questionIds": [
-      "m-q06"
+      "m-q06",
+      "m-q72"
     ]
   },
   {
@@ -311,14 +321,16 @@
       "复合函数单调性把方向搞反。"
     ],
     "methodIds": [
-      "m-mtd-08"
+      "m-mtd-08",
+      "m-mtd-01"
     ],
     "relatedIds": [
       "m-10",
       "m-51"
     ],
     "questionIds": [
-      "m-q47"
+      "m-q47",
+      "m-q73"
     ]
   },
   {
@@ -356,7 +368,8 @@
     ],
     "questionIds": [
       "m-q08",
-      "m-q47"
+      "m-q47",
+      "m-q99"
     ]
   },
   {
@@ -388,7 +401,10 @@
     "relatedIds": [
       "m-12"
     ],
-    "questionIds": []
+    "questionIds": [
+      "m-q53",
+      "m-q54"
+    ]
   },
   {
     "id": "m-12",
@@ -425,7 +441,8 @@
     ],
     "questionIds": [
       "m-q10",
-      "m-q52"
+      "m-q52",
+      "m-q106"
     ]
   },
   {
@@ -455,7 +472,8 @@
     ],
     "methodIds": [
       "m-mtd-07",
-      "m-mtd-03"
+      "m-mtd-03",
+      "m-mtd-08"
     ],
     "relatedIds": [
       "m-12",
@@ -464,7 +482,8 @@
     "questionIds": [
       "m-q09",
       "m-q39",
-      "m-q52"
+      "m-q52",
+      "m-q106"
     ]
   },
   {
@@ -492,14 +511,16 @@
     ],
     "methodIds": [
       "m-mtd-08",
-      "m-mtd-03"
+      "m-mtd-03",
+      "m-mtd-01"
     ],
     "relatedIds": [
       "m-51",
       "m-55"
     ],
     "questionIds": [
-      "m-q10"
+      "m-q10",
+      "m-q74"
     ]
   },
   {
@@ -526,12 +547,17 @@
       "象限判断只看角度绝对值，不看终边。",
       "弧长公式里角用了角度制。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-08"
+    ],
     "relatedIds": [
       "m-16",
       "m-17"
     ],
-    "questionIds": []
+    "questionIds": [
+      "m-q55",
+      "m-q56"
+    ]
   },
   {
     "id": "m-16",
@@ -559,14 +585,16 @@
       "把 $1+\\tan^2\\theta=\\sec^2\\theta$ 用在 $\\cos\\theta=0$ 的情形。"
     ],
     "methodIds": [
-      "m-mtd-07"
+      "m-mtd-07",
+      "m-mtd-17"
     ],
     "relatedIds": [
       "m-17",
       "m-18"
     ],
     "questionIds": [
-      "m-q11"
+      "m-q11",
+      "m-q75"
     ]
   },
   {
@@ -604,7 +632,8 @@
       "m-19"
     ],
     "questionIds": [
-      "m-q16"
+      "m-q16",
+      "m-q76"
     ]
   },
   {
@@ -639,7 +668,8 @@
       "m-19"
     ],
     "questionIds": [
-      "m-q12"
+      "m-q12",
+      "m-q77"
     ]
   },
   {
@@ -709,7 +739,11 @@
     "relatedIds": [
       "m-21"
     ],
-    "questionIds": []
+    "questionIds": [
+      "m-q57",
+      "m-q58",
+      "m-q108"
+    ]
   },
   {
     "id": "m-21",
@@ -744,7 +778,10 @@
       "m-36"
     ],
     "questionIds": [
-      "m-q15"
+      "m-q15",
+      "m-q58",
+      "m-q78",
+      "m-q108"
     ]
   },
   {
@@ -773,13 +810,16 @@
       "模用了 $a+b$ 或 $a^2+b^2$ 却忘开方。",
       "$i$ 的幂指数取模 $4$ 时余数算错。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-08"
+    ],
     "relatedIds": [
       "m-20"
     ],
     "questionIds": [
       "m-q17",
-      "m-q46"
+      "m-q46",
+      "m-q100"
     ]
   },
   {
@@ -851,7 +891,10 @@
       "m-25",
       "m-36"
     ],
-    "questionIds": []
+    "questionIds": [
+      "m-q59",
+      "m-q115"
+    ]
   },
   {
     "id": "m-25",
@@ -882,7 +925,10 @@
       "m-24",
       "m-36"
     ],
-    "questionIds": []
+    "questionIds": [
+      "m-q60",
+      "m-q116"
+    ]
   },
   {
     "id": "m-26",
@@ -908,12 +954,17 @@
       "直方图的高当成频率，忘了除以组距。",
       "系统抽样的间隔算错：间隔应为 $k=N/n$。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-08"
+    ],
     "relatedIds": [
       "m-27",
       "m-63"
     ],
-    "questionIds": []
+    "questionIds": [
+      "m-q61",
+      "m-q117"
+    ]
   },
   {
     "id": "m-27",
@@ -940,12 +991,17 @@
       "数据同时加常数却以为方差也变。",
       "百分位数的位置计算用了错误的序号。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-08"
+    ],
     "relatedIds": [
       "m-26",
       "m-62"
     ],
-    "questionIds": []
+    "questionIds": [
+      "m-q62",
+      "m-q63"
+    ]
   },
   {
     "id": "m-28",
@@ -973,7 +1029,8 @@
       "互斥与独立混淆：互斥看能否同时发生，独立看是否相互影响。"
     ],
     "methodIds": [
-      "m-mtd-13"
+      "m-mtd-13",
+      "m-mtd-16"
     ],
     "relatedIds": [
       "m-29",
@@ -981,7 +1038,8 @@
       "m-60"
     ],
     "questionIds": [
-      "m-q35"
+      "m-q35",
+      "m-q79"
     ]
   },
   {
@@ -1009,14 +1067,16 @@
       "树状图漏掉某一分支的条件概率。"
     ],
     "methodIds": [
-      "m-mtd-13"
+      "m-mtd-13",
+      "m-mtd-08"
     ],
     "relatedIds": [
       "m-28",
       "m-60"
     ],
     "questionIds": [
-      "m-q35"
+      "m-q35",
+      "m-q80"
     ]
   },
   {
@@ -1054,7 +1114,8 @@
     ],
     "questionIds": [
       "m-q19",
-      "m-q25"
+      "m-q25",
+      "m-q105"
     ]
   },
   {
@@ -1092,7 +1153,8 @@
     ],
     "questionIds": [
       "m-q19",
-      "m-q26"
+      "m-q26",
+      "m-q105"
     ]
   },
   {
@@ -1118,13 +1180,19 @@
     ],
     "methodIds": [
       "m-mtd-05",
-      "m-mtd-06"
+      "m-mtd-06",
+      "m-mtd-12",
+      "m-mtd-08"
     ],
     "relatedIds": [
       "m-31",
       "m-33"
     ],
-    "questionIds": []
+    "questionIds": [
+      "m-q64",
+      "m-q65",
+      "m-q110"
+    ]
   },
   {
     "id": "m-33",
@@ -1156,7 +1224,9 @@
     "methodIds": [
       "m-mtd-05",
       "m-mtd-06",
-      "m-mtd-04"
+      "m-mtd-04",
+      "m-mtd-08",
+      "m-mtd-12"
     ],
     "relatedIds": [
       "m-34",
@@ -1165,7 +1235,9 @@
     ],
     "questionIds": [
       "m-q20",
-      "m-q33"
+      "m-q33",
+      "m-q101",
+      "m-q110"
     ]
   },
   {
@@ -1195,14 +1267,16 @@
     ],
     "methodIds": [
       "m-mtd-05",
-      "m-mtd-06"
+      "m-mtd-06",
+      "m-mtd-08"
     ],
     "relatedIds": [
       "m-33",
       "m-35"
     ],
     "questionIds": [
-      "m-q23"
+      "m-q23",
+      "m-q81"
     ]
   },
   {
@@ -1231,14 +1305,18 @@
       "定义中漏掉“到准线的距离”。"
     ],
     "methodIds": [
-      "m-mtd-05"
+      "m-mtd-05",
+      "m-mtd-08",
+      "m-mtd-06"
     ],
     "relatedIds": [
       "m-33",
       "m-38"
     ],
     "questionIds": [
-      "m-q24"
+      "m-q24",
+      "m-q82",
+      "m-q112"
     ]
   },
   {
@@ -1274,7 +1352,8 @@
       "m-21"
     ],
     "questionIds": [
-      "m-q41"
+      "m-q41",
+      "m-q97"
     ]
   },
   {
@@ -1336,7 +1415,9 @@
       "第二定义中“相应准线”用错（左焦点对应左准线）。"
     ],
     "methodIds": [
-      "m-mtd-05"
+      "m-mtd-05",
+      "m-mtd-08",
+      "m-mtd-06"
     ],
     "relatedIds": [
       "m-33",
@@ -1344,7 +1425,10 @@
       "m-35"
     ],
     "questionIds": [
-      "m-q20"
+      "m-q20",
+      "m-q83",
+      "m-q101",
+      "m-q112"
     ]
   },
   {
@@ -1378,7 +1462,8 @@
       "m-41"
     ],
     "questionIds": [
-      "m-q27"
+      "m-q27",
+      "m-q84"
     ]
   },
   {
@@ -1419,7 +1504,9 @@
       "m-q21",
       "m-q27",
       "m-q44",
-      "m-q49"
+      "m-q49",
+      "m-q102",
+      "m-q107"
     ]
   },
   {
@@ -1454,7 +1541,10 @@
       "m-42"
     ],
     "questionIds": [
-      "m-q22"
+      "m-q22",
+      "m-q85",
+      "m-q102",
+      "m-q113"
     ]
   },
   {
@@ -1488,7 +1578,10 @@
       "m-41"
     ],
     "questionIds": [
-      "m-q49"
+      "m-q49",
+      "m-q86",
+      "m-q107",
+      "m-q113"
     ]
   },
   {
@@ -1523,7 +1616,8 @@
       "m-45"
     ],
     "questionIds": [
-      "m-q29"
+      "m-q29",
+      "m-q87"
     ]
   },
   {
@@ -1560,7 +1654,8 @@
       "m-45"
     ],
     "questionIds": [
-      "m-q28"
+      "m-q28",
+      "m-q88"
     ]
   },
   {
@@ -1592,7 +1687,8 @@
       "m-46"
     ],
     "questionIds": [
-      "m-q29"
+      "m-q29",
+      "m-q89"
     ]
   },
   {
@@ -1628,7 +1724,10 @@
     "questionIds": [
       "m-q36",
       "m-q37",
-      "m-q50"
+      "m-q50",
+      "m-q103",
+      "m-q109",
+      "m-q111"
     ]
   },
   {
@@ -1664,7 +1763,9 @@
     "questionIds": [
       "m-q36",
       "m-q37",
-      "m-q50"
+      "m-q50",
+      "m-q103",
+      "m-q109"
     ]
   },
   {
@@ -1701,7 +1802,9 @@
       "m-49"
     ],
     "questionIds": [
-      "m-q38"
+      "m-q38",
+      "m-q90",
+      "m-q111"
     ]
   },
   {
@@ -1728,14 +1831,16 @@
     ],
     "methodIds": [
       "m-mtd-03",
-      "m-mtd-08"
+      "m-mtd-08",
+      "m-mtd-01"
     ],
     "relatedIds": [
       "m-14",
       "m-48"
     ],
     "questionIds": [
-      "m-q39"
+      "m-q39",
+      "m-q91"
     ]
   },
   {
@@ -1762,13 +1867,16 @@
       "原函数找错，特别是 $\\dfrac{1}{x}$、$\\sin x$ 的系数。",
       "上下限颠倒不改号。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-08"
+    ],
     "relatedIds": [
       "m-44",
       "m-43"
     ],
     "questionIds": [
-      "m-q40"
+      "m-q40",
+      "m-q92"
     ]
   },
   {
@@ -1794,14 +1902,16 @@
       "“相邻”未捆绑，“不相邻”未插空。"
     ],
     "methodIds": [
-      "m-mtd-13"
+      "m-mtd-13",
+      "m-mtd-16"
     ],
     "relatedIds": [
       "m-52",
       "m-53"
     ],
     "questionIds": [
-      "m-q30"
+      "m-q30",
+      "m-q93"
     ]
   },
   {
@@ -1841,7 +1951,8 @@
     "questionIds": [
       "m-q30",
       "m-q31",
-      "m-q51"
+      "m-q51",
+      "m-q104"
     ]
   },
   {
@@ -1869,14 +1980,17 @@
       "展开 $(1-2x)^n$ 时符号出错。"
     ],
     "methodIds": [
-      "m-mtd-13"
+      "m-mtd-13",
+      "m-mtd-16"
     ],
     "relatedIds": [
       "m-52",
       "m-60"
     ],
     "questionIds": [
-      "m-q32"
+      "m-q32",
+      "m-q94",
+      "m-q104"
     ]
   },
   {
@@ -1903,13 +2017,17 @@
       "方差公式用成 $E(X^2)-E(X)$。",
       "线性变换时方差忘记乘 $a^2$。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-08"
+    ],
     "relatedIds": [
       "m-55",
       "m-28"
     ],
     "questionIds": [
-      "m-q34"
+      "m-q34",
+      "m-q95",
+      "m-q114"
     ]
   },
   {
@@ -1936,7 +2054,9 @@
       "$P(X=k)$ 中 $C_n^k$ 漏写，或 $(1-p)$ 的指数写成 $k$。",
       "期望直接当概率用。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-08"
+    ],
     "relatedIds": [
       "m-54",
       "m-52",
@@ -1944,7 +2064,8 @@
     ],
     "questionIds": [
       "m-q34",
-      "m-q51"
+      "m-q51",
+      "m-q114"
     ]
   },
   {
@@ -1969,13 +2090,16 @@
       "把 $\\sigma$ 与 $\\sigma^2$ 在 $N(\\mu,\\sigma^2)$ 的记号里弄混。",
       "标准化时分子分母颠倒或忘记减均值。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-08"
+    ],
     "relatedIds": [
       "m-27",
       "m-54"
     ],
     "questionIds": [
-      "m-q42"
+      "m-q42",
+      "m-q96"
     ]
   },
   {
@@ -2001,12 +2125,17 @@
       "把 $a,b$ 公式分子分母记反。",
       "由相关性强就断言因果。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-08"
+    ],
     "relatedIds": [
       "m-27",
       "m-58"
     ],
-    "questionIds": []
+    "questionIds": [
+      "m-q66",
+      "m-q118"
+    ]
   },
   {
     "id": "m-58",
@@ -2030,13 +2159,16 @@
       "结论说成“一定有关系”。",
       "列联表中 $a,b,c,d$ 的位置放错。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-08"
+    ],
     "relatedIds": [
       "m-57",
       "m-29"
     ],
     "questionIds": [
-      "m-q45"
+      "m-q45",
+      "m-q119"
     ]
   },
   {
@@ -2068,7 +2200,10 @@
       "m-18",
       "m-10"
     ],
-    "questionIds": []
+    "questionIds": [
+      "m-q67",
+      "m-q120"
+    ]
   },
   {
     "id": "m-60",

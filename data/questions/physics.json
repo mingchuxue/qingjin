@@ -983,5 +983,2154 @@
         "score": 5
       }
     ]
+  },
+  {
+    "id": "p-q33",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 1,
+    "knowledgeIds": [
+      "p-01"
+    ],
+    "methodIds": [
+      "p-m-01"
+    ],
+    "stem": "关于质点和参考系，下列说法正确的是",
+    "answer": "B",
+    "steps": [
+      "研究地球公转时，地球大小远小于轨道半径，可看作质点，B 正确。A 绝对化。C 位移与路程一般不同。D 参考系可以任意选，只是描述繁简不同。"
+    ],
+    "analysis": {
+      "breakthrough": "质点是模型，参考系可任选。",
+      "method": "先看问题要不要考虑形状和大小。",
+      "pitfalls": "认为只有静止的物体才能当参考系。",
+      "variant": "路程是轨迹长度，位移是末减初的有向线段。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "任何情况下物体都不能看作质点",
+      "研究地球绕太阳公转时，可以把地球看作质点",
+      "位移的大小一定等于路程",
+      "参考系必须选地面"
+    ]
+  },
+  {
+    "id": "p-q34",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-01"
+    ],
+    "methodIds": [
+      "p-m-01"
+    ],
+    "stem": "质点沿半径为 $2\\,\\mathrm{m}$ 的圆周运动一周，位移大小是 ______ $\\mathrm{m}$，路程是 ______ $\\mathrm{m}$。（用分号隔开）",
+    "answer": "0；4π",
+    "steps": [
+      "回到出发点，位移为 $0$；路程为周长 $2\\pi r=4\\pi$。"
+    ],
+    "analysis": {
+      "breakthrough": "位移看首尾，路程看轨迹。",
+      "method": "一周位移为零但路程不为零。",
+      "pitfalls": "把位移做成 $4\\pi$。",
+      "variant": "半周位移大小为 $4\\,\\mathrm{m}$（直径）。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "0；4π",
+      "0;4π",
+      "0；4pi",
+      "0,4π",
+      "0；4\\pi"
+    ]
+  },
+  {
+    "id": "p-q35",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-02"
+    ],
+    "methodIds": [
+      "p-m-01"
+    ],
+    "stem": "汽车以 $10\\,\\mathrm{m/s}$ 的速度匀减速，加速度大小为 $2\\,\\mathrm{m/s^2}$，则停止所需时间为 ______ $\\mathrm{s}$。",
+    "answer": "$5$",
+    "steps": [
+      "$v=v_0-at=0$，$t=\\dfrac{v_0}{a}=\\dfrac{10}{2}=5\\,\\mathrm{s}$。"
+    ],
+    "analysis": {
+      "breakthrough": "匀变速公式 $v=v_0+at$，减速时 $a$ 与 $v_0$ 反向。",
+      "method": "先统一方向再代入。",
+      "pitfalls": "做成 $t=20\\,\\mathrm{s}$。",
+      "variant": "这段位移 $x=\\dfrac{v_0^{2}}{2a}=25\\,\\mathrm{m}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "5",
+      "5s",
+      "5秒"
+    ]
+  },
+  {
+    "id": "p-q36",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-05"
+    ],
+    "methodIds": [
+      "p-m-02"
+    ],
+    "stem": "大小为 $6\\,\\mathrm{N}$ 和 $8\\,\\mathrm{N}$ 的两个共点力，合力的最大值为",
+    "answer": "C",
+    "steps": [
+      "合力范围 $|F_1-F_2|\\le F\\le F_1+F_2$，最大 $14\\,\\mathrm{N}$，最小 $2\\,\\mathrm{N}$。"
+    ],
+    "analysis": {
+      "breakthrough": "同一直线同向最大、反向最小。",
+      "method": "平行四边形定则。",
+      "pitfalls": "做成 $10\\,\\mathrm{N}$ 或 $48\\,\\mathrm{N}$。",
+      "variant": "若两力垂直，合力为 $10\\,\\mathrm{N}$。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "$8\\,\\mathrm{N}$",
+      "$10\\,\\mathrm{N}$",
+      "$14\\,\\mathrm{N}$",
+      "$2\\,\\mathrm{N}$"
+    ]
+  },
+  {
+    "id": "p-q37",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-07"
+    ],
+    "methodIds": [
+      "p-m-03"
+    ],
+    "stem": "光滑水平面上，质量 $2\\,\\mathrm{kg}$ 和 $3\\,\\mathrm{kg}$ 的两物体用轻绳相连，用 $10\\,\\mathrm{N}$ 的水平力拉 $3\\,\\mathrm{kg}$ 的物体（两物体排成一线），绳的张力为 ______ $\\mathrm{N}$。",
+    "answer": "$4$",
+    "steps": [
+      "整体加速度 $a=\\dfrac{10}{2+3}=2\\,\\mathrm{m/s^2}$。隔离 $2\\,\\mathrm{kg}$：$T=ma=4\\,\\mathrm{N}$。"
+    ],
+    "analysis": {
+      "breakthrough": "先整体求 $a$，再隔离求内力。",
+      "method": "光滑则无需摩擦力。",
+      "pitfalls": "做成 $6\\,\\mathrm{N}$ 或 $10\\,\\mathrm{N}$。",
+      "variant": "若力拉在 $2\\,\\mathrm{kg}$ 一侧，则 $T=6\\,\\mathrm{N}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "4",
+      "4N"
+    ]
+  },
+  {
+    "id": "p-q38",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-10"
+    ],
+    "methodIds": [
+      "p-m-01"
+    ],
+    "stem": "平抛运动的初速度为 $10\\,\\mathrm{m/s}$，取 $g=10\\,\\mathrm{m/s^2}$，下落 $5\\,\\mathrm{m}$ 时水平位移是 ______ $\\mathrm{m}$。",
+    "answer": "$10$",
+    "steps": [
+      "竖直：$h=\\dfrac{1}{2}gt^{2}$，$5=5t^{2}$，$t=1\\,\\mathrm{s}$。水平：$x=v_0 t=10\\,\\mathrm{m}$。"
+    ],
+    "analysis": {
+      "breakthrough": "平抛分解：水平匀速，竖直自由落体。",
+      "method": "先由高度求时间。",
+      "pitfalls": "用 $v^{2}=2gh$ 把 $v$ 当成水平速度。",
+      "variant": "这时竖直分速度 $gt=10\\,\\mathrm{m/s}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "10",
+      "10m"
+    ]
+  },
+  {
+    "id": "p-q39",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-11"
+    ],
+    "methodIds": [
+      "p-m-05"
+    ],
+    "stem": "质量 $1\\,\\mathrm{kg}$ 的小球在光滑水平面上做半径 $0.5\\,\\mathrm{m}$、速率 $2\\,\\mathrm{m/s}$ 的匀速圆周运动，向心力大小是 ______ $\\mathrm{N}$。",
+    "answer": "$8$",
+    "steps": [
+      "$F=\\dfrac{mv^{2}}{r}=\\dfrac{1\\times 4}{0.5}=8\\,\\mathrm{N}$。"
+    ],
+    "analysis": {
+      "breakthrough": "向心力公式 $F=m\\dfrac{v^{2}}{r}=m\\omega^{2}r$。",
+      "method": "光滑水平面，向心力由绳或轨道提供。",
+      "pitfalls": "做成 $mv^{2}=4$ 或 $mr=0.5$。",
+      "variant": "周期 $T=\\dfrac{2\\pi r}{v}=\\dfrac{\\pi}{2}\\,\\mathrm{s}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "8",
+      "8N"
+    ]
+  },
+  {
+    "id": "p-q40",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-13"
+    ],
+    "methodIds": [
+      "p-m-06"
+    ],
+    "stem": "真空中两点电荷距离变为原来的 $2$ 倍，电荷量不变，则库仑力变为原来的",
+    "answer": "C",
+    "steps": [
+      "$F=k\\dfrac{q_1q_2}{r^{2}}$，$r$ 变为 $2$ 倍，$F$ 变为 $\\dfrac{1}{4}$。"
+    ],
+    "analysis": {
+      "breakthrough": "库仑力与距离平方成反比。",
+      "method": "不要做成与 $r$ 成反比。",
+      "pitfalls": "做成 $\\dfrac{1}{2}$。",
+      "variant": "电荷量都加倍且距离不变，则力变为 $4$ 倍。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "$2$ 倍",
+      "$\\dfrac{1}{2}$",
+      "$\\dfrac{1}{4}$",
+      "$4$ 倍"
+    ]
+  },
+  {
+    "id": "p-q41",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-14"
+    ],
+    "methodIds": [
+      "p-m-06"
+    ],
+    "stem": "电荷 $q=2\\times 10^{-6}\\,\\mathrm{C}$ 在电势差为 $100\\,\\mathrm{V}$ 的两点间移动，电场力做功是 ______ $\\mathrm{J}$。",
+    "answer": "$2\\times 10^{-4}$",
+    "steps": [
+      "$W=qU=2\\times 10^{-6}\\times 100=2\\times 10^{-4}\\,\\mathrm{J}$。"
+    ],
+    "analysis": {
+      "breakthrough": "电场力做功 $W=qU$，与路径无关。",
+      "method": "注意单位：V·C = J。",
+      "pitfalls": "做成 $2\\times 10^{-8}$。",
+      "variant": "电势能减少量等于电场力做的功。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "2e-4",
+      "0.0002",
+      "2×10^{-4}",
+      "2×10^-4",
+      "$2\\times10^{-4}$"
+    ]
+  },
+  {
+    "id": "p-q42",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-15"
+    ],
+    "methodIds": [
+      "p-m-06"
+    ],
+    "stem": "电容器充电后与电源断开，然后增大两极板间距，则",
+    "answer": "B",
+    "steps": [
+      "与电源断开则 $Q$ 不变。$C=\\dfrac{\\varepsilon S}{4\\pi kd}$，$d$ 增大，$C$ 减小；$U=\\dfrac{Q}{C}$ 增大。B 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断 $Q$ 还是 $U$ 不变，再看 $C$ 的变化。",
+      "method": "断开电荷守恒，保持连接则 $U$ 不变。",
+      "pitfalls": "做成电容增大。",
+      "variant": "电场 $E=\\dfrac{U}{d}=\\dfrac{Q}{Cd}$，对平行板近似 $E=\\dfrac{4\\pi kQ}{\\varepsilon S}$，与 $d$ 无关（$Q$ 不变时）。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "电容增大，电压减小",
+      "电容减小，电压增大",
+      "电荷量增大",
+      "电容不变"
+    ]
+  },
+  {
+    "id": "p-q43",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-18"
+    ],
+    "methodIds": [
+      "p-m-08"
+    ],
+    "stem": "通电直导线在匀强磁场中受安培力为 $0$，可能的原因是",
+    "answer": "A",
+    "steps": [
+      "$F=ILB\\sin\\theta$，$\\theta=0$ 即电流与磁场平行时 $F=0$。A 正确。电流为零也是一种可能，但选项里「电流方向与磁场垂直」时力最大而非零。"
+    ],
+    "analysis": {
+      "breakthrough": "安培力为零：电流为零，或 $B=0$，或电流与 $B$ 平行。",
+      "method": "左手定则判断方向，公式判断大小。",
+      "pitfalls": "认为只要在磁场中就一定受力。",
+      "variant": "两平行通电直导线，同向电流相互吸引。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "电流方向与磁场方向平行",
+      "电流方向与磁场方向垂直",
+      "导线一定不在磁场中",
+      "安培力不可能为零"
+    ]
+  },
+  {
+    "id": "p-q44",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-19"
+    ],
+    "methodIds": [
+      "p-m-08"
+    ],
+    "stem": "带电粒子质量 $m$、电荷量 $q$，以速率 $v$ 垂直进入磁感应强度为 $B$ 的匀强磁场，轨道半径是 ______。",
+    "answer": "$\\dfrac{mv}{qB}$",
+    "steps": [
+      "洛伦兹力提供向心力：$qvB=m\\dfrac{v^{2}}{r}$，故 $r=\\dfrac{mv}{qB}$。"
+    ],
+    "analysis": {
+      "breakthrough": "垂直进入时做匀速圆周运动，向心力就是洛伦兹力。",
+      "method": "周期 $T=\\dfrac{2\\pi m}{qB}$，与 $v$ 无关。",
+      "pitfalls": "把 $r$ 做成 $\\dfrac{qB}{mv}$。",
+      "variant": "动能变大则半径变大。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "mv/qB",
+      "$mv/(qB)$",
+      "\\frac{mv}{qB}"
+    ]
+  },
+  {
+    "id": "p-q45",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-20"
+    ],
+    "methodIds": [
+      "p-m-09"
+    ],
+    "stem": "单匝线圈磁通量在 $0.1\\,\\mathrm{s}$ 内从 $0$ 均匀变到 $0.02\\,\\mathrm{Wb}$，感应电动势大小是 ______ $\\mathrm{V}$。",
+    "answer": "$0.2$",
+    "steps": [
+      "$E=n\\dfrac{\\Delta\\Phi}{\\Delta t}=1\\times\\dfrac{0.02}{0.1}=0.2\\,\\mathrm{V}$。"
+    ],
+    "analysis": {
+      "breakthrough": "法拉第电磁感应定律：$E=n\\dfrac{\\Delta\\Phi}{\\Delta t}$。",
+      "method": "均匀变化时可用平均值，本题即恒定值。",
+      "pitfalls": "做成 $0.002$ 或漏掉单位换算。",
+      "variant": "楞次定律判断方向：感应电流的磁场阻碍原通量的变化。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "0.2",
+      "0.20",
+      "1/5"
+    ]
+  },
+  {
+    "id": "p-q46",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-21"
+    ],
+    "methodIds": [
+      "p-m-07"
+    ],
+    "stem": "理想变压器原线圈 $220\\,\\mathrm{V}$、$1100$ 匝，要得到 $11\\,\\mathrm{V}$ 的输出，副线圈匝数应为",
+    "answer": "B",
+    "steps": [
+      "$\\dfrac{U_1}{U_2}=\\dfrac{n_1}{n_2}$，$\\dfrac{220}{11}=\\dfrac{1100}{n_2}$，$n_2=55$。"
+    ],
+    "analysis": {
+      "breakthrough": "理想变压器电压比等于匝数比。",
+      "method": "电流比与匝数成反比。",
+      "pitfalls": "做成 $n_2=1100\\times 20$ 或 $5$ 匝。",
+      "variant": "输入功率等于输出功率。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "$22$",
+      "$55$",
+      "$110$",
+      "$2200$"
+    ]
+  },
+  {
+    "id": "p-q47",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-22"
+    ],
+    "methodIds": [
+      "p-m-10"
+    ],
+    "stem": "简谐运动 $x=4\\cos(2\\pi t)\\,\\mathrm{cm}$（$t$ 以秒计）的振幅是 ______ $\\mathrm{cm}$，周期是 ______ $\\mathrm{s}$。（用分号隔开）",
+    "answer": "4；1",
+    "steps": [
+      "$x=A\\cos(\\omega t)$，$A=4\\,\\mathrm{cm}$，$\\omega=2\\pi$，故 $T=\\dfrac{2\\pi}{\\omega}=1\\,\\mathrm{s}$。"
+    ],
+    "analysis": {
+      "breakthrough": "对照 $x=A\\cos(\\omega t+\\varphi)$ 读 $A$ 和 $\\omega$。",
+      "method": "周期 $T=\\dfrac{2\\pi}{\\omega}$，频率 $f=\\dfrac{1}{T}$。",
+      "pitfalls": "把 $\\omega$ 当成周期。",
+      "variant": "最大速度 $A\\omega=8\\pi\\,\\mathrm{cm/s}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "4；1",
+      "4;1",
+      "4，1",
+      "4cm；1s"
+    ]
+  },
+  {
+    "id": "p-q48",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-23"
+    ],
+    "methodIds": [
+      "p-m-10"
+    ],
+    "stem": "机械波从一种介质进入另一种介质时，一般不改变的是",
+    "answer": "C",
+    "steps": [
+      "频率由波源决定，进入另一介质通常不变；波速由介质决定，波长 $\\lambda=\\dfrac{v}{f}$ 随之改变。C 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "频率看波源，波速看介质，波长跟着变。",
+      "method": "不要把三者都当成不变。",
+      "pitfalls": "认为波速一定不变。",
+      "variant": "干涉需要频率相同、相位差恒定。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "波速",
+      "波长",
+      "频率",
+      "振幅一定不变"
+    ]
+  },
+  {
+    "id": "p-q49",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-25"
+    ],
+    "methodIds": [
+      "p-m-11"
+    ],
+    "stem": "一定质量的理想气体，温度不变，体积增大到原来的 $2$ 倍，压强变为原来的 ______ 倍。",
+    "answer": "$\\dfrac{1}{2}$",
+    "steps": [
+      "等温：$pV=$ 常量，$V$ 加倍则 $p$ 减半。"
+    ],
+    "analysis": {
+      "breakthrough": "理想气体：等温玻意耳，等容查理，等压盖-吕萨克。",
+      "method": "先分清哪个量不变。",
+      "pitfalls": "做成 $2$ 倍。",
+      "variant": "绝对温度要用以开尔文计的热力学温度。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "1/2",
+      "0.5",
+      "$1/2$"
+    ]
+  },
+  {
+    "id": "p-q50",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-26"
+    ],
+    "methodIds": [
+      "p-m-11"
+    ],
+    "stem": "热力学第一定律 $\\Delta U=Q+W$（$W$ 为外界对气体做功）中，理想气体自由膨胀（绝热向真空），则",
+    "answer": "B",
+    "steps": [
+      "自由膨胀：$Q=0$（绝热），$W=0$（对外也不做功，真空无阻力），故 $\\Delta U=0$，温度不变。B 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断 $Q$ 和 $W$，再看内能。",
+      "method": "理想气体内能只与温度有关。",
+      "pitfalls": "认为膨胀温度一定降低。",
+      "variant": "绝热且对外做功时，内能减少，温度降低。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "温度降低",
+      "温度不变，内能不变",
+      "内能增加",
+      "一定要从外界吸热"
+    ]
+  },
+  {
+    "id": "p-q51",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-28"
+    ],
+    "methodIds": [
+      "p-m-12"
+    ],
+    "stem": "$^{238}_{92}\\mathrm{U}$ 经过一次 $\\alpha$ 衰变后，质量数和电荷数分别是",
+    "answer": "C",
+    "steps": [
+      "$\\alpha$ 粒子是 $^{4}_{2}\\mathrm{He}$，质量数减 $4$，电荷数减 $2$，变为 $^{234}_{90}\\mathrm{Th}$。"
+    ],
+    "analysis": {
+      "breakthrough": "$\\alpha$ 衰变减 $4$ 和 $2$，$\\beta$ 衰变质量数不变、电荷数加 $1$。",
+      "method": "电荷数就是原子序数。",
+      "pitfalls": "把 $\\alpha$ 与 $\\beta$ 搞反。",
+      "variant": "$\\beta^{-}$ 衰变：$^{A}_{Z}X\\to {}^{A}_{Z+1}Y+e^{-}$。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "$238$ 和 $92$",
+      "$234$ 和 $92$",
+      "$234$ 和 $90$",
+      "$238$ 和 $90$"
+    ]
+  },
+  {
+    "id": "p-q52",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-29"
+    ],
+    "methodIds": [
+      "p-m-04"
+    ],
+    "stem": "质量 $2\\,\\mathrm{kg}$ 的物体原来静止，在水平冲量 $6\\,\\mathrm{N\\cdot s}$ 作用下，末动量大小是 ______ $\\mathrm{kg\\cdot m/s}$。",
+    "answer": "$6$",
+    "steps": [
+      "动量定理：$I=\\Delta p=p-0$，故 $p=6\\,\\mathrm{kg\\cdot m/s}$。末速度 $v=3\\,\\mathrm{m/s}$。"
+    ],
+    "analysis": {
+      "breakthrough": "冲量等于动量变化，与是否有其他过程细节无关（合外力冲量）。",
+      "method": "注意单位 $1\\,\\mathrm{N\\cdot s}=1\\,\\mathrm{kg\\cdot m/s}$。",
+      "pitfalls": "做成 $p=mv=2\\times 6=12$。",
+      "variant": "若有阻力，要用合冲量。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "6"
+    ]
+  },
+  {
+    "id": "p-q53",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-30"
+    ],
+    "methodIds": [
+      "p-m-04"
+    ],
+    "stem": "光滑水平面上两球正碰，碰后粘在一起，则这次碰撞",
+    "answer": "B",
+    "steps": [
+      "粘在一起是完全非弹性碰撞，动量守恒，动能有损失，不是弹性碰撞。B 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "弹性：动量和动能都守恒；完全非弹性：只动量守恒且共速。",
+      "method": "光滑水平面，水平方向合外力为零。",
+      "pitfalls": "认为粘在一起动能也守恒。",
+      "variant": "恢复系数为 $0$ 即完全非弹性。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "动量不守恒，动能守恒",
+      "动量守恒，动能不守恒",
+      "动量和动能都守恒",
+      "动量和动能都不守恒"
+    ]
+  },
+  {
+    "id": "p-q54",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-31"
+    ],
+    "methodIds": [
+      "p-m-01"
+    ],
+    "stem": "用打点计时器（电源频率 $50\\,\\mathrm{Hz}$）打出的纸带，相邻两点的时间间隔是",
+    "answer": "A",
+    "steps": [
+      "打点周期 $T=\\dfrac{1}{f}=0.02\\,\\mathrm{s}$。若取连续两点，时间间隔就是 $0.02\\,\\mathrm{s}$。"
+    ],
+    "analysis": {
+      "breakthrough": "计时器频率决定打点周期。",
+      "method": "处理纸带时常取相隔几个点的计数点，$T=0.1\\,\\mathrm{s}$ 等。",
+      "pitfalls": "做成 $0.2\\,\\mathrm{s}$ 或 $0.05\\,\\mathrm{s}$。",
+      "variant": "$\\Delta x=aT^{2}$ 可求加速度。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "$0.02\\,\\mathrm{s}$",
+      "$0.05\\,\\mathrm{s}$",
+      "$0.2\\,\\mathrm{s}$",
+      "$1\\,\\mathrm{s}$"
+    ]
+  },
+  {
+    "id": "p-q55",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-32"
+    ],
+    "methodIds": [
+      "p-m-07"
+    ],
+    "stem": "理想二极管的主要作用是",
+    "answer": "B",
+    "steps": [
+      "二极管单向导电：正向导通、反向截止，可作整流。B 正确。它不是电源，也不能放大（放大是晶体管三极管的典型功能）。"
+    ],
+    "analysis": {
+      "breakthrough": "抓住「单向导电」。",
+      "method": "电路中要注意正负极接法。",
+      "pitfalls": "把二极管当成可以放大信号的元件。",
+      "variant": "传感器是把非电学量转换成电学量的器件。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "储存电荷",
+      "单向导电（整流）",
+      "产生交变电流",
+      "放大电流"
+    ]
+  },
+  {
+    "id": "p-q56",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-33"
+    ],
+    "methodIds": [
+      "p-m-01"
+    ],
+    "stem": "人在以 $5\\,\\mathrm{m/s}$ 向右行驶的车厢中，相对车厢以 $3\\,\\mathrm{m/s}$ 向右走动，则人相对地面的速度大小是 ______ $\\mathrm{m/s}$（同向）。",
+    "answer": "$8$",
+    "steps": [
+      "同向速度相加：$5+3=8\\,\\mathrm{m/s}$（同一直线）。若人相对车厢向左走，则为 $2\\,\\mathrm{m/s}$ 向右。"
+    ],
+    "analysis": {
+      "breakthrough": "同一直线上的相对运动：同向相加，反向相减。",
+      "method": "先约定正方向。",
+      "pitfalls": "做成 $5-3$ 或 $15$。",
+      "variant": "速度是相对的，必须指明参考系。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "8",
+      "8m/s"
+    ]
+  },
+  {
+    "id": "p-q57",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-34"
+    ],
+    "methodIds": [
+      "p-m-12"
+    ],
+    "stem": "卢瑟福α粒子散射实验的主要结论是",
+    "answer": "C",
+    "steps": [
+      "少数α粒子发生大角度偏转，说明原子的质量和正电荷集中在很小的核上，即核式结构。C 正确。能级是玻尔模型，光子是爱因斯坦光电效应，电子衍射说明电子的波动性。"
+    ],
+    "analysis": {
+      "breakthrough": "大角度散射是核式结构的关键证据。",
+      "method": "把实验事实和理论模型对应起来。",
+      "pitfalls": "把玻尔能级或光电效应安到这个实验上。",
+      "variant": "玻尔模型解释了氢光谱，但不能很好用于多电子原子。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "证明了光是光子",
+      "证明了电子有波动性",
+      "说明原子具有核式结构",
+      "直接测出了普朗克常量"
+    ]
+  },
+  {
+    "id": "p-q58",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 1,
+    "knowledgeIds": [
+      "p-35"
+    ],
+    "methodIds": [
+      "p-m-04"
+    ],
+    "stem": "关于能量守恒，下列说法正确的是",
+    "answer": "A",
+    "steps": [
+      "能量既不会凭空产生也不会凭空消失，只能转化或转移，总量保持不变。A 正确。机械能可以不守恒（有摩擦），但包含内能后总能量仍守恒。"
+    ],
+    "analysis": {
+      "breakthrough": "机械能守恒是有条件的，能量守恒是普遍的。",
+      "method": "看是否有非机械能的转化。",
+      "pitfalls": "把机械能守恒与能量守恒等同。",
+      "variant": "永动机不可能制成，正是因为能量守恒。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "能量只能转化或转移，总量不变",
+      "机械能在任何情况下都守恒",
+      "摩擦力做功时能量就不守恒了",
+      "能量守恒只适用于力学现象"
+    ]
+  },
+  {
+    "id": "p-q59",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-36"
+    ],
+    "methodIds": [
+      "p-m-08"
+    ],
+    "stem": "要判断通电直导线周围磁场的方向，应使用",
+    "answer": "B",
+    "steps": [
+      "安培定则（右手螺旋定则）判断电流的磁场方向；左手定则判断安培力或洛伦兹力方向；右手定则常用于切割磁感线的感应电流。"
+    ],
+    "analysis": {
+      "breakthrough": "三种手定则：磁场用右手螺旋，安培力用左手，感应电流用右手。",
+      "method": "先分清要判断的是什么。",
+      "pitfalls": "用左手去判断磁场方向。",
+      "variant": "环形电流的磁场，拇指指向磁场（轴线）方向。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "左手定则",
+      "安培定则（右手螺旋定则）",
+      "欧姆定律",
+      "库仑定律"
+    ]
+  },
+  {
+    "id": "p-q60",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-37"
+    ],
+    "methodIds": [
+      "p-m-11"
+    ],
+    "stem": "理想气体沿闭合循环回到初态，则",
+    "answer": "C",
+    "steps": [
+      "回到初态则 $\\Delta U=0$。由热力学第一定律，$Q=-W$（注意符号约定），即气体净吸热等于净对外做功（若循环为热机方向）。内能变化为零，C 正确。A 说温度一定一直不变是错的（可以先升后降）。B 净功不一定为零。"
+    ],
+    "analysis": {
+      "breakthrough": "状态函数（$U,T,p,V$）在循环后回到原值；过程量 $Q,W$ 沿循环可以有净余。",
+      "method": "先看是否回到同一点。",
+      "pitfalls": "认为循环过程中每时每刻 $Q=0$。",
+      "variant": "$p$-$V$ 图中闭合曲线所围面积等于循环的净功。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "温度始终不变",
+      "外界对气体做的净功一定为零",
+      "内能变化为零",
+      "一定没有吸热"
+    ]
+  },
+  {
+    "id": "p-q61",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-38"
+    ],
+    "methodIds": [
+      "p-m-02"
+    ],
+    "stem": "物体在水平面上受水平拉力由静止开始运动，拉力逐渐增大，摩擦力",
+    "answer": "B",
+    "steps": [
+      "先是静摩擦，随拉力增大而增大，直到最大静摩擦后开始滑动，变为较小的滑动摩擦（近似恒定）。B 最符合这一过程。A 说一开始就是滑动。C 说一直增大。D 说没有摩擦。"
+    ],
+    "analysis": {
+      "breakthrough": "先静后滑：静摩擦可变，滑动摩擦近似 $f=\\mu N$。",
+      "method": "注意启动瞬间有最大静摩擦。",
+      "pitfalls": "把静摩擦当成恒等于 $\\mu N$。",
+      "variant": "竖直墙上的按压物体，压力越大最大静摩擦越大。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "一开始就是滑动摩擦，且保持不变",
+      "先随拉力增大（静摩擦），滑动后近似保持不变",
+      "一直随拉力成正比增大",
+      "水平面没有摩擦力"
+    ]
+  },
+  {
+    "id": "p-q62",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-39"
+    ],
+    "methodIds": [
+      "p-m-06"
+    ],
+    "stem": "关于电场线和等势面，正确的是",
+    "answer": "A",
+    "steps": [
+      "电场线与等势面垂直，沿电场线方向电势降低。A 正确。电场线不相交。等势面上移动电荷电场力做功为零，不是「不能移动」。"
+    ],
+    "analysis": {
+      "breakthrough": "电场线切线为场强方向；等势面与电场线正交。",
+      "method": "做功 $W=qU$，等势则 $U=0$。",
+      "pitfalls": "认为电场线可以相交，或电势沿电场线升高。",
+      "variant": "点电荷的等势面是同心球面。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "电场线与等势面垂直，沿电场线电势降低",
+      "电场线可以相交",
+      "等势面上电荷一定不能移动",
+      "沿电场线方向电势升高"
+    ]
+  },
+  {
+    "id": "p-q63",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-40"
+    ],
+    "methodIds": [
+      "p-m-12"
+    ],
+    "stem": "德布罗意波的波长 $\\lambda=\\dfrac{h}{p}$，若电子的动量变大，则其物质波波长",
+    "answer": "B",
+    "steps": [
+      "$\\lambda$ 与 $p$ 成反比，动量变大则波长变短。B 正确。"
+    ],
+    "analysis": {
+      "breakthrough": "物质波波长与动量成反比。",
+      "method": "宏观物体动量大，波长极短，波动性不显著。",
+      "pitfalls": "做成波长变长。",
+      "variant": "光子也有 $p=\\dfrac{h}{\\lambda}$，$E=pc$。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "变长",
+      "变短",
+      "不变",
+      "变为零"
+    ]
+  },
+  {
+    "id": "p-q64",
+    "subject": "physics",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-06",
+      "p-04"
+    ],
+    "methodIds": [
+      "p-m-02"
+    ],
+    "stem": "物体在水平面上受水平拉力由静止开始运动，下列说法正确的是",
+    "answer": "AC",
+    "steps": [
+      "牛顿第二定律对瞬时成立，A 正确。加速度与合外力同向，不一定与拉力同向（若有摩擦且拉力斜向上等），本题水平拉力、水平面，若有摩擦则合力小于拉力，方向仍与拉力相同，B 说「加速度一定等于拉力除以质量」忽略摩擦，错误。C：合力为零则加速度为零，可以匀速，正确。D：惯性与是否受力无关，错误。故 A、C。"
+    ],
+    "analysis": {
+      "breakthrough": "牛顿定律看合力，不要把某一个力当成合力。",
+      "method": "先分析是否有摩擦。",
+      "pitfalls": "把 $a=F_{拉}/m$ 当成普遍结论。",
+      "variant": "惯性只与质量有关。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "合外力决定加速度，公式 $F_{合}=ma$ 对瞬时成立",
+      "无论是否有摩擦，加速度一定等于拉力除以质量",
+      "合外力为零时，物体可以做匀速直线运动",
+      "物体受力越大，惯性越大"
+    ]
+  },
+  {
+    "id": "p-q65",
+    "subject": "physics",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-09",
+      "p-08"
+    ],
+    "methodIds": [
+      "p-m-04"
+    ],
+    "stem": "物体只在重力作用下运动（以地面为零势面），下列正确的是",
+    "answer": "AB",
+    "steps": [
+      "只有重力做功，机械能守恒，A 正确。动能与重力势能可以相互转化，总和不变，B 正确。C：最低点动能最大、势能最小，但机械能不变，不是「最小」。D：重力做功不改变机械能。故 A、B。"
+    ],
+    "analysis": {
+      "breakthrough": "只有重力（或弹力）做功时机械能守恒。",
+      "method": "势能零点可任选，但同一题要统一。",
+      "pitfalls": "把重力做功说成机械能不守恒。",
+      "variant": "若有空气阻力，机械能减少。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "机械能守恒",
+      "动能与重力势能之和保持不变",
+      "在最低点机械能最小",
+      "重力做功会使机械能增加"
+    ]
+  },
+  {
+    "id": "p-q66",
+    "subject": "physics",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-16",
+      "p-17"
+    ],
+    "methodIds": [
+      "p-m-07"
+    ],
+    "stem": "关于串、并联电路，正确的是",
+    "answer": "AD",
+    "steps": [
+      "串联电流处处相等，A 正确。并联各支路电压相等，不是电流相等，B 错误。串联总电阻大于任一分电阻，C 说「总电阻小于任一分电阻」是并联的特点，错误。并联总电阻小于任一支路电阻，D 正确。故 A、D。"
+    ],
+    "analysis": {
+      "breakthrough": "串联电流相等、电压按电阻分配；并联电压相等、电流按电阻反比分配。",
+      "method": "先判断串还是并。",
+      "pitfalls": "把串并联的总电阻大小关系记反。",
+      "variant": "滑动变阻器限流是串联，分压是并联接法。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "串联电路中各处电流相等",
+      "并联电路中各支路电流一定相等",
+      "串联总电阻小于其中任何一个分电阻",
+      "并联总电阻小于其中任何一个分电阻"
+    ]
+  },
+  {
+    "id": "p-q67",
+    "subject": "physics",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-19",
+      "p-18"
+    ],
+    "methodIds": [
+      "p-m-08"
+    ],
+    "stem": "带电粒子垂直进入匀强磁场做匀速圆周运动，下列正确的是",
+    "answer": "BC",
+    "steps": [
+      "洛伦兹力垂直速度，不做功，动能不变，A 错误。半径 $r=\\dfrac{mv}{qB}$，B 正确。周期 $T=\\dfrac{2\\pi m}{qB}$，与速率无关，C 正确。洛伦兹力提供向心力，方向指向圆心，不是沿切线，D 错误。故 B、C。"
+    ],
+    "analysis": {
+      "breakthrough": "洛伦兹力不做功，半径和周期公式要记准。",
+      "method": "周期与 $v$ 无关是常见考点。",
+      "pitfalls": "做成周期与 $v$ 成正比。",
+      "variant": "加上平行于 $B$ 的速度分量，轨迹变为螺旋线。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "洛伦兹力做正功，动能增大",
+      "轨道半径 $r=\\dfrac{mv}{qB}$",
+      "周期与粒子速率无关",
+      "洛伦兹力沿轨迹切线方向"
+    ]
+  },
+  {
+    "id": "p-q68",
+    "subject": "physics",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-27",
+      "p-40"
+    ],
+    "methodIds": [
+      "p-m-12"
+    ],
+    "stem": "关于光电效应，正确的是",
+    "answer": "AC",
+    "steps": [
+      "存在截止频率，入射光频率必须大于截止频率，A 正确。光电子最大初动能 $E_k=h\\nu-W$，与光强无关，B 错误。光强大则单位时间光子数多，饱和电流大，C 正确。爱因斯坦光电方程是光子模型的重要证据，D 把光电效应说成「只能用波动性解释」错误。故 A、C。"
+    ],
+    "analysis": {
+      "breakthrough": "抓住截止频率、爱因斯坦方程和饱和电流与光强的关系。",
+      "method": "波动性解释不了截止频率和瞬时性。",
+      "pitfalls": "认为增大光强就能使最大初动能增大。",
+      "variant": "遏止电压 $eU_c=E_{km}$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "存在截止频率，低于它不能发生光电效应",
+      "增大入射光强度一定能使光电子最大初动能增大",
+      "入射光更强时，饱和光电流更大",
+      "光电效应只能用光的波动性解释"
+    ]
+  },
+  {
+    "id": "p-q69",
+    "subject": "physics",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-12"
+    ],
+    "methodIds": [
+      "p-m-05"
+    ],
+    "stem": "关于近地卫星（圆轨道，忽略地球自转），正确的是",
+    "answer": "AB",
+    "steps": [
+      "万有引力提供向心力：$G\\dfrac{Mm}{r^{2}}=m\\dfrac{v^{2}}{r}$，$v=\\sqrt{\\dfrac{GM}{r}}$，轨道越高速率越小，A 正确（近地比高轨道更快）。近地 $v=\\sqrt{gR}\\approx 7.9\\,\\mathrm{km/s}$，为第一宇宙速度，是圆轨道的最大环绕速度，B 正确。C：周期 $T=2\\pi\\sqrt{\\dfrac{r^{3}}{GM}}$，轨道越高周期越大，不是越小。D：失重不等于不受重力。故 A、B。"
+    ],
+    "analysis": {
+      "breakthrough": "环绕速度、周期与半径的关系由向心力公式导出。",
+      "method": "第一宇宙速度是近地圆轨道速度。",
+      "pitfalls": "把「越高越快」当成圆轨道的结论（那是错误直觉）。",
+      "variant": "第二宇宙速度是逃逸速度 $\\sqrt{2gR}\\approx 11.2\\,\\mathrm{km/s}$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "轨道半径越大，环绕速度越小",
+      "第一宇宙速度约为 $7.9\\,\\mathrm{km/s}$，是圆轨道环绕速度的最大值",
+      "轨道半径越大，周期越小",
+      "卫星处于完全失重，是因为不受地球引力"
+    ]
+  },
+  {
+    "id": "p-q70",
+    "subject": "physics",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-31",
+      "p-02"
+    ],
+    "methodIds": [
+      "p-m-01"
+    ],
+    "stem": "用打点计时器测定匀变速直线运动的加速度。电源频率为 $50\\,\\mathrm{Hz}$。在纸带上取连续的计数点 $A,B,C,D,E$，相邻计数点间有 $4$ 个点未画出，测得 $AB=2.40\\,\\mathrm{cm}$，$BC=3.00\\,\\mathrm{cm}$，$CD=3.60\\,\\mathrm{cm}$，$DE=4.20\\,\\mathrm{cm}$。\n（1）相邻计数点的时间间隔 $T$ 是多少？\n（2）求加速度 $a$（说明公式和过程）；\n（3）说明若实际频率略小于 $50\\,\\mathrm{Hz}$，所测 $a$ 偏大还是偏小。",
+    "answer": "（1）$0.1\\,\\mathrm{s}$；（2）$a=0.60\\,\\mathrm{m/s^2}$；（3）偏大。",
+    "steps": [
+      "相邻两点的打点间隔为 $0.02\\,\\mathrm{s}$，中间有 $4$ 个点未画出，则计数点间隔包含 $5$ 个打点周期，$T=0.10\\,\\mathrm{s}$。",
+      "匀变速直线运动：$\\Delta x=aT^{2}$。$BC-AB=CD-BC=DE-CD=0.60\\,\\mathrm{cm}=0.0060\\,\\mathrm{m}$，故 $a=\\dfrac{\\Delta x}{T^{2}}=\\dfrac{0.0060}{0.01}=0.60\\,\\mathrm{m/s^2}$。也可用逐差：$a=\\dfrac{(CD+DE)-(AB+BC)}{4T^{2}}=\\dfrac{(0.036+0.042)-(0.024+0.030)}{4\\times 0.01}=\\dfrac{0.024}{0.04}=0.60\\,\\mathrm{m/s^2}$。",
+      "计算时用了 $T=0.1\\,\\mathrm{s}$。若实际频率 $f<50\\,\\mathrm{Hz}$，实际周期更大，实际 $T$ 大于 $0.1\\,\\mathrm{s}$，仍按 $0.1\\,\\mathrm{s}$ 代入 $a=\\dfrac{\\Delta x}{T^{2}}$，分母偏小，所测 $a$ 偏大。"
+    ],
+    "analysis": {
+      "breakthrough": "先确定计数点时间间隔，再用 $\\Delta x=aT^{2}$ 或逐差法，最后做误差方向分析。",
+      "method": "纸带实验：时间间隔与加速度公式，误差看 $T$ 的使用。",
+      "pitfalls": "把「$4$ 个点未画出」当成 $T=0.08\\,\\mathrm{s}$，或单位未从 $\\mathrm{cm}$ 换到 $\\mathrm{m}$。",
+      "variant": "验证机械能守恒的纸带实验，同样要注意频率偏差带来的影响。"
+    },
+    "source": "精编练习",
+    "score": 15,
+    "rubric": [
+      {
+        "point": "正确得出 $T=0.10\\,\\mathrm{s}$",
+        "score": 3
+      },
+      {
+        "point": "正确求得 $a=0.60\\,\\mathrm{m/s^2}$，过程清楚",
+        "score": 8
+      },
+      {
+        "point": "判断所测 $a$ 偏大，并说明理由",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "p-q71",
+    "subject": "physics",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-31",
+      "p-16"
+    ],
+    "methodIds": [
+      "p-m-07"
+    ],
+    "stem": "用伏安法测金属丝电阻。电压表内阻很大，电流表内阻不可忽略。\n（1）为使测量值更接近真实值，应采用电流表外接还是内接？说明理由（已知待测电阻大约几十欧，远小于电压表内阻，与电流表内阻相比不是远远更大）。\n（2）某次外接时，电压表示数为 $3.00\\,\\mathrm{V}$，电流表示数为 $0.50\\,\\mathrm{A}$，求测量值 $R_{测}$；若采用外接，测量值与真实值相比偏大还是偏小？",
+    "answer": "（1）宜采用外接（待测电阻不大，电压表分流影响相对较小）；（2）$R_{测}=6.0\\,\\Omega$，外接时测量值偏小。",
+    "steps": [
+      "（1）电流表内接：电压表测的是 $R_x$ 与电流表的总电压，测量值 $R_{测}=R_x+R_A$，偏大。电流表外接：电流表测的是通过 $R_x$ 与电压表的总电流，测量值 $R_{测}=\\dfrac{R_x R_V}{R_x+R_V}<R_x$，偏小。待测电阻约几十欧，远小于电压表内阻（通常几千欧以上），分流影响小，宜用外接。",
+      "（2）$R_{测}=\\dfrac{U}{I}=\\dfrac{3.00}{0.50}=6.0\\,\\Omega$。外接时 $I$ 偏大（含电压表分流），故 $R_{测}$ 偏小。"
+    ],
+    "analysis": {
+      "breakthrough": "比较内接和外接的系统误差方向，再根据 $R_x$ 与 $R_A$、$R_V$ 的相对大小选择接法。",
+      "method": "伏安法测电阻的误差分析。",
+      "pitfalls": "把内接、外接的偏大偏小说反。",
+      "variant": "电流表应满足「内接测大电阻、外接测小电阻」的经验规则。"
+    },
+    "source": "精编练习",
+    "score": 12,
+    "rubric": [
+      {
+        "point": "正确选择外接并说明理由",
+        "score": 6
+      },
+      {
+        "point": "算出 $R_{测}=6.0\\,\\Omega$，并指出外接偏小",
+        "score": 6
+      }
+    ]
+  },
+  {
+    "id": "p-q72",
+    "subject": "physics",
+    "type": "essay",
+    "difficulty": 4,
+    "knowledgeIds": [
+      "p-08",
+      "p-09"
+    ],
+    "methodIds": [
+      "p-m-04"
+    ],
+    "stem": "质量 $m=2\\,\\mathrm{kg}$ 的物体从高 $h=5\\,\\mathrm{m}$ 的光滑斜面顶端由静止滑下，斜面底端与水平面平滑连接，水平面上与一轻弹簧（劲度系数 $k=200\\,\\mathrm{N/m}$）接触后将弹簧压缩。取 $g=10\\,\\mathrm{m/s^2}$，不计一切摩擦。\n（1）物体刚滑到斜面底端时的速率是多少？\n（2）弹簧的最大压缩量是多少？",
+    "answer": "（1）$10\\,\\mathrm{m/s}$；（2）$1\\,\\mathrm{m}$。",
+    "steps": [
+      "（1）斜面光滑，机械能守恒：$mgh=\\dfrac{1}{2}mv^{2}$，$v=\\sqrt{2gh}=\\sqrt{100}=10\\,\\mathrm{m/s}$。",
+      "（2）从顶端到弹簧最短，再机械能守恒：$mgh=\\dfrac{1}{2}kx^{2}$（水平面无摩擦，重力势能只在斜面上变化，到水平面后重力势能不变，弹性势能来自原来的重力势能）。$x=\\sqrt{\\dfrac{2mgh}{k}}=\\sqrt{\\dfrac{2\\times 2\\times 10\\times 5}{200}}=\\sqrt{1}=1\\,\\mathrm{m}$。"
+    ],
+    "analysis": {
+      "breakthrough": "光滑则机械能守恒，先求底端速度，再把重力势能全部转入弹性势能（水平面上）。",
+      "method": "机械能守恒的全程观点。",
+      "pitfalls": "在水平面上仍错误地加上 $mgh$，或用 $kx=mg$ 当成平衡位置的最大压缩。",
+      "variant": "最大压缩处速度为零。"
+    },
+    "source": "精编练习",
+    "score": 15,
+    "rubric": [
+      {
+        "point": "由机械能守恒求得 $v=10\\,\\mathrm{m/s}$",
+        "score": 6
+      },
+      {
+        "point": "求得最大压缩量 $1\\,\\mathrm{m}$，理由正确",
+        "score": 9
+      }
+    ]
+  },
+  {
+    "id": "p-q73",
+    "subject": "physics",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-19",
+      "p-06"
+    ],
+    "methodIds": [
+      "p-m-08",
+      "p-m-06"
+    ],
+    "stem": "电子（质量 $m$、电荷量 $e$）经加速电压 $U$ 加速后，垂直进入匀强磁场 $B$，做半径为 $R$ 的匀速圆周运动。\n（1）求电子进入磁场时的速率；\n（2）求 $B$ 与 $U$、$R$ 的关系；\n（3）求电子在磁场中运动的周期。",
+    "answer": "（1）$v=\\sqrt{\\dfrac{2eU}{m}}$；（2）$B=\\dfrac{1}{R}\\sqrt{\\dfrac{2mU}{e}}$；（3）$T=\\dfrac{2\\pi m}{eB}$。",
+    "steps": [
+      "加速过程电场力做功：$eU=\\dfrac{1}{2}mv^{2}$，故 $v=\\sqrt{\\dfrac{2eU}{m}}$。",
+      "洛伦兹力提供向心力：$evB=m\\dfrac{v^{2}}{R}$，$B=\\dfrac{mv}{eR}=\\dfrac{1}{R}\\sqrt{\\dfrac{2mU}{e}}$。",
+      "$T=\\dfrac{2\\pi R}{v}=\\dfrac{2\\pi m}{eB}$。"
+    ],
+    "analysis": {
+      "breakthrough": "先用动能定理求速率，再用向心力求 $B$，周期由定义或公式给出。",
+      "method": "电、磁结合的带电粒子运动。",
+      "pitfalls": "把 $eU=mv^{2}$ 漏掉 $\\dfrac{1}{2}$，或半径公式颠倒。",
+      "variant": "比荷 $\\dfrac{e}{m}$ 可用此法测量。"
+    },
+    "source": "精编练习",
+    "score": 16,
+    "rubric": [
+      {
+        "point": "正确求得速率",
+        "score": 5
+      },
+      {
+        "point": "正确求得 $B$ 的表达式",
+        "score": 6
+      },
+      {
+        "point": "正确写出周期",
+        "score": 5
+      }
+    ]
+  },
+  {
+    "id": "p-q74",
+    "subject": "physics",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-25",
+      "p-26"
+    ],
+    "methodIds": [
+      "p-m-11"
+    ],
+    "stem": "一定质量的理想气体从状态 $A(p_0,V_0,T_0)$ 先等容升温到压强 $2p_0$，再等压膨胀到体积 $2V_0$，最后回到可以比较的末态。\n（1）求等容升温后的温度；\n（2）求等压膨胀后的温度；\n（3）在 $p$-$V$ 图上定性画出这两步，并指出哪一步气体对外做功。",
+    "answer": "（1）$2T_0$；（2）$4T_0$；（3）等压膨胀对外做功，等容过程不做功。",
+    "steps": [
+      "等容：$\\dfrac{p}{T}=$ 常量，$\\dfrac{p_0}{T_0}=\\dfrac{2p_0}{T_1}$，$T_1=2T_0$。",
+      "等压：$\\dfrac{V}{T}=$ 常量，$\\dfrac{V_0}{T_1}=\\dfrac{2V_0}{T_2}$，$T_2=2T_1=4T_0$。或直接 $\\dfrac{pV}{T}=$ 常量，$T_2=T_0\\cdot\\dfrac{2p_0\\cdot 2V_0}{p_0 V_0}=4T_0$。",
+      "$p$-$V$ 图上：先是从 $(V_0,p_0)$ 竖直向上到 $(V_0,2p_0)$，再水平向右到 $(2V_0,2p_0)$。气体对外做功 $W_{外}=\\int p\\,\\mathrm{d}V$，等容 $\\mathrm{d}V=0$ 不做功；等压膨胀 $\\mathrm{d}V>0$，对外做功 $p\\Delta V=2p_0 V_0$。"
+    ],
+    "analysis": {
+      "breakthrough": "理想气体状态方程分段用，做功看体积是否变化。",
+      "method": "$p$-$V$ 图与过程分析。",
+      "pitfalls": "温度用成摄氏度直接比例，或把等压做成 $T_2=2T_0$。",
+      "variant": "循环问题时，闭合曲线面积等于净功。"
+    },
+    "source": "精编练习",
+    "score": 12,
+    "rubric": [
+      {
+        "point": "等容后温度为 $2T_0$",
+        "score": 3
+      },
+      {
+        "point": "等压后温度为 $4T_0$",
+        "score": 4
+      },
+      {
+        "point": "正确描述 $p$-$V$ 图并指出等压膨胀对外做功",
+        "score": 5
+      }
+    ]
+  },
+  {
+    "id": "p-q75",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-03"
+    ],
+    "methodIds": [
+      "p-m-01"
+    ],
+    "stem": "从地面竖直向上抛出物体，初速度 $20\\,\\mathrm{m/s}$，取 $g=10\\,\\mathrm{m/s^2}$，不计空气阻力，上升的最大高度是 ______ $\\mathrm{m}$。",
+    "answer": "$20$",
+    "steps": [
+      "$v^{2}=v_0^{2}-2gh=0$，$h=\\dfrac{v_0^{2}}{2g}=\\dfrac{400}{20}=20\\,\\mathrm{m}$。也可 $t=\\dfrac{v_0}{g}=2\\,\\mathrm{s}$，$h=v_0t-\\dfrac{1}{2}gt^{2}=40-20=20\\,\\mathrm{m}$。"
+    ],
+    "analysis": {
+      "breakthrough": "竖直上抛到最高点速度为零，用速度位移公式。",
+      "method": "上升和下落对称。",
+      "pitfalls": "做成 $h=v_0/g=2\\,\\mathrm{m}$。",
+      "variant": "落回原处的速率仍是 $20\\,\\mathrm{m/s}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "20",
+      "20m"
+    ]
+  },
+  {
+    "id": "p-q76",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-12"
+    ],
+    "methodIds": [
+      "p-m-05"
+    ],
+    "stem": "已知地球半径为 $R$，地面重力加速度为 $g$，则近地圆卫星的周期（用 $R,g$ 表示）是 ______。",
+    "answer": "$2\\pi\\sqrt{\\dfrac{R}{g}}$",
+    "steps": [
+      "近地轨道 $r\\approx R$，$G\\dfrac{Mm}{R^{2}}=m\\dfrac{4\\pi^{2}}{T^{2}}R$，且 $g=\\dfrac{GM}{R^{2}}$，故 $g=\\dfrac{4\\pi^{2}R}{T^{2}}$，$T=2\\pi\\sqrt{\\dfrac{R}{g}}$。"
+    ],
+    "analysis": {
+      "breakthrough": "近地把 $GM=gR^{2}$ 代入向心力公式。",
+      "method": "周期公式 $T=2\\pi\\sqrt{\\dfrac{r^{3}}{GM}}$。",
+      "pitfalls": "做成 $2\\pi\\sqrt{\\dfrac{g}{R}}$。",
+      "variant": "第一宇宙速度 $v=\\sqrt{gR}$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "alt": [
+      "2π√(R/g)",
+      "$2\\pi\\sqrt{R/g}$",
+      "2\\pi\\sqrt{R/g}"
+    ]
+  },
+  {
+    "id": "p-q77",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-03"
+    ],
+    "methodIds": [
+      "p-m-01"
+    ],
+    "stem": "物体从高度 $45\\,\\mathrm{m}$ 处自由落下，取 $g=10\\,\\mathrm{m/s^2}$，落到地面的时间是 ______ $\\mathrm{s}$。",
+    "answer": "$3$",
+    "steps": [
+      "$h=\\dfrac{1}{2}gt^{2}$，$45=5t^{2}$，$t^{2}=9$，$t=3\\,\\mathrm{s}$（取正）。"
+    ],
+    "analysis": {
+      "breakthrough": "自由落体 $h=\\dfrac{1}{2}gt^{2}$。",
+      "method": "落地速度 $v=gt=30\\,\\mathrm{m/s}$。",
+      "pitfalls": "做成 $t=\\dfrac{45}{10}=4.5\\,\\mathrm{s}$。",
+      "variant": "若有初速度就要用完整位移公式。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "3",
+      "3s"
+    ]
+  },
+  {
+    "id": "p-q78",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-24"
+    ],
+    "methodIds": [
+      "p-m-10"
+    ],
+    "stem": "光从空气斜射入玻璃，折射角与入射角相比",
+    "answer": "B",
+    "steps": [
+      "玻璃折射率大于空气，$n_1\\sin i=n_2\\sin r$，$n_2>n_1$，故 $r<i$，折射角小于入射角，光线靠拢法线。"
+    ],
+    "analysis": {
+      "breakthrough": "折射定律，光密介质中折射角更小。",
+      "method": "全反射只能从光密到光疏且入射角大于临界角。",
+      "pitfalls": "做成折射角更大。",
+      "variant": "临界角 $\\sin C=\\dfrac{1}{n}$（到空气）。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "折射角更大",
+      "折射角更小",
+      "折射角一定等于入射角",
+      "一定发生全反射"
+    ]
+  },
+  {
+    "id": "p-q79",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-27"
+    ],
+    "methodIds": [
+      "p-m-12"
+    ],
+    "stem": "某金属逸出功为 $2.0\\,\\mathrm{eV}$，入射光光子能量为 $3.0\\,\\mathrm{eV}$，则光电子最大初动能为 ______ $\\mathrm{eV}$。",
+    "answer": "$1.0$",
+    "steps": [
+      "$E_k=h\\nu-W=3.0-2.0=1.0\\,\\mathrm{eV}$。"
+    ],
+    "analysis": {
+      "breakthrough": "爱因斯坦光电方程。",
+      "method": "光子能量小于逸出功则不能逸出。",
+      "pitfalls": "做成 $5.0$ 或 $3.0$。",
+      "variant": "$1\\,\\mathrm{eV}=1.6\\times 10^{-19}\\,\\mathrm{J}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "1",
+      "1.0",
+      "1eV",
+      "1.0 eV"
+    ]
+  },
+  {
+    "id": "p-q80",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-08"
+    ],
+    "methodIds": [
+      "p-m-04"
+    ],
+    "stem": "质量 $2\\,\\mathrm{kg}$ 的物体在水平面上受 $10\\,\\mathrm{N}$ 的水平拉力移动 $3\\,\\mathrm{m}$，拉力做功为",
+    "answer": "B",
+    "steps": [
+      "$W=F s\\cos\\theta=10\\times 3\\times 1=30\\,\\mathrm{J}$。水平拉力与位移同向。"
+    ],
+    "analysis": {
+      "breakthrough": "功 $W=Fs\\cos\\theta$，注意夹角。",
+      "method": "不要把功率和功混淆。",
+      "pitfalls": "做成 $W=F/s$ 或 $20\\,\\mathrm{J}$。",
+      "variant": "若有摩擦，拉力做功仍是 $30\\,\\mathrm{J}$，但合外力功才等于动能变化。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "$10\\,\\mathrm{J}$",
+      "$30\\,\\mathrm{J}$",
+      "$6\\,\\mathrm{J}$",
+      "$15\\,\\mathrm{J}$"
+    ]
+  },
+  {
+    "id": "p-q81",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-15"
+    ],
+    "methodIds": [
+      "p-m-06"
+    ],
+    "stem": "平行板电容器电容 $C=2\\,\\mu\\mathrm{F}$，两极板电压 $U=10\\,\\mathrm{V}$，则所带电荷量 $Q$ 为 ______ $\\mu\\mathrm{C}$。",
+    "answer": "$20$",
+    "steps": [
+      "$Q=CU=2\\times 10=20\\,\\mu\\mathrm{C}$。"
+    ],
+    "analysis": {
+      "breakthrough": "电容定义式 $C=Q/U$ 对电容器普遍成立。",
+      "method": "决定式 $C=\\varepsilon S/d$ 用于平行板。",
+      "pitfalls": "做成 $Q=C/U=0.2$。",
+      "variant": "保持电荷量不变而增大间距时，电容减小、电压增大。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "20",
+      "20μC",
+      "20uC"
+    ]
+  },
+  {
+    "id": "p-q82",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-32"
+    ],
+    "methodIds": [
+      "p-m-07"
+    ],
+    "stem": "理想二极管的正向电阻可视为零、反向电阻可视为无穷大。把一只理想二极管与 $6\\,\\Omega$ 电阻串联后接到 $6\\,\\mathrm{V}$ 直流电源上，若二极管正向导通，电路中的电流是",
+    "answer": "C",
+    "steps": [
+      "正向导通时二极管电压降为 $0$，电路中只有 $6\\,\\Omega$ 电阻，$I=U/R=1\\,\\mathrm{A}$。"
+    ],
+    "analysis": {
+      "breakthrough": "理想二极管正向相当于导线，反向相当于断路。",
+      "method": "先判断极性再算电流。",
+      "pitfalls": "给二极管再串一个未知电阻。",
+      "variant": "实际硅管正向约有 $0.7\\,\\mathrm{V}$ 管压降，理想模型忽略它。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "$0$",
+      "$0.5\\,\\mathrm{A}$",
+      "$1\\,\\mathrm{A}$",
+      "$6\\,\\mathrm{A}$"
+    ]
+  },
+  {
+    "id": "p-q83",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-33"
+    ],
+    "methodIds": [
+      "p-m-01"
+    ],
+    "stem": "船在静水中的速度为 $4\\,\\mathrm{m/s}$，水流速度为 $3\\,\\mathrm{m/s}$。船头垂直河岸行驶时，船对地的速度大小是",
+    "answer": "B",
+    "steps": [
+      "合速度为垂直分速与水流的合成：$v=\\sqrt{4^{2}+3^{2}}=5\\,\\mathrm{m/s}$。船头垂直河岸，对地速度斜向下游。"
+    ],
+    "analysis": {
+      "breakthrough": "运动合成用平行四边形定则，分速度相互垂直时用勾股定理。",
+      "method": "过河时间由垂直河岸的分速度决定。",
+      "pitfalls": "做成 $4+3=7$ 或 $4-3=1$。",
+      "variant": "若要垂直到达对岸，船头应偏向上游。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "$4\\,\\mathrm{m/s}$",
+      "$5\\,\\mathrm{m/s}$",
+      "$7\\,\\mathrm{m/s}$",
+      "$3\\,\\mathrm{m/s}$"
+    ]
+  },
+  {
+    "id": "p-q84",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-34"
+    ],
+    "methodIds": [
+      "p-m-12"
+    ],
+    "stem": "卢瑟福α粒子散射实验的主要结论是",
+    "answer": "A",
+    "steps": [
+      "绝大多数α粒子几乎不偏转，少数有较大偏转，极少数甚至反弹，说明原子的质量和正电荷集中在很小的核上，即核式结构，A 正确。能级、轨道量子化是玻尔模型，光电效应是爱因斯坦光子说，电子衍射说明电子的波动性。"
+    ],
+    "analysis": {
+      "breakthrough": "α散射实验支持原子核式结构，不要与玻尔模型或波动性实验混淆。",
+      "method": "记住「大角度偏转极少」这一关键现象。",
+      "pitfalls": "把玻尔的能级假设说成卢瑟福的结论。",
+      "variant": "玻尔模型不能解释多电子原子的光谱，后由量子力学取代。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "原子的质量和正电荷集中在很小的核上",
+      "电子在一定能级的轨道上运动",
+      "光具有粒子性",
+      "电子具有波动性"
+    ]
+  },
+  {
+    "id": "p-q85",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-35"
+    ],
+    "methodIds": [
+      "p-m-04"
+    ],
+    "stem": "关于能量守恒定律，下列说法正确的是",
+    "answer": "C",
+    "steps": [
+      "能量既不会凭空产生，也不会凭空消失，只能从一种形式转化为另一种形式，或从一个物体转移到另一个物体，总量保持不变，C 正确。A、B 违背守恒。D：机械能是能量的一种形式，有摩擦时机械能可以转化为内能，机械能不守恒，但总能量仍守恒。"
+    ],
+    "analysis": {
+      "breakthrough": "机械能守恒是有条件的，能量守恒是普遍的。",
+      "method": "先分清「哪种能量」在守恒。",
+      "pitfalls": "把「机械能不守恒」说成「能量不守恒」。",
+      "variant": "核反应中质量亏损对应的能量由质能方程给出，总能量仍守恒。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "能量可以凭空产生",
+      "能量可以凭空消失",
+      "能量只能转化或转移，总量不变",
+      "机械能在任何情况下都守恒"
+    ]
+  },
+  {
+    "id": "p-q86",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-36"
+    ],
+    "methodIds": [
+      "p-m-08"
+    ],
+    "stem": "通电直导线垂直纸面向里，用安培定则判断，其周围磁场的磁感线在纸面内是",
+    "answer": "B",
+    "steps": [
+      "右手握住导线，拇指指向电流（向里），四指环绕方向为磁场方向，从纸外看是顺时针。"
+    ],
+    "analysis": {
+      "breakthrough": "安培定则：直导线用拇指指电流、四指环绕磁场；环形电流则相反。",
+      "method": "先画电流方向再套手。",
+      "pitfalls": "把顺时针和逆时针搞反，或左右手用错。",
+      "variant": "磁感线是闭合曲线，在磁体外部从 N 到 S，内部从 S 到 N。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "逆时针",
+      "顺时针",
+      "沿径向向外",
+      "沿径向向里"
+    ]
+  },
+  {
+    "id": "p-q87",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-37"
+    ],
+    "methodIds": [
+      "p-m-11"
+    ],
+    "stem": "一定质量的理想气体经历一个循环：从 $A$ 等容升压到 $B$，再等压膨胀到 $C$，最后直线回到 $A$。已知 $A(p_0,V_0)$，$B(2p_0,V_0)$，$C(2p_0,2V_0)$。该循环中气体对外做的净功是 ______（用 $p_0,V_0$ 表示）。",
+    "answer": "$\\dfrac{1}{2}p_0 V_0$",
+    "steps": [
+      "在 $p$-$V$ 图上，路径经过 $A(V_0,p_0)$、$B(V_0,2p_0)$、$C(2V_0,2p_0)$ 再回到 $A$，围成直角三角形，直角边分别为 $p_0$ 与 $V_0$。循环净功等于所围面积：$\\dfrac{1}{2}p_0 V_0$。",
+      "也可用过程计算：$A\\to B$ 等容，对外做功为 $0$；$B\\to C$ 等压膨胀，对外做功 $2p_0\\cdot V_0=2p_0V_0$；$C\\to A$ 沿直线 $p=\\dfrac{p_0}{V_0}V$，体积减小，对外做功 $\\int_{2V_0}^{V_0}p\\,\\mathrm{d}V=-\\dfrac{3}{2}p_0V_0$。净功 $2p_0V_0-\\dfrac{3}{2}p_0V_0=\\dfrac{1}{2}p_0V_0$。该循环在图上沿顺时针，气体对外净功为正。"
+    ],
+    "analysis": {
+      "breakthrough": "循环净功等于 $p$-$V$ 图所围面积，先画路径再算面积。",
+      "method": "正循环（顺时针）气体对外做正净功。",
+      "pitfalls": "漏算回程的功，或把矩形面积当成三角形。",
+      "variant": "热机效率 $\\eta=W/Q_{吸}$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "alt": [
+      "0.5p0V0",
+      "p0V0/2",
+      "$\\frac{1}{2}p_0V_0$",
+      "1/2 p_0 V_0",
+      "0.5p_0V_0",
+      "$\\dfrac{1}{2}p_0V_0$"
+    ]
+  },
+  {
+    "id": "p-q88",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-38"
+    ],
+    "methodIds": [
+      "p-m-02"
+    ],
+    "stem": "物体受三个共点力处于平衡。已知两个力的大小分别为 $3\\,\\mathrm{N}$ 和 $4\\,\\mathrm{N}$，则第三个力的大小可能是",
+    "answer": "C",
+    "steps": [
+      "三力平衡时，任一力与另外两力的合力等大反向。两个力的合力范围是 $[1,7]\\,\\mathrm{N}$，故第三个力大小也在 $1\\,\\mathrm{N}$ 到 $7\\,\\mathrm{N}$ 之间。$5\\,\\mathrm{N}$ 在此区间内（且 $3$、$4$、$5$ 可构成直角三角形，三力可闭合）。$0.5\\,\\mathrm{N}$ 和 $8\\,\\mathrm{N}$ 超出范围，$0$ 意味着另外两力必须等大反向，但 $3\\neq 4$。故选 C。"
+    ],
+    "analysis": {
+      "breakthrough": "三力平衡可化为力的三角形，第三力大小介于另两力之差与之和之间。",
+      "method": "先求另外两力合力的范围。",
+      "pitfalls": "做成必须等于 $7$ 或必须等于 $1$。",
+      "variant": "动态平衡常用相似三角形或正交分解。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "$0$",
+      "$0.5\\,\\mathrm{N}$",
+      "$5\\,\\mathrm{N}$",
+      "$8\\,\\mathrm{N}$"
+    ]
+  },
+  {
+    "id": "p-q89",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-39"
+    ],
+    "methodIds": [
+      "p-m-06"
+    ],
+    "stem": "关于电场线和等势面，下列说法正确的是",
+    "answer": "B",
+    "steps": [
+      "电场线从正电荷或无穷远出发，终止于负电荷或无穷远，不相交，A 错误。沿电场线方向电势降低，B 正确。等势面与电场线垂直，电荷沿等势面移动时电场力不做功，C 说「沿电场线移动电荷电场力一定不做功」错误。D：电场线密的地方场强大，但等势面密（电势差一定时）才对应场强大，不能说「等势面越密电势越高」。故 B。"
+    ],
+    "analysis": {
+      "breakthrough": "电场线方向即电势降低的方向，等势面与电场线垂直。",
+      "method": "先用定义判断，不要凭直觉。",
+      "pitfalls": "认为电场线就是电荷的运动轨迹（只有初速度为零或速度与场强共线的情况才沿电场线）。",
+      "variant": "匀强电场中等势面是一组垂直于电场线的平行平面。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "电场线可以在无电荷处相交",
+      "沿电场线方向，电势逐渐降低",
+      "电荷沿电场线移动时，电场力一定不做功",
+      "等势面越密集的地方，电势越高"
+    ]
+  },
+  {
+    "id": "p-q90",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-15"
+    ],
+    "methodIds": [
+      "p-m-06"
+    ],
+    "stem": "平行板电容器两极板正对面积增大为原来的 $2$ 倍，间距不变，介质不变，则电容变为原来的 ______ 倍。",
+    "answer": "$2$",
+    "steps": [
+      "平行板电容 $C=\\dfrac{\\varepsilon S}{d}$，$S$ 变为 $2S$，$C$ 变为原来的 $2$ 倍。"
+    ],
+    "analysis": {
+      "breakthrough": "用决定式 $C=\\varepsilon S/d$ 看哪个量在变。",
+      "method": "电荷量是否变化取决于是否与电源相连。",
+      "pitfalls": "做成与 $S$ 成反比。",
+      "variant": "保持与电源相连时 $U$ 不变，$Q=CU$ 随 $C$ 变。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "2",
+      "2倍"
+    ]
+  },
+  {
+    "id": "p-q91",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-11"
+    ],
+    "methodIds": [
+      "p-m-05"
+    ],
+    "stem": "质量 $0.2\\,\\mathrm{kg}$ 的小球用长 $0.5\\,\\mathrm{m}$ 的轻绳系于固定点，在光滑水平面上做匀速圆周运动，速率为 $2\\,\\mathrm{m/s}$。绳的拉力大小是 ______ $\\mathrm{N}$。",
+    "answer": "$1.6$",
+    "steps": [
+      "水平面光滑，拉力提供向心力：$T=m\\dfrac{v^2}{r}=0.2\\times\\dfrac{4}{0.5}=1.6\\\\,\\mathrm{N}$。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断向心力的来源，再用 $F_n=mv^2/r$。",
+      "method": "竖直平面内圆周运动最高、最低点要另外分析。",
+      "pitfalls": "做成 $T=mv^2$ 或忘记除以半径。",
+      "variant": "周期 $T=2\\pi r/v$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "1.6",
+      "1.6N"
+    ]
+  },
+  {
+    "id": "p-q92",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-10"
+    ],
+    "methodIds": [
+      "p-m-01"
+    ],
+    "stem": "从高 $20\\,\\mathrm{m}$ 的平台水平抛出小球，初速度 $10\\,\\mathrm{m/s}$，取 $g=10\\,\\mathrm{m/s^2}$，不计空气阻力。小球落地时的水平位移是",
+    "answer": "B",
+    "steps": [
+      "竖直方向：$h=\\dfrac{1}{2}gt^2$，$20=5t^2$，$t=2\\\\,\\mathrm{s}$。水平位移 $x=v_0 t=10\\times 2=20\\\\,\\mathrm{m}$。"
+    ],
+    "analysis": {
+      "breakthrough": "平抛分解：水平匀速，竖直自由落体。",
+      "method": "先由竖直高度求时间。",
+      "pitfalls": "做成 $x=v_0^2/g$ 或时间用 $t=h/v_0$。",
+      "variant": "落地速度 $v=\\sqrt{v_0^2+(gt)^2}=\\sqrt{100+400}=10\\sqrt{5}\\,\\mathrm{m/s}$。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "$10\\,\\mathrm{m}$",
+      "$20\\,\\mathrm{m}$",
+      "$40\\,\\mathrm{m}$",
+      "$5\\,\\mathrm{m}$"
+    ]
+  },
+  {
+    "id": "p-q93",
+    "subject": "physics",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-29",
+      "p-30"
+    ],
+    "methodIds": [
+      "p-m-04"
+    ],
+    "stem": "两个物体在光滑水平面上沿同一直线发生碰撞，下列说法正确的是",
+    "answer": "AC",
+    "steps": [
+      "光滑水平面，系统水平方向不受外力，动量守恒，A 正确。机械能是否守恒要看是否为弹性碰撞，B 说「一定守恒」错误。完全非弹性碰撞后共速，动能损失最大，但仍动量守恒，C 正确。D：动量是矢量，同向或反向都要带符号，不能只看大小相加。故 A、C。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断动量是否守恒（合外力），再判断机械能是否守恒（是否弹性）。",
+      "method": "一维碰撞注意规定正方向。",
+      "pitfalls": "把动量守恒和机械能守恒当成一回事。",
+      "variant": "反弹系数 $e$ 可用于补充方程。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "系统动量守恒",
+      "系统机械能一定守恒",
+      "若碰后粘在一起，动量仍守恒，动能有损失",
+      "动量是标量，只要大小之和不变即可"
+    ]
+  },
+  {
+    "id": "p-q94",
+    "subject": "physics",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-20",
+      "p-36"
+    ],
+    "methodIds": [
+      "p-m-09"
+    ],
+    "stem": "关于电磁感应，下列说法正确的是",
+    "answer": "BD",
+    "steps": [
+      "感应电流的磁场总是阻碍引起感应电流的磁通量的变化，这是楞次定律，「阻碍」不是「阻止」，A 错误（原磁场增加时感应磁场才相反，减少时则相同）。感应电动势 $E=n\\dfrac{\\Delta\\Phi}{\\Delta t}$，与回路电阻无关，B 正确。只有回路闭合时才有感应电流，但电动势可以在开路时存在，C 错误。导体棒垂直切割磁感线，$E=B\\ell v$，D 正确。故 B、D。"
+    ],
+    "analysis": {
+      "breakthrough": "先分清感应电动势和感应电流，再用楞次定律判断方向。",
+      "method": "磁通量变化可以来自 $B$ 或面积的变化。",
+      "pitfalls": "认为开路就没有感应电动势。",
+      "variant": "楞次定律的「阻碍」可通过「增反减同」来记忆。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "感应电流的磁场总是与原磁场方向相反",
+      "感应电动势的大小由磁通量的变化率决定",
+      "回路不闭合时，既没有感应电流，也没有感应电动势",
+      "导体棒垂直切割磁感线时，$E=B\\ell v$"
+    ]
+  },
+  {
+    "id": "p-q95",
+    "subject": "physics",
+    "type": "essay",
+    "difficulty": 4,
+    "knowledgeIds": [
+      "p-29",
+      "p-08"
+    ],
+    "methodIds": [
+      "p-m-04",
+      "p-m-03"
+    ],
+    "stem": "质量 $M=3\\,\\mathrm{kg}$ 的小车停在光滑水平面上，质量 $m=1\\,\\mathrm{kg}$ 的物块以 $v_0=4\\,\\mathrm{m/s}$ 的水平速度滑上小车。物块与小车之间的动摩擦因数 $\\mu=0.2$，取 $g=10\\,\\mathrm{m/s^2}$。小车足够长。\n（1）求系统最终的共同速度；\n（2）求物块在小车上滑行的距离。",
+    "answer": "（1）$1\\,\\mathrm{m/s}$；（2）$3\\,\\mathrm{m}$。",
+    "steps": [
+      "水平面光滑，系统水平动量守恒。取向右为正，最终共速 $v$，则 $mv_0=(M+m)v$，$v=\\dfrac{1\\times 4}{4}=1\\\\,\\mathrm{m/s}$。",
+      "滑动摩擦力 $f=\\mu mg=0.2\\times 1\\times 10=2\\\\,\\mathrm{N}$。系统动能的减少量等于克服摩擦力做的功（转化为内能）：$fs=\\dfrac{1}{2}mv_0^2-\\dfrac{1}{2}(M+m)v^2=8-2=6\\\\,\\mathrm{J}$，故 $s=\\dfrac{6}{2}=3\\\\,\\mathrm{m}$。"
+    ],
+    "analysis": {
+      "breakthrough": "先用动量守恒求共速，再用能量关系求相对滑行距离。",
+      "method": "小车足够长则一定能达到共速。",
+      "pitfalls": "对地位移和相对位移不分，或对小车用错动能定理。",
+      "variant": "也可用隔离法分别写动能定理再相加。"
+    },
+    "source": "精编练习",
+    "score": 15,
+    "rubric": [
+      {
+        "point": "由动量守恒求得共同速度 $1\\,\\mathrm{m/s}$",
+        "score": 6
+      },
+      {
+        "point": "求得相对滑行距离 $3\\,\\mathrm{m}$，过程正确",
+        "score": 9
+      }
+    ]
+  },
+  {
+    "id": "p-q96",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-21"
+    ],
+    "methodIds": [
+      "p-m-09"
+    ],
+    "stem": "理想变压器原线圈 $1000$ 匝、副线圈 $200$ 匝，原线圈接 $220\\,\\mathrm{V}$ 交流电压，则副线圈输出电压是 ______ $\\mathrm{V}$。",
+    "answer": "$44$",
+    "steps": [
+      "理想变压器 $\\dfrac{U_1}{U_2}=\\dfrac{n_1}{n_2}$，$U_2=220\\times\\dfrac{200}{1000}=44\\\\,\\mathrm{V}$。"
+    ],
+    "analysis": {
+      "breakthrough": "电压与匝数成正比，电流与匝数成反比，输入功率等于输出功率。",
+      "method": "先分清原、副线圈。",
+      "pitfalls": "做成 $U_2=220\\times 5=1100\\,\\mathrm{V}$。",
+      "variant": "变压器不能改变直流电压。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "44",
+      "44V"
+    ]
+  },
+  {
+    "id": "p-q97",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-22"
+    ],
+    "methodIds": [
+      "p-m-10"
+    ],
+    "stem": "弹簧振子的振幅为 $4\\,\\mathrm{cm}$，周期为 $2\\,\\mathrm{s}$，从平衡位置开始计时，位移公式中的圆频率 $\\omega$ 等于 ______ $\\mathrm{rad/s}$。",
+    "answer": "$\\pi$",
+    "steps": [
+      "$\\omega=\\dfrac{2\\pi}{T}=\\dfrac{2\\pi}{2}=\\pi\\\\,\\mathrm{rad/s}$。从平衡位置计时，$x=A\\sin(\\omega t)$（规定正方向后）。"
+    ],
+    "analysis": {
+      "breakthrough": "圆频率 $\\omega=2\\pi/T=2\\pi f$。",
+      "method": "振幅是最大位移，不是周期。",
+      "pitfalls": "做成 $\\omega=T/2\\pi$ 或 $\\omega=2$。",
+      "variant": "最大加速度 $a_m=\\omega^2 A$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "pi",
+      "π",
+      "3.14",
+      "$\\pi$",
+      "π rad/s"
+    ]
+  },
+  {
+    "id": "p-q98",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-23"
+    ],
+    "methodIds": [
+      "p-m-10"
+    ],
+    "stem": "两列频率相同、振动方向相同、相位差恒定的波相遇，能产生稳定干涉。若两波源相距 $3\\,\\mathrm{m}$，波长为 $2\\,\\mathrm{m}$，则两波源连线的中点是",
+    "answer": "A",
+    "steps": [
+      "中点到两波源的路程差为 $0$，是波长的整数倍，为振动加强点。稳定干涉还要求频率相同、振动方向相同、相位差恒定（相干）。"
+    ],
+    "analysis": {
+      "breakthrough": "路程差为波长整数倍则加强，为半波长奇数倍则减弱（相位相同的波源）。",
+      "method": "先算路程差再判断。",
+      "pitfalls": "把中点当成减弱点。",
+      "variant": "干涉和衍射都是波的特性，说明波可以叠加、可以绕过障碍。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "振动加强点",
+      "振动减弱点",
+      "一定是波节",
+      "无法判断"
+    ]
+  },
+  {
+    "id": "p-q99",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-28"
+    ],
+    "methodIds": [
+      "p-m-12"
+    ],
+    "stem": "$^{238}_{92}\\mathrm{U}$ 经过一次 $\\alpha$ 衰变，新核的质量数和电荷数分别是",
+    "answer": "B",
+    "steps": [
+      "$\\alpha$ 粒子是 $^4_2\\mathrm{He}$，质量数减 $4$，电荷数减 $2$，故新核为 $^{234}_{90}\\mathrm{Th}$，质量数 $234$，电荷数 $90$。"
+    ],
+    "analysis": {
+      "breakthrough": "衰变方程质量数和电荷数都守恒。",
+      "method": "$\\alpha$ 是氦核，$\\beta$ 是电子（电荷数加 $1$，质量数不变）。",
+      "pitfalls": "做成质量数减 $2$ 或电荷数减 $4$。",
+      "variant": "半衰期是大量原子核的统计规律，对单个核只是概率。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "$238$，$90$",
+      "$234$，$90$",
+      "$234$，$92$",
+      "$236$，$90$"
+    ]
+  },
+  {
+    "id": "p-q100",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "p-13"
+    ],
+    "methodIds": [
+      "p-m-06"
+    ],
+    "stem": "真空中两个点电荷的电荷量都是 $2\\times 10^{-8}\\,\\mathrm{C}$，相距 $0.3\\,\\mathrm{m}$。取 $k=9.0\\times 10^{9}\\,\\mathrm{N\\cdot m^2/C^2}$，它们之间的库仑力大小是 ______ $\\mathrm{N}$。",
+    "answer": "$4.0\\times 10^{-5}$",
+    "steps": [
+      "$F=k\\dfrac{q_1q_2}{r^2}=9.0\\times 10^{9}\\times\\dfrac{(2\\times 10^{-8})^2}{0.09}=9.0\\times 10^{9}\\times\\dfrac{4\\times 10^{-16}}{9\\times 10^{-2}}=4.0\\times 10^{-5}\\\\,\\mathrm{N}$。"
+    ],
+    "analysis": {
+      "breakthrough": "库仑定律 $F=kq_1q_2/r^2$，注意单位和国际单位制。",
+      "method": "先把数字整理成便于计算的形式。",
+      "pitfalls": "把 $r$ 忘记平方，或把 $0.3^2$ 做成 $0.3$。",
+      "variant": "库仑力是相互作用力，大小相等、方向相反。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "4e-5",
+      "4.0e-5",
+      "4×10^{-5}",
+      "4.0×10^{-5}",
+      "0.00004",
+      "4\\times 10^{-5}"
+    ]
   }
 ]
