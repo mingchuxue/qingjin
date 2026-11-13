@@ -606,7 +606,7 @@
           <p class="h1">青衿</p>
           <p class="lead">先选定高考模式和科目，后面的练习和计划会按你的选科来安排。这些随时可以在设置里改。</p>
           <label class="lbl">怎么称呼你（可选）</label>
-          <input class="field" id="ob-name" value="${esc(p.name)}" placeholder="例如：小陈" maxlength="16">
+          <input class="field" id="ob-name" value="${esc(p.name)}" placeholder="可以不填" maxlength="16">
           <div style="height:14px"></div>
           <label class="lbl">高考模式</label>
           <div class="choice-grid" style="grid-template-columns:1fr 1fr">
