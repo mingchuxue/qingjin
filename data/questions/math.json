@@ -1310,7 +1310,7 @@
       "variant": "再求直线 $AC$ 与平面 $A_1BB_1$ 所成的角。"
     },
     "source": "精编练习",
-    "score": 12,
+    "score": 15,
     "rubric": [
       {
         "point": "坐标正确：$C(2,2,0)$，$B_1(2,0,2)$",
@@ -3518,7 +3518,7 @@
       "variant": "也可用 $l=\\sqrt{1+k^{2}}\\cdot\\sqrt{(x_1-x_2)^{2}}=\\sqrt{2}\\cdot\\dfrac{\\sqrt{\\Delta}}{5}$ 来求弦长。"
     },
     "source": "精编练习",
-    "score": 15,
+    "score": 17,
     "rubric": [
       {
         "point": "正确得到关于 $x$ 的二次方程",
