@@ -1,0 +1,1071 @@
+[
+  {
+    "id": "en-01",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "名词、冠词与主谓一致",
+    "freq": "mid",
+    "examHow": "语法填空和短文改错常考冠词与单复数。",
+    "summary": "可数名词的单复数、不可数名词、以及 a / an / the / 零冠词的基本用法要熟练。主谓一致看意义，也看形式。",
+    "points": [
+      "特指用 the，泛指单数可数名词用 a / an，复数和不可数名词泛指时常不用冠词。",
+      "乐器、姓氏复数、独一无二的事物、序数词和最高级前常用 the。",
+      "主谓一致：就近原则（there be, or, either...or），以及 together with 等不影响前面主语的数；集体名词视意义可单可复。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "在特指已经提到的事物时漏掉 the。",
+      "把 news, maths, physics 当成复数。"
+    ],
+    "methodIds": [
+      "en-m-03",
+      "en-m-06"
+    ],
+    "relatedIds": [
+      "en-14"
+    ],
+    "questionIds": [
+      "en-q25"
+    ]
+  },
+  {
+    "id": "en-02",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "时态：一般、进行与完成",
+    "freq": "high",
+    "examHow": "语法填空给动词原形时，时态是第一判断。",
+    "summary": "先看时间状语和上下文的时间线，再决定用一般、进行还是完成，以及现在、过去还是将来。",
+    "points": [
+      "现在完成强调过去的动作与现在的联系（已经完成或从过去持续到现在），常与 already, yet, since, for, recently 连用，不用明确的过去时间（如 yesterday）。",
+      "过去完成表示「过去的过去」，常有 by the time, before 和另一过去动作作为参照。",
+      "现在进行可表正在进行，也可表近期安排；一般现在表习惯、事实和时刻表。"
+    ],
+    "formulas": [
+      "现在完成：过去与现在有关；过去完成：过去的过去。"
+    ],
+    "pitfalls": [
+      "有 yesterday, in 2010 等明确过去时间时误用现在完成。",
+      "把过去完成用在没有「过去参照」的句子里。"
+    ],
+    "methodIds": [
+      "en-m-01",
+      "en-m-06"
+    ],
+    "relatedIds": [
+      "en-03",
+      "en-04"
+    ],
+    "questionIds": [
+      "en-q01",
+      "en-q02",
+      "en-q11"
+    ]
+  },
+  {
+    "id": "en-03",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "被动语态",
+    "freq": "high",
+    "examHow": "语法填空中，当主语是动作的承受者时要用被动。",
+    "summary": "被动：be + 过去分词，be 的形式随时间和数变化。不及物动词没有被动。",
+    "points": [
+      "注意短语动词的介词或副词不能丢，如 The children are taken good care of。",
+      "部分动词用主动形式表被动意义：sell, write, wash 等与 way, easily 连用时；以及 be worth doing, need doing。",
+      "情态动词的被动是 modal + be + done。"
+    ],
+    "formulas": [
+      "先判断主被动，再判断时态。"
+    ],
+    "pitfalls": [
+      "不及物动词（happen, appear, take place）误用被动。",
+      "漏掉 be 或用错过去分词。"
+    ],
+    "methodIds": [
+      "en-m-01"
+    ],
+    "relatedIds": [
+      "en-02"
+    ],
+    "questionIds": [
+      "en-q02",
+      "en-q03"
+    ]
+  },
+  {
+    "id": "en-04",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "情态动词",
+    "freq": "mid",
+    "examHow": "推测语气和「本该」类用法是难点。",
+    "summary": "can / could / may / might / must / should / will / shall / need / dare 要分清「能力、许可、请求、义务、推测」。",
+    "points": [
+      "对现在的肯定推测用 must，否定推测用 can't（不是 mustn't）。对过去的推测用 modal + have done。",
+      "should have done / ought to have done 表示「本该做却没做」；needn't have done 表示「本不必做却做了」。",
+      "mustn't 表示禁止，needn't 表示不必。"
+    ],
+    "formulas": [
+      "can't 表否定推测；mustn't 表禁止。"
+    ],
+    "pitfalls": [
+      "用 mustn't 表示「不可能」。",
+      "把 should have done 理解成将来。"
+    ],
+    "methodIds": [
+      "en-m-01"
+    ],
+    "relatedIds": [
+      "en-13"
+    ],
+    "questionIds": [
+      "en-q04"
+    ]
+  },
+  {
+    "id": "en-05",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "非谓语动词：不定式与动名词",
+    "freq": "high",
+    "examHow": "非谓语是语法填空和改错的高频。",
+    "summary": "不定式 to do 常表目的、将来或具体动作；动名词 doing 常表习惯、抽象或已发生。有些动词只接不定式，有些只接动名词，有些两者都可以但意义不同。",
+    "points": [
+      "只接不定式的动词：decide, expect, hope, afford, refuse, offer, promise, pretend, manage 等。",
+      "只接动名词：enjoy, finish, avoid, mind, practise, suggest, keep, give up, look forward to, be used to 等。注意 to 是介词。",
+      "remember / forget / stop / try / mean / regret / go on 接 to do 与 doing 意义不同，要记清。",
+      "不定式的复合结构 for sb. to do；疑问词 + to do。"
+    ],
+    "formulas": [
+      "look forward to, be used to, lead to 中的 to 是介词，后接 doing。"
+    ],
+    "pitfalls": [
+      "看见 to 一律接动词原形。",
+      "forget to do（忘了要做）和 forget doing（忘了做过）记反。"
+    ],
+    "methodIds": [
+      "en-m-02"
+    ],
+    "relatedIds": [
+      "en-06"
+    ],
+    "questionIds": [
+      "en-q05",
+      "en-q23",
+      "en-q29"
+    ]
+  },
+  {
+    "id": "en-06",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "非谓语动词：分词",
+    "freq": "high",
+    "examHow": "作定语、状语和宾补时，现在分词与过去分词的选择是考点。",
+    "summary": "现在分词 doing 表主动、进行；过去分词 done 表被动、完成；having done 表主动且先于谓语发生。",
+    "points": [
+      "作定语：a developing country（正在发展），a developed country（已经发达）。",
+      "作状语：分词的逻辑主语要与句子主语一致，否则用独立主格或改成状语从句。",
+      "make / have / let / see / hear / feel 等后的宾补：省 to 的不定式表全过程，doing 表正在，done 表被动。",
+      "with + 宾语 + 分词 / 不定式 / 形容词，是常见的独立结构。"
+    ],
+    "formulas": [
+      "逻辑主语必须与句子主语一致。"
+    ],
+    "pitfalls": [
+      "把 Seen from the hill, the city... 错写成 Seeing（人才能 seeing，city 是被看）。",
+      "having done 与 done 不分时间先后。"
+    ],
+    "methodIds": [
+      "en-m-02"
+    ],
+    "relatedIds": [
+      "en-05"
+    ],
+    "questionIds": [
+      "en-q06",
+      "en-q29"
+    ]
+  },
+  {
+    "id": "en-07",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "定语从句",
+    "freq": "high",
+    "examHow": "关系词的选择和限制性与非限制性是必考。",
+    "summary": "先行词是人用 who / whom / that，是物用 which / that；在从句中作定语用 whose。关系副词 when, where, why 在从句中作状语，相当于介词 + which。",
+    "points": [
+      "that 不能用于非限制性定语从句，也不能直接放在介词后面。",
+      "先行词被 the only, the very, 序数词、最高级修饰，或既有人又有物，或为 all, everything, nothing 等时，多用 that。",
+      "as 引导非限制性定语从句可位于句首，常与 such, the same 搭配；which 的非限制性从句不能放句首。",
+      "先行词是地点，但关系词在从句中作主语或宾语时，仍用 which / that，不用 where。"
+    ],
+    "formulas": [
+      "先看先行词，再看关系词在从句中充当什么成分。"
+    ],
+    "pitfalls": [
+      "地点先行词一律用 where，不看它在从句中的成分。",
+      "在非限制性从句里用 that。"
+    ],
+    "methodIds": [
+      "en-m-03"
+    ],
+    "relatedIds": [
+      "en-08"
+    ],
+    "questionIds": [
+      "en-q07",
+      "en-q24"
+    ]
+  },
+  {
+    "id": "en-08",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "名词性从句",
+    "freq": "high",
+    "examHow": "主语从句、宾语从句、表语从句和同位语从句的引导词是语法填空常客。",
+    "summary": "that 只起连接作用，没有意义，在主语、表语、同位语从句中一般不省略；if 不能引导主语从句（位于句首时）和同位语从句，这时用 whether。",
+    "points": [
+      "what 在从句中作成分，意为「……的事物」；that 不作成分。这是 what 与 that 的根本区别。",
+      "同位语从句常用在 fact, news, idea, suggestion, doubt 等后面，对名词的内容加以说明，连接词 that 不作成分；定语从句的 that 作成分。",
+      "it 作形式主语、形式宾语，真正的主语或宾语是后面的从句或不定式。"
+    ],
+    "formulas": [
+      "what 作成分，that 不作成分。"
+    ],
+    "pitfalls": [
+      "句首的主语从句用 if。",
+      "把同位语从句当成定语从句，或在有成分缺失时用 that。"
+    ],
+    "methodIds": [
+      "en-m-03"
+    ],
+    "relatedIds": [
+      "en-09"
+    ],
+    "questionIds": [
+      "en-q08"
+    ]
+  },
+  {
+    "id": "en-09",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "状语从句",
+    "freq": "high",
+    "examHow": "连词的逻辑（时间、条件、让步、结果、目的）是完形和语法填空的交汇点。",
+    "summary": "时间：when, while, as, before, after, until, since, as soon as, the moment。条件：if, unless, as long as, provided that。让步：although, though, even if, no matter how / however, whatever。",
+    "points": [
+      "主句是将来时，时间和条件状语从句常用一般现在表将来（「主将从现」）。",
+      "because 与 so、although 与 but 不能同时出现在同一句。",
+      "so...that 与 such...that 的结构不同：so + 形容词 / 副词，such + 名词。",
+      "until 在肯定句中，主句动词一般是延续性的；not...until 可与强调句、倒装连用。"
+    ],
+    "formulas": [
+      "主将从现；because 不与 so 连用。"
+    ],
+    "pitfalls": [
+      "在 if 从句里再用 will 表示将来（意愿除外）。",
+      "however 后直接加句子，忘记 however + 形容词 / 副词 + 主语 + 谓语。"
+    ],
+    "methodIds": [
+      "en-m-03"
+    ],
+    "relatedIds": [
+      "en-08",
+      "en-12"
+    ],
+    "questionIds": [
+      "en-q09",
+      "en-q28"
+    ]
+  },
+  {
+    "id": "en-10",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "倒装与强调",
+    "freq": "mid",
+    "examHow": "书面语和读后续写的高级句式常用到倒装和强调。",
+    "summary": "完全倒装：表示地点或方位的副词、介词短语位于句首，且主语是名词时，如 Here comes the bus。部分倒装：否定词位于句首、only + 状语位于句首、so / neither / nor 位于句首等。",
+    "points": [
+      "否定词：never, hardly, seldom, little, at no time, in no case, not only, no sooner, hardly...when。",
+      "only 修饰主语时不倒装，修饰状语才倒装。",
+      "强调句：It is / was + 被强调部分 + that / who + 其余部分。判断方法是去掉 It is...that 后句子仍完整。",
+      "not until 的强调和倒装形式要记清。"
+    ],
+    "formulas": [
+      "去掉 It is...that 仍完整，才是强调句。"
+    ],
+    "pitfalls": [
+      "only 修饰主语时也倒装。",
+      "把定语从句或主语从句误判成强调句。"
+    ],
+    "methodIds": [
+      "en-m-11"
+    ],
+    "relatedIds": [
+      "en-13"
+    ],
+    "questionIds": [
+      "en-q12"
+    ]
+  },
+  {
+    "id": "en-11",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "虚拟语气",
+    "freq": "mid",
+    "examHow": "条件句和表示「建议、要求、命令」的从句是考查重点。",
+    "summary": "与现在相反：if + 过去式（be 用 were），主句 would / could / might + 动词原形。与过去相反：if + had done，主句 would have done。与将来相反：if + were to / should + 动词原形，或过去式。",
+    "points": [
+      "if 省略时，把 were, had, should 提到主语前。",
+      "wish, if only, as if 后的时态类似虚拟。suggest, insist, require, demand, order 后的 that 从句用 (should) + 动词原形；但 suggest 表示「表明」、insist 表示「坚持认为」时用陈述语气。",
+      "It is time that 后用过去式或 should do。"
+    ],
+    "formulas": [
+      "先判断是与现在、过去还是将来相反。"
+    ],
+    "pitfalls": [
+      "suggest 表示「表明」时仍误用虚拟。",
+      "从句与主句的时间不一致时（错综条件）不会调整。"
+    ],
+    "methodIds": [
+      "en-m-11"
+    ],
+    "relatedIds": [
+      "en-04"
+    ],
+    "questionIds": [
+      "en-q13",
+      "en-q14"
+    ]
+  },
+  {
+    "id": "en-12",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "词汇",
+    "title": "短语动词与固定搭配",
+    "freq": "high",
+    "examHow": "完形填空和读后续写的准确性很大程度取决于搭配。",
+    "summary": "动词 + 介词 / 副词的短语要成组积累，注意及物与不及物、可分离与不可分离。",
+    "points": [
+      "常见：look up / out / after / forward to / down on；give in / up / away / out；put off / up with / forward；take off / in / up / over。",
+      "形容词与介词：be familiar with / to，be known for / as / to，be anxious about。",
+      "介词短语：in spite of, as a result of, in terms of, on account of, with regard to。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "把 look forward to 后面接动词原形。",
+      "只记汉语意思，不记是不是及物。"
+    ],
+    "methodIds": [
+      "en-m-06",
+      "en-m-12"
+    ],
+    "relatedIds": [
+      "en-05"
+    ],
+    "questionIds": [
+      "en-q27"
+    ]
+  },
+  {
+    "id": "en-13",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "词汇",
+    "title": "词义、词性与构词",
+    "freq": "mid",
+    "examHow": "语法填空给提示词时，要判断该用哪种词性、是否比较级或否定前缀。",
+    "summary": "先看空格在句中的语法位置：主语和宾语用名词，修饰名词用形容词，修饰动词或形容词用副词。",
+    "points": [
+      "常见词缀：-tion, -ment, -ness, -er 构成名词；-ful, -less, -ive, -ous 构成形容词；-ly 构成副词；un-, in-, im-, dis-, mis- 表否定或相反。",
+      "注意不规则变化：success — successful — successfully；true — truly（不是 truely）。",
+      "根据语境选择近义词中最准确的一个，完形尤其如此。"
+    ],
+    "formulas": [
+      "先定词性，再变形，最后看是否要否定或比较。"
+    ],
+    "pitfalls": [
+      "在动词位置放了形容词。",
+      "true 的副词写成 truely。"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "relatedIds": [
+      "en-24"
+    ],
+    "questionIds": [
+      "en-q10"
+    ]
+  },
+  {
+    "id": "en-14",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "特殊句式与省略",
+    "freq": "base",
+    "examHow": "省略和一致使句子更紧凑，也是改错的出题点。",
+    "summary": "在时间、条件状语从句中，若从句主语与主句相同且有 be，可省略主语和 be，如 While (he was) walking。比较级中的省略、不定式中保留 to 的省略也常见。",
+    "points": [
+      "so / such...that、too...to、enough to 的结构要完整。",
+      "反意疑问句：前肯后否，前否后肯，注意否定词 hardly, seldom, few 已经是否定。",
+      "祈使句、感叹句的结构和反意疑问（Let's..., shall we?）。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "带有 seldom 的句子再用否定的反意疑问。"
+    ],
+    "methodIds": [
+      "en-m-03"
+    ],
+    "relatedIds": [
+      "en-10"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "en-15",
+    "subject": "english",
+    "module": "阅读",
+    "chapter": "策略",
+    "title": "阅读：主旨大意",
+    "freq": "high",
+    "examHow": "主旨题要覆盖全文，不能只抓住某一段的细节。",
+    "summary": "主旨常在首段的末句、尾段或各段首句的综合。标题题既要概括，又要与文章的语气相符，不能过大或过小。",
+    "points": [
+      "先排除明显只谈某一段的选项。",
+      "注意作者的态度：是介绍、赞成、批评还是客观说明，标题和主旨要与态度一致。",
+      "议论文抓论点和结论，说明文抓说明对象和目的，记叙文抓事件和从中体现的意义。"
+    ],
+    "formulas": [
+      "主旨必须能覆盖全文的主要段落。"
+    ],
+    "pitfalls": [
+      "把某一段的细节当成全文主旨。",
+      "选一个范围过大、文章并未讨论的标题。"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "relatedIds": [
+      "en-16",
+      "en-17"
+    ],
+    "questionIds": [
+      "en-q15"
+    ]
+  },
+  {
+    "id": "en-16",
+    "subject": "english",
+    "module": "阅读",
+    "chapter": "策略",
+    "title": "阅读：细节理解",
+    "freq": "high",
+    "examHow": "细节题是数量最多的阅读题，关键在于定位和比对。",
+    "summary": "根据题干关键词（专有名词、数字、特殊用词）回到原文定位，把选项与原文逐点比较，警惕同义替换和偷换。",
+    "points": [
+      "正确选项常常是原文的同义转述，不是原词简单重现，也不是无中生有。",
+      "注意否定词、范围限定和比较级，这些最容易被改动。",
+      "一事一问，不要用另一段的信息回答这一题。"
+    ],
+    "formulas": [
+      "关键词定位，选项与原文比对。"
+    ],
+    "pitfalls": [
+      "凭印象答题，或把文中未说的常识加进去。"
+    ],
+    "methodIds": [
+      "en-m-04",
+      "en-m-10"
+    ],
+    "relatedIds": [
+      "en-15"
+    ],
+    "questionIds": [
+      "en-q15",
+      "en-q16"
+    ]
+  },
+  {
+    "id": "en-17",
+    "subject": "english",
+    "module": "阅读",
+    "chapter": "策略",
+    "title": "阅读：推理判断与态度",
+    "freq": "high",
+    "examHow": "推断题必须「从原文出发，比字面多一步，但不能跨两步」。",
+    "summary": "问的是可以合理推出的内容，不是原文的直接陈述，也不是过度推断。态度题关注形容词、语气和是否有转折。",
+    "points": [
+      "如果选项只是原文的复述，它通常不是推断题的答案（那是细节题）。",
+      "作者态度常见：supportive, critical, objective, concerned, optimistic, cautious。中性词未必对，要看全文是否真的中立。",
+      "推断人物的意图或下文将写什么，要依据已给出的线索。"
+    ],
+    "formulas": [
+      "推断：有根据，但不停留在字面。"
+    ],
+    "pitfalls": [
+      "选择原文明确写过的句子当作「推断」。",
+      "根据只言片语给作者加上激烈的态度。"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "relatedIds": [
+      "en-15",
+      "en-18"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "en-18",
+    "subject": "english",
+    "module": "阅读",
+    "chapter": "策略",
+    "title": "阅读：词义猜测",
+    "freq": "mid",
+    "examHow": "词义题要利用上下文的定义、举例、对比和逻辑来猜。",
+    "summary": "破折号、同位语、定语从句、that is, for example 常常给出定义或例释；but, however, rather than 给出对比；因果连词给出逻辑。",
+    "points": [
+      "把候选词义代回原句，看是否通顺，并符合全文话题。",
+      "构词法（前缀后缀）可以辅助，但不能离开语境。",
+      "代词指代题要向上找最近的、数和意义都吻合的名词。"
+    ],
+    "formulas": [
+      "先看上下文，再看构词。"
+    ],
+    "pitfalls": [
+      "只根据自己认识的词根选择，不顾上下文。"
+    ],
+    "methodIds": [
+      "en-m-10",
+      "en-m-04"
+    ],
+    "relatedIds": [
+      "en-16"
+    ],
+    "questionIds": [
+      "en-q16"
+    ]
+  },
+  {
+    "id": "en-19",
+    "subject": "english",
+    "module": "阅读",
+    "chapter": "七选五",
+    "title": "七选五的衔接与逻辑",
+    "freq": "high",
+    "examHow": "七选五考查段落内部和段落之间的衔接，是新高考的稳定题型。",
+    "summary": "抓空前后的指代（this, these, such, they）、词汇复现、逻辑关系（转折、因果、例证、总分）和句式结构（问句与答句、并列）。",
+    "points": [
+      "段首空常常是总起句或与上段的过渡；段尾空常常是总结、过渡到下一段。",
+      "如果空后有 this / these + 名词，选项里应出现该名词所指的具体内容。",
+      "先做有明显线索的空，再做剩下的，最后把七个选项都代入通读。"
+    ],
+    "formulas": [
+      "指代、复现、逻辑、位置，四条一起看。"
+    ],
+    "pitfalls": [
+      "只看空前一句，忽略空后的指代。",
+      "选了内容相关但人称或单复数对不上的句子。"
+    ],
+    "methodIds": [
+      "en-m-05"
+    ],
+    "relatedIds": [
+      "en-20"
+    ],
+    "questionIds": [
+      "en-q17",
+      "en-q18"
+    ]
+  },
+  {
+    "id": "en-20",
+    "subject": "english",
+    "module": "阅读",
+    "chapter": "完形",
+    "title": "完形填空的思路",
+    "freq": "high",
+    "examHow": "完形既考词汇搭配，更考上下文的逻辑和感情色彩。",
+    "summary": "先通读全文，了解大意和感情走向，再逐空选择。许多空在本句看四个选项都对，必须看前后句。",
+    "points": [
+      "注意感情色彩：积极还是消极，与全文故事的走向一致。",
+      "固定搭配要熟，但不能只靠搭配，不顾逻辑。",
+      "故事类完形关注人物的态度变化，说明类关注概念之间的关系。"
+    ],
+    "formulas": [
+      "先通读，再选词；以文意为主，搭配为辅。"
+    ],
+    "pitfalls": [
+      "只看单句的语法是否通，不看段落的感情。"
+    ],
+    "methodIds": [
+      "en-m-07",
+      "en-m-12"
+    ],
+    "relatedIds": [
+      "en-12"
+    ],
+    "questionIds": [
+      "en-q19"
+    ]
+  },
+  {
+    "id": "en-21",
+    "subject": "english",
+    "module": "语言运用",
+    "chapter": "语法填空",
+    "title": "语法填空的解题步骤",
+    "freq": "high",
+    "examHow": "语法填空是新高考的稳定题型，每空都有明确考点。",
+    "summary": "有提示词：先判断词性（动词要考虑时态、语态、非谓语、主谓一致；形容词副词考虑比较级和词性转换）。无提示词：考虑冠词、介词、连词、代词、固定搭配。",
+    "points": [
+      "做完后把全文读一遍，检查时态是否与时间线一致，名词单复数和主谓是否一致。",
+      "纯空（无提示）通常一词，且多为功能词。",
+      "书写注意第三人称单数、过去式不规则变化和分词形式。"
+    ],
+    "formulas": [
+      "有提示先看词性和句子成分，无提示先看功能词。"
+    ],
+    "pitfalls": [
+      "把该用非谓语的地方写成了谓语，造成一个句子两个谓语。"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "relatedIds": [
+      "en-02",
+      "en-13"
+    ],
+    "questionIds": [
+      "en-q10",
+      "en-q11",
+      "en-q25",
+      "en-q31"
+    ]
+  },
+  {
+    "id": "en-22",
+    "subject": "english",
+    "module": "写作",
+    "chapter": "应用文",
+    "title": "应用文写作",
+    "freq": "high",
+    "examHow": "应用文首先是完成交际任务，格式和要点一个都不能少。",
+    "summary": "先审清：写给谁、为什么写、必须覆盖哪些要点、用什么语气。常见类型：建议、邀请、申请、告知、感谢、咨询、报道。",
+    "points": [
+      "开头说明写信目的，中间按要点分段写全，结尾礼貌收束并期待回复（如需要）。",
+      "覆盖所有要点，可合理增加细节，但不要写与任务无关的长篇。",
+      "注意称呼、落款和作文字数，语言准确得体，少用生造的大词。"
+    ],
+    "formulas": [
+      "目的 + 全部要点 + 得体的开头结尾。"
+    ],
+    "pitfalls": [
+      "漏掉一个要点；称呼和语气与对象不符（对老师过于随便，对同学过于生硬）。"
+    ],
+    "methodIds": [
+      "en-m-08"
+    ],
+    "relatedIds": [
+      "en-23"
+    ],
+    "questionIds": [
+      "en-q20",
+      "en-q32"
+    ]
+  },
+  {
+    "id": "en-23",
+    "subject": "english",
+    "module": "写作",
+    "chapter": "读后续写",
+    "title": "读后续写的情节与语言",
+    "freq": "high",
+    "examHow": "读后续写是新高考的重点写作题，分值和区分度都高。",
+    "summary": "先读懂原文的人物、冲突、情感线和已经给出的两段首句，续写必须与原文和这两个首句衔接，两段之间也要连贯，并在结尾给出合理的收束。",
+    "points": [
+      "情节合情合理，不引入与原文无关的新人物或突然的神转折；人物的性格要前后一致。",
+      "两段首句已经规定了方向，不要写完第一段却接不上第二段的首句。",
+      "语言上多用动作、心理、对话和感官细节，适当运用从句和分词，但首先保证正确；情感要落地，不要堆砌与情节无关的华丽句子。",
+      "词数通常要求 150 左右，两段大致均衡。"
+    ],
+    "formulas": [
+      "先定结局和两段各自的任务，再写细节。"
+    ],
+    "pitfalls": [
+      "忽略给出的段首句；结尾没有收束；只讲事件没有心理和细节。"
+    ],
+    "methodIds": [
+      "en-m-09"
+    ],
+    "relatedIds": [
+      "en-22",
+      "en-35"
+    ],
+    "questionIds": [
+      "en-q21",
+      "en-q22"
+    ]
+  },
+  {
+    "id": "en-24",
+    "subject": "english",
+    "module": "语言运用",
+    "chapter": "改错",
+    "title": "短文改错的常见考点",
+    "freq": "mid",
+    "examHow": "部分试卷仍有短文改错，考点高度规律化。",
+    "summary": "每行（或全文限定改动次数）常见：时态、名词单复数、冠词、介词、形容词副词、连词、代词、非谓语、主谓一致。",
+    "points": [
+      "先通读把握时态和逻辑，再逐句查。",
+      "注意：实词的词性用错、从句连词用错、及物动词后漏宾语。",
+      "按题目要求的符号改，不要改变原意去大幅改写。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "改动了没有错误的地方，或在一句里改了多处却漏了真正的错。"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "relatedIds": [
+      "en-21"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "en-25",
+    "subject": "english",
+    "module": "阅读",
+    "chapter": "语言",
+    "title": "长难句分析",
+    "freq": "mid",
+    "examHow": "读不懂长句是阅读和七选五做错的常见原因。",
+    "summary": "先找主句的主谓宾，再剥离从句、非谓语、介词短语和插入语，把修饰成分挂回中心词。",
+    "points": [
+      "看到 who, which, that, although, because 先划出从句的范围。",
+      "多个 and 并列时，看并列的是词、短语还是句子。",
+      "把长句按意群断开，不要从第一个单词线性硬读到最后。"
+    ],
+    "formulas": [
+      "先主干，后修饰。"
+    ],
+    "pitfalls": [
+      "把从句里的动词当成主句的谓语，造成结构混乱。"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "relatedIds": [
+      "en-07"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "en-26",
+    "subject": "english",
+    "module": "写作",
+    "chapter": "语言",
+    "title": "衔接词与书面表达的连贯",
+    "freq": "mid",
+    "examHow": "书面表达的层次要靠衔接词和指代表清楚。",
+    "summary": "常用：however, therefore, as a result, in addition, for example, in other words, on the other hand, meanwhile, as for。不要每句都用巨大的连接词，但段与段之间应有呼应。",
+    "points": [
+      "先把要点按逻辑排序（时间、重要程度、因果），再选择合适的衔接。",
+      "指代要清楚，不要满篇 this 却找不到所指。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "把 however 和 therefore 用反；或每句都以 Besides 开头。"
+    ],
+    "methodIds": [
+      "en-m-08"
+    ],
+    "relatedIds": [
+      "en-22"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "en-27",
+    "subject": "english",
+    "module": "交际与文化",
+    "chapter": "交际",
+    "title": "日常交际与得体表达",
+    "freq": "base",
+    "examHow": "对话和书面语都要注意场合与礼貌。",
+    "summary": "请求、道歉、感谢、建议、拒绝，都有相对固定的得体表达。正式信函不要用过于口语的缩略和俚语。",
+    "points": [
+      "提出建议：I suggest that..., You'd better..., Why not..., Would you consider...。",
+      "拒绝要先感谢或表示理解，再说明理由，并给出替代办法。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "对不熟悉的长辈或机构使用过于随便的语气。"
+    ],
+    "methodIds": [
+      "en-m-08"
+    ],
+    "relatedIds": [
+      "en-22"
+    ],
+    "questionIds": [
+      "en-q32"
+    ]
+  },
+  {
+    "id": "en-28",
+    "subject": "english",
+    "module": "听力与策略",
+    "chapter": "策略",
+    "title": "听力与信息记录的方法",
+    "freq": "base",
+    "examHow": "即使在书面练习中，预读题目和抓住关键信息的习惯也适用于听力。",
+    "summary": "先读题干和选项，预测可能听到的关键词（时间、地点、数字、原因、态度）。听时记要点，不要试图写下每一个词。",
+    "points": [
+      "数字、时间、电话要注意干扰信息（先说一个再更正）。",
+      "对话的问题往往在后半或在语气转折之后。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "被第一个出现的数字吸引，忽略后来的更正。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "en-16"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "en-29",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "词汇",
+    "title": "易混词与近义词",
+    "freq": "mid",
+    "examHow": "完形和写作中，近义词的细微差别常被用来设空。",
+    "summary": "如 arise / rise / raise / arouse；affect / effect；spend / cost / take / pay；worthwhile / worth / worthy；historic / historical；economic / economical。要记搭配和对象。",
+    "points": [
+      "raise 是及物，rise 是不及物。spend 的主语是人，cost 的主语是物。",
+      "积累时连同例句一起记，不要只记汉语对应词。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "把 rise 当成及物动词加宾语。"
+    ],
+    "methodIds": [
+      "en-m-07",
+      "en-m-12"
+    ],
+    "relatedIds": [
+      "en-12"
+    ],
+    "questionIds": [
+      "en-q19"
+    ]
+  },
+  {
+    "id": "en-30",
+    "subject": "english",
+    "module": "应考策略",
+    "chapter": "时间",
+    "title": "试卷时间与检查",
+    "freq": "base",
+    "examHow": "新高考英语通常是 120 分钟，要给写作留足时间。",
+    "summary": "一种稳妥安排：阅读和七选五大约 40 分钟，完形和语法填空大约 25—30 分钟，应用文约 15 分钟，读后续写约 25—30 分钟，留几分钟检查动词形式和要点是否写全。",
+    "points": [
+      "写作先列要点或情节提纲，再落笔，避免写到一半发现与段首句冲突。",
+      "检查重点：动词时态、名词单复数、句子是否有谓语、应用文要点是否齐全。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "把时间耗在阅读的一道难题上，压缩续写时间。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "en-23"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "en-31",
+    "subject": "english",
+    "module": "阅读",
+    "chapter": "文体",
+    "title": "不同文体的阅读重点",
+    "freq": "mid",
+    "examHow": "说明文、议论文、记叙文和应用文的设题重点不同。",
+    "summary": "说明文抓住说明对象、特征和目的；议论文抓住论点和论据；记叙文抓住情节转折和人物变化；应用文（广告、通知）抓住关键信息（时间、条件、对象）。",
+    "points": [
+      "先用一两句话判断文体和文章目的，再做题。",
+      "应用文阅读常常可以直接定位数字和专有名词。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "用读小说的方式读说明文，把说明对象的一个例子当成全文主旨。"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "relatedIds": [
+      "en-15"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "en-32",
+    "subject": "english",
+    "module": "写作",
+    "chapter": "语言",
+    "title": "书面表达的语言提升",
+    "freq": "mid",
+    "examHow": "在正确的基础上，用多样的句式可以提升作文档次。",
+    "summary": "可以把简单句合并为定语从句、状语从句或非谓语；用强调句或倒装突出关键信息；用具体的动词替换很泛的 do, make, very nice。",
+    "points": [
+      "提升的前提是正确。一个华丽但错误的句子，不如一个正确的简单句。",
+      "读后续写多用感官和动作：whisper, glance, freeze, tremble, burst into a smile，少用空洞的 very sad。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "为了使用从句而写出结构混乱的长句。"
+    ],
+    "methodIds": [
+      "en-m-09"
+    ],
+    "relatedIds": [
+      "en-23"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "en-33",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "比较等级与倍数",
+    "freq": "base",
+    "examHow": "比较级、最高级和倍数表达是语法填空的常见细节。",
+    "summary": "比较级 + than，the + 最高级；比较级前可用 much, even, far, a lot，不能用 very, more（本身已是比较级时）。",
+    "points": [
+      "倍数：A is three times as large as B；A is three times larger than B（意义需按教材和题目约定理解，写作中优先用 as...as 以免歧义）；A is three times the size of B。",
+      "the + 比较级，the + 比较级：越……越……。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "在已经是比较级的 taller 前再加 more。"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "relatedIds": [
+      "en-13"
+    ],
+    "questionIds": [
+      "en-q26"
+    ]
+  },
+  {
+    "id": "en-34",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "语法",
+    "title": "it 的用法",
+    "freq": "mid",
+    "examHow": "形式主语、形式宾语、强调和时间天气，是 it 的几大用法，容易混淆。",
+    "summary": "It is + adj. + to do / that...；I find it + adj. + to do；It is / was + 被强调部分 + that...；以及时间、天气、距离。",
+    "points": [
+      "形式宾语的结构是：动词 + it + 宾补 + 真正宾语（不定式或从句），不能省略 it。",
+      "强调句与 it 作形式主语的区别：强调句去掉 It is...that 后仍完整。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "I find difficult to... 漏掉 it。"
+    ],
+    "methodIds": [
+      "en-m-11"
+    ],
+    "relatedIds": [
+      "en-10",
+      "en-08"
+    ],
+    "questionIds": [
+      "en-q30"
+    ]
+  },
+  {
+    "id": "en-35",
+    "subject": "english",
+    "module": "写作",
+    "chapter": "读后续写",
+    "title": "续写中的人物情感与对话",
+    "freq": "high",
+    "examHow": "续写的感染力往往来自具体的情感变化和得体的对话。",
+    "summary": "情感要用动作和身体反应来写：hands trembling, eyes widening, a long silence，而不是反复使用 He was very happy。对话要符合人物身份，并推动情节。",
+    "points": [
+      "两段可以分别对应「冲突的发展」和「解决与感悟」，但感悟要短而自然，不要变成演讲。",
+      "与原文已有的细节（物品、地点、一句话）形成照应，会显得衔接紧密。"
+    ],
+    "formulas": [
+      "用动作写情感；用照应连接原文。"
+    ],
+    "pitfalls": [
+      "结尾突然出现与前文无关的「人生哲理」段落。"
+    ],
+    "methodIds": [
+      "en-m-09"
+    ],
+    "relatedIds": [
+      "en-23"
+    ],
+    "questionIds": [
+      "en-q21"
+    ]
+  },
+  {
+    "id": "en-36",
+    "subject": "english",
+    "module": "语言知识",
+    "chapter": "词汇",
+    "title": "高频话题词汇（学校、社会、环境、科技）",
+    "freq": "base",
+    "examHow": "写作和阅读的话题相对集中，相关词汇要能主动使用。",
+    "summary": "学校生活、志愿服务、传统文化、环境保护、科技进步、健康与运动、家庭与成长，是应用文和阅读的常见话题。",
+    "points": [
+      "每个话题准备一批可写的动词和名词，以及两三个可用的句式，避免临时搜索中文对应词。",
+      "注意英式与教材常用拼写的一致，如 neighbour 或 neighbor 按题目要求，一篇内保持统一。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "用中式英语硬译，如把「学习知识」写成 learn knowledge（更自然的是 learn / acquire knowledge 要谨慎，常用 learn about, study）。"
+    ],
+    "methodIds": [
+      "en-m-08"
+    ],
+    "relatedIds": [
+      "en-22"
+    ],
+    "questionIds": []
+  }
+]

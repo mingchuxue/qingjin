@@ -4,6 +4,16 @@
     "questions": 52,
     "methods": 18
   },
+  "chinese": {
+    "knowledge": 36,
+    "questions": 32,
+    "methods": 12
+  },
+  "english": {
+    "knowledge": 36,
+    "questions": 32,
+    "methods": 12
+  },
   "physics": {
     "knowledge": 40,
     "questions": 32,
@@ -15,6 +25,21 @@
     "methods": 12
   },
   "biology": {
+    "knowledge": 36,
+    "questions": 32,
+    "methods": 12
+  },
+  "politics": {
+    "knowledge": 36,
+    "questions": 32,
+    "methods": 12
+  },
+  "history": {
+    "knowledge": 36,
+    "questions": 32,
+    "methods": 12
+  },
+  "geography": {
     "knowledge": 36,
     "questions": 32,
     "methods": 12
