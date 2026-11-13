@@ -855,7 +855,25 @@
         </div>
       </div>`;
   }
-  function stripHtml(s){ return String(s||"").replace(/<[^>]+>/g," ").replace(/\$+/g,"").replace(/\s+/g," ").trim(); }
+  function stripHtml(s){
+    s = String(s||"").replace(/<[^>]+>/g," ");
+    s = s.replace(/\$+/g,"");
+    s = s.replace(/\\(mathrm|text|textbf|textit|mathbf|mathbb|mathcal|overline|underline|boldsymbol|overrightarrow|vec|hat|bar|tilde)\{([^{}]*)\}/g,"$2");
+    s = s.replace(/\\(dfrac|frac|tfrac)\{([^{}]*)\}\{([^{}]*)\}/g,"$2/$3");
+    s = s.replace(/\\sqrt\{([^{}]*)\}/g,"√$1");
+    s = s.replace(/\\(quad|qquad|,|;|:|~)/g," ");
+    s = s.replace(/\\circ/g,"°");
+    s = s.replace(/\\infty/g,"∞");
+    s = s.replace(/\\(le|leq)/g,"≤");
+    s = s.replace(/\\(ge|geq)/g,"≥");
+    s = s.replace(/\\(times|cdot)/g,"×");
+    s = s.replace(/\\[a-zA-Z]+/g,"");
+    s = s.replace(/\^\{([^{}]*)\}/g,"$1");
+    s = s.replace(/\^(\w)/g,"$1");
+    s = s.replace(/_\{([^{}]*)\}/g,"$1");
+    s = s.replace(/[{}]/g,"");
+    return s.replace(/\s+/g," ").trim();
+  }
 
   /* ---------- methods ---------- */
   function pageMethods() {
@@ -925,11 +943,15 @@
   }
 
   function pickQuestions({mode, subject, kid, mid, qid, n=10, diff}) {
-    let pool = subject && subject!=="all" ? subjectQuestions(subject) : allQuestions().filter(q => isSelected(q.subject));
-    if (kid) pool = pool.filter(q => (q.knowledgeIds||[]).includes(kid));
-    if (mid) pool = pool.filter(q => (q.methodIds||[]).includes(mid));
-    if (qid) pool = pool.filter(q => q.id===qid);
-    if (diff) pool = pool.filter(q => String(q.difficulty)===String(diff));
+    let pool;
+    if (qid) {
+      pool = allQuestions().filter(q => q.id===qid);
+    } else {
+      pool = subject && subject!=="all" ? subjectQuestions(subject) : allQuestions().filter(q => isSelected(q.subject));
+      if (kid) pool = pool.filter(q => (q.knowledgeIds||[]).includes(kid));
+      if (mid) pool = pool.filter(q => (q.methodIds||[]).includes(mid));
+      if (diff) pool = pool.filter(q => String(q.difficulty)===String(diff));
+    }
     const arr = [...pool];
     if (mode==="rand" || mode==="quiz" || mode==="mixed") {
       for (let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; }
@@ -993,7 +1015,8 @@
     const sel = selectedSubjects();
     const subject = q.subject || (sel[0]||"math");
     if (mode==="one" && q.qid) {
-      startSession({mode:"one", qid:q.qid, n:1, title:"单题练习"});
+      const ok = startSession({mode:"one", qid:q.qid, n:1, title:"单题练习"});
+      if (!ok) return empty("没有找到这道题","题目可能已调整，或数据尚未载入。","#/practice","返回刷题");
       return `<div class="empty">正在打开题目…</div>`;
     }
     if (mode==="wrong") {
@@ -1135,7 +1158,7 @@
         <div class="an-box"><h4>易错提醒</h4><p>${trusted(an.pitfalls||"")}</p></div>
         <div class="an-box"><h4>变式</h4><p>${trusted(an.variant||"")}</p></div>
       </div>
-      ${q.rubric?`<h3>评分标准</h3><ul>${q.rubric.map(r=>`<li>${esc(r.point)}（${r.score} 分）</li>`).join("")}</ul>`:""}
+      ${q.rubric?`<h3>评分标准</h3><ul>${q.rubric.map(r=>`<li>${esc(r.point||r.item||"")}（${r.score} 分）</li>`).join("")}</ul>`:""}
       ${reason}
       <div class="meta-row" style="margin-top:12px">
         ${(q.knowledgeIds||[]).map(id=>DATA.kpIndex[id]?`<a class="chip" href="#/knowledge/${DATA.kpIndex[id].subject}/${id}">${esc(DATA.kpIndex[id].title)}</a>`:"").join("")}

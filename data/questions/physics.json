@@ -103,17 +103,17 @@
     "methodIds": [
       "p-m-02"
     ],
-    "stem": "质量 $2\\,\\mathrm{kg}$ 的物体静止在倾角 $30^\\\\circ$ 的固定斜面上，取 $g=10\\,\\mathrm{m/s^2}$。物体对斜面的压力大小是 $\\underline{\\qquad}\\,\\mathrm{N}$。",
-    "answer": "$10\\\\sqrt{3}$",
+    "stem": "质量 $2\\,\\mathrm{kg}$ 的物体静止在倾角 $30^\\circ$ 的固定斜面上，取 $g=10\\,\\mathrm{m/s^2}$。物体对斜面的压力大小是 $\\underline{\\qquad}\\,\\mathrm{N}$。",
+    "answer": "$10\\sqrt{3}$",
     "steps": [
-      "垂直斜面方向平衡，支持力 $N=mg\\\\cos 30^\\\\circ=20\\\\times\\\\dfrac{\\\\sqrt{3}}{2}=10\\\\sqrt{3}\\,\\mathrm{N}$。",
-      "由牛顿第三定律，物体对斜面的压力大小也是 $10\\\\sqrt{3}\\,\\mathrm{N}$。"
+      "垂直斜面方向平衡，支持力 $N=mg\\cos 30^\\circ=20\\times\\dfrac{\\sqrt{3}}{2}=10\\sqrt{3}\\,\\mathrm{N}$。",
+      "由牛顿第三定律，物体对斜面的压力大小也是 $10\\sqrt{3}\\,\\mathrm{N}$。"
     ],
     "analysis": {
       "breakthrough": "压力等于重力垂直斜面的分力（无垂直斜面的加速度时）。",
       "method": "受力分析。",
-      "pitfalls": "用成 $mg\\\\sin 30^\\\\circ=10$，或把 $\\\\cos 30^\\\\circ$ 写成 $\\\\dfrac{1}{2}$。",
-      "variant": "沿斜面的静摩擦力为 $mg\\\\sin 30^\\\\circ=10\\,\\mathrm{N}$。"
+      "pitfalls": "用成 $mg\\sin 30^\\circ=10$，或把 $\\cos 30^\\circ$ 写成 $\\dfrac{1}{2}$。",
+      "variant": "沿斜面的静摩擦力为 $mg\\sin 30^\\circ=10\\,\\mathrm{N}$。"
     },
     "source": "精编练习",
     "score": 5,
@@ -139,8 +139,8 @@
     "stem": "光滑水平面上，质量分别为 $2\\,\\mathrm{kg}$ 和 $3\\,\\mathrm{kg}$ 的两物体用轻绳连接，用 $10\\,\\mathrm{N}$ 的水平拉力拉 $3\\,\\mathrm{kg}$ 的物体，则绳的拉力大小是",
     "answer": "B",
     "steps": [
-      "整体加速度 $a=\\\\dfrac{10}{2+3}=2\\,\\mathrm{m/s^2}$。",
-      "隔离 $2\\,\\mathrm{kg}$ 的物体：$T=ma=2\\\\times 2=4\\,\\mathrm{N}$。"
+      "整体加速度 $a=\\dfrac{10}{2+3}=2\\,\\mathrm{m/s^2}$。",
+      "隔离 $2\\,\\mathrm{kg}$ 的物体：$T=ma=2\\times 2=4\\,\\mathrm{N}$。"
     ],
     "analysis": {
       "breakthrough": "先整体求 $a$，再隔离求内力。",
@@ -171,7 +171,7 @@
     "stem": "质量 $2\\,\\mathrm{kg}$ 的物体速度为 $4\\,\\mathrm{m/s}$，其动能是 $\\underline{\\qquad}\\,\\mathrm{J}$。",
     "answer": "16",
     "steps": [
-      "$E_k=\\\\dfrac{1}{2}mv^2=\\\\dfrac{1}{2}\\\\times 2\\\\times 16=16\\,\\mathrm{J}$。"
+      "$E_k=\\dfrac{1}{2}mv^2=\\dfrac{1}{2}\\times 2\\times 16=16\\,\\mathrm{J}$。"
     ],
     "analysis": {
       "breakthrough": "直接套动能定义。",
@@ -228,14 +228,14 @@
     "stem": "取 $g=10\\,\\mathrm{m/s^2}$。在 $5\\,\\mathrm{m}$ 高处水平抛出的物体，初速度为 $4\\,\\mathrm{m/s}$，则落地时的水平位移是 $\\underline{\\qquad}\\,\\mathrm{m}$。",
     "answer": "4",
     "steps": [
-      "落地时间由高度决定：$t=\\\\sqrt{2h/g}=\\\\sqrt{1}=1\\,\\mathrm{s}$。",
-      "水平位移 $x=v_0 t=4\\\\times 1=4\\,\\mathrm{m}$。"
+      "落地时间由高度决定：$t=\\sqrt{2h/g}=\\sqrt{1}=1\\,\\mathrm{s}$。",
+      "水平位移 $x=v_0 t=4\\times 1=4\\,\\mathrm{m}$。"
     ],
     "analysis": {
       "breakthrough": "平抛的时间由竖直方向决定。",
       "method": "运动合成。",
       "pitfalls": "用 $x=v_0\\sqrt{h/g}$ 漏掉 $2$。",
-      "variant": "落地竖直分速度 $v_y=gt=10\\,\\mathrm{m/s}$，合速度 $\\\\sqrt{16+100}=\\\\sqrt{116}=2\\\\sqrt{29}\\,\\mathrm{m/s}$。"
+      "variant": "落地竖直分速度 $v_y=gt=10\\,\\mathrm{m/s}$，合速度 $\\sqrt{16+100}=\\sqrt{116}=2\\sqrt{29}\\,\\mathrm{m/s}$。"
     },
     "source": "精编练习",
     "score": 5
@@ -254,21 +254,21 @@
     "stem": "轻绳系一小球在竖直平面内做圆周运动，半径为 $R$，取 $g$ 为重力加速度。小球刚好能通过最高点，则它在最高点的速率是",
     "answer": "C",
     "steps": [
-      "绳模型在最高点“刚好”时绳的拉力为零，重力提供向心力：$mg=m\\\\dfrac{v^2}{R}$，故 $v=\\\\sqrt{gR}$。"
+      "绳模型在最高点“刚好”时绳的拉力为零，重力提供向心力：$mg=m\\dfrac{v^2}{R}$，故 $v=\\sqrt{gR}$。"
     ],
     "analysis": {
       "breakthrough": "抓住“刚好通过”对应拉力为零。",
       "method": "向心力来源。",
-      "pitfalls": "用成杆模型的 $v=0$，或写成 $\\\\sqrt{2gR}$（那是从与圆心等高处下摆到最低点的速度量级，不是本题）。",
+      "pitfalls": "用成杆模型的 $v=0$，或写成 $\\sqrt{2gR}$（那是从与圆心等高处下摆到最低点的速度量级，不是本题）。",
       "variant": "若是轻杆，最高点最小速率可以为 $0$。"
     },
     "source": "精编练习",
     "score": 5,
     "options": [
       "$0$",
-      "$\\\\sqrt{2gR}$",
-      "$\\\\sqrt{gR}$",
-      "$\\\\sqrt{5gR}$"
+      "$\\sqrt{2gR}$",
+      "$\\sqrt{gR}$",
+      "$\\sqrt{5gR}$"
     ]
   },
   {
@@ -282,10 +282,10 @@
     "methodIds": [
       "p-m-05"
     ],
-    "stem": "取地球半径 $R=6.4\\\\times 10^6\\,\\mathrm{m}$，地面重力加速度 $g=10\\,\\mathrm{m/s^2}$。第一宇宙速度约为 $\\underline{\\qquad}\\,\\mathrm{m/s}$。（填整数）",
+    "stem": "取地球半径 $R=6.4\\times 10^6\\,\\mathrm{m}$，地面重力加速度 $g=10\\,\\mathrm{m/s^2}$。第一宇宙速度约为 $\\underline{\\qquad}\\,\\mathrm{m/s}$。（填整数）",
     "answer": "8000",
     "steps": [
-      "$v_1=\\\\sqrt{gR}=\\\\sqrt{10\\\\times 6.4\\\\times 10^6}=\\\\sqrt{6.4\\\\times 10^7}=8.0\\\\times 10^3\\,\\mathrm{m/s}$。"
+      "$v_1=\\sqrt{gR}=\\sqrt{10\\times 6.4\\times 10^6}=\\sqrt{6.4\\times 10^7}=8.0\\times 10^3\\,\\mathrm{m/s}$。"
     ],
     "analysis": {
       "breakthrough": "第一宇宙速度等于近地环绕速度 $\\sqrt{gR}$。",
@@ -313,10 +313,10 @@
     "methodIds": [
       "p-m-06"
     ],
-    "stem": "真空中两个点电荷的电荷量都是 $1.0\\\\times 10^{-6}\\,\\mathrm{C}$，相距 $1.0\\,\\mathrm{m}$，则它们之间库仑力的大小是 $\\underline{\\qquad}\\,\\mathrm{N}$。（$k=9.0\\\\times 10^9\\,\\mathrm{N\\\\cdot m^2/C^2}$）",
-    "answer": "$9.0\\\\times 10^{-3}$",
+    "stem": "真空中两个点电荷的电荷量都是 $1.0\\times 10^{-6}\\,\\mathrm{C}$，相距 $1.0\\,\\mathrm{m}$，则它们之间库仑力的大小是 $\\underline{\\qquad}\\,\\mathrm{N}$。（$k=9.0\\times 10^9\\,\\mathrm{N\\cdot m^2/C^2}$）",
+    "answer": "$9.0\\times 10^{-3}$",
     "steps": [
-      "$F=k\\\\dfrac{q_1 q_2}{r^2}=9.0\\\\times 10^9\\\\times\\\\dfrac{(1.0\\\\times 10^{-6})^2}{1}=9.0\\\\times 10^{-3}\\,\\mathrm{N}$。"
+      "$F=k\\dfrac{q_1 q_2}{r^2}=9.0\\times 10^9\\times\\dfrac{(1.0\\times 10^{-6})^2}{1}=9.0\\times 10^{-3}\\,\\mathrm{N}$。"
     ],
     "analysis": {
       "breakthrough": "直接套库仑定律。",
@@ -345,12 +345,12 @@
     "methodIds": [
       "p-m-06"
     ],
-    "stem": "匀强电场的场强为 $200\\,\\mathrm{N/C}$，电荷量 $1.0\\\\times 10^{-6}\\,\\mathrm{C}$ 的正电荷沿场强方向移动 $5.0\\,\\mathrm{cm}$，电场力做的功是 $\\underline{\\qquad}\\,\\mathrm{J}$。",
-    "answer": "$1.0\\\\times 10^{-5}$",
+    "stem": "匀强电场的场强为 $200\\,\\mathrm{N/C}$，电荷量 $1.0\\times 10^{-6}\\,\\mathrm{C}$ 的正电荷沿场强方向移动 $5.0\\,\\mathrm{cm}$，电场力做的功是 $\\underline{\\qquad}\\,\\mathrm{J}$。",
+    "answer": "$1.0\\times 10^{-5}$",
     "steps": [
-      "$U=Ed=200\\\\times 0.050=10\\,\\mathrm{V}$。",
-      "$W=qU=1.0\\\\times 10^{-6}\\\\times 10=1.0\\\\times 10^{-5}\\,\\mathrm{J}$。",
-      "或 $W=qEd=1.0\\\\times 10^{-6}\\\\times 200\\\\times 0.050=1.0\\\\times 10^{-5}\\,\\mathrm{J}$。"
+      "$U=Ed=200\\times 0.050=10\\,\\mathrm{V}$。",
+      "$W=qU=1.0\\times 10^{-6}\\times 10=1.0\\times 10^{-5}\\,\\mathrm{J}$。",
+      "或 $W=qEd=1.0\\times 10^{-6}\\times 200\\times 0.050=1.0\\times 10^{-5}\\,\\mathrm{J}$。"
     ],
     "analysis": {
       "breakthrough": "匀强电场沿场强方向 $U=Ed$，再 $W=qU$。",
@@ -381,7 +381,7 @@
     "stem": "电源电动势 $12\\,\\mathrm{V}$、内阻 $1.0\\,\\Omega$，外接电阻 $5.0\\,\\Omega$，则电路中的电流是",
     "answer": "B",
     "steps": [
-      "$I=\\\\dfrac{E}{R+r}=\\\\dfrac{12}{5+1}=2.0\\,\\mathrm{A}$。"
+      "$I=\\dfrac{E}{R+r}=\\dfrac{12}{5+1}=2.0\\,\\mathrm{A}$。"
     ],
     "analysis": {
       "breakthrough": "闭合电路欧姆定律，分母是内外电阻之和。",
@@ -413,7 +413,7 @@
     "answer": "12",
     "steps": [
       "串联总电阻 $9\\,\\Omega$，电流 $I=18/9=2\\,\\mathrm{A}$，故 $U_6=IR=12\\,\\mathrm{V}$。",
-      "或按分压：$U_6=\\\\dfrac{6}{3+6}\\\\times 18=12\\,\\mathrm{V}$。"
+      "或按分压：$U_6=\\dfrac{6}{3+6}\\times 18=12\\,\\mathrm{V}$。"
     ],
     "analysis": {
       "breakthrough": "串联分压与电阻成正比。",
@@ -438,7 +438,7 @@
     "stem": "磁感应强度 $0.50\\,\\mathrm{T}$ 的匀强磁场中，长 $0.40\\,\\mathrm{m}$ 的直导线垂直磁场放置，通有 $2.0\\,\\mathrm{A}$ 的电流，则安培力大小是 $\\underline{\\qquad}\\,\\mathrm{N}$。",
     "answer": "0.40",
     "steps": [
-      "$F=BIl=0.50\\\\times 2.0\\\\times 0.40=0.40\\,\\mathrm{N}$。"
+      "$F=BIl=0.50\\times 2.0\\times 0.40=0.40\\,\\mathrm{N}$。"
     ],
     "analysis": {
       "breakthrough": "电流与磁场垂直，直接用 $F=BIl$。",
@@ -466,16 +466,16 @@
     "methodIds": [
       "p-m-08"
     ],
-    "stem": "质量 $2.0\\\\times 10^{-3}\\,\\mathrm{kg}$、电荷量 $2.0\\\\times 10^{-3}\\,\\mathrm{C}$ 的粒子以 $4.0\\,\\mathrm{m/s}$ 的速率垂直进入 $B=1.0\\,\\mathrm{T}$ 的匀强磁场，则轨道半径是 $\\underline{\\qquad}\\,\\mathrm{m}$。",
+    "stem": "质量 $2.0\\times 10^{-3}\\,\\mathrm{kg}$、电荷量 $2.0\\times 10^{-3}\\,\\mathrm{C}$ 的粒子以 $4.0\\,\\mathrm{m/s}$ 的速率垂直进入 $B=1.0\\,\\mathrm{T}$ 的匀强磁场，则轨道半径是 $\\underline{\\qquad}\\,\\mathrm{m}$。",
     "answer": "4",
     "steps": [
-      "$r=\\\\dfrac{mv}{qB}=\\\\dfrac{2.0\\\\times 10^{-3}\\\\times 4.0}{2.0\\\\times 10^{-3}\\\\times 1.0}=4.0\\,\\mathrm{m}$。"
+      "$r=\\dfrac{mv}{qB}=\\dfrac{2.0\\times 10^{-3}\\times 4.0}{2.0\\times 10^{-3}\\times 1.0}=4.0\\,\\mathrm{m}$。"
     ],
     "analysis": {
       "breakthrough": "垂直进入用 $r=mv/(qB)$。",
       "method": "洛伦兹力提供向心力。",
       "pitfalls": "分子分母的 $10^{-3}$ 约去时出错。",
-      "variant": "周期 $T=\\\\dfrac{2\\\\pi m}{qB}=\\\\dfrac{2\\\\pi\\\\times 2.0\\\\times 10^{-3}}{2.0\\\\times 10^{-3}}=2\\\\pi\\,\\mathrm{s}$，与速率无关。"
+      "variant": "周期 $T=\\dfrac{2\\pi m}{qB}=\\dfrac{2\\pi\\times 2.0\\times 10^{-3}}{2.0\\times 10^{-3}}=2\\pi\\,\\mathrm{s}$，与速率无关。"
     },
     "source": "精编练习",
     "score": 5,
@@ -499,7 +499,7 @@
     "stem": "一个 $10$ 匝的线圈，磁通量在 $0.10\\,\\mathrm{s}$ 内均匀变化 $0.20\\,\\mathrm{Wb}$，则感应电动势的大小是 $\\underline{\\qquad}\\,\\mathrm{V}$。",
     "answer": "20",
     "steps": [
-      "$\\\\mathcal{E}=n\\\\dfrac{\\\\Delta\\\\Phi}{\\\\Delta t}=10\\\\times\\\\dfrac{0.20}{0.10}=20\\,\\mathrm{V}$。"
+      "$\\mathcal{E}=n\\dfrac{\\Delta\\Phi}{\\Delta t}=10\\times\\dfrac{0.20}{0.10}=20\\,\\mathrm{V}$。"
     ],
     "analysis": {
       "breakthrough": "法拉第电磁感应定律。",
@@ -524,7 +524,7 @@
     "stem": "正弦式交变电流的电压峰值是 $311\\,\\mathrm{V}$，则其有效值约为",
     "answer": "C",
     "steps": [
-      "$U=\\\\dfrac{U_m}{\\\\sqrt{2}}\\\\approx\\\\dfrac{311}{1.414}\\\\approx 220\\,\\mathrm{V}$。"
+      "$U=\\dfrac{U_m}{\\sqrt{2}}\\approx\\dfrac{311}{1.414}\\approx 220\\,\\mathrm{V}$。"
     ],
     "analysis": {
       "breakthrough": "正弦交流电有效值是峰值除以 $\\sqrt{2}$。",
@@ -552,10 +552,10 @@
     "methodIds": [
       "p-m-10"
     ],
-    "stem": "取 $g=\\\\pi^2\\,\\mathrm{m/s^2}$。摆长 $1.00\\,\\mathrm{m}$ 的单摆（小角度），周期是 $\\underline{\\qquad}\\,\\mathrm{s}$。",
+    "stem": "取 $g=\\pi^2\\,\\mathrm{m/s^2}$。摆长 $1.00\\,\\mathrm{m}$ 的单摆（小角度），周期是 $\\underline{\\qquad}\\,\\mathrm{s}$。",
     "answer": "2",
     "steps": [
-      "$T=2\\\\pi\\\\sqrt{\\\\dfrac{l}{g}}=2\\\\pi\\\\sqrt{\\\\dfrac{1}{\\\\pi^2}}=2\\\\pi\\\\times\\\\dfrac{1}{\\\\pi}=2\\,\\mathrm{s}$。"
+      "$T=2\\pi\\sqrt{\\dfrac{l}{g}}=2\\pi\\sqrt{\\dfrac{1}{\\pi^2}}=2\\pi\\times\\dfrac{1}{\\pi}=2\\,\\mathrm{s}$。"
     ],
     "analysis": {
       "breakthrough": "小角度单摆周期公式。",
@@ -584,7 +584,7 @@
     "stem": "一列波的波长是 $2.0\\,\\mathrm{m}$，频率是 $50\\,\\mathrm{Hz}$，则波速是 $\\underline{\\qquad}\\,\\mathrm{m/s}$。",
     "answer": "100",
     "steps": [
-      "$v=\\\\lambda f=2.0\\\\times 50=100\\,\\mathrm{m/s}$。"
+      "$v=\\lambda f=2.0\\times 50=100\\,\\mathrm{m/s}$。"
     ],
     "analysis": {
       "breakthrough": "波速公式 $v=\\lambda f$。",
@@ -606,10 +606,10 @@
     "methodIds": [
       "p-m-10"
     ],
-    "stem": "光从空气射入折射率为 $\\\\sqrt{2}$ 的介质，临界角 $C$ 满足",
+    "stem": "光从空气射入折射率为 $\\sqrt{2}$ 的介质，临界角 $C$ 满足",
     "answer": "B",
     "steps": [
-      "从该介质射向空气发生全反射的临界角 $\\\\sin C=\\\\dfrac{1}{n}=\\\\dfrac{1}{\\\\sqrt{2}}$，故 $C=45^\\\\circ$。",
+      "从该介质射向空气发生全反射的临界角 $\\sin C=\\dfrac{1}{n}=\\dfrac{1}{\\sqrt{2}}$，故 $C=45^\\circ$。",
       "注意：全反射发生在从光密到光疏，题目问的是该介质相对空气的临界角。"
     ],
     "analysis": {
@@ -621,10 +621,10 @@
     "source": "精编练习",
     "score": 5,
     "options": [
-      "$30^\\\\circ$",
-      "$45^\\\\circ$",
-      "$60^\\\\circ$",
-      "$90^\\\\circ$"
+      "$30^\\circ$",
+      "$45^\\circ$",
+      "$60^\\circ$",
+      "$90^\\circ$"
     ]
   },
   {
@@ -638,10 +638,10 @@
     "methodIds": [
       "p-m-11"
     ],
-    "stem": "一定质量的理想气体做等温变化，压强从 $2.0\\\\times 10^5\\,\\mathrm{Pa}$ 降到 $1.0\\\\times 10^5\\,\\mathrm{Pa}$，原来体积是 $2.0\\,\\mathrm{L}$，则后来的体积是 $\\underline{\\qquad}\\,\\mathrm{L}$。",
+    "stem": "一定质量的理想气体做等温变化，压强从 $2.0\\times 10^5\\,\\mathrm{Pa}$ 降到 $1.0\\times 10^5\\,\\mathrm{Pa}$，原来体积是 $2.0\\,\\mathrm{L}$，则后来的体积是 $\\underline{\\qquad}\\,\\mathrm{L}$。",
     "answer": "4.0",
     "steps": [
-      "玻意耳定律 $p_1 V_1=p_2 V_2$，$2.0\\\\times 10^5\\\\times 2.0=1.0\\\\times 10^5\\\\times V_2$，故 $V_2=4.0\\,\\mathrm{L}$。"
+      "玻意耳定律 $p_1 V_1=p_2 V_2$，$2.0\\times 10^5\\times 2.0=1.0\\times 10^5\\times V_2$，故 $V_2=4.0\\,\\mathrm{L}$。"
     ],
     "analysis": {
       "breakthrough": "等温用 $pV=$ 常量。",
@@ -672,7 +672,7 @@
     "stem": "某金属的逸出功为 $2.0\\,\\mathrm{eV}$。用光子能量为 $3.0\\,\\mathrm{eV}$ 的光照射，则光电子的最大初动能为",
     "answer": "B",
     "steps": [
-      "$E_k=h\\\\nu-W_0=3.0-2.0=1.0\\,\\mathrm{eV}$。"
+      "$E_k=h\\nu-W_0=3.0-2.0=1.0\\,\\mathrm{eV}$。"
     ],
     "analysis": {
       "breakthrough": "爱因斯坦光电效应方程。",
@@ -704,13 +704,13 @@
     "stem": "质量 $2\\,\\mathrm{kg}$、速度 $3\\,\\mathrm{m/s}$ 的物体与质量 $1\\,\\mathrm{kg}$ 的静止物体在光滑水平面上发生完全非弹性碰撞（碰后黏在一起），则碰后共同速度的大小是 $\\underline{\\qquad}\\,\\mathrm{m/s}$。",
     "answer": "2",
     "steps": [
-      "动量守恒：$2\\\\times 3+1\\\\times 0=(2+1)v$，得 $v=2\\,\\mathrm{m/s}$。"
+      "动量守恒：$2\\times 3+1\\times 0=(2+1)v$，得 $v=2\\,\\mathrm{m/s}$。"
     ],
     "analysis": {
       "breakthrough": "光滑水平面合外力为零，动量守恒；完全非弹性碰后共速。",
       "method": "动量守恒。",
       "pitfalls": "用动能守恒会得到错误速度。",
-      "variant": "损失的动能 $\\\\dfrac{1}{2}\\\\times 2\\\\times 9-\\\\dfrac{1}{2}\\\\times 3\\\\times 4=9-6=3\\,\\mathrm{J}$，转化为内能。"
+      "variant": "损失的动能 $\\dfrac{1}{2}\\times 2\\times 9-\\dfrac{1}{2}\\times 3\\times 4=9-6=3\\,\\mathrm{J}$，转化为内能。"
     },
     "source": "精编练习",
     "score": 5
@@ -729,7 +729,7 @@
     "stem": "标有“$6\\,\\mathrm{V}\\\\,3\\,\\mathrm{W}$”的小灯泡正常工作时的电阻约为",
     "answer": "C",
     "steps": [
-      "正常工作时 $P=\\\\dfrac{U^2}{R}$，故 $R=\\\\dfrac{U^2}{P}=\\\\dfrac{36}{3}=12\\,\\Omega$。"
+      "正常工作时 $P=\\dfrac{U^2}{R}$，故 $R=\\dfrac{U^2}{P}=\\dfrac{36}{3}=12\\,\\Omega$。"
     ],
     "analysis": {
       "breakthrough": "用额定电压和额定功率求电阻。",
@@ -761,7 +761,7 @@
     "answer": "10.2",
     "steps": [
       "$E_2=E_1/4=-3.4\\,\\mathrm{eV}$。",
-      "$h\\\\nu=E_2-E_1$ 的绝对值：$h\\\\nu=-3.4-(-13.6)=10.2\\,\\mathrm{eV}$。"
+      "$h\\nu=E_2-E_1$ 的绝对值：$h\\nu=-3.4-(-13.6)=10.2\\,\\mathrm{eV}$。"
     ],
     "analysis": {
       "breakthrough": "光子能量等于两能级差的绝对值。",
@@ -792,10 +792,10 @@
     "stem": "质量 $2\\,\\mathrm{kg}$ 的物体在水平拉力 $F=8\\,\\mathrm{N}$ 作用下，从静止开始在水平粗糙面上运动，$4\\,\\mathrm{s}$ 内位移为 $16\\,\\mathrm{m}$。取运动方向为正。<br>（1）求这段时间内的加速度；<br>（2）求滑动摩擦力的大小；<br>（3）用动能定理验证第 $4\\,\\mathrm{s}$ 末的动能。",
     "answer": "（1）$2\\,\\mathrm{m/s^2}$；（2）$4\\,\\mathrm{N}$；（3）$64\\,\\mathrm{J}$。",
     "steps": [
-      "（1）由 $x=\\\\dfrac{1}{2}at^2$（$v_0=0$），$16=\\\\dfrac{1}{2}a\\\\times 16$，得 $a=2\\,\\mathrm{m/s^2}$。",
-      "（2）牛顿第二定律 $F-f=ma$，$8-f=2\\\\times 2$，得 $f=4\\,\\mathrm{N}$。",
-      "（3）第 $4\\,\\mathrm{s}$ 末速度 $v=at=8\\,\\mathrm{m/s}$，$E_k=\\\\dfrac{1}{2}\\\\times 2\\\\times 64=64\\,\\mathrm{J}$。",
-      "动能定理：$W_{合}=(F-f)x=4\\\\times 16=64\\,\\mathrm{J}=\\\\Delta E_k$，一致。注意：若把动能写成 $16\\,\\mathrm{J}$ 是错的，$\\\\dfrac{1}{2}mv^2=64\\,\\mathrm{J}$。"
+      "（1）由 $x=\\dfrac{1}{2}at^2$（$v_0=0$），$16=\\dfrac{1}{2}a\\times 16$，得 $a=2\\,\\mathrm{m/s^2}$。",
+      "（2）牛顿第二定律 $F-f=ma$，$8-f=2\\times 2$，得 $f=4\\,\\mathrm{N}$。",
+      "（3）第 $4\\,\\mathrm{s}$ 末速度 $v=at=8\\,\\mathrm{m/s}$，$E_k=\\dfrac{1}{2}\\times 2\\times 64=64\\,\\mathrm{J}$。",
+      "动能定理：$W_{合}=(F-f)x=4\\times 16=64\\,\\mathrm{J}=\\Delta E_k$，一致。注意：若把动能写成 $16\\,\\mathrm{J}$ 是错的，$\\dfrac{1}{2}mv^2=64\\,\\mathrm{J}$。"
     ],
     "analysis": {
       "breakthrough": "先由运动学求 $a$，再牛顿定律求 $f$，最后用功能关系核对。",
@@ -869,7 +869,7 @@
     "stem": "同一中心天体的两颗卫星，轨道半径之比为 $1:4$，则周期之比为",
     "answer": "B",
     "steps": [
-      "由 $T=2\\\\pi\\\\sqrt{r^3/GM}$，$T\\\\propto r^{3/2}$，故周期比是 $1^{3/2}:4^{3/2}=1:8$。"
+      "由 $T=2\\pi\\sqrt{r^3/GM}$，$T\\propto r^{3/2}$，故周期比是 $1^{3/2}:4^{3/2}=1:8$。"
     ],
     "analysis": {
       "breakthrough": "开普勒第三定律 $T^2\\propto r^3$。",
@@ -897,16 +897,16 @@
     "methodIds": [
       "p-m-12"
     ],
-    "stem": "$^{238}_{92}\\\\mathrm{U}$ 发生一次 $\\\\alpha$ 衰变后，新核的质量数是 $\\underline{\\qquad}$，电荷数是 $\\underline{\\qquad}$。（两个整数，用逗号分隔）",
+    "stem": "$^{238}_{92}\\mathrm{U}$ 发生一次 $\\alpha$ 衰变后，新核的质量数是 $\\underline{\\qquad}$，电荷数是 $\\underline{\\qquad}$。（两个整数，用逗号分隔）",
     "answer": "234,90",
     "steps": [
-      "$\\\\alpha$ 粒子是 $^4_2\\\\mathrm{He}$，质量数减 $4$，电荷数减 $2$，故新核为 $^{234}_{90}\\\\mathrm{Th}$。"
+      "$\\alpha$ 粒子是 $^4_2\\mathrm{He}$，质量数减 $4$，电荷数减 $2$，故新核为 $^{234}_{90}\\mathrm{Th}$。"
     ],
     "analysis": {
       "breakthrough": "衰变方程两边质量数、电荷数分别守恒。",
       "method": "原子核衰变。",
       "pitfalls": "$\\beta$ 衰变的规则用到 $\\alpha$ 上。",
-      "variant": "若接着再发生一次 $\\\\beta$ 衰变，质量数仍为 $234$，电荷数变为 $91$。"
+      "variant": "若接着再发生一次 $\\beta$ 衰变，质量数仍为 $234$，电荷数变为 $91$。"
     },
     "source": "精编练习",
     "score": 5,
@@ -962,7 +962,7 @@
     "stem": "电源电动势 $E=6.0\\,\\mathrm{V}$，内阻 $r=1.0\\,\\Omega$，外电路为一个阻值 $R=5.0\\,\\Omega$ 的电阻。<br>（1）求电路中的电流和路端电压；<br>（2）求电源的总功率和外电阻上消耗的功率。",
     "answer": "（1）$1.0\\,\\mathrm{A}$，$5.0\\,\\mathrm{V}$；（2）$6.0\\,\\mathrm{W}$，$5.0\\,\\mathrm{W}$。",
     "steps": [
-      "（1）$I=\\\\dfrac{E}{R+r}=\\\\dfrac{6}{6}=1.0\\,\\mathrm{A}$，$U=IR=5.0\\,\\mathrm{V}$（或 $U=E-Ir=5.0\\,\\mathrm{V}$）。",
+      "（1）$I=\\dfrac{E}{R+r}=\\dfrac{6}{6}=1.0\\,\\mathrm{A}$，$U=IR=5.0\\,\\mathrm{V}$（或 $U=E-Ir=5.0\\,\\mathrm{V}$）。",
       "（2）总功率 $P_{总}=EI=6.0\\,\\mathrm{W}$，外功率 $P_{外}=UI=5.0\\,\\mathrm{W}$，内阻发热 $I^2 r=1.0\\,\\mathrm{W}$，三者满足 $P_{总}=P_{外}+P_{内}$。"
     ],
     "analysis": {

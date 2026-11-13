@@ -1,5 +1,5 @@
 /* 青衿：缓存站点资源，便于再次打开和弱网使用。 */
-const VER = "qingjin-v1";
+const VER = "qingjin-v2";
 const PRECACHE = [
   "./",
   "./index.html",
