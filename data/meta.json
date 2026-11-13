@@ -1,0 +1,216 @@
+{
+  "name": "青衿",
+  "tagline": "高考冲刺",
+  "gaokao": "2027-06-07T09:00:00+08:00",
+  "gaokaoNote": "全国统考语文于 2027 年 6 月 7 日 9:00 开考；选考科目安排由各省确定，多为 6 月 8 日至 9 日或 10 日。",
+  "storeKey": "qingjin-v1",
+  "subjects": [
+    {
+      "id": "chinese",
+      "name": "语文",
+      "short": "语",
+      "full": 150,
+      "minutes": 150,
+      "kind": "required",
+      "color": "#a44b44"
+    },
+    {
+      "id": "math",
+      "name": "数学",
+      "short": "数",
+      "full": 150,
+      "minutes": 120,
+      "kind": "required",
+      "color": "#3d6b8a"
+    },
+    {
+      "id": "english",
+      "name": "英语",
+      "short": "英",
+      "full": 150,
+      "minutes": 120,
+      "kind": "required",
+      "color": "#3a6e52"
+    },
+    {
+      "id": "physics",
+      "name": "物理",
+      "short": "物",
+      "full": 100,
+      "minutes": 75,
+      "kind": "first",
+      "color": "#5b4f8a"
+    },
+    {
+      "id": "history",
+      "name": "历史",
+      "short": "史",
+      "full": 100,
+      "minutes": 75,
+      "kind": "first",
+      "color": "#8a6a30"
+    },
+    {
+      "id": "chemistry",
+      "name": "化学",
+      "short": "化",
+      "full": 100,
+      "minutes": 75,
+      "kind": "second",
+      "color": "#8a5a32"
+    },
+    {
+      "id": "biology",
+      "name": "生物学",
+      "short": "生",
+      "full": 100,
+      "minutes": 75,
+      "kind": "second",
+      "color": "#2f6b4f"
+    },
+    {
+      "id": "politics",
+      "name": "思想政治",
+      "short": "政",
+      "full": 100,
+      "minutes": 75,
+      "kind": "second",
+      "color": "#8d3c3c"
+    },
+    {
+      "id": "geography",
+      "name": "地理",
+      "short": "地",
+      "full": 100,
+      "minutes": 75,
+      "kind": "second",
+      "color": "#326874"
+    }
+  ],
+  "reasons": [
+    {
+      "id": "concept",
+      "name": "概念不清"
+    },
+    {
+      "id": "calc",
+      "name": "计算失误"
+    },
+    {
+      "id": "read",
+      "name": "审题失误"
+    },
+    {
+      "id": "method",
+      "name": "方法不会"
+    },
+    {
+      "id": "careless",
+      "name": "粗心笔误"
+    },
+    {
+      "id": "time",
+      "name": "时间不够"
+    },
+    {
+      "id": "express",
+      "name": "表达不规范"
+    }
+  ],
+  "difficulties": [
+    {
+      "id": 1,
+      "name": "基础"
+    },
+    {
+      "id": 2,
+      "name": "中等"
+    },
+    {
+      "id": 3,
+      "name": "较难"
+    },
+    {
+      "id": 4,
+      "name": "困难"
+    },
+    {
+      "id": 5,
+      "name": "压轴"
+    }
+  ],
+  "types": {
+    "single": "单选",
+    "multi": "多选",
+    "fill": "填空",
+    "essay": "解答",
+    "write": "写作",
+    "recite": "默写"
+  },
+  "freq": {
+    "high": "高频",
+    "mid": "中频",
+    "base": "基础"
+  },
+  "provinces": [
+    "北京",
+    "天津",
+    "上海",
+    "重庆",
+    "河北",
+    "山西",
+    "辽宁",
+    "吉林",
+    "黑龙江",
+    "江苏",
+    "浙江",
+    "安徽",
+    "福建",
+    "江西",
+    "山东",
+    "河南",
+    "湖北",
+    "湖南",
+    "广东",
+    "广西",
+    "海南",
+    "四川",
+    "贵州",
+    "云南",
+    "西藏",
+    "陕西",
+    "甘肃",
+    "青海",
+    "宁夏",
+    "内蒙古",
+    "新疆"
+  ],
+  "modes": {
+    "3+1+2": {
+      "first": [
+        "physics",
+        "history"
+      ],
+      "second": [
+        "chemistry",
+        "biology",
+        "politics",
+        "geography"
+      ],
+      "secondPick": 2,
+      "note": "首选物理或历史（百分制原始分），再选两门（等级赋分）。"
+    },
+    "3+3": {
+      "pool": [
+        "physics",
+        "chemistry",
+        "biology",
+        "politics",
+        "history",
+        "geography"
+      ],
+      "pick": 3,
+      "note": "在六门中任选三门计入总分（多数省份等级赋分；上海、海南计分方式不同）。"
+    }
+  }
+}

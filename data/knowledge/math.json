@@ -1,0 +1,2108 @@
+[
+  {
+    "id": "m-01",
+    "subject": "math",
+    "module": "集合与常用逻辑用语",
+    "chapter": "集合",
+    "title": "集合的概念与基本关系",
+    "freq": "base",
+    "examHow": "选择题中考查元素与集合的关系、子集个数、空集的特殊性。",
+    "summary": "集合是把确定对象看成整体后得到的。对象称为元素，具有确定性、互异性、无序性。常用描述法与列举法表示。",
+    "points": [
+      "若 $a$ 是集合 $A$ 的元素，记 $a\\in A$，否则 $a\\notin A$。",
+      "空集 $\\emptyset$ 是任何集合的子集，是任何非空集合的真子集。",
+      "$A=B$ 当且仅当 $A\\subseteq B$ 且 $B\\subseteq A$。",
+      "含 $n$ 个元素的集合有 $2^n$ 个子集，$2^n-1$ 个非空子集，$2^n-2$ 个真子集（$n\\ge 1$）。"
+    ],
+    "formulas": [
+      "$A=\\{x\\mid P(x)\\}$",
+      "含 $n$ 个元素的集合的子集个数为 $2^n$"
+    ],
+    "pitfalls": [
+      "把 $\\{0\\}$ 与 $\\emptyset$ 混淆：$\\{0\\}$ 含一个元素 $0$，而 $\\emptyset$ 不含任何元素。",
+      "描述法漏写代表元素所属数集，例如把 $\\{x\\mid x^2=1\\}$ 写成 $\\{x^2=1\\}$。",
+      "忽略互异性，如把 $\\{1,1,2\\}$ 当作三元集。"
+    ],
+    "methodIds": [
+      "m-mtd-13",
+      "m-mtd-08"
+    ],
+    "relatedIds": [
+      "m-02"
+    ],
+    "questionIds": [
+      "m-q01",
+      "m-q02",
+      "m-q48"
+    ]
+  },
+  {
+    "id": "m-02",
+    "subject": "math",
+    "module": "集合与常用逻辑用语",
+    "chapter": "集合",
+    "title": "集合的基本运算",
+    "freq": "mid",
+    "examHow": "选择、填空常考交并补运算及韦恩图；与不等式、函数定义域综合。",
+    "summary": "交、并、补是集合的基本运算。做题时先化成区间或列举，再在数轴或韦恩图上操作。",
+    "points": [
+      "$A\\cap B=\\{x\\mid x\\in A$ 且 $x\\in B\\}$，$A\\cup B=\\{x\\mid x\\in A$ 或 $x\\in B\\}$。",
+      "补集 $\\complement_U A=\\{x\\mid x\\in U$ 且 $x\\notin A\\}$。",
+      "德摩根律：$\\complement_U(A\\cup B)=(\\complement_U A)\\cap(\\complement_U B)$，$\\complement_U(A\\cap B)=(\\complement_U A)\\cup(\\complement_U B)$。",
+      "若 $A\\subseteq B$，则 $A\\cap B=A$，$A\\cup B=B$。"
+    ],
+    "formulas": [
+      "$\\complement_U(A\\cup B)=(\\complement_U A)\\cap(\\complement_U B)$",
+      "$A\\cap(B\\cup C)=(A\\cap B)\\cup(A\\cap C)$"
+    ],
+    "pitfalls": [
+      "区间端点开闭写错，尤其是不等式里的等号。",
+      "补集必须相对于给定的全集，不能默认全集是 $\\mathbb{R}$。",
+      "把 $A-B$ 与 $\\complement_A B$ 混用：差集 $A\\setminus B=A\\cap(\\complement_U B)$。"
+    ],
+    "methodIds": [
+      "m-mtd-13",
+      "m-mtd-08"
+    ],
+    "relatedIds": [
+      "m-01",
+      "m-06"
+    ],
+    "questionIds": [
+      "m-q01",
+      "m-q48"
+    ]
+  },
+  {
+    "id": "m-03",
+    "subject": "math",
+    "module": "集合与常用逻辑用语",
+    "chapter": "常用逻辑用语",
+    "title": "充分条件与必要条件",
+    "freq": "mid",
+    "examHow": "选择题高频，常与函数、不等式、几何位置关系结合判断“推出”方向。",
+    "summary": "若 $p\\Rightarrow q$，则 $p$ 是 $q$ 的充分条件，$q$ 是 $p$ 的必要条件。既充分又必要即等价。",
+    "points": [
+      "$p\\Rightarrow q$ 为真时，$p$ 充分，$q$ 必要。",
+      "$p\\Leftrightarrow q$ 时，二者互为充要条件。",
+      "若 $p\\Rightarrow q$ 为真而 $q\\Rightarrow p$ 为假，则 $p$ 是 $q$ 的充分不必要条件。",
+      "否命题、逆命题、逆否命题：原命题与逆否命题等价，逆命题与否命题等价。"
+    ],
+    "formulas": [
+      "$p\\Rightarrow q$ 等价于 $\\neg q\\Rightarrow \\neg p$"
+    ],
+    "pitfalls": [
+      "把“充分”和“必要”的方向记反：记住“前推后，前充分后必要”。",
+      "由特例成立就断定“恒成立”或“充要”。",
+      "否定全称量词时漏改量词：否定“任意”得“存在”，否定“存在”得“任意”。"
+    ],
+    "methodIds": [
+      "m-mtd-14"
+    ],
+    "relatedIds": [
+      "m-04"
+    ],
+    "questionIds": [
+      "m-q03",
+      "m-q43"
+    ]
+  },
+  {
+    "id": "m-04",
+    "subject": "math",
+    "module": "集合与常用逻辑用语",
+    "chapter": "常用逻辑用语",
+    "title": "全称量词与存在量词",
+    "freq": "base",
+    "examHow": "选择考查量词的否定，以及“恒成立”“能成立”的转化。",
+    "summary": "全称量词 $\\forall$ 表示“任意”，存在量词 $\\exists$ 表示“存在”。对含有量词的命题否定时，量词要改写，结论取否定。",
+    "points": [
+      "$\\forall x\\in A,\\,p(x)$ 的否定是 $\\exists x\\in A,\\,\\neg p(x)$。",
+      "$\\exists x\\in A,\\,p(x)$ 的否定是 $\\forall x\\in A,\\,\\neg p(x)$。",
+      "“$f(x)\\ge a$ 对 $x\\in I$ 恒成立”等价于 $a\\le \\min_{x\\in I}f(x)$（最小值存在时）。",
+      "“$f(x)\\ge a$ 在 $I$ 上能成立”等价于 $a\\le \\max_{x\\in I}f(x)$。"
+    ],
+    "formulas": [
+      "$\\neg(\\forall x, p(x))\\equiv \\exists x,\\neg p(x)$"
+    ],
+    "pitfalls": [
+      "否定时只改结论不改量词。",
+      "把“恒成立”做成“能成立”，参数范围差之千里。",
+      "最小值不存在时不能直接用 $\\min$，应改用下确界或分类讨论。"
+    ],
+    "methodIds": [
+      "m-mtd-02",
+      "m-mtd-01"
+    ],
+    "relatedIds": [
+      "m-03",
+      "m-51"
+    ],
+    "questionIds": [
+      "m-q38"
+    ]
+  },
+  {
+    "id": "m-05",
+    "subject": "math",
+    "module": "方程与不等式",
+    "chapter": "一元二次函数与方程",
+    "title": "二次函数的图象与性质",
+    "freq": "high",
+    "examHow": "贯穿高中全程：定义域值域、图象变换、韦达定理、判别式，是导数与不等式的基础。",
+    "summary": "二次函数 $f(x)=ax^2+bx+c\\,(a\\ne 0)$ 的图象是抛物线，开口由 $a$ 决定，对称轴为 $x=-\\dfrac{b}{2a}$。",
+    "points": [
+      "顶点坐标 $\\left(-\\dfrac{b}{2a},\\dfrac{4ac-b^2}{4a}\\right)$。",
+      "判别式 $\\Delta=b^2-4ac$ 决定与 $x$ 轴交点个数。",
+      "若 $x_1,x_2$ 是根，则 $x_1+x_2=-\\dfrac{b}{a}$，$x_1x_2=\\dfrac{c}{a}$。",
+      "闭区间上的最值在顶点（若在区间内）或端点处取得。"
+    ],
+    "formulas": [
+      "$x=-\\dfrac{b}{2a}$",
+      "$\\Delta=b^2-4ac$",
+      "$x_1+x_2=-\\dfrac{b}{a},\\;x_1x_2=\\dfrac{c}{a}$"
+    ],
+    "pitfalls": [
+      "求闭区间最值时忘记比较端点。",
+      "对称轴随参数变化时不分类讨论。",
+      "配方漏除 $a$，或把顶点纵坐标写成 $-\\dfrac{\\Delta}{4a}$ 时符号弄错（应为 $\\dfrac{4ac-b^2}{4a}=-\\dfrac{\\Delta}{4a}$）。"
+    ],
+    "methodIds": [
+      "m-mtd-08",
+      "m-mtd-01"
+    ],
+    "relatedIds": [
+      "m-06",
+      "m-52"
+    ],
+    "questionIds": [
+      "m-q05"
+    ]
+  },
+  {
+    "id": "m-06",
+    "subject": "math",
+    "module": "方程与不等式",
+    "chapter": "不等式",
+    "title": "一元二次不等式的解法",
+    "freq": "high",
+    "examHow": "选择填空高频，也是后面线性规划、定义域、定义域约束的基本功。",
+    "summary": "解 $ax^2+bx+c>0$（或 $<,\\ge,\\le$）先化为标准形式，看开口与根的位置，结合图象写解集。",
+    "points": [
+      "若 $a>0,\\Delta>0$，设根 $x_1<x_2$，则 $ax^2+bx+c>0$ 的解集为 $(-\\infty,x_1)\\cup(x_2,+\\infty)$。",
+      "若 $a>0,\\Delta=0$，则 $ax^2+bx+c>0$ 的解集为 $\\{x\\mid x\\ne -\\dfrac{b}{2a}\\}$，$\\ge 0$ 的解集为 $\\mathbb{R}$。",
+      "若 $a>0,\\Delta<0$，则 $ax^2+bx+c>0$ 恒成立，解集为 $\\mathbb{R}$。",
+      "先因式分解或求根，再在数轴上标根，按“大于取两边、小于取中间”的口诀（开口向上时）。"
+    ],
+    "formulas": [
+      "$(x-x_1)(x-x_2)>0\\Rightarrow x<x_1$ 或 $x>x_2$（$x_1<x_2$）"
+    ],
+    "pitfalls": [
+      "开口向下时仍用“大于取两边”，方向正好反了。",
+      "$\\Delta=0$ 时对 $>$ 与 $\\ge$ 的解集不加区分。",
+      "二次项系数含参数时不先讨论 $a$ 的符号，甚至忘记 $a=0$ 退化成一次。"
+    ],
+    "methodIds": [
+      "m-mtd-08",
+      "m-mtd-01"
+    ],
+    "relatedIds": [
+      "m-05",
+      "m-02"
+    ],
+    "questionIds": [
+      "m-q04"
+    ]
+  },
+  {
+    "id": "m-07",
+    "subject": "math",
+    "module": "方程与不等式",
+    "chapter": "不等式",
+    "title": "基本不等式与均值",
+    "freq": "high",
+    "examHow": "选择填空直接用，解答题中求最值、证明不等式的常用工具。",
+    "summary": "对正实数 $a,b$，有 $\\dfrac{a+b}{2}\\ge\\sqrt{ab}$，等号当且仅当 $a=b$ 时成立。这是最常用的均值不等式。",
+    "points": [
+      "$a,b>0$ 时，$\\dfrac{a+b}{2}\\ge\\sqrt{ab}\\ge\\dfrac{2ab}{a+b}$，等号当且仅当 $a=b$。",
+      "使用时必须检查：正数、定值、“一正二定三相等”。",
+      "若要求和的最小，常把积凑成定值；若求积的最大，常把和凑成定值。",
+      "对 $n$ 个正数：$\\dfrac{a_1+\\cdots+a_n}{n}\\ge\\sqrt[n]{a_1\\cdots a_n}$。"
+    ],
+    "formulas": [
+      "$\\dfrac{a+b}{2}\\ge\\sqrt{ab}\\quad(a,b>0)$",
+      "$a+b\\ge 2\\sqrt{ab}$",
+      "$ab\\le\\left(\\dfrac{a+b}{2}\\right)^2$"
+    ],
+    "pitfalls": [
+      "没有验证等号能否取到就直接用，得到的不是真正最值。",
+      "对可为负或为零的量直接开方。",
+      "拆项或添项后各项之和（积）不是定值。",
+      "“和为定值”时误把积的最小值当最大值。"
+    ],
+    "methodIds": [
+      "m-mtd-09"
+    ],
+    "relatedIds": [
+      "m-52",
+      "m-53"
+    ],
+    "questionIds": [
+      "m-q07"
+    ]
+  },
+  {
+    "id": "m-08",
+    "subject": "math",
+    "module": "函数",
+    "chapter": "函数的概念与性质",
+    "title": "函数的概念与定义域、值域",
+    "freq": "high",
+    "examHow": "定义域是几乎所有函数题的第一步；值域常与图象、导数综合。",
+    "summary": "函数是数集到数集的对应关系：定义域中每一元在值域中恰有一个对应。定义域先看解析式有意义，再看题设约束。",
+    "points": [
+      "分式：分母不为零；偶次根式：被开方数非负；对数：真数大于零且底为正不等于 $1$。",
+      "实际问题中还要加实际意义约束（如长度为正）。",
+      "复合函数 $f(g(x))$ 的定义域是使 $x$ 先让 $g(x)$ 有意义，且 $g(x)$ 落在 $f$ 的定义域内。",
+      "求值域可用配方法、换元法、单调性、图象或导数。"
+    ],
+    "formulas": [
+      "$y=f(x),\\;x\\in D$",
+      "$D_{f\\circ g}=\\{x\\in D_g\\mid g(x)\\in D_f\\}$"
+    ],
+    "pitfalls": [
+      "只看外层函数，忽略内层的定义域。",
+      "对数的底数漏掉“正且不为 $1$”。",
+      "把“函数值不为零”与“定义域不为零”混淆。"
+    ],
+    "methodIds": [
+      "m-mtd-07"
+    ],
+    "relatedIds": [
+      "m-09",
+      "m-12",
+      "m-13"
+    ],
+    "questionIds": [
+      "m-q06"
+    ]
+  },
+  {
+    "id": "m-09",
+    "subject": "math",
+    "module": "函数",
+    "chapter": "函数的概念与性质",
+    "title": "函数的单调性与最值",
+    "freq": "high",
+    "examHow": "选择、填空、解答全程高频；后面导数是它的深化。",
+    "summary": "在区间 $I$ 上，若对任意 $x_1<x_2$ 都有 $f(x_1)<f(x_2)$，则 $f$ 在 $I$ 上单调递增。最值可由单调性结合端点、极值得到。",
+    "points": [
+      "定义法证明单调性：作差 $f(x_1)-f(x_2)$ 或作商，判断符号。",
+      "增函数的和仍增；增函数与减函数的复合为减，同向复合为增。",
+      "若 $f$ 在 $[a,b]$ 连续且单调，则值域为以端点函数值为端点的区间。",
+      "“先增后减”在分界点取极大值。"
+    ],
+    "formulas": [
+      "$x_1<x_2\\Rightarrow f(x_1)<f(x_2)$ （增）"
+    ],
+    "pitfalls": [
+      "把单调性定义中的“任意”理解成“存在”。",
+      "在并集上说“单调递增”：函数可在 $(-\\infty,0)$ 与 $(0,+\\infty)$ 分别递增，但不在 $\\mathbb{R}\\setminus\\{0\\}$ 上递增（例如 $f(x)=1/x$ 在每个区间递减）。",
+      "复合函数单调性把方向搞反。"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "relatedIds": [
+      "m-10",
+      "m-51"
+    ],
+    "questionIds": [
+      "m-q47"
+    ]
+  },
+  {
+    "id": "m-10",
+    "subject": "math",
+    "module": "函数",
+    "chapter": "函数的概念与性质",
+    "title": "函数的奇偶性与对称性",
+    "freq": "high",
+    "examHow": "选择填空高频，常与周期、图象变换结合；也用于简化导数与积分计算。",
+    "summary": "若定义域关于原点对称，且 $f(-x)=f(x)$ 为偶函数，$f(-x)=-f(x)$ 为奇函数。奇函数若在原点有定义，则 $f(0)=0$。",
+    "points": [
+      "判断奇偶必须先看定义域是否关于原点对称。",
+      "奇函数图象关于原点对称，偶函数图象关于 $y$ 轴对称。",
+      "$f(a+x)=f(a-x)$ 说明图象关于直线 $x=a$ 对称。",
+      "$f(a+x)+f(a-x)=0$ 说明图象关于点 $(a,0)$ 对称。",
+      "两个奇函数的积为偶，一奇一偶的积为奇。"
+    ],
+    "formulas": [
+      "$f(-x)=f(x)$（偶）",
+      "$f(-x)=-f(x)$（奇）",
+      "$f(a+x)=f(a-x)$（对称轴 $x=a$）"
+    ],
+    "pitfalls": [
+      "定义域不对称就下结论。",
+      "把关于 $x=a$ 对称写成 $f(a+x)=f(x-a)$ 而未调整自变量。",
+      "既奇又偶的函数不是“不存在”，而是在对称定义域上恒等于 $0$。"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "relatedIds": [
+      "m-09",
+      "m-18"
+    ],
+    "questionIds": [
+      "m-q08",
+      "m-q47"
+    ]
+  },
+  {
+    "id": "m-11",
+    "subject": "math",
+    "module": "函数",
+    "chapter": "幂函数、指数与对数",
+    "title": "幂函数",
+    "freq": "base",
+    "examHow": "选择考查图象过定点、单调性与奇偶性随指数的变化。",
+    "summary": "幂函数指 $y=x^{\\alpha}\\,(\\alpha$ 为常数）。在第一象限都过 $(1,1)$。性质随 $\\alpha$ 变化。",
+    "points": [
+      "无论 $\\alpha$ 为何，图象过 $(1,1)$；若 $\\alpha>0$，还过 $(0,0)$（需定义允许）。",
+      "$\\alpha>0$ 时在 $(0,+\\infty)$ 递增；$\\alpha<0$ 时在 $(0,+\\infty)$ 递减。",
+      "$\\alpha$ 为奇数（如 $1,3$）则是奇函数；$\\alpha$ 为偶数则是偶函数。",
+      "常见比较：$y=x^{1/2}$、$y=x$、$y=x^2$、$y=x^3$、$y=x^{-1}$ 的图象要记熟。"
+    ],
+    "formulas": [
+      "$y=x^\\alpha$"
+    ],
+    "pitfalls": [
+      "把 $y=2^x$ 当成幂函数（那是指数函数）。幂函数底数是自变量，指数是常数。",
+      "分数指数的定义域漏掉 $x\\ge 0$ 或 $x>0$。",
+      "比较大小时不画图，直接按底数或指数单一因素判断。"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "relatedIds": [
+      "m-12"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "m-12",
+    "subject": "math",
+    "module": "函数",
+    "chapter": "幂函数、指数与对数",
+    "title": "指数函数",
+    "freq": "high",
+    "examHow": "与对数对偶，选择填空考查图象、单调、过定点；解答题常与导数、不等式综合。",
+    "summary": "指数函数 $y=a^x\\,(a>0,a\\ne 1)$ 定义域为 $\\mathbb{R}$，值域为 $(0,+\\infty)$，恒过 $(0,1)$。",
+    "points": [
+      "$a>1$ 时单调递增，$0<a<1$ 时单调递减。",
+      "运算：$a^{m}a^{n}=a^{m+n}$，$(a^m)^n=a^{mn}$，$a^{-x}=1/a^x$。",
+      "$a^x=a^y\\Leftrightarrow x=y$；$a^x=b^x\\,(x\\ne 0)\\Rightarrow a=b$（在 $a,b>0$ 时）。",
+      "比较 $a^x$ 与 $a^y$ 先看底数与 $1$ 的大小，再比指数。"
+    ],
+    "formulas": [
+      "$y=a^x\\quad(a>0,a\\neq 1)$",
+      "$a^{x+y}=a^x a^y$",
+      "$a^0=1$"
+    ],
+    "pitfalls": [
+      "底数限制漏写 $a\\ne 1$ 或 $a>0$。",
+      "$0<a<1$ 时不等式方向未变。",
+      "把 $(a^x)^2$ 与 $a^{(x^2)}$ 混淆。"
+    ],
+    "methodIds": [
+      "m-mtd-07",
+      "m-mtd-08"
+    ],
+    "relatedIds": [
+      "m-13",
+      "m-14"
+    ],
+    "questionIds": [
+      "m-q10",
+      "m-q52"
+    ]
+  },
+  {
+    "id": "m-13",
+    "subject": "math",
+    "module": "函数",
+    "chapter": "幂函数、指数与对数",
+    "title": "对数函数",
+    "freq": "high",
+    "examHow": "高考几乎每年出现，定义域是易错点，换底公式是计算关键。",
+    "summary": "对数函数 $y=\\log_a x\\,(a>0,a\\ne 1)$ 定义域 $(0,+\\infty)$，值域 $\\mathbb{R}$，恒过 $(1,0)$，与 $y=a^x$ 互为反函数。",
+    "points": [
+      "$\\log_a(xy)=\\log_a x+\\log_a y$，$\\log_a(x/y)=\\log_a x-\\log_a y$，$\\log_a(x^k)=k\\log_a x$。",
+      "换底：$\\log_a b=\\dfrac{\\log_c b}{\\log_c a}=\\dfrac{1}{\\log_b a}$。",
+      "$\\log_a b=\\log_a c\\Rightarrow b=c\\,(b,c>0)$。",
+      "$a>1$ 时增，$0<a<1$ 时减。真数必须大于 $0$。"
+    ],
+    "formulas": [
+      "$\\log_a b=\\dfrac{\\ln b}{\\ln a}$",
+      "$\\log_a(xy)=\\log_a x+\\log_a y$",
+      "$a^{\\log_a x}=x$"
+    ],
+    "pitfalls": [
+      "真数大于 $0$ 漏判，或把 $\\log_a(x-1)^2$ 的定义域写成 $x-1>0$ 而不是 $x\\ne 1$。",
+      "换底时分子分母颠倒。",
+      "$\\log_a(M+N)$ 拆成 $\\log_a M+\\log_a N$。"
+    ],
+    "methodIds": [
+      "m-mtd-07",
+      "m-mtd-03"
+    ],
+    "relatedIds": [
+      "m-12",
+      "m-08"
+    ],
+    "questionIds": [
+      "m-q09",
+      "m-q39",
+      "m-q52"
+    ]
+  },
+  {
+    "id": "m-14",
+    "subject": "math",
+    "module": "函数",
+    "chapter": "函数的应用",
+    "title": "函数的零点与方程",
+    "freq": "high",
+    "examHow": "零点存在定理、二分法、以及导数综合求零点个数，是近年解答题常见背景。",
+    "summary": "函数 $f(x)$ 的零点就是方程 $f(x)=0$ 的根，也是图象与 $x$ 轴交点的横坐标。",
+    "points": [
+      "零点存在定理：若 $f$ 在 $[a,b]$ 连续，且 $f(a)f(b)<0$，则 $(a,b)$ 内至少有一个零点。这是充分不必要条件。",
+      "若再加上单调，则零点唯一。",
+      "判断零点个数常用：作图、导数看单调、把方程改写成两个函数交点。",
+      "二分法用于近似求解。"
+    ],
+    "formulas": [
+      "$f(a)f(b)<0\\Rightarrow \\exists\\,\\xi\\in(a,b),\\;f(\\xi)=0$（连续时）"
+    ],
+    "pitfalls": [
+      "把零点存在定理当成充要：例如 $f(x)=x^2$ 在 $[-1,1]$ 有零点，但端点乘积不小于 $0$。",
+      "有变号就说只有一个零点，忽略不单调的情况。",
+      "把“方程 $f(x)=g(x)$ 的解”与“$f-g$ 的零点”对应时图象画错。"
+    ],
+    "methodIds": [
+      "m-mtd-08",
+      "m-mtd-03"
+    ],
+    "relatedIds": [
+      "m-51",
+      "m-55"
+    ],
+    "questionIds": [
+      "m-q10"
+    ]
+  },
+  {
+    "id": "m-15",
+    "subject": "math",
+    "module": "三角函数",
+    "chapter": "任意角与三角函数",
+    "title": "任意角、弧度制与三角函数定义",
+    "freq": "base",
+    "examHow": "基础题与后面诱导公式、解三角形的出发点；弧度在导数中必须使用。",
+    "summary": "角的概念推广到任意角。弧度制规定：圆心角所对弧长等于半径时，该角为 $1$ 弧度。$360^\\circ=2\\pi$ 弧度。",
+    "points": [
+      "$\\alpha^\\circ=\\dfrac{\\alpha\\pi}{180}$ 弧度。",
+      "在单位圆中，$\\cos\\theta$、$\\sin\\theta$ 分别是终边与单位圆交点的横、纵坐标，$\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}$。",
+      "定义域：$\\sin,\\cos$ 为 $\\mathbb{R}$，$\\tan$ 为 $\\{x\\mid x\\ne \\dfrac{\\pi}{2}+k\\pi,k\\in\\mathbb{Z}\\}$。",
+      "终边相同的角：$\\beta=\\alpha+2k\\pi,k\\in\\mathbb{Z}$。"
+    ],
+    "formulas": [
+      "$l=\\alpha r\\quad(\\alpha$ 以弧度计$)$",
+      "$180^\\circ=\\pi$"
+    ],
+    "pitfalls": [
+      "用角度求导数或极限（必须用弧度）。",
+      "象限判断只看角度绝对值，不看终边。",
+      "弧长公式里角用了角度制。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "m-16",
+      "m-17"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "m-16",
+    "subject": "math",
+    "module": "三角函数",
+    "chapter": "三角恒等变换",
+    "title": "诱导公式与同角关系",
+    "freq": "high",
+    "examHow": "选择填空计算题几乎每年都有，是化简求值的基本工具。",
+    "summary": "同角关系与诱导公式用于把任意角的三角函数化为锐角，并做恒等化简。",
+    "points": [
+      "平方关系：$\\sin^2\\theta+\\cos^2\\theta=1$，$1+\\tan^2\\theta=\\sec^2\\theta$。",
+      "商数关系：$\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}$。",
+      "奇偶性：$\\sin(-\\theta)=-\\sin\\theta$，$\\cos(-\\theta)=\\cos\\theta$，$\\tan(-\\theta)=-\\tan\\theta$。",
+      "诱导口诀：“奇变偶不变，符号看象限”——这里“奇偶”指 $\\dfrac{\\pi}{2}$ 的奇数或偶数倍。"
+    ],
+    "formulas": [
+      "$\\sin^2\\theta+\\cos^2\\theta=1$",
+      "$\\sin(\\pi-\\theta)=\\sin\\theta$",
+      "$\\cos(\\pi-\\theta)=-\\cos\\theta$"
+    ],
+    "pitfalls": [
+      "“奇变偶不变”中把函数名与符号同时弄错。",
+      "已知 $\\sin\\theta$ 求 $\\cos\\theta$ 时漏掉象限导致符号错误。",
+      "把 $1+\\tan^2\\theta=\\sec^2\\theta$ 用在 $\\cos\\theta=0$ 的情形。"
+    ],
+    "methodIds": [
+      "m-mtd-07"
+    ],
+    "relatedIds": [
+      "m-17",
+      "m-18"
+    ],
+    "questionIds": [
+      "m-q11"
+    ]
+  },
+  {
+    "id": "m-17",
+    "subject": "math",
+    "module": "三角函数",
+    "chapter": "三角恒等变换",
+    "title": "和差倍角与辅助角公式",
+    "freq": "high",
+    "examHow": "化简、求值、化成一个正弦或余弦再求最值，是选择填空与解答前半问的常规手段。",
+    "summary": "和差角、倍角公式要把形式记熟，并会逆用。辅助角公式把 $a\\sin\\theta+b\\cos\\theta$ 合成一个函数。",
+    "points": [
+      "$\\sin(A\\pm B)=\\sin A\\cos B\\pm\\cos A\\sin B$，",
+      "$\\cos(A\\pm B)=\\cos A\\cos B\\mp\\sin A\\sin B$，",
+      "$\\sin 2A=2\\sin A\\cos A$，$\\cos 2A=\\cos^2 A-\\sin^2 A=2\\cos^2 A-1=1-2\\sin^2 A$。",
+      "$a\\sin\\theta+b\\cos\\theta=\\sqrt{a^2+b^2}\\sin(\\theta+\\varphi)$，其中 $\\cos\\varphi=\\dfrac{a}{\\sqrt{a^2+b^2}}$，$\\sin\\varphi=\\dfrac{b}{\\sqrt{a^2+b^2}}$。"
+    ],
+    "formulas": [
+      "$a\\sin\\theta+b\\cos\\theta=\\sqrt{a^2+b^2}\\sin(\\theta+\\varphi)$",
+      "$\\cos 2A=2\\cos^2 A-1=1-2\\sin^2 A$"
+    ],
+    "pitfalls": [
+      "和差公式中“加减号”与正弦余弦记混（余弦是“负正”：$\\cos(A+B)=\\cos A\\cos B-\\sin A\\sin B$）。",
+      "辅助角 $\\varphi$ 的象限判断错误。",
+      "倍角公式逆用时忘了系数，如把 $\\sin^2 A$ 写成 $\\dfrac{1-\\cos 2A}{2}$ 时漏掉 $1/2$。"
+    ],
+    "methodIds": [
+      "m-mtd-07",
+      "m-mtd-08",
+      "m-mtd-17"
+    ],
+    "relatedIds": [
+      "m-16",
+      "m-18",
+      "m-19"
+    ],
+    "questionIds": [
+      "m-q16"
+    ]
+  },
+  {
+    "id": "m-18",
+    "subject": "math",
+    "module": "三角函数",
+    "chapter": "三角函数的图象与性质",
+    "title": "正弦、余弦、正切的图象与性质",
+    "freq": "high",
+    "examHow": "图象变换、周期、单调区间、对称轴与对称中心是选择填空的稳定考点。",
+    "summary": "掌握 $y=A\\sin(\\omega x+\\varphi)+k$ 的振幅、周期、相位与图象变换，能写出单调区间与对称性。",
+    "points": [
+      "周期：$T=\\dfrac{2\\pi}{|\\omega|}$（正弦、余弦），正切周期为 $\\dfrac{\\pi}{|\\omega|}$。",
+      "振幅 $|A|$，竖直平移 $k$，水平由 $\\omega x+\\varphi$ 决定。",
+      "$y=\\sin x$ 的增区间 $[2k\\pi-\\dfrac{\\pi}{2},2k\\pi+\\dfrac{\\pi}{2}]$，对称中心 $(k\\pi,0)$，对称轴 $x=\\dfrac{\\pi}{2}+k\\pi$。",
+      "变换顺序建议：先周期（横伸缩），再相位（平移），避免“先平移后伸缩”造成平移量错误。更稳妥的是按复合函数结构由内到外。"
+    ],
+    "formulas": [
+      "$T=\\dfrac{2\\pi}{|\\omega|}$",
+      "$y=A\\sin(\\omega x+\\varphi)+k$"
+    ],
+    "pitfalls": [
+      "求周期漏绝对值，或正切仍用 $2\\pi/|\\omega|$。",
+      "平移量写成 $\\varphi$ 而不是 $\\varphi/\\omega$。",
+      "单调区间没有加上周期 $2k\\pi/|\\omega|$，或不等号方向随 $\\omega<0$ 未调整。"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "relatedIds": [
+      "m-17",
+      "m-19"
+    ],
+    "questionIds": [
+      "m-q12"
+    ]
+  },
+  {
+    "id": "m-19",
+    "subject": "math",
+    "module": "三角函数",
+    "chapter": "解三角形",
+    "title": "正弦定理与余弦定理",
+    "freq": "high",
+    "examHow": "解三角形是解答题常见小题或中档大题，常与面积、向量、解析几何综合。",
+    "summary": "正弦定理刻画边与对角正弦的比，余弦定理由两边及其夹角求第三边或求角。",
+    "points": [
+      "$\\dfrac{a}{\\sin A}=\\dfrac{b}{\\sin B}=\\dfrac{c}{\\sin C}=2R$。",
+      "$c^2=a^2+b^2-2ab\\cos C$，以及 $\\cos C=\\dfrac{a^2+b^2-c^2}{2ab}$。",
+      "面积：$S=\\dfrac{1}{2}ab\\sin C=\\sqrt{s(s-a)(s-b)(s-c)}$，其中 $s=\\dfrac{a+b+c}{2}$。",
+      "已知两边及其中一边的对角时，可能出现两解、一解或无解，要讨论。"
+    ],
+    "formulas": [
+      "$\\dfrac{a}{\\sin A}=2R$",
+      "$c^2=a^2+b^2-2ab\\cos C$",
+      "$S=\\dfrac12 ab\\sin C$"
+    ],
+    "pitfalls": [
+      "SSA 情形不讨论两解。",
+      "用余弦定理求角时，余弦值为负说明是钝角，却仍当成锐角。",
+      "面积公式用了非夹角的正弦。"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "relatedIds": [
+      "m-16",
+      "m-21"
+    ],
+    "questionIds": [
+      "m-q13",
+      "m-q14"
+    ]
+  },
+  {
+    "id": "m-20",
+    "subject": "math",
+    "module": "平面向量",
+    "chapter": "平面向量的运算",
+    "title": "平面向量的概念与线性运算",
+    "freq": "mid",
+    "examHow": "基础运算与坐标表示是后续数量积、解三角形、解析几何的工具。",
+    "summary": "向量既有大小又有方向。线性运算满足平行四边形（或三角形）法则，坐标运算对应分量相加与数乘。",
+    "points": [
+      "$\\vec a=(x,y)$ 时，$|\\vec a|=\\sqrt{x^2+y^2}$。",
+      "共线：$\\vec a\\parallel\\vec b\\,(b\\ne 0)\\Leftrightarrow$ 存在 $\\lambda$ 使 $\\vec a=\\lambda\\vec b$。坐标上 $x_1y_2-x_2y_1=0$。",
+      "基底：$\\{\\vec e_1,\\vec e_2\\}$ 不共线时，平面内任一向量可唯一写成 $\\lambda\\vec e_1+\\mu\\vec e_2$。",
+      "平行四边形对角线：$\\vec{AC}=\\vec{AB}+\\vec{AD}$，$\\vec{BD}=\\vec{AD}-\\vec{AB}$。"
+    ],
+    "formulas": [
+      "$|\\vec a|=\\sqrt{x^2+y^2}$",
+      "$\\vec a\\parallel\\vec b\\Leftrightarrow x_1y_2-x_2y_1=0$"
+    ],
+    "pitfalls": [
+      "把共线系数 $\\lambda$ 当成一定为正（方向可以相反）。",
+      "向量相等要求大小与方向都相同，不只是模相等。",
+      "在非直角坐标系中直接用坐标公式而没说明基底正交。"
+    ],
+    "methodIds": [
+      "m-mtd-12"
+    ],
+    "relatedIds": [
+      "m-21"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "m-21",
+    "subject": "math",
+    "module": "平面向量",
+    "chapter": "平面向量的运算",
+    "title": "向量的数量积",
+    "freq": "high",
+    "examHow": "模、夹角、垂直、投影是选择填空高频，也常嵌入解析几何与立体几何。",
+    "summary": "数量积 $\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos\\theta$，在直角坐标下等于对应分量乘积之和。",
+    "points": [
+      "$\\vec a\\cdot\\vec b=x_1x_2+y_1y_2$。",
+      "$\\vec a\\perp\\vec b\\Leftrightarrow\\vec a\\cdot\\vec b=0$。",
+      "$|\\vec a|^2=\\vec a\\cdot\\vec a$。",
+      "$\\cos\\theta=\\dfrac{\\vec a\\cdot\\vec b}{|\\vec a||\\vec b|}$。",
+      "投影：$|\\vec b|\\cos\\theta=\\dfrac{\\vec a\\cdot\\vec b}{|\\vec a|}$。"
+    ],
+    "formulas": [
+      "$\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos\\theta=x_1x_2+y_1y_2$"
+    ],
+    "pitfalls": [
+      "夹角公式分母漏掉模，或夹角取了有向角超出 $[0,\\pi]$。",
+      "把数量积为零当成共线。",
+      "计算 $|\\vec a+\\vec b|^2$ 时展开漏掉 $2\\vec a\\cdot\\vec b$。"
+    ],
+    "methodIds": [
+      "m-mtd-12"
+    ],
+    "relatedIds": [
+      "m-20",
+      "m-19",
+      "m-36"
+    ],
+    "questionIds": [
+      "m-q15"
+    ]
+  },
+  {
+    "id": "m-22",
+    "subject": "math",
+    "module": "复数",
+    "chapter": "复数",
+    "title": "复数的概念与运算",
+    "freq": "mid",
+    "examHow": "选择题稳定出现，考查四则运算、共轭、模，以及几何意义。",
+    "summary": "复数 $z=a+bi\\,(a,b\\in\\mathbb{R})$，$i^2=-1$。实部 $a$，虚部 $b$。在复平面内对应点 $(a,b)$ 或向量。",
+    "points": [
+      "相等：实部、虚部分别相等。",
+      "共轭 $\\bar z=a-bi$，模 $|z|=\\sqrt{a^2+b^2}$，且 $|z|^2=z\\bar z$。",
+      "除法：$\\dfrac{z_1}{z_2}=\\dfrac{z_1\\bar z_2}{|z_2|^2}$。",
+      "$i^1=i,\\,i^2=-1,\\,i^3=-i,\\,i^4=1$，周期为 $4$。",
+      "乘法的几何意义是模相乘、辐角相加（在学过辐角的情况下）。"
+    ],
+    "formulas": [
+      "$|z|=\\sqrt{a^2+b^2}$",
+      "$z\\bar z=|z|^2$",
+      "$i^2=-1$"
+    ],
+    "pitfalls": [
+      "说“$a+bi>0$”——复数没有一般的大小比较。",
+      "模用了 $a+b$ 或 $a^2+b^2$ 却忘开方。",
+      "$i$ 的幂指数取模 $4$ 时余数算错。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "m-20"
+    ],
+    "questionIds": [
+      "m-q17",
+      "m-q46"
+    ]
+  },
+  {
+    "id": "m-23",
+    "subject": "math",
+    "module": "立体几何",
+    "chapter": "立体几何初步",
+    "title": "空间几何体的结构与表面积、体积",
+    "freq": "mid",
+    "examHow": "填空或解答第一问常考体积与表面积；与空间向量综合出现在大题。",
+    "summary": "认识柱、锥、台、球的结构特征，掌握面积与体积公式，会用祖暅原理与割补。",
+    "points": [
+      "柱体 $V=Sh$，锥体 $V=\\dfrac{1}{3}Sh$，台体 $V=\\dfrac{1}{3}h(S+S'+\\sqrt{SS'})$。",
+      "球 $V=\\dfrac{4}{3}\\pi R^3$，$S=4\\pi R^2$。",
+      "球的截面是圆，截面圆半径 $r=\\sqrt{R^2-d^2}$，$d$ 为球心到截面距离。",
+      "组合体用分割或补形，注意不要重复或遗漏表面。"
+    ],
+    "formulas": [
+      "$V_{\\text{锥}}=\\dfrac13 Sh$",
+      "$V_{\\text{球}}=\\dfrac43\\pi R^3$",
+      "$S_{\\text{球}}=4\\pi R^2$"
+    ],
+    "pitfalls": [
+      "锥体体积漏掉 $\\dfrac{1}{3}$。",
+      "斜棱柱的高与侧棱混淆。",
+      "球表面积与体积公式记串。"
+    ],
+    "methodIds": [
+      "m-mtd-18",
+      "m-mtd-11"
+    ],
+    "relatedIds": [
+      "m-24",
+      "m-25"
+    ],
+    "questionIds": [
+      "m-q18",
+      "m-q41"
+    ]
+  },
+  {
+    "id": "m-24",
+    "subject": "math",
+    "module": "立体几何",
+    "chapter": "立体几何初步",
+    "title": "空间点、线、面的位置关系",
+    "freq": "high",
+    "examHow": "判定平行与垂直是立体几何解答题的核心，公理与定理必须表述完整。",
+    "summary": "以公理为基础，掌握线线、线面、面面的平行与垂直的判定定理和性质定理。",
+    "points": [
+      "线面平行判定：平面外一条直线与平面内一条直线平行，则线面平行。",
+      "面面平行判定：一个平面内两相交直线分别平行于另一平面，则面面平行。",
+      "线面垂直判定：一条直线与平面内两相交直线都垂直，则线面垂直。",
+      "面面垂直判定：一个平面过另一个平面的垂线，则面面垂直。",
+      "三垂线定理（及其逆定理）在新教材中可由线面垂直性质推出，仍是常用推理。"
+    ],
+    "formulas": [
+      "$\\ell\\perp \\alpha$ 且 $\\ell\\subset\\beta\\Rightarrow \\alpha\\perp\\beta$"
+    ],
+    "pitfalls": [
+      "判定线面平行时，所用的平面内直线与已知直线其实是同一条，或直线已在平面内。",
+      "线面垂直判定只用了“与两条平行直线垂直”。",
+      "证明书写缺少“因为……所以……”的定理对应，步骤跳跃。"
+    ],
+    "methodIds": [
+      "m-mtd-11"
+    ],
+    "relatedIds": [
+      "m-25",
+      "m-36"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "m-25",
+    "subject": "math",
+    "module": "立体几何",
+    "chapter": "立体几何初步",
+    "title": "空间中的平行与垂直的性质",
+    "freq": "high",
+    "examHow": "与判定定理配套，是写完整证明的另一半；常用于作辅助线与转化角、距离。",
+    "summary": "性质定理把平行、垂直关系在线线、线面、面面之间转化。",
+    "points": [
+      "线面平行 $\\Rightarrow$ 该直线与平面内所有与它共面的交线平行（更常用：用辅助平面去截）。",
+      "面面平行 $\\Rightarrow$ 两平面与第三平面的交线平行。",
+      "线面垂直 $\\Rightarrow$ 该直线垂直于平面内所有直线。",
+      "面面垂直 $\\Rightarrow$ 在一个平面内作交线的垂线，则它垂直于另一平面。"
+    ],
+    "formulas": [
+      "$\\ell\\perp\\alpha,\\;m\\subset\\alpha\\Rightarrow \\ell\\perp m$"
+    ],
+    "pitfalls": [
+      "由面面垂直直接断言一条斜线与另一平面垂直，而没有作出交线的垂线。",
+      "把“垂直于射影”与“垂直于斜线”的关系弄反。"
+    ],
+    "methodIds": [
+      "m-mtd-11"
+    ],
+    "relatedIds": [
+      "m-24",
+      "m-36"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "m-26",
+    "subject": "math",
+    "module": "统计与概率",
+    "chapter": "统计",
+    "title": "抽样方法与统计图表",
+    "freq": "base",
+    "examHow": "选择考查简单随机抽样、系统抽样、分层抽样的适用条件与操作。",
+    "summary": "三种常用抽样要能根据总体特点选择，并会算各层应抽人数。统计图表用于整理数据。",
+    "points": [
+      "简单随机抽样：总体不大，个体差异小。抽签法或随机数法。",
+      "系统抽样：总体较多且均匀，按编号等距抽取。若不能整除，可先剔除再抽。",
+      "分层抽样：总体差异明显且有层，按比例抽取。第 $i$ 层抽取 $n_i=\\dfrac{N_i}{N}n$。",
+      "频率分布直方图中，小长方形面积等于频率，高=频率/组距，所有面积之和为 $1$。"
+    ],
+    "formulas": [
+      "$n_i=\\dfrac{N_i}{N}n$",
+      "频率 $=$ 组距 $\\times$ 高"
+    ],
+    "pitfalls": [
+      "分层抽样按人数平均分而不是按比例。",
+      "直方图的高当成频率，忘了除以组距。",
+      "系统抽样的间隔算错：间隔应为 $k=N/n$。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "m-27",
+      "m-63"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "m-27",
+    "subject": "math",
+    "module": "统计与概率",
+    "chapter": "统计",
+    "title": "数字特征：均值、方差、百分位数",
+    "freq": "mid",
+    "examHow": "填空与选择考查计算与意义；与正态分布、回归分析衔接。",
+    "summary": "平均数描述集中，方差、标准差描述离散，百分位数与中位数描述位置。",
+    "points": [
+      "$\\bar x=\\dfrac{1}{n}\\sum x_i$。",
+      "样本方差 $s^2=\\dfrac{1}{n-1}\\sum(x_i-\\bar x)^2$（新教材用无偏方差），有的题目用 $\\dfrac{1}{n}$，看清楚题目约定。",
+      "标准差 $s=\\sqrt{s^2}$。",
+      "中位数：排序后中间位置；第 $p$ 百分位数是使至少 $p\\%$ 的数据不超过它的值。",
+      "线性变换 $y=ax+b$：$\\bar y=a\\bar x+b$，方差变为 $a^2$ 倍。"
+    ],
+    "formulas": [
+      "$\\bar x=\\dfrac1n\\sum x_i$",
+      "$s^2=\\dfrac{1}{n-1}\\sum(x_i-\\bar x)^2$"
+    ],
+    "pitfalls": [
+      "把方差公式的分母 $n$ 与 $n-1$ 在需要说明时不交待。",
+      "数据同时加常数却以为方差也变。",
+      "百分位数的位置计算用了错误的序号。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "m-26",
+      "m-62"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "m-28",
+    "subject": "math",
+    "module": "统计与概率",
+    "chapter": "概率",
+    "title": "概率的基本性质与古典概型",
+    "freq": "high",
+    "examHow": "选择填空稳定考查，古典概型要会列出基本事件；也是离散型随机变量的基础。",
+    "summary": "随机事件的概率满足非负性、规范性与可加性。古典概型要求基本事件有限且等可能。",
+    "points": [
+      "$0\\le P(A)\\le 1$，$P(\\Omega)=1$，$P(\\emptyset)=0$。",
+      "互斥时 $P(A\\cup B)=P(A)+P(B)$；一般 $P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$。",
+      "对立事件 $P(\\bar A)=1-P(A)$。",
+      "古典概型 $P(A)=\\dfrac{n(A)}{n(\\Omega)}$。",
+      "频率随试验次数增加稳定在概率附近，但频率不是概率本身。"
+    ],
+    "formulas": [
+      "$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$",
+      "$P(A)=\\dfrac{n(A)}{n(\\Omega)}$"
+    ],
+    "pitfalls": [
+      "基本事件不等可能时仍用古典概型（例如“直到抽到为止”的不同长度结果）。",
+      "有放回与无放回、是否考虑顺序没有分清，导致分母分子计数口径不一致。",
+      "互斥与独立混淆：互斥看能否同时发生，独立看是否相互影响。"
+    ],
+    "methodIds": [
+      "m-mtd-13"
+    ],
+    "relatedIds": [
+      "m-29",
+      "m-57",
+      "m-60"
+    ],
+    "questionIds": [
+      "m-q35"
+    ]
+  },
+  {
+    "id": "m-29",
+    "subject": "math",
+    "module": "统计与概率",
+    "chapter": "概率",
+    "title": "条件概率、独立与全概率",
+    "freq": "high",
+    "examHow": "选择题与解答题中档常见，是二项分布、贝叶斯直观的基础（新教材强调条件概率）。",
+    "summary": "条件概率 $P(A|B)=\\dfrac{P(A\\cap B)}{P(B)}$（$P(B)>0$）。独立则 $P(A\\cap B)=P(A)P(B)$。",
+    "points": [
+      "乘法公式 $P(A\\cap B)=P(B)P(A|B)=P(A)P(B|A)$。",
+      "$A,B$ 独立 $\\Leftrightarrow P(A|B)=P(A)$（在条件有意义时）。独立时，$A$ 与 $\\bar B$、$\\bar A$ 与 $B$ 等也独立。",
+      "全概率：若 $B_i$ 构成完备事件组，则 $P(A)=\\sum P(B_i)P(A|B_i)$。",
+      "互斥的非空事件一定不独立（在 $0<P<1$ 时）。"
+    ],
+    "formulas": [
+      "$P(A|B)=\\dfrac{P(A\\cap B)}{P(B)}$",
+      "$P(A\\cap B)=P(A)P(B)$（独立）"
+    ],
+    "pitfalls": [
+      "把 $P(A|B)$ 当成 $P(B|A)$。",
+      "由 $P(A\\cap B)=0$ 断言独立——那是互斥。",
+      "树状图漏掉某一分支的条件概率。"
+    ],
+    "methodIds": [
+      "m-mtd-13"
+    ],
+    "relatedIds": [
+      "m-28",
+      "m-60"
+    ],
+    "questionIds": [
+      "m-q35"
+    ]
+  },
+  {
+    "id": "m-30",
+    "subject": "math",
+    "module": "解析几何",
+    "chapter": "直线与方程",
+    "title": "直线的倾斜角、斜率与方程",
+    "freq": "high",
+    "examHow": "基础但易错，是圆与圆锥曲线的支撑；斜率不存在要单独讨论。",
+    "summary": "倾斜角 $\\alpha\\in[0,\\pi)$，斜率 $k=\\tan\\alpha$（$\\alpha\\ne 90^\\circ$）。直线方程有点斜、斜截、两点、一般式、截距式。",
+    "points": [
+      "点斜式：$y-y_0=k(x-x_0)$（斜率存在时）。",
+      "一般式：$ax+by+c=0\\,(a,b$ 不同时为 $0)$。",
+      "两直线平行：$k_1=k_2$ 或都垂直于 $x$ 轴；垂直：$k_1k_2=-1$ 或一水平一竖直。一般式下 $a_1a_2+b_1b_2=0$ 为垂直，$a_1b_2-a_2b_1=0$ 为平行。",
+      "点到直线距离 $d=\\dfrac{|ax_0+by_0+c|}{\\sqrt{a^2+b^2}}$。",
+      "两平行线 $ax+by+c_1=0$ 与 $ax+by+c_2=0$ 距离 $d=\\dfrac{|c_1-c_2|}{\\sqrt{a^2+b^2}}$（先化成同一 $a,b$）。"
+    ],
+    "formulas": [
+      "$k=\\tan\\alpha$",
+      "$d=\\dfrac{|ax_0+by_0+c|}{\\sqrt{a^2+b^2}}$",
+      "$k_1k_2=-1$（垂直，斜率都存在）"
+    ],
+    "pitfalls": [
+      "斜率不存在时用斜截式或点斜式。",
+      "截距式默认横纵截距都不为零，漏掉过原点或平行于坐标轴的情形。",
+      "判断平行时未排除两直线重合。"
+    ],
+    "methodIds": [
+      "m-mtd-12"
+    ],
+    "relatedIds": [
+      "m-31",
+      "m-32"
+    ],
+    "questionIds": [
+      "m-q19",
+      "m-q25"
+    ]
+  },
+  {
+    "id": "m-31",
+    "subject": "math",
+    "module": "解析几何",
+    "chapter": "圆与方程",
+    "title": "圆的方程与位置关系",
+    "freq": "high",
+    "examHow": "选择填空常见，直线与圆的位置、切线、弦长是固定考点。",
+    "summary": "圆的标准方程 $(x-a)^2+(y-b)^2=r^2$，一般方程 $x^2+y^2+Dx+Ey+F=0$（需 $D^2+E^2-4F>0$）。",
+    "points": [
+      "圆心 $(-\\dfrac{D}{2},-\\dfrac{E}{2})$，半径 $r=\\dfrac{1}{2}\\sqrt{D^2+E^2-4F}$。",
+      "点与圆：比较点到圆心距离与半径。",
+      "直线与圆：比较圆心到直线距离 $d$ 与 $r$：$d<r$ 相交，$d=r$ 相切，$d>r$ 相离。",
+      "弦长公式：$\\ell=2\\sqrt{r^2-d^2}$。",
+      "过圆上一点 $(x_0,y_0)$ 的切线：$(x_0-a)(x-a)+(y_0-b)(y-b)=r^2$。"
+    ],
+    "formulas": [
+      "$(x-a)^2+(y-b)^2=r^2$",
+      "$\\ell=2\\sqrt{r^2-d^2}$"
+    ],
+    "pitfalls": [
+      "一般式配方时半径算错。",
+      "求切线时，过圆外一点可能有两条切线，漏讨论斜率不存在。",
+      "弦长用了 $2\\sqrt{r^2+d^2}$。"
+    ],
+    "methodIds": [
+      "m-mtd-12",
+      "m-mtd-06"
+    ],
+    "relatedIds": [
+      "m-30",
+      "m-32"
+    ],
+    "questionIds": [
+      "m-q19",
+      "m-q26"
+    ]
+  },
+  {
+    "id": "m-32",
+    "subject": "math",
+    "module": "解析几何",
+    "chapter": "圆与方程",
+    "title": "直线与圆的综合",
+    "freq": "mid",
+    "examHow": "常作为圆锥曲线大题前的铺垫，或作为中档解答题。",
+    "summary": "处理相交弦、切线、圆心距与功率（幂）时，优先用几何性质再上代数。",
+    "points": [
+      "圆的幂：过点 $P$ 作割线交圆于 $A,B$，则 $PA\\cdot PB$ 为定值（点在圆外时等于切线长的平方）。",
+      "直径所对圆周角是直角，可用于垂直条件。",
+      "求过定点的切线、最短弦（垂直于该方向的半径所在弦）等，用 $d$ 与 $r$ 关系。"
+    ],
+    "formulas": [
+      "$PA\\cdot PB=|PT|^2$"
+    ],
+    "pitfalls": [
+      "把相交弦定理用在圆外的割线上却套了错误的线段。",
+      "代数联立消元后判别式符号看反。"
+    ],
+    "methodIds": [
+      "m-mtd-05",
+      "m-mtd-06"
+    ],
+    "relatedIds": [
+      "m-31",
+      "m-33"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "m-33",
+    "subject": "math",
+    "module": "解析几何",
+    "chapter": "圆锥曲线",
+    "title": "椭圆的定义与标准方程",
+    "freq": "high",
+    "examHow": "圆锥曲线大题的主要载体之一，定义、焦半径、离心率是填空与大题第一问的常客。",
+    "summary": "平面内到两焦点距离之和等于常数 $2a$（大于焦距 $2c$）的点的轨迹是椭圆。",
+    "points": [
+      "焦点在 $x$ 轴：$\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2}=1\\,(a>b>0)$，$c^2=a^2-b^2$，离心率 $e=\\dfrac{c}{a}\\in(0,1)$。",
+      "焦点 $F(\\pm c,0)$，准线 $x=\\pm\\dfrac{a}{e}=\\pm\\dfrac{a^2}{c}$。",
+      "通径（过焦点且垂直于长轴的弦）长 $\\dfrac{2b^2}{a}$。",
+      "焦半径：$|PF_1|=a+ex_P$，$|PF_2|=a-ex_P$（焦点在 $x$ 轴，对应取法要与焦点左右匹配：到右焦点 $F_2(c,0)$ 的距离为 $a-ex_P$）。",
+      "第二定义：到焦点距离与到相应准线距离之比为 $e$。"
+    ],
+    "formulas": [
+      "$\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2}=1$",
+      "$c^2=a^2-b^2$",
+      "$e=\\dfrac{c}{a}$",
+      "$|PF_1|+|PF_2|=2a$"
+    ],
+    "pitfalls": [
+      "$a,b,c$ 关系写成 $c^2=a^2+b^2$（那是双曲线）。",
+      "焦点在 $y$ 轴时仍用 $x$ 轴那套焦点坐标。",
+      "焦半径公式中 $ex$ 的符号与焦点左右不对应。"
+    ],
+    "methodIds": [
+      "m-mtd-05",
+      "m-mtd-06",
+      "m-mtd-04"
+    ],
+    "relatedIds": [
+      "m-34",
+      "m-35",
+      "m-38"
+    ],
+    "questionIds": [
+      "m-q20",
+      "m-q33"
+    ]
+  },
+  {
+    "id": "m-34",
+    "subject": "math",
+    "module": "解析几何",
+    "chapter": "圆锥曲线",
+    "title": "双曲线的定义与标准方程",
+    "freq": "high",
+    "examHow": "与椭圆对照考查，渐近线、离心率范围是选择填空的区分点。",
+    "summary": "到两焦点距离之差的绝对值等于常数 $2a$（小于 $2c$）的点的轨迹是双曲线。",
+    "points": [
+      "焦点在 $x$ 轴：$\\dfrac{x^2}{a^2}-\\dfrac{y^2}{b^2}=1$，$c^2=a^2+b^2$，$e=\\dfrac{c}{a}>1$。",
+      "渐近线：$y=\\pm\\dfrac{b}{a}x$。",
+      "实轴长 $2a$，虚轴长 $2b$。等轴双曲线满足 $a=b$，此时 $e=\\sqrt{2}$，渐近线垂直。",
+      "焦半径差 $|\\,|PF_1|-|PF_2|\\,|=2a$。"
+    ],
+    "formulas": [
+      "$\\dfrac{x^2}{a^2}-\\dfrac{y^2}{b^2}=1$",
+      "$c^2=a^2+b^2$",
+      "$y=\\pm\\dfrac{b}{a}x$"
+    ],
+    "pitfalls": [
+      "渐近线斜率写成 $\\pm a/b$。",
+      "把“差为 $2a$”做成和，或 $2a>2c$ 使轨迹不存在。",
+      "左右支与焦点对应时，差的符号处理错误。"
+    ],
+    "methodIds": [
+      "m-mtd-05",
+      "m-mtd-06"
+    ],
+    "relatedIds": [
+      "m-33",
+      "m-35"
+    ],
+    "questionIds": [
+      "m-q23"
+    ]
+  },
+  {
+    "id": "m-35",
+    "subject": "math",
+    "module": "解析几何",
+    "chapter": "圆锥曲线",
+    "title": "抛物线的定义与标准方程",
+    "freq": "high",
+    "examHow": "定义“到焦点与到准线等距”常在选择填空出现；也作为大题载体。",
+    "summary": "到定点（焦点）与到定直线（准线）距离相等的点的轨迹是抛物线（定点不在定直线上）。",
+    "points": [
+      "本站与人教 A 版一致，采用 $y^2=2px\\,(p>0)$：焦点 $\\left(\\dfrac{p}{2},0\\right)$，准线 $x=-\\dfrac{p}{2}$，焦准距为 $p$。",
+      "通径（过焦点且垂直于对称轴的弦）长为 $2p$。",
+      "四种开口：$y^2=2px$ 向右，$y^2=-2px$ 向左，$x^2=2py$ 向上，$x^2=-2py$ 向下。",
+      "有的资料把方程写成 $y^2=4ax$，此时焦点是 $(a,0)$，不要与 $2px$ 形式混用同一字母。"
+    ],
+    "formulas": [
+      "$y^2=2px\\quad(p>0)$",
+      "$F=\\left(\\dfrac{p}{2},0\\right)$",
+      "准线 $x=-\\dfrac{p}{2}$"
+    ],
+    "pitfalls": [
+      "焦准距记错：方程 $y^2=2px$ 时焦准距为 $p$。",
+      "两种常见方程 $y^2=2px$ 与 $y^2=4px$ 的参数意义混用。",
+      "定义中漏掉“到准线的距离”。"
+    ],
+    "methodIds": [
+      "m-mtd-05"
+    ],
+    "relatedIds": [
+      "m-33",
+      "m-38"
+    ],
+    "questionIds": [
+      "m-q24"
+    ]
+  },
+  {
+    "id": "m-36",
+    "subject": "math",
+    "module": "立体几何",
+    "chapter": "空间向量与立体几何",
+    "title": "空间向量法求空间角与距离",
+    "freq": "high",
+    "examHow": "新高考解答题中，用空间向量求线线角、线面角、面面角是通法。",
+    "summary": "建立空间直角坐标系，用向量的数量积与法向量把几何度量转化为计算。",
+    "points": [
+      "两方向向量 $\\vec a,\\vec b$ 的夹角 $\\cos\\theta=\\dfrac{|\\vec a\\cdot\\vec b|}{|\\vec a||\\vec b|}$（线线角取锐角或直角）。",
+      "线面角：$\\sin\\theta=\\dfrac{|\\vec{u}\\cdot\\vec n|}{|\\vec u||\\vec n|}$，其中 $\\vec n$ 是平面法向量，$\\theta\\in[0,\\dfrac{\\pi}{2}]$。",
+      "面面角：两法向量夹角（或其补角）等于两个平面所成的角（注意取哪个——要用定义或画出平面角来判定）。",
+      "点面距离 $d=\\dfrac{|\\overrightarrow{PA}\\cdot\\vec n|}{|\\vec n|}$。"
+    ],
+    "formulas": [
+      "$\\sin\\theta=\\dfrac{|\\vec u\\cdot\\vec n|}{|\\vec u||\\vec n|}$（线面角）",
+      "$d=\\dfrac{|\\overrightarrow{PA}\\cdot\\vec n|}{|\\vec n|}$"
+    ],
+    "pitfalls": [
+      "线面角用了余弦而不是正弦。",
+      "面面角直接取法向量夹角，未判断是锐二面角还是钝二面角。",
+      "坐标系建立错误，或点的坐标写错导致全盘皆错。"
+    ],
+    "methodIds": [
+      "m-mtd-11",
+      "m-mtd-12"
+    ],
+    "relatedIds": [
+      "m-24",
+      "m-21"
+    ],
+    "questionIds": [
+      "m-q41"
+    ]
+  },
+  {
+    "id": "m-37",
+    "subject": "math",
+    "module": "解析几何",
+    "chapter": "直线与圆",
+    "title": "直线的位置关系再整理",
+    "freq": "base",
+    "examHow": "为圆锥曲线联立做准备，斜率存在性与设直线方程的技巧（点斜、设 $x=my+t$）很关键。",
+    "summary": "两条直线的位置关系用斜率或一般式系数判断；设直线时要避免遗漏斜率不存在。",
+    "points": [
+      "过定点且倾斜角不确定时，用点斜式并另讨论竖直线，或用 $x=my+t$ 把竖直线纳入（当直线不水平时）。",
+      "联立消元后得到一元二次方程，用韦达定理处理弦的中点、斜率、弦长。",
+      "弦长 $\\ell=\\sqrt{1+k^2}\\,|x_1-x_2|=\\sqrt{1+k^2}\\sqrt{(x_1+x_2)^2-4x_1x_2}$。"
+    ],
+    "formulas": [
+      "$\\ell=\\sqrt{1+k^2}\\sqrt{(x_1+x_2)^2-4x_1x_2}$"
+    ],
+    "pitfalls": [
+      "漏掉竖直线。",
+      "弦长公式漏乘 $\\sqrt{1+k^2}$。"
+    ],
+    "methodIds": [
+      "m-mtd-06",
+      "m-mtd-04",
+      "m-mtd-05"
+    ],
+    "relatedIds": [
+      "m-30",
+      "m-33"
+    ],
+    "questionIds": [
+      "m-q26",
+      "m-q33"
+    ]
+  },
+  {
+    "id": "m-38",
+    "subject": "math",
+    "module": "解析几何",
+    "chapter": "圆锥曲线",
+    "title": "圆锥曲线的统一定义与离心率",
+    "freq": "high",
+    "examHow": "离心率的计算与范围是填空压轴、选择难题的常见设问。",
+    "summary": "到定点（焦点）的距离与到定直线（准线）的距离之比为常数 $e$，当 $0<e<1$ 为椭圆，$e=1$ 为抛物线，$e>1$ 为双曲线。",
+    "points": [
+      "椭圆 $e=c/a\\in(0,1)$，双曲线 $e=c/a>1$，抛物线 $e=1$。",
+      "椭圆越扁 $e$ 越接近 $1$；越接近圆 $e$ 越接近 $0$。",
+      "常用 $e=\\dfrac{c}{a}=\\sqrt{1-\\dfrac{b^2}{a^2}}$（椭圆）或 $\\sqrt{1+\\dfrac{b^2}{a^2}}$（双曲线）。",
+      "涉及焦半径、三角形周长、面积时，优先用定义把距离转化为 $a,e,x$。"
+    ],
+    "formulas": [
+      "$\\dfrac{|PF|}{d}=e$",
+      "$e=\\dfrac{c}{a}$"
+    ],
+    "pitfalls": [
+      "求 $e$ 的范围时，把几何约束漏转化为 $a,c$ 的不等式。",
+      "第二定义中“相应准线”用错（左焦点对应左准线）。"
+    ],
+    "methodIds": [
+      "m-mtd-05"
+    ],
+    "relatedIds": [
+      "m-33",
+      "m-34",
+      "m-35"
+    ],
+    "questionIds": [
+      "m-q20"
+    ]
+  },
+  {
+    "id": "m-39",
+    "subject": "math",
+    "module": "数列",
+    "chapter": "数列的概念",
+    "title": "数列的概念与表示",
+    "freq": "base",
+    "examHow": "通项与前 $n$ 项和的关系是后续等差等比与递推的基础。",
+    "summary": "数列是定义在正整数集（或有限子集）上的函数。常用通项公式 $a_n$ 与前 $n$ 项和 $S_n$ 表示。",
+    "points": [
+      "$a_n=S_n-S_{n-1}\\,(n\\ge 2)$，$a_1=S_1$。",
+      "递推公式给出后项与前项的关系，求通项常用累加、累乘、构造新数列。",
+      "单调性：比较 $a_{n+1}-a_n$ 或 $\\dfrac{a_{n+1}}{a_n}$（正项时）。"
+    ],
+    "formulas": [
+      "$a_n=S_n-S_{n-1}\\;(n\\ge 2)$",
+      "$a_1=S_1$"
+    ],
+    "pitfalls": [
+      "由 $S_n$ 求 $a_n$ 时对 $n=1$ 不加验证。",
+      "把递推的起始项搞错，通项只对部分 $n$ 成立。"
+    ],
+    "methodIds": [
+      "m-mtd-10",
+      "m-mtd-04"
+    ],
+    "relatedIds": [
+      "m-40",
+      "m-41"
+    ],
+    "questionIds": [
+      "m-q27"
+    ]
+  },
+  {
+    "id": "m-40",
+    "subject": "math",
+    "module": "数列",
+    "chapter": "等差数列",
+    "title": "等差数列",
+    "freq": "high",
+    "examHow": "选择填空与解答第一问的常规题，公式要熟练且会逆用。",
+    "summary": "公差为常数的数列是等差数列。通项是关于 $n$ 的一次式（或常数列），前 $n$ 项和是二次式（无常数项，或过原点的二次型）。",
+    "points": [
+      "$a_n=a_1+(n-1)d=a_m+(n-m)d$。",
+      "$S_n=\\dfrac{n}{2}(a_1+a_n)=na_1+\\dfrac{n(n-1)}{2}d$。",
+      "中项：$2a_k=a_{k-t}+a_{k+t}$；$2a_{n}=a_{n-1}+a_{n+1}$。",
+      "$S_n=An^2+Bn$ 型（当 $d\\ne 0$）。",
+      "若 $\\{a_n\\}$ 等差，则 $a_p+a_q=a_r+a_s$ 当 $p+q=r+s$。"
+    ],
+    "formulas": [
+      "$a_n=a_1+(n-1)d$",
+      "$S_n=\\dfrac{n}{2}(2a_1+(n-1)d)$"
+    ],
+    "pitfalls": [
+      "$S_n$ 公式用成 $\\dfrac{n}{2}(a_1+a_{n-1})$。",
+      "由 $S_n$ 是 $n$ 的二次式就断言等差，却没检查常数项是否为零。",
+      "公差为负时项数与最值项的位置算错。"
+    ],
+    "methodIds": [
+      "m-mtd-10",
+      "m-mtd-04",
+      "m-mtd-15"
+    ],
+    "relatedIds": [
+      "m-41",
+      "m-42"
+    ],
+    "questionIds": [
+      "m-q21",
+      "m-q27",
+      "m-q44",
+      "m-q49"
+    ]
+  },
+  {
+    "id": "m-41",
+    "subject": "math",
+    "module": "数列",
+    "chapter": "等比数列",
+    "title": "等比数列",
+    "freq": "high",
+    "examHow": "与等差并列的基本数列，错位相减、递推构造常在解答题出现。",
+    "summary": "公比为非零常数的数列是等比数列。项不能为 $0$（除了从某项起全为 $0$ 的特殊情形，一般讨论中 $a_1\\ne 0,q\\ne 0$）。",
+    "points": [
+      "$a_n=a_1 q^{n-1}$。",
+      "$S_n=\\dfrac{a_1(1-q^n)}{1-q}\\,(q\\ne 1)$；$q=1$ 时 $S_n=na_1$。",
+      "中项：$a_k^2=a_{k-t}a_{k+t}$（需有定义）。",
+      "若 $\\{a_n\\}$ 等比且项为正，则 $\\{\\ln a_n\\}$ 等差。"
+    ],
+    "formulas": [
+      "$a_n=a_1 q^{n-1}$",
+      "$S_n=\\dfrac{a_1(1-q^n)}{1-q}\\;(q\\neq 1)$"
+    ],
+    "pitfalls": [
+      "$q=1$ 时仍用分母 $1-q$ 的公式。",
+      "公比为负时，不等式或最值不讨论变号。",
+      "由 $a_n^2=a_{n-1}a_{n+1}$ 断言等比，未检验项是否为 $0$。"
+    ],
+    "methodIds": [
+      "m-mtd-10"
+    ],
+    "relatedIds": [
+      "m-40",
+      "m-42"
+    ],
+    "questionIds": [
+      "m-q22"
+    ]
+  },
+  {
+    "id": "m-42",
+    "subject": "math",
+    "module": "数列",
+    "chapter": "数列求和",
+    "title": "数列求和与综合",
+    "freq": "high",
+    "examHow": "解答题中档到压轴都可能出现：裂项、错位相减、分组、倒序相加。",
+    "summary": "求和先认型：等差等比直接套公式；否则考虑裂项相消、错位相减、分组求和、倒序相加、公式求和。",
+    "points": [
+      "裂项：如 $\\dfrac{1}{a_n a_{n+1}}=\\dfrac{1}{d}\\left(\\dfrac{1}{a_n}-\\dfrac{1}{a_{n+1}}\\right)$（等差且公差 $d\\ne 0$）。",
+      "错位相减：适用于 $a_n=(an+b)q^n$ 这类“等差×等比”。",
+      "倒序相加：类似等差求和的对称性。",
+      "注意求和后是否要讨论参数，以及 $n=1$ 的检验。"
+    ],
+    "formulas": [
+      "$\\dfrac{1}{n(n+1)}=\\dfrac{1}{n}-\\dfrac{1}{n+1}$"
+    ],
+    "pitfalls": [
+      "裂项后系数漏掉。",
+      "错位相减时，两式相减的项数对不齐，末项处理错。",
+      "求和结果未化简，或把 $S_n$ 当成 $a_n$。"
+    ],
+    "methodIds": [
+      "m-mtd-10"
+    ],
+    "relatedIds": [
+      "m-40",
+      "m-41"
+    ],
+    "questionIds": [
+      "m-q49"
+    ]
+  },
+  {
+    "id": "m-43",
+    "subject": "math",
+    "module": "导数",
+    "chapter": "导数的概念与运算",
+    "title": "导数的概念与几何意义",
+    "freq": "high",
+    "examHow": "切线方程几乎每年必考，定义是理解变化率的起点。",
+    "summary": "导数是函数在一点的瞬时变化率，等于切线斜率。$f'(x_0)=\\lim_{h\\to 0}\\dfrac{f(x_0+h)-f(x_0)}{h}$。",
+    "points": [
+      "切线方程：$y-f(x_0)=f'(x_0)(x-x_0)$。若 $f'(x_0)=0$，切线水平；导数不存在时可能有竖切线或无切线。",
+      "过切点的法线斜率为 $-1/f'(x_0)$（$f'(x_0)\\ne 0$）。",
+      "可导一定连续，连续不一定可导（如 $y=|x|$ 在 $0$ 处）。",
+      "$f'(x_0)$ 存在等价于左右导数存在且相等。"
+    ],
+    "formulas": [
+      "$f'(x_0)=\\lim_{h\\to 0}\\dfrac{f(x_0+h)-f(x_0)}{h}$",
+      "$y-y_0=f'(x_0)(x-x_0)$"
+    ],
+    "pitfalls": [
+      "把过某点的切线当成在该点处的切线：过点可能不是切点，要用待定斜率。",
+      "切线方程写成 $y=f'(x_0)x$ 而漏掉切点。",
+      "用角度公式时使用了角度制。"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "relatedIds": [
+      "m-44",
+      "m-45"
+    ],
+    "questionIds": [
+      "m-q29"
+    ]
+  },
+  {
+    "id": "m-44",
+    "subject": "math",
+    "module": "导数",
+    "chapter": "导数的概念与运算",
+    "title": "导数的运算与常用导数公式",
+    "freq": "high",
+    "examHow": "计算基本功，出错会连锁影响整道大题。复合函数与积商法则是易错点。",
+    "summary": "掌握基本初等函数的导数，以及四则运算、复合函数求导法则，并会求高阶导数。",
+    "points": [
+      "$(x^n)'=nx^{n-1}$，$(e^x)'=e^x$，$(a^x)'=a^x\\ln a$，",
+      "$(\\ln x)'=\\dfrac{1}{x}$，$(\\log_a x)'=\\dfrac{1}{x\\ln a}$，",
+      "$(\\sin x)'=\\cos x$，$(\\cos x)'=-\\sin x$。",
+      "$(uv)'=u'v+uv'$，$\\left(\\dfrac{u}{v}\\right)'=\\dfrac{u'v-uv'}{v^2}$。",
+      "复合：$[f(g(x))]'=f'(g(x))g'(x)$。"
+    ],
+    "formulas": [
+      "$(uv)'=u'v+uv'$",
+      "$(\\ln x)'=\\dfrac1x$",
+      "$(\\sin x)'=\\cos x$"
+    ],
+    "pitfalls": [
+      "复合函数漏乘内层导数，如 $(\\ln(2x+1))'$ 写成 $\\dfrac{1}{2x+1}$。",
+      "商的导数分子写成 $uv'-u'v$。",
+      "$(\\cos x)'$ 漏负号。"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "relatedIds": [
+      "m-43",
+      "m-45"
+    ],
+    "questionIds": [
+      "m-q28"
+    ]
+  },
+  {
+    "id": "m-45",
+    "subject": "math",
+    "module": "导数",
+    "chapter": "导数的应用",
+    "title": "用导数研究切线",
+    "freq": "high",
+    "examHow": "选择填空与导数大题第一问的常规设问。",
+    "summary": "会求一点处的切线，也会求过一点（不一定在曲线上）的切线，后者常需分类讨论或判别式。",
+    "points": [
+      "若切点为 $(t,f(t))$，切线为 $y-f(t)=f'(t)(x-t)$，再代入所过点，解 $t$。",
+      "可能有多条切线，要写完整。",
+      "两曲线相切：在公共点处函数值相等且导数相等。"
+    ],
+    "formulas": [
+      "$y-f(t)=f'(t)(x-t)$"
+    ],
+    "pitfalls": [
+      "默认过定点的切线只有一条。",
+      "相切只令函数值相等，不加导数值相等。"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "relatedIds": [
+      "m-43",
+      "m-46"
+    ],
+    "questionIds": [
+      "m-q29"
+    ]
+  },
+  {
+    "id": "m-46",
+    "subject": "math",
+    "module": "导数",
+    "chapter": "导数的应用",
+    "title": "用导数研究单调性",
+    "freq": "high",
+    "examHow": "导数大题的核心步骤，参数分类讨论常从这里展开。",
+    "summary": "在 $f$ 可导的区间上，$f'>0$ 则递增，$f'<0$ 则递减。反之，递增只能得到 $f'\\ge 0$（可以在有限点为零）。",
+    "points": [
+      "步骤：求定义域 → 求导 → 因式分解或讨论 $f'$ 的符号 → 列表 → 写单调区间。",
+      "若 $f'$ 含参数，按根的位置、导函数本身的判别式或极值点是否落在定义域内分类。",
+      "$f'\\ge 0$ 且在任意子区间上不恒为 $0$，则仍严格递增。"
+    ],
+    "formulas": [
+      "$f'(x)>0\\Rightarrow f$ 递增"
+    ],
+    "pitfalls": [
+      "$f'(x_0)=0$ 就断言极值，未看左右符号。",
+      "单调区间用并集连接（应分开写）。",
+      "分类讨论遗漏等于临界值的情形。"
+    ],
+    "methodIds": [
+      "m-mtd-01",
+      "m-mtd-02"
+    ],
+    "relatedIds": [
+      "m-47",
+      "m-09"
+    ],
+    "questionIds": [
+      "m-q36",
+      "m-q37",
+      "m-q50"
+    ]
+  },
+  {
+    "id": "m-47",
+    "subject": "math",
+    "module": "导数",
+    "chapter": "导数的应用",
+    "title": "极值与最值",
+    "freq": "high",
+    "examHow": "闭区间最值、极值点的充要条件（或充分条件）是大题得分点。",
+    "summary": "极值是局部概念，最值是区间上的全局概念。闭区间上连续函数的最值在极值点或端点取得。",
+    "points": [
+      "若 $f'(x_0)=0$ 且 $f'$ 在 $x_0$ 左右变号，则 $x_0$ 是极值点。",
+      "二阶导数判别：若 $f'(x_0)=0$ 且 $f''(x_0)>0$，则是极小；$f''(x_0)<0$ 则是极大。",
+      "开区间上可能没有最值。",
+      "实际问题先建模，再在定义区间上求最值，并回答实际量。"
+    ],
+    "formulas": [
+      "$f'(x_0)=0,\\;f''(x_0)>0\\Rightarrow$ 极小"
+    ],
+    "pitfalls": [
+      "把驻点都当成极值点（如 $f(x)=x^3$ 在 $0$ 处）。",
+      "求闭区间最值只算驻点，不比较端点。",
+      "实际问题求出 $x$ 后忘记代回所求量。"
+    ],
+    "methodIds": [
+      "m-mtd-01"
+    ],
+    "relatedIds": [
+      "m-46",
+      "m-48"
+    ],
+    "questionIds": [
+      "m-q36",
+      "m-q37",
+      "m-q50"
+    ]
+  },
+  {
+    "id": "m-48",
+    "subject": "math",
+    "module": "导数",
+    "chapter": "导数的应用",
+    "title": "导数与不等式、恒成立",
+    "freq": "high",
+    "examHow": "导数压轴常见题型：参数恒成立、比较大小、证明不等式。",
+    "summary": "证明 $f(x)\\ge g(x)$ 常构造 $F=f-g$，用导数看最小值是否非负。恒成立则转化为最值约束。",
+    "points": [
+      "$f(x)\\ge a$ 对 $x\\in I$ 恒成立 $\\Leftrightarrow a\\le \\min_I f$（最小值存在时）。",
+      "也可分离参数：$a\\ge g(x)$ 恒成立 $\\Leftrightarrow a\\ge \\max g(x)$。",
+      "对不易分离的，构造函数后讨论导数，可能需要对参数再分类，或用一次导数仍难判断时看二阶导数。",
+      "有时用拉格朗日中值定理或函数凹凸性（新教材对凹凸要求较低，谨慎使用）。"
+    ],
+    "formulas": [
+      "$f(x)\\ge a\\;(\\forall x\\in I)\\Leftrightarrow a\\le\\min_I f$"
+    ],
+    "pitfalls": [
+      "分离参数时定义域随参数变化被忽略。",
+      "最小值取不到却当最值用。",
+      "构造的函数求导出错，后面讨论全部落空。"
+    ],
+    "methodIds": [
+      "m-mtd-01",
+      "m-mtd-02",
+      "m-mtd-03"
+    ],
+    "relatedIds": [
+      "m-04",
+      "m-47",
+      "m-49"
+    ],
+    "questionIds": [
+      "m-q38"
+    ]
+  },
+  {
+    "id": "m-49",
+    "subject": "math",
+    "module": "导数",
+    "chapter": "导数的应用",
+    "title": "零点与函数图象的综合",
+    "freq": "high",
+    "examHow": "近年压轴常把导数、零点个数、参数范围揉在一起。",
+    "summary": "把方程根的个数转化为函数图象交点或构造函数的零点个数，用导数分析单调与极值，再数根。",
+    "points": [
+      "常用方法：对 $f(x)=a$ 看水平线与 $y=f(x)$ 的交点；或改写为 $g(x)=h(x)$ 看两个图象。",
+      "极值的正负决定是否穿轴。",
+      "端点极限（$x\\to 0^+$、$x\\to +\\infty$）要会判断。",
+      "同构：把两边看成同一函数在不同自变量处的值，如 $x+\\ln x=t$。"
+    ],
+    "formulas": [
+      "将 $f(x)=g(x)$ 化为 $F(x)=f(x)-g(x)=0$"
+    ],
+    "pitfalls": [
+      "只根据 $f'$ 的一个零点就断定 $f$ 只有一个零点。",
+      "忽略定义域端点处的函数值或极限。"
+    ],
+    "methodIds": [
+      "m-mtd-03",
+      "m-mtd-08"
+    ],
+    "relatedIds": [
+      "m-14",
+      "m-48"
+    ],
+    "questionIds": [
+      "m-q39"
+    ]
+  },
+  {
+    "id": "m-50",
+    "subject": "math",
+    "module": "导数",
+    "chapter": "积分初步",
+    "title": "定积分与微积分基本定理",
+    "freq": "mid",
+    "examHow": "新教材有定积分内容，选择填空考查面积意义与牛顿-莱布尼茨公式。",
+    "summary": "定积分 $\\int_a^b f(x)\\,dx$ 在 $f\\ge 0$ 时表示曲边梯形面积。微积分基本定理把积分与原函数联系起来。",
+    "points": [
+      "若 $F'=f$，则 $\\int_a^b f(x)\\,dx=F(b)-F(a)$。",
+      "积分的线性与区间可加性。",
+      "$\\int_a^b f= -\\int_b^a f$，$\\int_a^a f=0$。",
+      "几何意义：在 $x$ 轴上方的面积取正，下方取负。求面积时要对“负的部分”取绝对值。"
+    ],
+    "formulas": [
+      "$\\int_a^b f(x)\\,dx=F(b)-F(a)$",
+      "$\\dfrac{d}{dx}\\int_a^x f(t)\\,dt=f(x)$"
+    ],
+    "pitfalls": [
+      "求面积直接积分得到负数，未取绝对值。",
+      "原函数找错，特别是 $\\dfrac{1}{x}$、$\\sin x$ 的系数。",
+      "上下限颠倒不改号。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "m-44",
+      "m-43"
+    ],
+    "questionIds": [
+      "m-q40"
+    ]
+  },
+  {
+    "id": "m-51",
+    "subject": "math",
+    "module": "计数原理",
+    "chapter": "计数原理",
+    "title": "分类加法与分步乘法",
+    "freq": "high",
+    "examHow": "排列组合的逻辑基础，很多计数失误本质上是分类分步不清。",
+    "summary": "完成一件事有若干类办法，用加法；需要分成若干步骤，用乘法。分类要不重不漏，分步要步步相依且每步计数正确。",
+    "points": [
+      "分类加法计数原理：各类办法互斥，总数等于各类之和。",
+      "分步乘法计数原理：各步连续完成，总数等于各步数目之积（步与步相互独立计数时）。",
+      "“至少”“至多”常用正面分类或反面（补集）计算。"
+    ],
+    "formulas": [
+      "分类用加法，分步用乘法"
+    ],
+    "pitfalls": [
+      "分类有交叉或遗漏。",
+      "分步时后一步的计数随前一步变化，却用了固定数目。",
+      "“相邻”未捆绑，“不相邻”未插空。"
+    ],
+    "methodIds": [
+      "m-mtd-13"
+    ],
+    "relatedIds": [
+      "m-52",
+      "m-53"
+    ],
+    "questionIds": [
+      "m-q30"
+    ]
+  },
+  {
+    "id": "m-52",
+    "subject": "math",
+    "module": "计数原理",
+    "chapter": "排列组合",
+    "title": "排列与组合",
+    "freq": "high",
+    "examHow": "选择填空的经典考点，捆绑、插空、隔板、分组分配是常用技巧。",
+    "summary": "排列与顺序有关，组合与顺序无关。公式要会用，更要会把实际问题转化。",
+    "points": [
+      "$A_n^k=\\dfrac{n!}{(n-k)!}=n(n-1)\\cdots(n-k+1)$，$A_n^n=n!$。",
+      "$C_n^k=\\dfrac{n!}{k!(n-k)!}=C_n^{n-k}$。",
+      "捆绑法：相邻元素先绑成一块（内部可再排列）。",
+      "插空法：先排没有限制的，再把不相邻的插入空位。",
+      "隔板法：把 $n$ 个相同物品分成 $k$ 组非空，相当于 $C_{n-1}^{k-1}$。"
+    ],
+    "formulas": [
+      "$A_n^k=\\dfrac{n!}{(n-k)!}$",
+      "$C_n^k=\\dfrac{n!}{k!(n-k)!}$",
+      "$C_n^k=C_n^{n-k}$"
+    ],
+    "pitfalls": [
+      "排列组合公式用反：有序当无序或反过来。",
+      "圆形排列未除以 $n$，或未固定一个位置。",
+      "分组时对“组与组无区别”未除以组数的阶乘。"
+    ],
+    "methodIds": [
+      "m-mtd-13",
+      "m-mtd-16"
+    ],
+    "relatedIds": [
+      "m-51",
+      "m-53"
+    ],
+    "questionIds": [
+      "m-q30",
+      "m-q31",
+      "m-q51"
+    ]
+  },
+  {
+    "id": "m-53",
+    "subject": "math",
+    "module": "计数原理",
+    "chapter": "二项式定理",
+    "title": "二项式定理",
+    "freq": "mid",
+    "examHow": "选择填空考查通项、系数、赋值法求和，偶尔与概率结合。",
+    "summary": "$(a+b)^n=\\sum_{k=0}^{n}C_n^k a^{n-k}b^k$。通项 $T_{k+1}=C_n^k a^{n-k}b^k$。",
+    "points": [
+      "二项式系数 $C_n^k$ 与项的系数（可能含 $a,b$ 的数字）要区分。",
+      "赋值：令 $a=1,b=1$ 得 $\\sum C_n^k=2^n$；令 $b=-1$ 得 $\\sum(-1)^k C_n^k=0$。",
+      "系数最大项由相邻项比 $\\dfrac{T_{k+1}}{T_k}$ 与 $1$ 比较得到。",
+      "杨辉三角体现 $C_n^k=C_{n-1}^{k}+C_{n-1}^{k-1}$。"
+    ],
+    "formulas": [
+      "$(a+b)^n=\\sum_{k=0}^n C_n^k a^{n-k}b^k$",
+      "$\\sum_{k=0}^n C_n^k=2^n$"
+    ],
+    "pitfalls": [
+      "通项写成 $T_k$ 时下标与 $k$ 的对应差 $1$。",
+      "求“系数”时把二项式系数当成最终系数，漏掉 $a,b$ 带来的常数。",
+      "展开 $(1-2x)^n$ 时符号出错。"
+    ],
+    "methodIds": [
+      "m-mtd-13"
+    ],
+    "relatedIds": [
+      "m-52",
+      "m-60"
+    ],
+    "questionIds": [
+      "m-q32"
+    ]
+  },
+  {
+    "id": "m-54",
+    "subject": "math",
+    "module": "随机变量",
+    "chapter": "离散型随机变量",
+    "title": "离散型随机变量及其分布列",
+    "freq": "high",
+    "examHow": "解答题常见概率统计大题的主体，分布列要验证非负且和为 $1$。",
+    "summary": "离散型随机变量用分布列刻画。期望描述平均，方差描述波动。",
+    "points": [
+      "$P(X=x_i)=p_i$，$p_i\\ge 0$ 且 $\\sum p_i=1$。",
+      "$E(X)=\\sum x_i p_i$，$E(aX+b)=aE(X)+b$。",
+      "$D(X)=E(X^2)-[E(X)]^2=\\sum(x_i-E(X))^2 p_i$，$D(aX+b)=a^2 D(X)$。",
+      "先把可能取值列全，再算概率，最后检查和是否为 $1$。"
+    ],
+    "formulas": [
+      "$E(X)=\\sum x_ip_i$",
+      "$D(X)=E(X^2)-[E(X)]^2$"
+    ],
+    "pitfalls": [
+      "漏掉某个取值，分布列之和不为 $1$。",
+      "方差公式用成 $E(X^2)-E(X)$。",
+      "线性变换时方差忘记乘 $a^2$。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "m-55",
+      "m-28"
+    ],
+    "questionIds": [
+      "m-q34"
+    ]
+  },
+  {
+    "id": "m-55",
+    "subject": "math",
+    "module": "随机变量",
+    "chapter": "离散型随机变量",
+    "title": "二项分布、超几何分布与独立性",
+    "freq": "high",
+    "examHow": "识别模型是解题第一步：有放回或独立重复是二项，无放回抽样是超几何。",
+    "summary": "独立重复试验中事件发生次数服从二项分布；不放回的成功次数服从超几何分布。",
+    "points": [
+      "$X\\sim B(n,p)$ 时 $P(X=k)=C_n^k p^k(1-p)^{n-k}$，$E(X)=np$，$D(X)=np(1-p)$。",
+      "超几何：总体 $N$ 件含 $M$ 件合格，抽 $n$ 件，合格数 $X$ 满足 $P(X=k)=\\dfrac{C_M^k C_{N-M}^{n-k}}{C_N^n}$。",
+      "$E(X)=n\\dfrac{M}{N}$。",
+      "二项分布是独立重复，各次试验概率不变。"
+    ],
+    "formulas": [
+      "$P(X=k)=C_n^k p^k(1-p)^{n-k}$",
+      "$E(X)=np,\\quad D(X)=np(1-p)$"
+    ],
+    "pitfalls": [
+      "不放回抽样误用二项分布。",
+      "$P(X=k)$ 中 $C_n^k$ 漏写，或 $(1-p)$ 的指数写成 $k$。",
+      "期望直接当概率用。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "m-54",
+      "m-52",
+      "m-29"
+    ],
+    "questionIds": [
+      "m-q34",
+      "m-q51"
+    ]
+  },
+  {
+    "id": "m-56",
+    "subject": "math",
+    "module": "随机变量",
+    "chapter": "正态分布与统计案例",
+    "title": "正态分布",
+    "freq": "mid",
+    "examHow": "选择填空考查标准化、$3\\sigma$ 原则与概率估计。",
+    "summary": "正态曲线关于 $x=\\mu$ 对称，标准差 $\\sigma$ 越小曲线越瘦高。标准化 $Z=\\dfrac{X-\\mu}{\\sigma}\\sim N(0,1)$。",
+    "points": [
+      "$P(\\mu-\\sigma<X<\\mu+\\sigma)\\approx 0.6827$，",
+      "$P(\\mu-2\\sigma<X<\\mu+2\\sigma)\\approx 0.9545$，",
+      "$P(\\mu-3\\sigma<X<\\mu+3\\sigma)\\approx 0.9973$。",
+      "关于均值对称的区间，概率可以“对折”。"
+    ],
+    "formulas": [
+      "$Z=\\dfrac{X-\\mu}{\\sigma}\\sim N(0,1)$"
+    ],
+    "pitfalls": [
+      "把 $\\sigma$ 与 $\\sigma^2$ 在 $N(\\mu,\\sigma^2)$ 的记号里弄混。",
+      "标准化时分子分母颠倒或忘记减均值。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "m-27",
+      "m-54"
+    ],
+    "questionIds": [
+      "m-q42"
+    ]
+  },
+  {
+    "id": "m-57",
+    "subject": "math",
+    "module": "随机变量",
+    "chapter": "统计案例",
+    "title": "回归分析与残差",
+    "freq": "mid",
+    "examHow": "选择或填空出现，会算回归系数、理解相关关系与因果关系的区别。",
+    "summary": "对于成对数据，用线性回归 $y=bx+a$ 作拟合。最小二乘使残差平方和最小。",
+    "points": [
+      "$b=\\dfrac{\\sum(x_i-\\bar x)(y_i-\\bar y)}{\\sum(x_i-\\bar x)^2}=\\dfrac{\\sum x_i y_i-n\\bar x\\bar y}{\\sum x_i^2-n\\bar x^2}$，$a=\\bar y-b\\bar x$。",
+      "相关指数 $R^2$ 越接近 $1$，拟合效果越好。",
+      "相关关系不是因果关系。",
+      "残差 $e_i=y_i-\\hat y_i$，残差图可帮助判断线性模型是否合适。"
+    ],
+    "formulas": [
+      "$b=\\dfrac{\\sum(x_i-\\bar x)(y_i-\\bar y)}{\\sum(x_i-\\bar x)^2}$",
+      "$a=\\bar y-b\\bar x$"
+    ],
+    "pitfalls": [
+      "把 $a,b$ 公式分子分母记反。",
+      "由相关性强就断言因果。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "m-27",
+      "m-58"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "m-58",
+    "subject": "math",
+    "module": "随机变量",
+    "chapter": "统计案例",
+    "title": "独立性检验",
+    "freq": "mid",
+    "examHow": "列联表与 $K^2$ 统计量是填空与解答的常见设问。",
+    "summary": "用 $\\chi^2$ 统计量（课本记为 $K^2$）判断两个分类变量是否有关联。",
+    "points": [
+      "$K^2=\\dfrac{n(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}$，其中 $n=a+b+c+d$。",
+      "值越大，越有理由认为不独立。常用临界值：$2.706$（$90\\%$）、$3.841$（$95\\%$）、$6.635$（$99\\%$）。",
+      "结论表述要严谨：是“有 $xx\\%$ 的把握认为有关联”，不是“证明了有关联”。"
+    ],
+    "formulas": [
+      "$K^2=\\dfrac{n(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}$"
+    ],
+    "pitfalls": [
+      "临界值记错，或比较方向反了。",
+      "结论说成“一定有关系”。",
+      "列联表中 $a,b,c,d$ 的位置放错。"
+    ],
+    "methodIds": [],
+    "relatedIds": [
+      "m-57",
+      "m-29"
+    ],
+    "questionIds": [
+      "m-q45"
+    ]
+  },
+  {
+    "id": "m-59",
+    "subject": "math",
+    "module": "函数",
+    "chapter": "函数的图象与变换",
+    "title": "图象变换与函数模型",
+    "freq": "mid",
+    "examHow": "选择考查平移伸缩对称，实际问题中的指数、对数、幂函数模型也常出现。",
+    "summary": "掌握 $y=f(x)$ 到 $y=Af(\\omega x+\\varphi)+k$ 的变换，以及常见增长、衰减模型。",
+    "points": [
+      "$y=f(x-a)$ 向右平移 $a$（$a>0$）；$y=f(x)+b$ 上移 $b$。",
+      "$y=f(2x)$ 横坐标缩短为原来的 $\\dfrac{1}{2}$；$y=2f(x)$ 纵坐标伸长为原来的 $2$ 倍。",
+      "$y=-f(x)$ 关于 $x$ 轴对称，$y=f(-x)$ 关于 $y$ 轴对称，$y=-f(-x)$ 关于原点对称。",
+      "先平移后伸缩与先伸缩后平移的平移量不同，按复合由内到外最稳妥。"
+    ],
+    "formulas": [
+      "$y=f(x-a)+b$ 右移 $a$、上移 $b$"
+    ],
+    "pitfalls": [
+      "水平平移方向记反（看成“看到什么就往什么方向”但符号搞错）。",
+      "伸缩与平移顺序不当导致相位错误。"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "relatedIds": [
+      "m-18",
+      "m-10"
+    ],
+    "questionIds": []
+  },
+  {
+    "id": "m-60",
+    "subject": "math",
+    "module": "逻辑与推理",
+    "chapter": "推理与证明",
+    "title": "合情推理、演绎与数学归纳法",
+    "freq": "base",
+    "examHow": "选择偶尔考查归纳与演绎的区别；数学归纳法在数列、不等式中使用。",
+    "summary": "合情推理（归纳、类比）用于猜想，演绎推理用于证明。数学归纳法证明与正整数有关的命题。",
+    "points": [
+      "第一数学归纳法：验证 $n=n_0$；假设 $n=k$ 成立，证明 $n=k+1$ 成立。",
+      "第二数学归纳法：假设 $n\\le k$ 都成立，再证 $n=k+1$。",
+      "归纳起点要与命题中的最小正整数一致。",
+      "类比是根据相似性推测，结论必须再证明。"
+    ],
+    "formulas": [
+      "由 $n=k$ 真推出 $n=k+1$ 真"
+    ],
+    "pitfalls": [
+      "只验证前几项就宣布对一切 $n$ 成立。",
+      "归纳步骤中用了 $k+1$ 的结论本身，属于循环论证。"
+    ],
+    "methodIds": [
+      "m-mtd-14",
+      "m-mtd-15"
+    ],
+    "relatedIds": [
+      "m-39",
+      "m-48"
+    ],
+    "questionIds": [
+      "m-q43",
+      "m-q44"
+    ]
+  }
+]

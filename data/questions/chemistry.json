@@ -1,0 +1,1022 @@
+[
+  {
+    "id": "hx-q01",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 1,
+    "knowledgeIds": [
+      "hx-03"
+    ],
+    "methodIds": [
+      "hx-m-01"
+    ],
+    "stem": "标准状况下，$6.72\\,\\mathrm{L}$ 二氧化碳中含有的分子数目约为（$N_\\mathrm{A}$ 表示阿伏加德罗常数的值）",
+    "answer": "B",
+    "steps": [
+      "$n=V/V_\\mathrm{m}=6.72/22.4=0.30\\,\\mathrm{mol}$，分子数 $=0.30N_\\mathrm{A}$。"
+    ],
+    "analysis": {
+      "breakthrough": "用气体摩尔体积求物质的量，再乘 $N_\\mathrm{A}$。",
+      "method": "物质的量计算。",
+      "pitfalls": "误用 $6.72/22.4=0.3$ 却选 $0.3$ 而不带 $N_\\mathrm{A}$，或把 $22.4$ 用反。",
+      "variant": "求所含氧原子数：$0.30\\times 2N_\\mathrm{A}=0.60N_\\mathrm{A}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$0.20N_\\mathrm{A}$",
+      "$0.30N_\\mathrm{A}$",
+      "$0.60N_\\mathrm{A}$",
+      "$6.72N_\\mathrm{A}$"
+    ]
+  },
+  {
+    "id": "hx-q02",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 1,
+    "knowledgeIds": [
+      "hx-03"
+    ],
+    "methodIds": [
+      "hx-m-01"
+    ],
+    "stem": "把 $8.0\\,\\mathrm{g}$ 氢氧化钠配成 $500\\,\\mathrm{mL}$ 溶液，所得溶液的物质的量浓度是（氢氧化钠的摩尔质量为 $40\\,\\mathrm{g/mol}$）",
+    "answer": "C",
+    "steps": [
+      "$n=8.0/40=0.20\\,\\mathrm{mol}$，$c=n/V=0.20/0.50=0.40\\,\\mathrm{mol/L}$。注意 $500\\,\\mathrm{mL}=0.50\\,\\mathrm{L}$。"
+    ],
+    "analysis": {
+      "breakthrough": "先求物质的量，再除以溶液体积（升）。",
+      "method": "物质的量浓度定义。",
+      "pitfalls": "体积用成 $500\\,\\mathrm{L}$ 或忘记除以 $1000$，得到 $0.0004$；或用 $8/40/500=4\\times 10^{-4}$ 却选错数量级。",
+      "variant": "若配成 $250\\,\\mathrm{mL}$，则 $c=0.80\\,\\mathrm{mol/L}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$0.16\\,\\mathrm{mol/L}$",
+      "$0.20\\,\\mathrm{mol/L}$",
+      "$0.40\\,\\mathrm{mol/L}$",
+      "$0.80\\,\\mathrm{mol/L}$"
+    ]
+  },
+  {
+    "id": "hx-q03",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-04",
+      "hx-01"
+    ],
+    "methodIds": [
+      "hx-m-11"
+    ],
+    "stem": "用固体氯化钠配制 $250\\,\\mathrm{mL}\\,0.20\\,\\mathrm{mol/L}$ 的氯化钠溶液时，下列操作会使所配溶液浓度偏高的是",
+    "answer": "B",
+    "steps": [
+      "需要氯化钠 $n=0.20\\times 0.25=0.050\\,\\mathrm{mol}$，质量 $2.925\\,\\mathrm{g}$。浓度偏高意味着溶质偏多或体积偏小。",
+      "A：洗涤液未转入，溶质减少，偏低。B：定容时俯视刻度线，读到的「刻度」实际液面未到，体积偏小，浓度偏高。C：摇匀后补水，体积偏大，偏低。D：容量瓶有余水对定容后的体积无影响（定容到刻度即可），浓度几乎不变。"
+    ],
+    "analysis": {
+      "breakthrough": "抓住 $c=n/V$，分析 $n$ 和 $V$ 谁被改变。",
+      "method": "实验误差分析。",
+      "pitfalls": "把俯视、仰视对体积的影响弄反。",
+      "variant": "若改为仰视定容，则体积偏大，浓度偏低。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "转移时未用蒸馏水洗涤烧杯和玻璃棒",
+      "定容时俯视容量瓶刻度线",
+      "定容摇匀后发现液面低于刻度，又补加蒸馏水",
+      "容量瓶使用前没有干燥，残留少量蒸馏水"
+    ]
+  },
+  {
+    "id": "hx-q04",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-02",
+      "hx-32"
+    ],
+    "methodIds": [
+      "hx-m-11"
+    ],
+    "stem": "实验室用二氧化锰和浓盐酸制取氯气时，正确的除杂、干燥和尾气处理组合是",
+    "answer": "C",
+    "steps": [
+      "发生的气体中含氯化氢和水蒸气。先用饱和食盐水除去氯化氢（氯气在饱和食盐水中溶解度很小），再用浓硫酸干燥。尾气用氢氧化钠溶液吸收。碱石灰会同时吸收氯气，不能作干燥剂。石灰水浓度低，吸收不彻底。"
+    ],
+    "analysis": {
+      "breakthrough": "除杂在干燥之前；干燥剂不能与被干燥气体反应；尾气用碱液吸收。",
+      "method": "气体制取流程。",
+      "pitfalls": "把除杂和干燥的顺序颠倒，水蒸气会再次从食盐水带出。",
+      "variant": "若要得到干燥的氯气用于与铁反应，收集后还要考虑装置中的空气是否排尽。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "浓硫酸除氯化氢，饱和食盐水干燥，氢氧化钠吸收尾气",
+      "饱和食盐水除氯化氢，碱石灰干燥，氢氧化钠吸收尾气",
+      "饱和食盐水除氯化氢，浓硫酸干燥，氢氧化钠吸收尾气",
+      "饱和食盐水除氯化氢，浓硫酸干燥，澄清石灰水吸收尾气"
+    ]
+  },
+  {
+    "id": "hx-q05",
+    "subject": "chemistry",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-03"
+    ],
+    "methodIds": [
+      "hx-m-01"
+    ],
+    "stem": "将 $4.9\\,\\mathrm{g}$ 硫酸（摩尔质量 $98\\,\\mathrm{g/mol}$）溶于水，配成 $250\\,\\mathrm{mL}$ 溶液。该溶液中硫酸的物质的量浓度是 ______ $\\mathrm{mol/L}$。",
+    "answer": "0.2",
+    "steps": [
+      "$n=4.9/98=0.050\\,\\mathrm{mol}$，$c=0.050/0.25=0.20\\,\\mathrm{mol/L}$。"
+    ],
+    "analysis": {
+      "breakthrough": "先求 $n$ 再求 $c$。",
+      "method": "物质的量浓度。",
+      "pitfalls": "把 $250\\,\\mathrm{mL}$ 当成 $250\\,\\mathrm{L}$。",
+      "variant": "溶液中 $\\mathrm{H^+}$ 的浓度按完全电离约为 $0.40\\,\\mathrm{mol/L}$（硫酸的第二步电离也很强，稀溶液中可近似按二元强酸）。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "0.20",
+      "0.20 mol/L",
+      "0.2mol/L"
+    ]
+  },
+  {
+    "id": "hx-q06",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-05",
+      "hx-33"
+    ],
+    "methodIds": [
+      "hx-m-02"
+    ],
+    "stem": "在溶液中可以大量共存的一组离子是",
+    "answer": "D",
+    "steps": [
+      "A：$\\mathrm{H^+}$ 与 $\\mathrm{CO_3^{2-}}$ 生成二氧化碳和水，不能共存。B：$\\mathrm{Ba^{2+}}$ 与 $\\mathrm{SO_4^{2-}}$ 生成硫酸钡沉淀。C：$\\mathrm{Fe^{3+}}$ 与 $\\mathrm{SCN^-}$ 生成血红色络合物，不能「大量」以原离子形式共存；且 $\\mathrm{Fe^{3+}}$ 与 $\\mathrm{OH^-}$ 也生成沉淀。D：钠离子、钾离子、氯离子、硝酸根在中性或所给条件下互不反应，可以共存。"
+    ],
+    "analysis": {
+      "breakthrough": "逐组检查是否有沉淀、气体、弱电解质或氧化还原。",
+      "method": "离子共存。",
+      "pitfalls": "忽略络合反应，误认为硫氰根与铁离子可以共存。",
+      "variant": "若题干加上「酸性溶液」，还要排除与氢离子反应的离子。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$\\mathrm{Na^+,\\ H^+,\\ Cl^-,\\ CO_3^{2-}}$",
+      "$\\mathrm{K^+,\\ Ba^{2+},\\ NO_3^-,\\ SO_4^{2-}}$",
+      "$\\mathrm{Na^+,\\ Fe^{3+},\\ OH^-,\\ SCN^-}$",
+      "$\\mathrm{Na^+,\\ K^+,\\ Cl^-,\\ NO_3^-}$"
+    ]
+  },
+  {
+    "id": "hx-q07",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-05",
+      "hx-07"
+    ],
+    "methodIds": [
+      "hx-m-02"
+    ],
+    "stem": "下列离子方程式正确的是",
+    "answer": "B",
+    "steps": [
+      "A：碳酸钙是沉淀，不能拆，且盐酸是强酸可拆，正确写法是 $\\mathrm{CaCO_3+2H^+=Ca^{2+}+CO_2\\uparrow+H_2O}$。B：醋酸是弱酸，不拆；生成二氧化碳，正确。C：氯气与氢氧化钠反应应生成氯离子、次氯酸根和水，$\\mathrm{Cl_2+2OH^-=Cl^-+ClO^-+H_2O}$，原式漏掉次氯酸根且不守恒。D：铁与氢离子生成亚铁离子而不是铁离子。"
+    ],
+    "analysis": {
+      "breakthrough": "检查「该不该拆」和守恒，再核对产物是否符合事实。",
+      "method": "离子方程式判断。",
+      "pitfalls": "把弱酸拆开，或把难溶盐拆开。",
+      "variant": "若是少量二氧化碳通入氢氧化钠，离子方程式为 $\\mathrm{CO_2+2OH^-=CO_3^{2-}+H_2O}$；过量则为 $\\mathrm{CO_2+OH^-=HCO_3^-}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "大理石与盐酸：$\\mathrm{CO_3^{2-}+2H^+=CO_2\\uparrow+H_2O}$",
+      "醋酸与碳酸钠：$\\mathrm{2CH_3COOH+CO_3^{2-}=2CH_3COO^-+CO_2\\uparrow+H_2O}$",
+      "氯气通入氢氧化钠溶液：$\\mathrm{Cl_2+2OH^-=2Cl^-+H_2O}$",
+      "铁与稀盐酸：$\\mathrm{Fe+2H^+=Fe^{3+}+H_2\\uparrow}$"
+    ]
+  },
+  {
+    "id": "hx-q08",
+    "subject": "chemistry",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-05",
+      "hx-33"
+    ],
+    "methodIds": [
+      "hx-m-02"
+    ],
+    "stem": "下列反应的离子方程式书写正确的是",
+    "answer": "AC",
+    "steps": [
+      "A：氢氧化铁与盐酸：$\\mathrm{Fe(OH)_3+3H^+=Fe^{3+}+3H_2O}$，正确。B：二氧化硫通入品红是化合漂白，不是这个离子方程式所能表示的常见教学写法；且该选项若写成 $\\mathrm{SO_2+2OH^-=SO_3^{2-}+H_2O}$，在「品红溶液」中并不成立（品红溶液近中性），故 B 不正确（本题 B 为：$\\mathrm{SO_2+H_2O=SO_3^{2-}+2H^+}$，二氧化硫水溶液的主要存在形式是亚硫酸分子，应写可逆且不拆成完全电离）。C：铜与银离子：$\\mathrm{Cu+2Ag^+=Cu^{2+}+2Ag}$，正确。D：氯气与水写成了不可逆且产物只有盐酸，漏掉次氯酸，错误。"
+    ],
+    "analysis": {
+      "breakthrough": "既要守恒，又要符合反应事实和强弱电解质的拆分规则。",
+      "method": "离子方程式。",
+      "pitfalls": "忽略可逆和弱电解质。",
+      "variant": "把二氧化硫水溶液的电离写成可逆：$\\mathrm{SO_2+H_2O\\rightleftharpoons H^++HSO_3^-}$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "$\\mathrm{Fe(OH)_3+3H^+=Fe^{3+}+3H_2O}$",
+      "$\\mathrm{SO_2+H_2O=SO_3^{2-}+2H^+}$",
+      "$\\mathrm{Cu+2Ag^+=Cu^{2+}+2Ag}$",
+      "$\\mathrm{Cl_2+H_2O=2H^++2Cl^-+O_2}$"
+    ]
+  },
+  {
+    "id": "hx-q09",
+    "subject": "chemistry",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-06"
+    ],
+    "methodIds": [
+      "hx-m-03"
+    ],
+    "stem": "在反应 $\\mathrm{MnO_2+4HCl(浓)\\triangleq MnCl_2+Cl_2\\uparrow+2H_2O}$ 中，氧化剂是 ______（填化学式），当有 $1\\,\\mathrm{mol}\\,\\mathrm{MnO_2}$ 被还原时，转移的电子为 ______ $\\mathrm{mol}$。",
+    "answer": "MnO2；2",
+    "steps": [
+      "锰的氧化数由 $+4$ 降到 $+2$，二氧化锰是氧化剂。每 $1\\,\\mathrm{mol}$ 二氧化锰得到 $2\\,\\mathrm{mol}$ 电子。同时，$4\\,\\mathrm{mol}$ 氯化氢中只有 $2\\,\\mathrm{mol}$ 作还原剂（氧化数由 $-1$ 升到 $0$），另外 $2\\,\\mathrm{mol}$ 起酸性作用。"
+    ],
+    "analysis": {
+      "breakthrough": "看氧化数升降，升降数就是转移电子数。",
+      "method": "氧化还原。",
+      "pitfalls": "把氯化氢全部当成还原剂，得到转移 $4\\,\\mathrm{mol}$ 电子；或把氧化剂写成氯气。",
+      "variant": "生成 $1\\,\\mathrm{mol}$ 氯气时同样转移 $2\\,\\mathrm{mol}$ 电子。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "alt": [
+      "MnO2,2",
+      "MnO_{2}；2",
+      "MnO2 2"
+    ]
+  },
+  {
+    "id": "hx-q10",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-06"
+    ],
+    "methodIds": [
+      "hx-m-03"
+    ],
+    "stem": "下列变化中，需要加入氧化剂才能实现的是",
+    "answer": "C",
+    "steps": [
+      "A：$\\mathrm{Cl_2}\\to\\mathrm{Cl^-}$ 是还原（得电子），需要还原剂。B：$\\mathrm{Fe^{3+}}\\to\\mathrm{Fe^{2+}}$ 是还原，需要还原剂。C：$\\mathrm{Fe^{2+}}\\to\\mathrm{Fe^{3+}}$ 是氧化（失电子），需要氧化剂。D：$\\mathrm{SO_4^{2-}}\\to$ 仍是 $+6$ 价硫，不是氧化还原。"
+    ],
+    "analysis": {
+      "breakthrough": "看元素氧化数是升高还是降低。",
+      "method": "氧化还原方向。",
+      "pitfalls": "把「被氧化」与「需要氧化剂」搞混。",
+      "variant": "$\\mathrm{Fe}\\to\\mathrm{Fe^{2+}}$ 同样需要氧化剂（例如氢离子）。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$\\mathrm{Cl_2}\\to\\mathrm{Cl^-}$",
+      "$\\mathrm{Fe^{3+}}\\to\\mathrm{Fe^{2+}}$",
+      "$\\mathrm{Fe^{2+}}\\to\\mathrm{Fe^{3+}}$",
+      "$\\mathrm{SO_4^{2-}}\\to\\mathrm{H_2SO_4}$"
+    ]
+  },
+  {
+    "id": "hx-q11",
+    "subject": "chemistry",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-12",
+      "hx-28"
+    ],
+    "methodIds": [
+      "hx-m-04"
+    ],
+    "stem": "已知：$\\mathrm{C(s)+O_2(g)=CO_2(g)}$ $\\Delta H_1=-394\\,\\mathrm{kJ/mol}$；$\\mathrm{C(s)+\\dfrac12 O_2(g)=CO(g)}$ $\\Delta H_2=-111\\,\\mathrm{kJ/mol}$。则 $\\mathrm{CO(g)+\\dfrac12 O_2(g)=CO_2(g)}$ 的 $\\Delta H=$ ______ $\\mathrm{kJ/mol}$。",
+    "answer": "-283",
+    "steps": [
+      "目标方程式 $= $ 第一个方程式减去第二个方程式：$\\Delta H=\\Delta H_1-\\Delta H_2=-394-(-111)=-283\\,\\mathrm{kJ/mol}$。"
+    ],
+    "analysis": {
+      "breakthrough": "用盖斯定律对已知方程式作减法，消去碳。",
+      "method": "盖斯定律。",
+      "pitfalls": "写成 $-394+(-111)=-505$，或符号取反得到 $+283$。",
+      "variant": "若目标改为 $2\\mathrm{CO}+\\mathrm{O_2}=2\\mathrm{CO_2}$，则 $\\Delta H=-566\\,\\mathrm{kJ/mol}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "-283 kJ/mol",
+      "－283"
+    ]
+  },
+  {
+    "id": "hx-q12",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-12"
+    ],
+    "methodIds": [
+      "hx-m-04"
+    ],
+    "stem": "对于热化学方程式 $\\mathrm{2H_2(g)+O_2(g)=2H_2O(l)}$ $\\Delta H=-572\\,\\mathrm{kJ/mol}$，下列说法正确的是",
+    "answer": "A",
+    "steps": [
+      "A：该 $\\Delta H$ 对应生成 $2\\,\\mathrm{mol}$ 液态水，所以生成 $1\\,\\mathrm{mol}$ 液态水放热 $286\\,\\mathrm{kJ}$，正确。B：生成气态水放热更少（因为液态水气化要吸热），$\\Delta H$ 不会仍是 $-572\\,\\mathrm{kJ/mol}$。C：焓变与途径无关，但与物质状态有关，不能说「与状态无关」。D：逆反应是吸热的，$\\Delta H=+572\\,\\mathrm{kJ/mol}$。"
+    ],
+    "analysis": {
+      "breakthrough": "看清物质的状态和系数再谈 $\\Delta H$ 的数值。",
+      "method": "热化学方程式含义。",
+      "pitfalls": "忽略水的状态，把燃烧热和这个方程式直接等同却不检查系数（燃烧热对应 $1\\,\\mathrm{mol}$ 氢气生成液态水，应为 $-286\\,\\mathrm{kJ/mol}$）。",
+      "variant": "氢气的燃烧热是 $-286\\,\\mathrm{kJ/mol}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "生成 $1\\,\\mathrm{mol}$ 液态水时，放出 $286\\,\\mathrm{kJ}$ 热量",
+      "若生成的水为气态，$\\Delta H$ 仍为 $-572\\,\\mathrm{kJ/mol}$",
+      "$\\Delta H$ 的值与水的状态无关",
+      "该反应的逆反应的 $\\Delta H$ 为 $-572\\,\\mathrm{kJ/mol}$"
+    ]
+  },
+  {
+    "id": "hx-q13",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-14"
+    ],
+    "methodIds": [
+      "hx-m-05"
+    ],
+    "stem": "对于可逆反应 $\\mathrm{2SO_2(g)+O_2(g)\\rightleftharpoons 2SO_3(g)}$ $\\Delta H<0$，下列措施一定能使平衡向正反应方向移动的是",
+    "answer": "B",
+    "steps": [
+      "A：升温，放热反应平衡向逆方向移动。B：增大氧气的浓度，$Q$ 减小，小于 $K$，正向移动。C：缩小容积即加压，正向移动（气体分子数减少），但「加入催化剂」不移动；本选项是催化剂，不移动。D：恒容充入氦气，各物质浓度不变，不移动。"
+    ],
+    "analysis": {
+      "breakthrough": "用勒夏特列原理或 $Q$ 与 $K$ 比较，并分清恒容恒压。",
+      "method": "平衡移动。",
+      "pitfalls": "把加催化剂当成使平衡正向移动（它只改变速率）。",
+      "variant": "恒压充入氦气相当于减压，平衡向逆方向移动。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "升高温度",
+      "增大氧气的浓度",
+      "加入催化剂",
+      "在容积不变时充入氦气"
+    ]
+  },
+  {
+    "id": "hx-q14",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-14",
+      "hx-35"
+    ],
+    "methodIds": [
+      "hx-m-05",
+      "hx-m-12"
+    ],
+    "stem": "在密闭容器中，反应 $\\mathrm{N_2(g)+3H_2(g)\\rightleftharpoons 2NH_3(g)}$ $\\Delta H<0$ 达到平衡。下列说法正确的是",
+    "answer": "C",
+    "steps": [
+      "A：升温 $K$ 减小（放热），错误。B：增加氮气的量，氢气的转化率提高，但氮气自身转化率下降，不能笼统说「各反应物转化率都提高」。C：缩小容积，压强增大，平衡正向移动，氨气的物质的量分数增大，正确。D：催化剂不改变平衡浓度。"
+    ],
+    "analysis": {
+      "breakthrough": "分别判断 $K$、转化率和体积分数。",
+      "method": "平衡移动与转化率。",
+      "pitfalls": "把「提高一种反应物浓度」理解成所有反应物转化率都增大。",
+      "variant": "若加入惰性气体并保持总压不变（容积增大），平衡向逆方向移动。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "升高温度，平衡常数 $K$ 增大",
+      "增加氮气的量，氢气和氮气的转化率都提高",
+      "缩小容器容积，平衡混合物中氨气的物质的量分数增大",
+      "加入催化剂，氨气的平衡浓度增大"
+    ]
+  },
+  {
+    "id": "hx-q15",
+    "subject": "chemistry",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-14"
+    ],
+    "methodIds": [
+      "hx-m-05"
+    ],
+    "stem": "某可逆反应 $\\mathrm{A(g)+B(g)\\rightleftharpoons 2C(g)}$ 在一定温度下的平衡常数 $K=4$。若该温度下起始时 $\\mathrm{A}$、$\\mathrm{B}$、$\\mathrm{C}$ 的浓度分别为 $1.0$、$1.0$、$0\\,\\mathrm{mol/L}$，则平衡时 $\\mathrm{C}$ 的浓度为 ______ $\\mathrm{mol/L}$。",
+    "answer": "1.0",
+    "steps": [
+      "设转化的 $\\mathrm{A}$ 为 $x\\,\\mathrm{mol/L}$，则平衡时 $[\\mathrm{A}]=1-x$，$[\\mathrm{B}]=1-x$，$[\\mathrm{C}]=2x$。",
+      "$K=\\dfrac{(2x)^2}{(1-x)^2}=4$，故 $\\dfrac{2x}{1-x}=2$（取正值），$2x=2-2x$，$x=0.5$，$[\\mathrm{C}]=1.0\\,\\mathrm{mol/L}$。",
+      "复查：$K=(1.0)^2/(0.5\times 0.5)=4$，与已知一致。"
+    ],
+    "analysis": {
+      "breakthrough": "列表表示起始、转化、平衡，代入 $K$。",
+      "method": "平衡常数计算。",
+      "pitfalls": "把 $K$ 写成 $2x/[(1-x)(1-x)]$，漏掉平方。",
+      "variant": "若起始 $\\mathrm{C}$ 为 $2.0\\,\\mathrm{mol/L}$，$\\mathrm{A}$、$\\mathrm{B}$ 为 $0$，则由对称性可求逆向转化。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "alt": [
+      "1",
+      "1.0",
+      "1.0 mol/L"
+    ]
+  },
+  {
+    "id": "hx-q16",
+    "subject": "chemistry",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-18"
+    ],
+    "methodIds": [
+      "hx-m-06"
+    ],
+    "stem": "常温下，$0.010\\,\\mathrm{mol/L}$ 盐酸的 $\\mathrm{pH}$ 为 ______。",
+    "answer": "2",
+    "steps": [
+      "盐酸是强酸，完全电离，$[\\mathrm{H^+}]=0.010\\,\\mathrm{mol/L}$，$\\mathrm{pH}=-\\lg 0.010=2$。"
+    ],
+    "analysis": {
+      "breakthrough": "强酸按完全电离计算氢离子浓度，再取负对数。",
+      "method": "pH 计算。",
+      "pitfalls": "把浓度当成 $0.10$ 得到 $\\mathrm{pH}=1$，或把负对数做成正对数。",
+      "variant": "若是 $0.010\\,\\mathrm{mol/L}$ 氢氧化钠，则 $[\\mathrm{OH^-}]=0.010$，$[\\mathrm{H^+}]=1.0\\times 10^{-12}$，$\\mathrm{pH}=12$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "2.0",
+      "pH=2"
+    ]
+  },
+  {
+    "id": "hx-q17",
+    "subject": "chemistry",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-18"
+    ],
+    "methodIds": [
+      "hx-m-06"
+    ],
+    "stem": "常温下，某弱酸 $\\mathrm{HA}$ 的 $K_\\mathrm{a}=1.0\\times 10^{-5}$，其 $0.10\\,\\mathrm{mol/L}$ 溶液中 $[\\mathrm{H^+}]$ 约为 ______ $\\mathrm{mol/L}$（水的电离可忽略）。",
+    "answer": "1.0e-3",
+    "steps": [
+      "因为 $c/K_\\mathrm{a}=0.10/(1.0\\times 10^{-5})=10^{4}>400$，可用近似 $[\\mathrm{H^+}]\\approx\\sqrt{K_\\mathrm{a}c}=\\sqrt{1.0\\times 10^{-6}}=1.0\\times 10^{-3}\\,\\mathrm{mol/L}$。"
+    ],
+    "analysis": {
+      "breakthrough": "先判断近似条件，再用 $[\\mathrm{H^+}]\\approx\\sqrt{K_\\mathrm{a}c}$。",
+      "method": "弱酸电离。",
+      "pitfalls": "按完全电离得到 $0.10$，或开方时把 $10^{-6}$ 写成 $10^{-6}$ 却不得 $10^{-3}$。",
+      "variant": "相应 $\\mathrm{pH}=3.00$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "0.001",
+      "1e-3",
+      "10^{-3}",
+      "1.0\\\\times 10^{-3}",
+      "1.0×10^{-3}",
+      "1×10^{-3}",
+      "0.001 mol/L"
+    ]
+  },
+  {
+    "id": "hx-q18",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-19"
+    ],
+    "methodIds": [
+      "hx-m-06"
+    ],
+    "stem": "下列盐的水溶液，在常温下 $\\mathrm{pH}$ 最大的是（浓度均为 $0.1\\,\\mathrm{mol/L}$）",
+    "answer": "C",
+    "steps": [
+      "氯化钠不水解，中性，$\\mathrm{pH}=7$。氯化铵是强酸弱碱盐，水解显酸性，$\\mathrm{pH}<7$。醋酸钠和碳酸钠都是强碱弱酸盐，显碱性；碳酸是比醋酸更弱的酸，同浓度时碳酸钠水解程度更大，碱性更强，$\\mathrm{pH}$ 最大。"
+    ],
+    "analysis": {
+      "breakthrough": "「谁弱谁水解，谁强显谁性」，再比较对应弱酸的强弱。",
+      "method": "盐类水解。",
+      "pitfalls": "只判断显酸性还是碱性，不比较两种弱酸盐的水解程度。",
+      "variant": "同浓度的碳酸钠比碳酸氢钠碱性强。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$\\mathrm{NaCl}$",
+      "$\\mathrm{NH_4Cl}$",
+      "$\\mathrm{Na_2CO_3}$",
+      "$\\mathrm{CH_3COONa}$"
+    ]
+  },
+  {
+    "id": "hx-q19",
+    "subject": "chemistry",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-20"
+    ],
+    "methodIds": [
+      "hx-m-06"
+    ],
+    "stem": "常温下，$\\mathrm{AgCl}$ 的 $K_\\mathrm{sp}=1.8\\times 10^{-10}$。在 $0.10\\,\\mathrm{mol/L}$ 的氯化钠溶液中，银离子的平衡浓度是 ______ $\\mathrm{mol/L}$（用科学记数法，保留两位有效数字）。",
+    "answer": "1.8e-9",
+    "steps": [
+      "氯化钠完全电离，$[\\mathrm{Cl^-}]=0.10\\,\\mathrm{mol/L}$（氯化银溶解提供的氯离子可忽略）。",
+      "$K_\\mathrm{sp}=[\\mathrm{Ag^+}][\\mathrm{Cl^-}]=1.8\\times 10^{-10}$，故 $[\\mathrm{Ag^+}]=1.8\\times 10^{-10}/0.10=1.8\\times 10^{-9}\\,\\mathrm{mol/L}$。"
+    ],
+    "analysis": {
+      "breakthrough": "有同离子时，$[\\mathrm{Ag^+}]=K_\\mathrm{sp}/[\\mathrm{Cl^-}]$。",
+      "method": "溶度积与同离子效应。",
+      "pitfalls": "按纯水中的溶解度计算，$s=\\sqrt{K_\\mathrm{sp}}\\approx 1.3\\times 10^{-5}$，忽略了同离子效应。",
+      "variant": "纯水中氯化银的溶解度约为 $1.3\\times 10^{-5}\\,\\mathrm{mol/L}$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "alt": [
+      "1.8\\\\times 10^{-9}",
+      "1.8×10^{-9}",
+      "1.8*10^{-9}",
+      "1.8e-09",
+      "1.8 \\times 10^{-9}"
+    ]
+  },
+  {
+    "id": "hx-q20",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-21"
+    ],
+    "methodIds": [
+      "hx-m-07"
+    ],
+    "stem": "在锌-铜-稀硫酸原电池中，下列说法正确的是",
+    "answer": "A",
+    "steps": [
+      "锌比铜活泼，锌作负极，失电子：$\\mathrm{Zn-2e^-=Zn^{2+}}$；铜作正极，氢离子在铜极得电子生成氢气。电子由锌经导线流向铜。溶液中阳离子移向正极（铜极）。"
+    ],
+    "analysis": {
+      "breakthrough": "先定正负极，再写电极反应和电子流向。",
+      "method": "原电池分析。",
+      "pitfalls": "把电子流向说反，或认为氢离子在负极放电。",
+      "variant": "若把稀硫酸换成硫酸铜溶液，正极反应变为 $\\mathrm{Cu^{2+}+2e^-=Cu}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "电子由锌片经导线流向铜片",
+      "锌片是正极，发生还原反应",
+      "氢离子在锌片上得电子生成氢气",
+      "溶液中的阳离子移向锌片"
+    ]
+  },
+  {
+    "id": "hx-q21",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-22"
+    ],
+    "methodIds": [
+      "hx-m-07"
+    ],
+    "stem": "用惰性电极电解饱和食盐水，下列叙述正确的是",
+    "answer": "B",
+    "steps": [
+      "阳极：氯离子优先于氢氧根放电，生成氯气，$2\\mathrm{Cl^-}-2e^-=\\mathrm{Cl_2}\\uparrow$。阴极：水得电子生成氢气和氢氧根，$2\\mathrm{H_2O}+2e^-=\\mathrm{H_2}\\uparrow+2\\mathrm{OH^-}$，阴极区显碱性。钠离子在水溶液中不会在阴极放电。"
+    ],
+    "analysis": {
+      "breakthrough": "惰性电极电解先看离子放电顺序。",
+      "method": "电解产物判断。",
+      "pitfalls": "套用「电解水」的结论，认为阳极一定得到氧气。",
+      "variant": "若电解硫酸铜溶液（惰性电极），阳极是氧气，阴极是铜。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "阳极生成氧气，阴极生成氢气",
+      "阳极生成氯气，阴极生成氢气，阴极附近溶液显碱性",
+      "阴极析出金属钠",
+      "阳极附近溶液显碱性"
+    ]
+  },
+  {
+    "id": "hx-q22",
+    "subject": "chemistry",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-22"
+    ],
+    "methodIds": [
+      "hx-m-07",
+      "hx-m-01"
+    ],
+    "stem": "用惰性电极电解硫酸铜溶液。当电路中通过 $0.20\\,\\mathrm{mol}$ 电子时，阴极析出铜的质量为 ______ $\\mathrm{g}$（铜的摩尔质量为 $64\\,\\mathrm{g/mol}$）。",
+    "answer": "6.4",
+    "steps": [
+      "阴极反应：$\\mathrm{Cu^{2+}+2e^-=Cu}$。每析出 $1\\,\\mathrm{mol}$ 铜转移 $2\\,\\mathrm{mol}$ 电子。",
+      "$n(\\mathrm{Cu})=0.20/2=0.10\\,\\mathrm{mol}$，$m=0.10\\times 64=6.4\\,\\mathrm{g}$。"
+    ],
+    "analysis": {
+      "breakthrough": "用电子守恒：$n(e)=2n(\\mathrm{Cu})$。",
+      "method": "电解定量计算。",
+      "pitfalls": "忘记铜离子得到两个电子，算成 $0.20\\times 64=12.8\\,\\mathrm{g}$。",
+      "variant": "若通过的电量为 $9650\\,\\mathrm{C}$，则 $n(e)=9650/96500=0.10\\,\\mathrm{mol}$，析出铜 $3.2\\,\\mathrm{g}$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "alt": [
+      "6.4g",
+      "6.40"
+    ]
+  },
+  {
+    "id": "hx-q23",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-15"
+    ],
+    "methodIds": [
+      "hx-m-08"
+    ],
+    "stem": "向某浅绿色溶液中滴加硫氰化钾溶液，未见血红色；再滴加少量氯水，溶液变为血红色。由此可以判断原溶液中一定含有",
+    "answer": "B",
+    "steps": [
+      "浅绿色提示可能有 $\\mathrm{Fe^{2+}}$。先加硫氰化钾不变红，说明原溶液几乎没有 $\\mathrm{Fe^{3+}}$；再加氯水变红，说明氯水把 $\\mathrm{Fe^{2+}}$ 氧化为 $\\mathrm{Fe^{3+}}$，后者与硫氰根显血红色。因此原溶液一定含 $\\mathrm{Fe^{2+}}$。"
+    ],
+    "analysis": {
+      "breakthrough": "用「铁三角」的特征检验，分步排除 $\\mathrm{Fe^{3+}}$。",
+      "method": "铁的氧化态检验。",
+      "pitfalls": "根据最终变红就判断原来有 $\\mathrm{Fe^{3+}}$。",
+      "variant": "若一开始就变红，则原溶液含 $\\mathrm{Fe^{3+}}$，不能排除同时含 $\\mathrm{Fe^{2+}}$。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$\\mathrm{Fe^{3+}}$",
+      "$\\mathrm{Fe^{2+}}$",
+      "$\\mathrm{Cu^{2+}}$",
+      "$\\mathrm{Fe^{3+}}$ 和 $\\mathrm{Fe^{2+}}$"
+    ]
+  },
+  {
+    "id": "hx-q24",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-16",
+      "hx-08"
+    ],
+    "methodIds": [
+      "hx-m-08"
+    ],
+    "stem": "下列气体中，既能使品红溶液褪色、加热后又恢复红色，又能使澄清石灰水变浑浊的是",
+    "answer": "C",
+    "steps": [
+      "二氧化硫既能与品红化合而漂白（加热后恢复红色），又能与氢氧化钙反应生成亚硫酸钙沉淀使石灰水变浑浊。氯气的漂白是次氯酸的氧化漂白，加热不可恢复。二氧化碳能使石灰水变浑浊，但不能使品红褪色。一氧化氮无此性质。"
+    ],
+    "analysis": {
+      "breakthrough": "抓住二氧化硫漂白可逆且本身是酸性氧化物这一题眼。",
+      "method": "元素化合物特征性质。",
+      "pitfalls": "把氯气的漂白与二氧化硫混淆。",
+      "variant": "工业废气中二者可能同时存在，需要结合其他实验区分。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "$\\mathrm{Cl_2}$",
+      "$\\mathrm{CO_2}$",
+      "$\\mathrm{SO_2}$",
+      "$\\mathrm{NO}$"
+    ]
+  },
+  {
+    "id": "hx-q25",
+    "subject": "chemistry",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-23",
+      "hx-34"
+    ],
+    "methodIds": [
+      "hx-m-09"
+    ],
+    "stem": "分子式为 $\\mathrm{C_5H_{12}}$ 的烷烃，同分异构体共有 ______ 种（不考虑立体异构）。",
+    "answer": "3",
+    "steps": [
+      "戊烷的碳链异构共三种：正戊烷、2-甲基丁烷（异戊烷）、2,2-二甲基丙烷（新戊烷）。注意 2-甲基丁烷与所谓「3-甲基丁烷」是同一种。"
+    ],
+    "analysis": {
+      "breakthrough": "按碳链由长到短系统书写，避免重复。",
+      "method": "同分异构体计数。",
+      "pitfalls": "把 2-甲基丁烷和 3-甲基丁烷当成两种。",
+      "variant": "$\\mathrm{C_6H_{14}}$ 有五种碳链异构。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "三种",
+      "3种"
+    ]
+  },
+  {
+    "id": "hx-q26",
+    "subject": "chemistry",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-23",
+      "hx-25"
+    ],
+    "methodIds": [
+      "hx-m-09"
+    ],
+    "stem": "分子式为 $\\mathrm{C_4H_8O_2}$、能发生银镜反应的酯，共有 ______ 种（不考虑立体异构）。",
+    "answer": "2",
+    "steps": [
+      "能发生银镜反应的酯含甲酸酯结构 $\\mathrm{HCOO-}$。分子式为 $\\mathrm{C_4H_8O_2}$ 的甲酸酯是 $\\mathrm{HCOOC_3H_7}$，丙基有正丙基和异丙基两种，即甲酸正丙酯和甲酸异丙酯。乙酸乙酯、丙酸甲酯没有醛基，不能发生银镜反应。"
+    ],
+    "analysis": {
+      "breakthrough": "「能银镜的酯」就是甲酸某酯，再数烃基的异构。",
+      "method": "官能团异构与特征反应。",
+      "pitfalls": "把乙酸乙酯也算进去，或把两种丙酯当成一种。",
+      "variant": "甲酸甲酯、甲酸乙酯的分子式分别是 $\\mathrm{C_2H_4O_2}$、$\\mathrm{C_3H_6O_2}$，不是本题。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "alt": [
+      "两种",
+      "2种"
+    ]
+  },
+  {
+    "id": "hx-q27",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-25",
+      "hx-24"
+    ],
+    "methodIds": [
+      "hx-m-10"
+    ],
+    "stem": "下列有关有机反应的叙述，正确的是",
+    "answer": "D",
+    "steps": [
+      "A：乙醇与浓硫酸在 $170^\\circ\\mathrm{C}$ 发生分子内脱水生成乙烯，$140^\\circ\\mathrm{C}$ 主要生成乙醚，A 错误。B：苯与溴水不发生取代，苯与液溴在铁催化下才发生取代，B 错误。C：酯化需要浓硫酸加热，是可逆反应，室温混合不能完全转化，C 错误。D：乙醛能发生银镜反应，正确。"
+    ],
+    "analysis": {
+      "breakthrough": "对照各类官能团的条件和特征反应。",
+      "method": "有机反应条件。",
+      "pitfalls": "记混乙醇脱水的温度，或以为苯能与溴水发生取代。",
+      "variant": "乙烯使溴的四氯化碳溶液褪色是加成，可用来区别乙烯和乙烷。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "乙醇与浓硫酸共热到 $140^\\circ\\mathrm{C}$ 的主产物是乙烯",
+      "苯与溴水在铁催化下发生取代反应生成溴苯",
+      "乙酸与乙醇在室温下混合即可完全转化为乙酸乙酯",
+      "乙醛能与银氨溶液在水浴加热下发生银镜反应"
+    ]
+  },
+  {
+    "id": "hx-q28",
+    "subject": "chemistry",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-26",
+      "hx-25"
+    ],
+    "methodIds": [
+      "hx-m-10"
+    ],
+    "stem": "以乙烯为唯一有机原料，无机试剂任选，写出制备乙酸乙酯的合成路线（用化学方程式表示，注明必要的反应条件）。",
+    "answer": "乙烯水化得乙醇，乙醇氧化得乙酸（经乙醛），二者酯化得乙酸乙酯。",
+    "steps": [
+      "第一步：乙烯与水加成制备乙醇：$\\mathrm{CH_2=CH_2+H_2O\\xrightarrow{催化剂}CH_3CH_2OH}$。",
+      "第二步：乙醇催化氧化得乙醛：$2\\mathrm{CH_3CH_2OH+O_2\\xrightarrow{\\Delta,Cu}2CH_3CHO+2H_2O}$；乙醛再氧化得乙酸：$2\\mathrm{CH_3CHO+O_2\\xrightarrow{催化剂}2CH_3COOH}$。",
+      "第三步：乙酸与乙醇酯化：$\\mathrm{CH_3COOH+CH_3CH_2OH\\stackrel{浓硫酸,\\Delta}{\\rightleftharpoons}CH_3COOCH_2CH_3+H_2O}$。"
+    ],
+    "analysis": {
+      "breakthrough": "先把目标拆成乙酸和乙醇，再把二者都从乙烯接出来。",
+      "method": "有机合成的逆推。",
+      "pitfalls": "酯化漏写可逆号或浓硫酸；或把乙醇一步氧化写成乙酸却不给出合适的氧化条件。",
+      "variant": "工业上也有由乙烯经其他催化氧化路线得到乙酸的方法。"
+    },
+    "source": "精编练习",
+    "score": 12,
+    "rubric": [
+      {
+        "item": "由乙烯制备乙醇，反应与条件合理",
+        "score": 3
+      },
+      {
+        "item": "由乙醇制备乙酸，氧化步骤合理",
+        "score": 4
+      },
+      {
+        "item": "乙酸与乙醇酯化，方程式与条件正确",
+        "score": 4
+      },
+      {
+        "item": "书写规范",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "hx-q29",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-35",
+      "hx-13"
+    ],
+    "methodIds": [
+      "hx-m-05",
+      "hx-m-12"
+    ],
+    "stem": "某可逆反应在密闭容器中进行。达到平衡后升高温度，正、逆反应速率都增大，且逆反应速率增大得更多，平衡向左移动。由此可以判断",
+    "answer": "B",
+    "steps": [
+      "升温时正、逆反应速率都增大。平衡向左移动，说明逆反应是吸热方向，因此正反应是放热反应，$\\Delta H<0$。催化剂会使正、逆反应速率同等程度增大，与题意不符。"
+    ],
+    "analysis": {
+      "breakthrough": "升温后平衡移动的方向就是吸热的方向。",
+      "method": "平衡与勒夏特列原理。",
+      "pitfalls": "把「逆反应增大得更多」理解成正反应是吸热的。",
+      "variant": "若升温后正反应速率增大得更多，则正反应吸热，平衡右移。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "正反应是吸热反应",
+      "正反应是放热反应",
+      "加入了催化剂",
+      "反应前后气体分子数相等"
+    ]
+  },
+  {
+    "id": "hx-q30",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-31"
+    ],
+    "methodIds": [
+      "hx-m-11"
+    ],
+    "stem": "用已知浓度的氢氧化钠溶液滴定未知浓度的盐酸（盐酸预先量取在锥形瓶中），下列操作会使测得的盐酸浓度偏高的是",
+    "answer": "C",
+    "steps": [
+      "由 $c_{\\mathrm{酸}}V_{\\mathrm{酸}}=c_{\\mathrm{碱}}V_{\\mathrm{碱}}$，得 $c_{\\mathrm{酸}}=c_{\\mathrm{碱}}V_{\\mathrm{碱}}/V_{\\mathrm{酸}}$。盐酸体积由移液管准确量取，若不变，则氢氧化钠体积读数偏大时结果偏高。",
+      "A：锥形瓶有少量水，不改变盐酸的物质的量，对结果无影响。B：这是正确操作，不引入误差。C：滴定前尖嘴有气泡、滴定后气泡消失，这部分体积被计入读数，$V_{\\mathrm{碱}}$ 偏大，结果偏高。D：俯视终点读数，$V_{\\mathrm{碱}}$ 偏小，结果偏低。"
+    ],
+    "analysis": {
+      "breakthrough": "抓住 $c_{\\mathrm{待}}=c_{\\mathrm{标}}V_{\\mathrm{标}}/V_{\\mathrm{待}}$，分析标准液体积的偏大或偏小。",
+      "method": "滴定误差分析。",
+      "pitfalls": "把俯视、仰视对读数的影响弄反。",
+      "variant": "仰视终点读数，标准液体积偏大，结果偏高。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "锥形瓶用蒸馏水洗净后没有干燥",
+      "碱式滴定管用蒸馏水洗净后，再用标准氢氧化钠溶液润洗",
+      "滴定前滴定管尖嘴处有气泡，滴定结束后气泡消失",
+      "到达终点读取滴定管读数时俯视"
+    ]
+  },
+  {
+    "id": "hx-q31",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-31"
+    ],
+    "methodIds": [
+      "hx-m-11"
+    ],
+    "stem": "下列关于中和滴定的说法，正确的是",
+    "answer": "A",
+    "steps": [
+      "A：盛标准液的滴定管在装液前要用该标准液润洗，否则标准液被残留蒸馏水稀释，正确。B：锥形瓶不能用待测液润洗，否则待测溶质增多，结果偏高。C：氢氧化钠应盛在碱式滴定管中，酸式滴定管的玻璃活塞会被碱腐蚀。D：读数时视线应与凹液面最低处相切。"
+    ],
+    "analysis": {
+      "breakthrough": "记住「滴定管要润洗、锥形瓶不润洗」，以及酸式、碱式滴定管的使用范围。",
+      "method": "滴定操作。",
+      "pitfalls": "用待测液润洗锥形瓶。",
+      "variant": "酚酞的变色范围大约是 $8.2\\sim 10.0$，常用在强碱滴定强酸。"
+    },
+    "source": "精编练习",
+    "score": 5,
+    "options": [
+      "盛标准液的滴定管在装液前要用该标准液润洗",
+      "锥形瓶在加入待测液之前要用待测液润洗",
+      "氢氧化钠溶液应盛在酸式滴定管中进行滴定",
+      "读取滴定管读数时，视线与刻度线对齐即可，不必看液面"
+    ]
+  },
+  {
+    "id": "hx-q32",
+    "subject": "chemistry",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-09",
+      "hx-10"
+    ],
+    "methodIds": [
+      "hx-m-08"
+    ],
+    "stem": "下列叙述正确的是",
+    "answer": "BD",
+    "steps": [
+      "A：铬的基态电子排布是 $[\\mathrm{Ar}]3d^5 4s^1$，不是 $3d^4 4s^2$，错误。B：同一主族从上到下原子半径逐渐增大，正确。C：同一周期第一电离能总趋势增大，但 IIA 的镁大于 IIIA 的铝，VA 的氮大于 VIA 的氧，「一定依次增大」错误。D：$\\mathrm{Fe^{3+}}$ 先失去 $4s$ 电子，价电子排布为 $3d^5$，正确。"
+    ],
+    "analysis": {
+      "breakthrough": "注意铬、铜的例外和第一电离能的反常。",
+      "method": "原子结构与周期律。",
+      "pitfalls": "按「顺序填满」写出铬的排布，或认为铁离子先失去 $3d$ 电子。",
+      "variant": "铜的基态是 $3d^{10}4s^1$。"
+    },
+    "source": "精编练习",
+    "score": 6,
+    "options": [
+      "基态铬原子的电子排布式为 $[\\mathrm{Ar}]3d^4 4s^2$",
+      "同一主族元素从上到下，原子半径逐渐增大",
+      "同一周期从左到右，元素的第一电离能一定依次增大",
+      "$\\mathrm{Fe^{3+}}$ 的价电子排布为 $3d^5$"
+    ]
+  }
+]

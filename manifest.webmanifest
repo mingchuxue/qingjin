@@ -1,0 +1,13 @@
+{
+  "name": "青衿 · 高考冲刺",
+  "short_name": "青衿",
+  "description": "面向高三学生的高考冲刺学习站",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F5F2EA",
+  "theme_color": "#1E5C52",
+  "lang": "zh-CN",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

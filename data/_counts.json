@@ -1,0 +1,22 @@
+{
+  "math": {
+    "knowledge": 60,
+    "questions": 52,
+    "methods": 18
+  },
+  "physics": {
+    "knowledge": 40,
+    "questions": 32,
+    "methods": 12
+  },
+  "chemistry": {
+    "knowledge": 36,
+    "questions": 32,
+    "methods": 12
+  },
+  "biology": {
+    "knowledge": 36,
+    "questions": 32,
+    "methods": 12
+  }
+}
