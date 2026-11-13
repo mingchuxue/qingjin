@@ -1024,5 +1024,2232 @@
       "Wang, give me a recommendation letter tomorrow.",
       "Yo, Mr. Wang, I'll need that letter, OK?"
     ]
+  },
+  {
+    "id": "en-q33",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-15",
+      "en-31"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What is the passage mainly about?",
+    "answer": "B",
+    "steps": [
+      "The passage tells how Lin Hao learns to make useful things in a community workshop and what he takes from the experience. B is the best main idea. A is only a detail. C is not mentioned as a business. D is too broad and not the focus."
+    ],
+    "analysis": {
+      "breakthrough": "Main idea should cover the whole passage, not one sentence.",
+      "method": "Look at the beginning and the ending together.",
+      "pitfalls": "Choosing a detail as the main idea.",
+      "variant": "The last sentence often echoes the theme."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "How to sand wood with the grain",
+      "A student's experience in a workshop that values useful, careful work",
+      "Mr. Zhou's plan to open a furniture company",
+      "Why all students must become carpenters"
+    ],
+    "passage": "When fifteen-year-old Lin Hao first walked into the community workshop on a Saturday morning, he expected to spend two hours packing boxes and then go home. Instead, an old carpenter named Mr. Zhou put a smooth piece of pine in his hands and said, \"If you finish the edge, someone will use this shelf.\"\nLin Hao had never been good with tools. His first cuts were uneven. Mr. Zhou did not take the work away. He only showed him how to steady the wrist and try again. By noon the shelf was still imperfect, but it could stand. A neighbour later carried it away and came back the next week to say that her plants finally had a place to sit.\nThe workshop runs on donated wood and on the idea that useful objects can be made slowly. Students come for different reasons: some need community-service hours; some, like Lin Hao, are tired of activities that end in a certificate and nothing else. Mr. Zhou never talks much about \"meaning.\" He talks about measurements, about sanding with the grain, and about not throwing away a piece that can still be shortened and used.\nLin Hao still goes when he can. He is faster now, but he has kept the first shelf's uneven corner in a photo. \"It reminds me,\" he says, \"that a thing does not have to be perfect to be of use.\" ",
+    "passageTitle": "Reading A. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q34",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-16"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "Why did Lin Hao first go to the workshop?",
+    "answer": "A",
+    "steps": [
+      "The opening says Lin Hao expected to spend two hours packing boxes and then go home, so he first came for simple work. A matches this. B is false: he had never been good with tools. C and D are not given as his reason for going."
+    ],
+    "analysis": {
+      "breakthrough": "Detail questions must be traced back to a line in the passage.",
+      "method": "Do not use later information to replace the first reason.",
+      "pitfalls": "Mixing Mr. Zhou's ideas with Lin Hao's first expectation.",
+      "variant": "'Some students' is not the same as 'Lin Hao'."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "He expected to do simple work such as packing boxes",
+      "He was already a trained carpenter",
+      "He wanted to take a photo of a shelf",
+      "He planned to sell shelves to neighbours"
+    ],
+    "passage": "When fifteen-year-old Lin Hao first walked into the community workshop on a Saturday morning, he expected to spend two hours packing boxes and then go home. Instead, an old carpenter named Mr. Zhou put a smooth piece of pine in his hands and said, \"If you finish the edge, someone will use this shelf.\"\nLin Hao had never been good with tools. His first cuts were uneven. Mr. Zhou did not take the work away. He only showed him how to steady the wrist and try again. By noon the shelf was still imperfect, but it could stand. A neighbour later carried it away and came back the next week to say that her plants finally had a place to sit.\nThe workshop runs on donated wood and on the idea that useful objects can be made slowly. Students come for different reasons: some need community-service hours; some, like Lin Hao, are tired of activities that end in a certificate and nothing else. Mr. Zhou never talks much about \"meaning.\" He talks about measurements, about sanding with the grain, and about not throwing away a piece that can still be shortened and used.\nLin Hao still goes when he can. He is faster now, but he has kept the first shelf's uneven corner in a photo. \"It reminds me,\" he says, \"that a thing does not have to be perfect to be of use.\" ",
+    "passageTitle": "Reading A. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q35",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-17"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What can be inferred about Mr. Zhou?",
+    "answer": "C",
+    "steps": [
+      "He lets the boy try again, talks about measurements rather than big speeches, and believes a shortened piece can still be used. This suggests he is patient and values careful, practical work, C. A is the opposite. B is not mentioned. D 'never allows mistakes' is false — he did not take the work away when it was uneven."
+    ],
+    "analysis": {
+      "breakthrough": "Inference must be based on what the person does and says.",
+      "method": "Patient teaching and practical talk are the clues.",
+      "pitfalls": "Choosing a word that is too extreme, such as 'never' or 'only money'.",
+      "variant": "The photo is Lin Hao's, not Mr. Zhou's plan."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "He is impatient and often sends students home",
+      "He cares only about making money from donated wood",
+      "He is patient and cares more about careful work than about talking of 'meaning'",
+      "He never allows a student to make a mistake"
+    ],
+    "passage": "When fifteen-year-old Lin Hao first walked into the community workshop on a Saturday morning, he expected to spend two hours packing boxes and then go home. Instead, an old carpenter named Mr. Zhou put a smooth piece of pine in his hands and said, \"If you finish the edge, someone will use this shelf.\"\nLin Hao had never been good with tools. His first cuts were uneven. Mr. Zhou did not take the work away. He only showed him how to steady the wrist and try again. By noon the shelf was still imperfect, but it could stand. A neighbour later carried it away and came back the next week to say that her plants finally had a place to sit.\nThe workshop runs on donated wood and on the idea that useful objects can be made slowly. Students come for different reasons: some need community-service hours; some, like Lin Hao, are tired of activities that end in a certificate and nothing else. Mr. Zhou never talks much about \"meaning.\" He talks about measurements, about sanding with the grain, and about not throwing away a piece that can still be shortened and used.\nLin Hao still goes when he can. He is faster now, but he has kept the first shelf's uneven corner in a photo. \"It reminds me,\" he says, \"that a thing does not have to be perfect to be of use.\" ",
+    "passageTitle": "Reading A. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q36",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-18"
+    ],
+    "methodIds": [
+      "en-m-10"
+    ],
+    "stem": "The word \"imperfect\" in paragraph 2 is closest in meaning to",
+    "answer": "B",
+    "steps": [
+      "The first cuts were uneven, and the shelf was still not perfect, but it could stand. 'Imperfect' means 'not perfect; having faults', B. A 'expensive', C 'finished by a machine', D 'stolen' do not fit."
+    ],
+    "analysis": {
+      "breakthrough": "Guess word meaning from nearby contrasts and examples.",
+      "method": "'Still' and 'but it could stand' are clues.",
+      "pitfalls": "Choosing a meaning that has nothing to do with the earlier 'uneven'.",
+      "variant": "Do not rely only on the look of the word."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "expensive",
+      "not perfect",
+      "made by a machine",
+      "taken away"
+    ],
+    "passage": "When fifteen-year-old Lin Hao first walked into the community workshop on a Saturday morning, he expected to spend two hours packing boxes and then go home. Instead, an old carpenter named Mr. Zhou put a smooth piece of pine in his hands and said, \"If you finish the edge, someone will use this shelf.\"\nLin Hao had never been good with tools. His first cuts were uneven. Mr. Zhou did not take the work away. He only showed him how to steady the wrist and try again. By noon the shelf was still imperfect, but it could stand. A neighbour later carried it away and came back the next week to say that her plants finally had a place to sit.\nThe workshop runs on donated wood and on the idea that useful objects can be made slowly. Students come for different reasons: some need community-service hours; some, like Lin Hao, are tired of activities that end in a certificate and nothing else. Mr. Zhou never talks much about \"meaning.\" He talks about measurements, about sanding with the grain, and about not throwing away a piece that can still be shortened and used.\nLin Hao still goes when he can. He is faster now, but he has kept the first shelf's uneven corner in a photo. \"It reminds me,\" he says, \"that a thing does not have to be perfect to be of use.\" ",
+    "passageTitle": "Reading A. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q37",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-15",
+      "en-31"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "The author's main purpose is to",
+    "answer": "C",
+    "steps": [
+      "The passage explains what green roofs are, their benefits, costs and limits, and ends with a balanced point about care. The purpose is to inform and present both sides, C. A is too narrow. B is not stated. D is the opposite of the balanced tone."
+    ],
+    "analysis": {
+      "breakthrough": "Purpose questions: look at what the whole text does, especially the ending.",
+      "method": "A balanced article often presents advantages and limits.",
+      "pitfalls": "Treating one example as the only purpose.",
+      "variant": "'Written into local rules' is a detail, not the whole purpose."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "tell a story about one biology class",
+      "argue that parks should be replaced by green roofs",
+      "explain the benefits and limits of green roofs",
+      "prove that green roofs never fail"
+    ],
+    "passage": "Green roofs — gardens or shallow plant beds on top of buildings — are no longer only a design fashion. In several cities they are written into local rules for new public buildings. The idea is simple: plants catch rain, cool the surface in summer, and give birds and insects a small place to live in a landscape of concrete.\nA study of a school building with a green roof found that the rooms just below it were cooler on hot afternoons than similar rooms under a bare roof. The school also reported that students liked the garden and that a biology class used it to watch insects. The extra cost at the beginning was real, however, and the roof needs regular care. Without watering in a dry month, or without checking the layer that stops leaks, a green roof can fail.\nSupporters say the extra cost can be understood as a long-term saving on cooling and on rainwater management. Critics say not every old building can carry the weight, and that a green roof is not a substitute for parks. Both sides agree on one point: a green roof works only if someone is responsible for it after the opening ceremony is over.",
+    "passageTitle": "Reading B. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q38",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-16"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "According to the study, rooms under the green roof were",
+    "answer": "B",
+    "steps": [
+      "The study found those rooms were cooler on hot afternoons than rooms under a bare roof, B. A, C, D are not what the study reported."
+    ],
+    "analysis": {
+      "breakthrough": "Locate the sentence about the study and compare the options with it.",
+      "method": "Pay attention to 'cooler' and the condition 'on hot afternoons'.",
+      "pitfalls": "Adding information the study does not give.",
+      "variant": "Cost is mentioned later, not as a finding about room temperature."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "warmer than rooms under a bare roof",
+      "cooler on hot afternoons than rooms under a bare roof",
+      "too wet to be used",
+      "closed to students"
+    ],
+    "passage": "Green roofs — gardens or shallow plant beds on top of buildings — are no longer only a design fashion. In several cities they are written into local rules for new public buildings. The idea is simple: plants catch rain, cool the surface in summer, and give birds and insects a small place to live in a landscape of concrete.\nA study of a school building with a green roof found that the rooms just below it were cooler on hot afternoons than similar rooms under a bare roof. The school also reported that students liked the garden and that a biology class used it to watch insects. The extra cost at the beginning was real, however, and the roof needs regular care. Without watering in a dry month, or without checking the layer that stops leaks, a green roof can fail.\nSupporters say the extra cost can be understood as a long-term saving on cooling and on rainwater management. Critics say not every old building can carry the weight, and that a green roof is not a substitute for parks. Both sides agree on one point: a green roof works only if someone is responsible for it after the opening ceremony is over.",
+    "passageTitle": "Reading B. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q39",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-17"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "What do supporters and critics agree on?",
+    "answer": "D",
+    "steps": [
+      "The last sentence: a green roof works only if someone is responsible for it after the opening. D. A is the critics' view. B is not said. C is the opposite of 'not a substitute for parks'."
+    ],
+    "analysis": {
+      "breakthrough": "Agreement is often stated at the end with words like 'both sides agree'.",
+      "method": "Do not confuse one side's opinion with the shared point.",
+      "pitfalls": "Choosing a statement that only one side makes.",
+      "variant": "'After the opening ceremony' points to long-term care."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "Every old building can carry a green roof",
+      "Green roofs are only a fashion and have no use",
+      "Green roofs can fully replace parks",
+      "A green roof needs someone to look after it over time"
+    ],
+    "passage": "Green roofs — gardens or shallow plant beds on top of buildings — are no longer only a design fashion. In several cities they are written into local rules for new public buildings. The idea is simple: plants catch rain, cool the surface in summer, and give birds and insects a small place to live in a landscape of concrete.\nA study of a school building with a green roof found that the rooms just below it were cooler on hot afternoons than similar rooms under a bare roof. The school also reported that students liked the garden and that a biology class used it to watch insects. The extra cost at the beginning was real, however, and the roof needs regular care. Without watering in a dry month, or without checking the layer that stops leaks, a green roof can fail.\nSupporters say the extra cost can be understood as a long-term saving on cooling and on rainwater management. Critics say not every old building can carry the weight, and that a green roof is not a substitute for parks. Both sides agree on one point: a green roof works only if someone is responsible for it after the opening ceremony is over.",
+    "passageTitle": "Reading B. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q40",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-18"
+    ],
+    "methodIds": [
+      "en-m-10"
+    ],
+    "stem": "The word \"substitute\" in the last paragraph is closest in meaning to",
+    "answer": "A",
+    "steps": [
+      "Critics say a green roof is not a substitute for parks, meaning it cannot take the place of parks. A 'replacement' fits. B 'decoration', C 'photograph', D 'ceremony' do not."
+    ],
+    "analysis": {
+      "breakthrough": "Use the contrast: parks are still needed, so a green roof cannot replace them.",
+      "method": "'Not a substitute for' is a common phrase.",
+      "pitfalls": "Guessing from the spelling alone.",
+      "variant": "Read the whole sentence, not only the word."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "replacement",
+      "decoration",
+      "photograph",
+      "ceremony"
+    ],
+    "passage": "Green roofs — gardens or shallow plant beds on top of buildings — are no longer only a design fashion. In several cities they are written into local rules for new public buildings. The idea is simple: plants catch rain, cool the surface in summer, and give birds and insects a small place to live in a landscape of concrete.\nA study of a school building with a green roof found that the rooms just below it were cooler on hot afternoons than similar rooms under a bare roof. The school also reported that students liked the garden and that a biology class used it to watch insects. The extra cost at the beginning was real, however, and the roof needs regular care. Without watering in a dry month, or without checking the layer that stops leaks, a green roof can fail.\nSupporters say the extra cost can be understood as a long-term saving on cooling and on rainwater management. Critics say not every old building can carry the weight, and that a green roof is not a substitute for parks. Both sides agree on one point: a green roof works only if someone is responsible for it after the opening ceremony is over.",
+    "passageTitle": "Reading B. Read the passage and choose the best answer."
+  },
+  {
+    "id": "en-q41",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-19"
+    ],
+    "methodIds": [
+      "en-m-05"
+    ],
+    "stem": "Which sentence best fits blank 36?",
+    "answer": "C",
+    "steps": [
+      "The paragraph starts with a problem, then will list methods (First, ...). A bridging sentence is needed: 'There are a few practical ways...' C. A is too negative and not developed later. B belongs to the next paragraph about the table."
+    ],
+    "analysis": {
+      "breakthrough": "七选五 first look at position: after a problem, before 'First'.",
+      "method": "A sentence that opens a list of methods fits here.",
+      "pitfalls": "Choosing a later detail for the opening blank.",
+      "variant": "Watch out for options that are too absolute."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "That is why group work should be avoided whenever possible.",
+      "The next step is to write down who does what and when.",
+      "There are a few practical ways to make the work fairer and clearer.",
+      "They work better when each person comes with a short update and a clear question.",
+      "Different members can take different kinds of tasks.",
+      "Combining the parts always takes less time than people expect.",
+      "Do not wait until the last day to join the sections."
+    ],
+    "passage": "Group projects are common in high school, but they often end with one person doing most of the work.  36. ______ First, agree on a shared aim in one short sentence. If members cannot say what they are making, they cannot divide the work.\n37. ______ A simple table with names, tasks and dates is enough. Put the table where everyone can see it. When a task is late, the table makes the problem visible early, not on the night before the deadline.\nMeetings should be short and regular.  38. ______ A twenty-minute meeting two times a week usually works better than a two-hour meeting once a fortnight.\n39. ______ Some students write; others draw, test or speak. Using different strengths is not an excuse for leaving all the writing to one person, but it does help the group move faster.\nFinally, leave time to put the parts together.  40. ______ A project is not finished when each person has done a piece; it is finished when the pieces work as one.",
+    "passageTitle": "Reading C (七选五). Read the passage and choose the best sentence for each blank. There are two extra options."
+  },
+  {
+    "id": "en-q42",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-19"
+    ],
+    "methodIds": [
+      "en-m-05"
+    ],
+    "stem": "Which sentence best fits blank 37?",
+    "answer": "B",
+    "steps": [
+      "The paragraph talks about a table with names, tasks and dates, so the opening should introduce writing down who does what and when, B. C was already used for 36. E is about different strengths, which appears later."
+    ],
+    "analysis": {
+      "breakthrough": "The sentences after the blank explain the idea; the blank is often the topic sentence.",
+      "method": "'Table with names, tasks and dates' matches B.",
+      "pitfalls": "Repeating the same option for two blanks.",
+      "variant": "Lexical clues: names, tasks, dates."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "That is why group work should be avoided whenever possible.",
+      "The next step is to write down who does what and when.",
+      "There are a few practical ways to make the work fairer and clearer.",
+      "They work better when each person comes with a short update and a clear question.",
+      "Different members can take different kinds of tasks.",
+      "Combining the parts always takes less time than people expect.",
+      "Do not wait until the last day to join the sections."
+    ],
+    "passage": "Group projects are common in high school, but they often end with one person doing most of the work.  36. ______ First, agree on a shared aim in one short sentence. If members cannot say what they are making, they cannot divide the work.\n37. ______ A simple table with names, tasks and dates is enough. Put the table where everyone can see it. When a task is late, the table makes the problem visible early, not on the night before the deadline.\nMeetings should be short and regular.  38. ______ A twenty-minute meeting two times a week usually works better than a two-hour meeting once a fortnight.\n39. ______ Some students write; others draw, test or speak. Using different strengths is not an excuse for leaving all the writing to one person, but it does help the group move faster.\nFinally, leave time to put the parts together.  40. ______ A project is not finished when each person has done a piece; it is finished when the pieces work as one.",
+    "passageTitle": "Reading C (七选五). Read the passage and choose the best sentence for each blank. There are two extra options."
+  },
+  {
+    "id": "en-q43",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-19"
+    ],
+    "methodIds": [
+      "en-m-05"
+    ],
+    "stem": "Which sentence best fits blank 38?",
+    "answer": "D",
+    "steps": [
+      "The paragraph is about short, regular meetings. D explains how such meetings work better. The next sentence compares twenty-minute meetings with a long one, which goes with D's practical advice. F is about combining parts, which is the last paragraph."
+    ],
+    "analysis": {
+      "breakthrough": "Use the topic of the paragraph (meetings) to filter options.",
+      "method": "'Short and regular' is the clue.",
+      "pitfalls": "Putting a sentence about 'combining parts' into the meeting paragraph.",
+      "variant": "Two extra options will not fit any blank."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "That is why group work should be avoided whenever possible.",
+      "The next step is to write down who does what and when.",
+      "There are a few practical ways to make the work fairer and clearer.",
+      "They work better when each person comes with a short update and a clear question.",
+      "Different members can take different kinds of tasks.",
+      "Combining the parts always takes less time than people expect.",
+      "Do not wait until the last day to join the sections."
+    ],
+    "passage": "Group projects are common in high school, but they often end with one person doing most of the work.  36. ______ First, agree on a shared aim in one short sentence. If members cannot say what they are making, they cannot divide the work.\n37. ______ A simple table with names, tasks and dates is enough. Put the table where everyone can see it. When a task is late, the table makes the problem visible early, not on the night before the deadline.\nMeetings should be short and regular.  38. ______ A twenty-minute meeting two times a week usually works better than a two-hour meeting once a fortnight.\n39. ______ Some students write; others draw, test or speak. Using different strengths is not an excuse for leaving all the writing to one person, but it does help the group move faster.\nFinally, leave time to put the parts together.  40. ______ A project is not finished when each person has done a piece; it is finished when the pieces work as one.",
+    "passageTitle": "Reading C (七选五). Read the passage and choose the best sentence for each blank. There are two extra options."
+  },
+  {
+    "id": "en-q44",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-19"
+    ],
+    "methodIds": [
+      "en-m-05"
+    ],
+    "stem": "Which sentence best fits blank 39?",
+    "answer": "E",
+    "steps": [
+      "The following sentences say some students write, others draw, test or speak, which develops 'different kinds of tasks', E."
+    ],
+    "analysis": {
+      "breakthrough": "Look forward: examples after the blank tell you what the topic sentence is.",
+      "method": "Different strengths = different kinds of tasks.",
+      "pitfalls": "Using the 'table' sentence again.",
+      "variant": "A and F remain unused (distractors)."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "That is why group work should be avoided whenever possible.",
+      "The next step is to write down who does what and when.",
+      "There are a few practical ways to make the work fairer and clearer.",
+      "They work better when each person comes with a short update and a clear question.",
+      "Different members can take different kinds of tasks.",
+      "Combining the parts always takes less time than people expect.",
+      "Do not wait until the last day to join the sections."
+    ],
+    "passage": "Group projects are common in high school, but they often end with one person doing most of the work.  36. ______ First, agree on a shared aim in one short sentence. If members cannot say what they are making, they cannot divide the work.\n37. ______ A simple table with names, tasks and dates is enough. Put the table where everyone can see it. When a task is late, the table makes the problem visible early, not on the night before the deadline.\nMeetings should be short and regular.  38. ______ A twenty-minute meeting two times a week usually works better than a two-hour meeting once a fortnight.\n39. ______ Some students write; others draw, test or speak. Using different strengths is not an excuse for leaving all the writing to one person, but it does help the group move faster.\nFinally, leave time to put the parts together.  40. ______ A project is not finished when each person has done a piece; it is finished when the pieces work as one.",
+    "passageTitle": "Reading C (七选五). Read the passage and choose the best sentence for each blank. There are two extra options."
+  },
+  {
+    "id": "en-q45",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-19"
+    ],
+    "methodIds": [
+      "en-m-05"
+    ],
+    "stem": "Which sentence best fits blank 40?",
+    "answer": "G",
+    "steps": [
+      "The paragraph is about putting parts together and not thinking the work is done when each person has a piece. G 'Do not wait until the last day to join the sections' fits, and the next sentence explains why. F says combining takes less time, which is the opposite of the warning."
+    ],
+    "analysis": {
+      "breakthrough": "The last paragraph is about joining the parts; choose a sentence that warns against leaving this too late.",
+      "method": "'Finished when the pieces work as one' supports G.",
+      "pitfalls": "Choosing F, which underestimates the time needed.",
+      "variant": "Check that A and F are the two extras."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "options": [
+      "That is why group work should be avoided whenever possible.",
+      "The next step is to write down who does what and when.",
+      "There are a few practical ways to make the work fairer and clearer.",
+      "They work better when each person comes with a short update and a clear question.",
+      "Different members can take different kinds of tasks.",
+      "Combining the parts always takes less time than people expect.",
+      "Do not wait until the last day to join the sections."
+    ],
+    "passage": "Group projects are common in high school, but they often end with one person doing most of the work.  36. ______ First, agree on a shared aim in one short sentence. If members cannot say what they are making, they cannot divide the work.\n37. ______ A simple table with names, tasks and dates is enough. Put the table where everyone can see it. When a task is late, the table makes the problem visible early, not on the night before the deadline.\nMeetings should be short and regular.  38. ______ A twenty-minute meeting two times a week usually works better than a two-hour meeting once a fortnight.\n39. ______ Some students write; others draw, test or speak. Using different strengths is not an excuse for leaving all the writing to one person, but it does help the group move faster.\nFinally, leave time to put the parts together.  40. ______ A project is not finished when each person has done a piece; it is finished when the pieces work as one.",
+    "passageTitle": "Reading C (七选五). Read the passage and choose the best sentence for each blank. There are two extra options."
+  },
+  {
+    "id": "en-q46",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-06",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 61: organize → ______",
+    "answer": "organized",
+    "steps": [
+      "The activity was organized by the school. Here we need a past participle to modify 'activity' (a reduced relative clause: activity which was organized)."
+    ],
+    "analysis": {
+      "breakthrough": "If the verb in brackets comes after a noun and has a passive meaning, try the past participle.",
+      "method": "'By our school' is a clue for the passive.",
+      "pitfalls": "Using the present participle 'organizing' here, which would mean the activity organizes something.",
+      "variant": "Check the relationship between the noun and the verb."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "alt": [
+      "organised"
+    ],
+    "passage": "Last summer, I took part in a river-cleaning activity 61 ______ (organize) by our school. It was 62 ______ unforgettable day. The teacher told us 63 ______ (wear) gloves and to stay away from broken glass. When we arrived, the banks 64 ______ (cover) with bottles and bags. We kept working 65 ______ the sun went down. A girl beside me said it was the 66 ______ (hard) work she had ever done, 67 ______ she still looked cheerful. I realized 68 ______ small actions can add up. That is 69 ______ we should begin with ourselves. The activity has changed my attitude 70 ______ the environment.",
+    "passageTitle": "语法填空 A. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q47",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-01",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 62: It was ______ unforgettable day.",
+    "answer": "an",
+    "steps": [
+      "'Unforgettable' begins with a vowel sound /ʌ/, so the indefinite article is 'an'. We need an article because 'day' is a singular countable noun."
+    ],
+    "analysis": {
+      "breakthrough": "Articles: a/an before a singular countable noun; 'an' before a vowel sound.",
+      "method": "Sound, not spelling, decides a/an.",
+      "pitfalls": "Writing 'a' because the word starts with 'u' in spelling.",
+      "variant": "'The' would point to a day already known; here it is first mentioned."
+    },
+    "source": "精编练习",
+    "score": 1,
+    "alt": [
+      "An"
+    ],
+    "passage": "Last summer, I took part in a river-cleaning activity 61 ______ (organize) by our school. It was 62 ______ unforgettable day. The teacher told us 63 ______ (wear) gloves and to stay away from broken glass. When we arrived, the banks 64 ______ (cover) with bottles and bags. We kept working 65 ______ the sun went down. A girl beside me said it was the 66 ______ (hard) work she had ever done, 67 ______ she still looked cheerful. I realized 68 ______ small actions can add up. That is 69 ______ we should begin with ourselves. The activity has changed my attitude 70 ______ the environment.",
+    "passageTitle": "语法填空 A. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q48",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-05",
+      "en-21"
+    ],
+    "methodIds": [
+      "en-m-02",
+      "en-m-06"
+    ],
+    "stem": "Blank 63: The teacher told us ______ (wear) gloves.",
+    "answer": "to wear",
+    "steps": [
+      "The pattern is 'tell somebody to do something', so the infinitive 'to wear' is required."
+    ],
+    "analysis": {
+      "breakthrough": "After tell, ask, want, allow, use the infinitive with to.",
+      "method": "Remember the object 'us' comes before the infinitive.",
+      "pitfalls": "Writing 'wearing' or 'wear' without 'to'.",
+      "variant": "'Tell sb. not to do' is the negative form."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "alt": [
+      "to wear gloves"
+    ],
+    "passage": "Last summer, I took part in a river-cleaning activity 61 ______ (organize) by our school. It was 62 ______ unforgettable day. The teacher told us 63 ______ (wear) gloves and to stay away from broken glass. When we arrived, the banks 64 ______ (cover) with bottles and bags. We kept working 65 ______ the sun went down. A girl beside me said it was the 66 ______ (hard) work she had ever done, 67 ______ she still looked cheerful. I realized 68 ______ small actions can add up. That is 69 ______ we should begin with ourselves. The activity has changed my attitude 70 ______ the environment.",
+    "passageTitle": "语法填空 A. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q49",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-03",
+      "en-02"
+    ],
+    "methodIds": [
+      "en-m-01",
+      "en-m-06"
+    ],
+    "stem": "Blank 64: the banks ______ (cover) with bottles.",
+    "answer": "were covered",
+    "steps": [
+      "The banks received the action, and the time is the past ('When we arrived'), so use the past simple passive: were covered."
+    ],
+    "analysis": {
+      "breakthrough": "Passive: be + past participle; match the tense to the story.",
+      "method": "'With bottles' describes the state after being covered.",
+      "pitfalls": "Writing 'covered' without 'were', or 'are covered' in a past story.",
+      "variant": "Plural 'banks' takes 'were', not 'was'."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "alt": [
+      "were covered",
+      "got covered"
+    ],
+    "passage": "Last summer, I took part in a river-cleaning activity 61 ______ (organize) by our school. It was 62 ______ unforgettable day. The teacher told us 63 ______ (wear) gloves and to stay away from broken glass. When we arrived, the banks 64 ______ (cover) with bottles and bags. We kept working 65 ______ the sun went down. A girl beside me said it was the 66 ______ (hard) work she had ever done, 67 ______ she still looked cheerful. I realized 68 ______ small actions can add up. That is 69 ______ we should begin with ourselves. The activity has changed my attitude 70 ______ the environment.",
+    "passageTitle": "语法填空 A. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q50",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-09"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 65: We kept working ______ the sun went down.",
+    "answer": "until",
+    "steps": [
+      "'Until' shows that the work continued up to the moment the sun went down."
+    ],
+    "analysis": {
+      "breakthrough": "For a time limit on a continuing action, 'until' is the usual conjunction.",
+      "method": "The clause after the blank is a time point.",
+      "pitfalls": "Writing 'since' (which would start from that moment).",
+      "variant": "'When' is possible in some contexts but weaker; the intended answer is until."
+    },
+    "source": "精编练习",
+    "score": 1,
+    "alt": [
+      "till",
+      "Until",
+      "Till"
+    ],
+    "passage": "Last summer, I took part in a river-cleaning activity 61 ______ (organize) by our school. It was 62 ______ unforgettable day. The teacher told us 63 ______ (wear) gloves and to stay away from broken glass. When we arrived, the banks 64 ______ (cover) with bottles and bags. We kept working 65 ______ the sun went down. A girl beside me said it was the 66 ______ (hard) work she had ever done, 67 ______ she still looked cheerful. I realized 68 ______ small actions can add up. That is 69 ______ we should begin with ourselves. The activity has changed my attitude 70 ______ the environment.",
+    "passageTitle": "语法填空 A. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q51",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-13",
+      "en-33"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 66: the ______ (hard) work she had ever done.",
+    "answer": "hardest",
+    "steps": [
+      "The pattern 'the + superlative + ... she had ever done' requires 'hardest'."
+    ],
+    "analysis": {
+      "breakthrough": "After 'the' and with 'ever', use the superlative.",
+      "method": "'Hard' is a short adjective: hard — harder — hardest.",
+      "pitfalls": "Writing 'harder' (comparative) after 'the' and 'ever'.",
+      "variant": "Some adjectives use 'most'; 'hard' does not."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "alt": [
+      "the hardest"
+    ],
+    "passage": "Last summer, I took part in a river-cleaning activity 61 ______ (organize) by our school. It was 62 ______ unforgettable day. The teacher told us 63 ______ (wear) gloves and to stay away from broken glass. When we arrived, the banks 64 ______ (cover) with bottles and bags. We kept working 65 ______ the sun went down. A girl beside me said it was the 66 ______ (hard) work she had ever done, 67 ______ she still looked cheerful. I realized 68 ______ small actions can add up. That is 69 ______ we should begin with ourselves. The activity has changed my attitude 70 ______ the environment.",
+    "passageTitle": "语法填空 A. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q52",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-26"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 67: she said it was hard, ______ she still looked cheerful.",
+    "answer": "but",
+    "steps": [
+      "There is a contrast between hard work and a cheerful look, so 'but' (or 'yet') is needed."
+    ],
+    "analysis": {
+      "breakthrough": "Choose the linker by the logical relation: contrast, cause, or addition.",
+      "method": "'Still' already hints at contrast.",
+      "pitfalls": "Writing 'so' or 'because', which would change the relation.",
+      "variant": "'Although' would also show contrast but would normally move to the first clause."
+    },
+    "source": "精编练习",
+    "score": 1,
+    "alt": [
+      "yet",
+      "But",
+      "Yet"
+    ],
+    "passage": "Last summer, I took part in a river-cleaning activity 61 ______ (organize) by our school. It was 62 ______ unforgettable day. The teacher told us 63 ______ (wear) gloves and to stay away from broken glass. When we arrived, the banks 64 ______ (cover) with bottles and bags. We kept working 65 ______ the sun went down. A girl beside me said it was the 66 ______ (hard) work she had ever done, 67 ______ she still looked cheerful. I realized 68 ______ small actions can add up. That is 69 ______ we should begin with ourselves. The activity has changed my attitude 70 ______ the environment.",
+    "passageTitle": "语法填空 A. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q53",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-08"
+    ],
+    "methodIds": [
+      "en-m-03",
+      "en-m-06"
+    ],
+    "stem": "Blank 68: I realized ______ small actions can add up.",
+    "answer": "that",
+    "steps": [
+      "'Realize' is followed by a that-clause as its object. 'That' can be kept (and is the expected answer here)."
+    ],
+    "analysis": {
+      "breakthrough": "Noun clauses after verbs like realize, know, believe often start with 'that'.",
+      "method": "The clause already has a complete subject and verb.",
+      "pitfalls": "Writing 'what' (which would need to be a noun inside the clause).",
+      "variant": "'Which' is not used this way after 'realize'."
+    },
+    "source": "精编练习",
+    "score": 1,
+    "alt": [
+      "That"
+    ],
+    "passage": "Last summer, I took part in a river-cleaning activity 61 ______ (organize) by our school. It was 62 ______ unforgettable day. The teacher told us 63 ______ (wear) gloves and to stay away from broken glass. When we arrived, the banks 64 ______ (cover) with bottles and bags. We kept working 65 ______ the sun went down. A girl beside me said it was the 66 ______ (hard) work she had ever done, 67 ______ she still looked cheerful. I realized 68 ______ small actions can add up. That is 69 ______ we should begin with ourselves. The activity has changed my attitude 70 ______ the environment.",
+    "passageTitle": "语法填空 A. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q54",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-08"
+    ],
+    "methodIds": [
+      "en-m-03",
+      "en-m-06"
+    ],
+    "stem": "Blank 69: That is ______ we should begin with ourselves.",
+    "answer": "why",
+    "steps": [
+      "'That is why ...' means 'that is the reason why'. The previous sentence gives the reason."
+    ],
+    "analysis": {
+      "breakthrough": "After 'That is', 'why', 'because', 'what' or 'how' may appear; choose by meaning.",
+      "method": "Here we need 'the reason'.",
+      "pitfalls": "Writing 'because' after 'That is' (we say 'that is because' only if a reason clause follows in a different pattern; 'that is why' introduces the result).",
+      "variant": "The sentence before the blank is the reason, so 'why' introduces the result."
+    },
+    "source": "精编练习",
+    "score": 2,
+    "alt": [
+      "Why"
+    ],
+    "passage": "Last summer, I took part in a river-cleaning activity 61 ______ (organize) by our school. It was 62 ______ unforgettable day. The teacher told us 63 ______ (wear) gloves and to stay away from broken glass. When we arrived, the banks 64 ______ (cover) with bottles and bags. We kept working 65 ______ the sun went down. A girl beside me said it was the 66 ______ (hard) work she had ever done, 67 ______ she still looked cheerful. I realized 68 ______ small actions can add up. That is 69 ______ we should begin with ourselves. The activity has changed my attitude 70 ______ the environment.",
+    "passageTitle": "语法填空 A. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q55",
+    "subject": "english",
+    "type": "fill",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-12"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "Blank 70: my attitude ______ the environment.",
+    "answer": "towards",
+    "steps": [
+      "The usual collocation is 'attitude towards / toward / to' a thing."
+    ],
+    "analysis": {
+      "breakthrough": "Fixed prepositions should be remembered with the noun.",
+      "method": "'Attitude to' is also accepted in some varieties.",
+      "pitfalls": "Writing 'for' or 'of' as a default.",
+      "variant": "Learn nouns with their prepositions together."
+    },
+    "source": "精编练习",
+    "score": 1,
+    "alt": [
+      "toward",
+      "to",
+      "Toward",
+      "Towards",
+      "To"
+    ],
+    "passage": "Last summer, I took part in a river-cleaning activity 61 ______ (organize) by our school. It was 62 ______ unforgettable day. The teacher told us 63 ______ (wear) gloves and to stay away from broken glass. When we arrived, the banks 64 ______ (cover) with bottles and bags. We kept working 65 ______ the sun went down. A girl beside me said it was the 66 ______ (hard) work she had ever done, 67 ______ she still looked cheerful. I realized 68 ______ small actions can add up. That is 69 ______ we should begin with ourselves. The activity has changed my attitude 70 ______ the environment.",
+    "passageTitle": "语法填空 A. Read the passage and fill in each blank. Use the word in brackets when given."
+  },
+  {
+    "id": "en-q56",
+    "subject": "english",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-22",
+      "en-32"
+    ],
+    "methodIds": [
+      "en-m-08"
+    ],
+    "stem": "假如你是李华，你校将举办「社区工作坊开放日」（Community Workshop Open Day）。请你给外教 Mr. Green 写一封邮件，邀请他参加。内容包括：\n1. 时间与地点（周六上午 9 点，学校实践楼）；\n2. 活动内容（木工体验、成品展示）；\n3. 希望他能来并做简短交流。\n词数 80 左右。可对照评分细则自评。",
+    "answer": "Example:\nDear Mr. Green,\nOur school will hold a Community Workshop Open Day at 9:00 a.m. this Saturday in the Practice Building. Students will try simple woodwork and show what they have made. We would be glad if you could come and say a few words to us. Your visit would mean a lot.\nYours sincerely,\nLi Hua",
+    "steps": [
+      "Cover all three points: time and place, activities, and a polite invitation.",
+      "Use a proper email greeting and ending.",
+      "Keep the tone polite and the language clear; 80 words is enough."
+    ],
+    "analysis": {
+      "breakthrough": "应用文先列任务清单，再写格式，最后检查信息是否写全。",
+      "method": "任务覆盖比华丽词句更重要。",
+      "pitfalls": "漏掉时间或地点，或用口语开头而不写称呼。",
+      "variant": "结尾用 Yours sincerely 并署名。"
+    },
+    "source": "精编练习",
+    "score": 15,
+    "rubric": [
+      {
+        "point": "覆盖时间地点、活动内容和邀请（内容 8 分）",
+        "score": 8
+      },
+      {
+        "point": "邮件格式完整，语气得体（3 分）",
+        "score": 3
+      },
+      {
+        "point": "语言准确、连贯，词数大致符合要求（4 分）",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "en-q57",
+    "subject": "english",
+    "type": "essay",
+    "difficulty": 4,
+    "knowledgeIds": [
+      "en-23",
+      "en-35"
+    ],
+    "methodIds": [
+      "en-m-09"
+    ],
+    "stem": "阅读下面短文，根据所给情节进行续写，使之构成一个完整的故事。词数 150 左右。\n\nLin Hao almost gave up the shelf. The edge was uneven, and the morning was already half gone. Mr. Zhou looked at the wood, then at the boy, and put the plane back into Lin Hao's hands. \"Shorten it,\" he said. \"A shorter shelf can still hold something.\" Lin Hao took a breath and tried again. This time he worked more slowly. When the neighbour, Ms. Chen, came in to look for a small shelf for her plants, she stopped in front of his work.\n\n注意：\n1. 续写分两段，每段开头已给出；\n2. 与上文情节连贯，写出人物的行动、对话和情感。\n\nParagraph 1: \"This will do nicely,\" Ms. Chen said, running her hand along the edge.\nParagraph 2: The next Saturday, Ms. Chen returned with a photograph.\n\n请先写出续写提纲（每段主要事件和结尾），完稿后对照评分细则自评。",
+    "answer": "Outline example:\nParagraph 1: Ms. Chen accepts the imperfect shelf, Lin Hao is surprised and a little proud; Mr. Zhou only nods. They help her carry it out.\nParagraph 2: She shows a photo of plants on the shelf; Lin Hao sees that the uneven corner does not matter. He decides to keep coming and maybe to help a new student.\nThe ending should be hopeful and connected to 'a thing does not have to be perfect to be of use'.",
+    "steps": [
+      "Keep the characters and the workshop setting.",
+      "Each paragraph should have action and some dialogue or feeling.",
+      "The second paragraph should close the story, not open a new unrelated conflict."
+    ],
+    "analysis": {
+      "breakthrough": "续写先定结局，再填两段的事件，注意与原文的人物和主题一致。",
+      "method": "人物情感要通过动作和对话写出来，不要只写 'he was happy'。",
+      "pitfalls": "写成与原文无关的另一个故事，或在第二段再引入大量新人物。",
+      "variant": "时态一般与原文一致（过去时）。"
+    },
+    "source": "精编练习",
+    "score": 25,
+    "rubric": [
+      {
+        "point": "情节与原文连贯，两段完整，有合理的收束（10 分）",
+        "score": 10
+      },
+      {
+        "point": "人物行动、对话和情感具体（8 分）",
+        "score": 8
+      },
+      {
+        "point": "语言准确、连贯，词数大致符合要求（7 分）",
+        "score": 7
+      }
+    ]
+  },
+  {
+    "id": "en-q58",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-12"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 71",
+    "answer": "A",
+    "steps": [
+      "He went over the notes again and again: 'read / went through / reviewed'. A 'went through' fits 'again and again'. B 'threw away' is the opposite. C 'sold' makes no sense. D 'hid' does not fit the practice."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "went through",
+      "threw away",
+      "sold",
+      "hid"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q59",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 72",
+    "answer": "B",
+    "steps": [
+      "Each time he put the paper down, his mind went blank. B 'put' is the natural verb. A 'built', C 'invented', D 'painted' do not collocate with 'the paper down' in this sense."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "built",
+      "put",
+      "invented",
+      "painted"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q60",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-29"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 73",
+    "answer": "C",
+    "steps": [
+      "The others had left: 'had left' / 'had gone'. C 'left' is correct. A 'arrived' is the opposite. B 'slept' and D 'argued' are not suggested."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "arrived",
+      "slept",
+      "left",
+      "argued"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q61",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 74",
+    "answer": "A",
+    "steps": [
+      "He knows the words when he sits, but forgets them when he stands. The contrast requires 'forget'. 'Remember' would destroy the contrast."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "forget",
+      "remember",
+      "collect",
+      "polish"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q62",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-29"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 75",
+    "answer": "B",
+    "steps": [
+      "The teacher did not give him a longer speech to memorize. The story is about saying something true, not learning more sentences by heart. B 'memorize' fits. A 'ignore', C 'sell', D 'hide' do not."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "ignore",
+      "memorize",
+      "sell",
+      "hide"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q63",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 76",
+    "answer": "C",
+    "steps": [
+      "She asked why the topic mattered to him: why it was important. C 'mattered' is correct. A 'disappeared', B 'broke', D 'escaped' do not fit 'to him'."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "disappeared",
+      "broke",
+      "mattered",
+      "escaped"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q64",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20",
+      "en-12"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 77",
+    "answer": "A",
+    "steps": [
+      "The old man offered him a seat on the bus. A 'offered' is the right collocation. B 'refused', C 'sold', D 'drew' do not fit the kindness of the story."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "offered",
+      "refused",
+      "sold",
+      "drew"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q65",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-14",
+      "en-20"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 78",
+    "answer": "D",
+    "steps": [
+      "He had not known what to say: 'what to say' is the standard pattern (question word + to-infinitive). D 'what'. A 'who' is weaker, B 'where' and C 'whose' do not fit 'to say'."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "who",
+      "where",
+      "whose",
+      "what"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q66",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 79",
+    "answer": "B",
+    "steps": [
+      "A talk can be a true story, not a wall of sentences. B 'story' continues the bus-ride idea. A 'exam', C 'crowd', D 'mistake' do not fit."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "exam",
+      "story",
+      "crowd",
+      "mistake"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q67",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 80",
+    "answer": "C",
+    "steps": [
+      "They practised the story until it fitted two minutes. C 'practised' (or 'practiced') is the action. The option is 'practised'. A 'cancelled', B 'forgot', D 'bought' do not."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "cancelled",
+      "forgot",
+      "practised",
+      "bought"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q68",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 81",
+    "answer": "A",
+    "steps": [
+      "His hands were still shaking: a natural sign of nervousness. A 'shaking'. B 'flying', C 'singing', D 'cooking' are nonsense here."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "shaking",
+      "flying",
+      "singing",
+      "cooking"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q69",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 82",
+    "answer": "B",
+    "steps": [
+      "When he finished, students nodded. B 'finished'. A 'started' would be too early for the nodding after a complete talk. C 'disappeared', D 'quarrelled' do not fit."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "started",
+      "finished",
+      "disappeared",
+      "quarrelled"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q70",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-26",
+      "en-20"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 83",
+    "answer": "C",
+    "steps": [
+      "He had not used every word on the paper, but he had said something he understood. Contrast requires 'but'. A 'so' (result), B 'because' (reason), D 'if' (condition) do not fit this contrast."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "so",
+      "because",
+      "but",
+      "if"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q71",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 84",
+    "answer": "D",
+    "steps": [
+      "After class he thanked Ms. Fang. D 'thanked'. A 'avoided', B 'blamed', C 'forgot' go against the helpful ending."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "avoided",
+      "blamed",
+      "forgot",
+      "thanked"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q72",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-20"
+    ],
+    "methodIds": [
+      "en-m-07"
+    ],
+    "stem": "Blank 85",
+    "answer": "A",
+    "steps": [
+      "'I knew where I was going' means he knew his direction — what he wanted to say. A 'where'. B 'whether' would need a different structure, C 'whom' and D 'whose' do not fit."
+    ],
+    "analysis": {
+      "breakthrough": "先读懂全文，再看空格在句子里的意思，最后比选项。",
+      "method": "完形优先看文意和搭配，不要只看单句。",
+      "pitfalls": "只根据空格前后一两个词就选定，不看故事走向。",
+      "variant": "把全文再读一遍，检查人物和情节是否连贯。"
+    },
+    "source": "精编练习",
+    "score": 1,
+    "options": [
+      "where",
+      "whether",
+      "whom",
+      "whose"
+    ],
+    "passage": "Chen Yu had to give a two-minute talk in English class. For days he 71 ______ the notes again and again, but each time he 72 ______ the paper down, his mind went blank. On Tuesday afternoon he stayed in the classroom after the others had 73 ______. His teacher, Ms. Fang, noticed and walked over.\n\"I know the words when I sit here,\" he said, \"but I 74 ______ them when I stand up.\"\nMs. Fang did not give him a longer speech to 75 ______. She asked him to tell her, in ordinary words, why the topic 76 ______ to him. Chen Yu spoke about a bus ride: an old man had 77 ______ him a seat, and he had not known 78 ______ to say. \"Then say that,\" she said. \"A talk can be a true 79 ______, not a wall of sentences you are afraid to forget.\"\nThey 80 ______ the story until it fitted two minutes. The next day Chen Yu's hands were still 81 ______, but he looked at the class and began with the bus ride. When he 82 ______, several students nodded. He had not used every word on the paper, 83 ______ he had said something he understood. After class he 84 ______ Ms. Fang. \"I was still nervous,\" he said, \"but I knew 85 ______ I was going.\" ",
+    "passageTitle": "完形填空. Read the passage and choose the best answer for each blank."
+  },
+  {
+    "id": "en-q73",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-01"
+    ],
+    "methodIds": [
+      "en-m-01"
+    ],
+    "stem": "Neither of the students ______ late this morning.",
+    "answer": "B",
+    "steps": [
+      "'Neither' is singular and takes a singular verb: 'is' / 'was'. In the present: 'is'. B 'is'. A 'are' is a common mistake. C 'be' is not finite. D 'been' is a past participle without an auxiliary."
+    ],
+    "analysis": {
+      "breakthrough": "Neither, either, each, every + singular verb.",
+      "method": "Look at the subject, not at 'students' after 'of'.",
+      "pitfalls": "Using a plural verb after 'neither of'.",
+      "variant": "'None of' can go with singular or plural; 'neither' is singular."
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "are",
+      "is",
+      "be",
+      "been"
+    ]
+  },
+  {
+    "id": "en-q74",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-04"
+    ],
+    "methodIds": [
+      "en-m-01"
+    ],
+    "stem": "You ______ not wait here: the office has already closed.",
+    "answer": "C",
+    "steps": [
+      "The office is already closed, so it is not necessary to wait. 'Needn't' expresses lack of necessity, so C is correct. A 'must' means obligation, which is the opposite. B 'can't' suggests inability. D 'would' is not the right modal here."
+    ],
+    "analysis": {
+      "breakthrough": "Needn't = it is not necessary. Mustn't = it is not allowed.",
+      "method": "Decide whether the meaning is 'not necessary' or 'not allowed'.",
+      "pitfalls": "Using 'mustn't' when you only mean 'it's not necessary'.",
+      "variant": "Must, have to, should, may, might have different strengths."
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "must",
+      "can't",
+      "needn't",
+      "would"
+    ]
+  },
+  {
+    "id": "en-q75",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-10"
+    ],
+    "methodIds": [
+      "en-m-11"
+    ],
+    "stem": "Only then ______ how much help he had received.",
+    "answer": "A",
+    "steps": [
+      "After 'only then' the sentence uses inversion: 'did he realize' (or 'did he understand'). A 'did he realize'. B 'he realized' is normal order and is wrong after 'Only then'. C 'realized he' is not a correct pattern here. D 'he did realize' has no inversion."
+    ],
+    "analysis": {
+      "breakthrough": "Only + adverbial at the beginning requires partial inversion: auxiliary + subject + verb.",
+      "method": "Similar patterns: only in this way, only after, never, hardly.",
+      "pitfalls": "Forgetting the inversion and writing the normal order.",
+      "variant": "If the tense is past simple, add 'did' and use the base verb."
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "did he realize",
+      "he realized",
+      "realized he",
+      "he did realize"
+    ]
+  },
+  {
+    "id": "en-q76",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-11"
+    ],
+    "methodIds": [
+      "en-m-11"
+    ],
+    "stem": "If I ______ you, I would talk to the teacher first.",
+    "answer": "B",
+    "steps": [
+      "This is a present unreal conditional: If I were you (or was, in informal English), I would ... The standard school answer is 'were'. B 'were'."
+    ],
+    "analysis": {
+      "breakthrough": "Unreal present: If + past (were), main clause would + verb.",
+      "method": "'If I were you' is a fixed piece of advice language.",
+      "pitfalls": "Using 'am' in this pattern.",
+      "variant": "For a past unreal situation, use had done and would have done."
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "am",
+      "were",
+      "will be",
+      "have been"
+    ]
+  },
+  {
+    "id": "en-q77",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-14"
+    ],
+    "methodIds": [
+      "en-m-02"
+    ],
+    "stem": "He wanted to go, but he was not ______.",
+    "answer": "C",
+    "steps": [
+      "The complete idea is 'he was not able to (go)'. After 'able' we keep 'to' in this ellipsis, so C 'able to' is correct. A 'able' is incomplete. B 'capable' needs 'of'. D 'capable to' uses the wrong preposition."
+    ],
+    "analysis": {
+      "breakthrough": "Ellipsis after 'to' keeps 'to'. Some adjectives have fixed prepositions: able to, capable of.",
+      "method": "Do not drop 'to' after 'able'.",
+      "pitfalls": "Writing 'capable to'.",
+      "variant": "Omission is common in spoken replies: 'I'd like to' instead of 'I'd like to go'."
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "able",
+      "capable",
+      "able to",
+      "capable to"
+    ]
+  },
+  {
+    "id": "en-q78",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-24"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "短文改错中，下列哪一句有错误？",
+    "answer": "B",
+    "steps": [
+      "B 'She suggested me to go' is wrong. The pattern is 'suggest that sb. (should) do' or 'suggest doing', not 'suggest sb. to do'. A, C, D are correct."
+    ],
+    "analysis": {
+      "breakthrough": "改错先查动词搭配、时态、冠词、名词单复数和连词。",
+      "method": "Suggest, demand, insist 的搭配要记准。",
+      "pitfalls": "只改拼写，不看结构。",
+      "variant": "每行通常最多一处错误，不要改没有错的地方。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "He is looking forward to seeing you.",
+      "She suggested me to go there at once.",
+      "The book on the desk is mine.",
+      "They have already finished their work."
+    ]
+  },
+  {
+    "id": "en-q79",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-25"
+    ],
+    "methodIds": [
+      "en-m-03"
+    ],
+    "stem": "In the sentence 'The man who was sitting by the window stood up when the bell rang', the clause 'who was sitting by the window' is",
+    "answer": "A",
+    "steps": [
+      "It is a relative clause modifying 'the man'. A. B is an adverbial clause of time (that would be 'when the bell rang'). C 'who...' is not a noun clause here. D it is not a stand-alone sentence."
+    ],
+    "analysis": {
+      "breakthrough": "Long sentences: first find the main clause, then see what each clause modifies.",
+      "method": "'Who' right after a noun usually starts a relative clause.",
+      "pitfalls": "Calling every clause a noun clause.",
+      "variant": "You can take the relative clause away and the main clause still stands: The man stood up."
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "a relative clause modifying 'the man'",
+      "the main clause of the sentence",
+      "a noun clause as the subject",
+      "an independent sentence with no link to 'the man'"
+    ]
+  },
+  {
+    "id": "en-q80",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-27"
+    ],
+    "methodIds": [
+      "en-m-08"
+    ],
+    "stem": "When you need to refuse a classmate's invitation politely, the most suitable reply is",
+    "answer": "B",
+    "steps": [
+      "B thanks the person and gives a short reason, which is polite. A is rude. C is too sharp. D is not a refusal (it accepts)."
+    ],
+    "analysis": {
+      "breakthrough": "日常交际先看场合和礼貌，再看是接受还是拒绝。",
+      "method": "拒绝时常先感谢，再说明原因，并可另约时间。",
+      "pitfalls": "用命令句拒绝同学。",
+      "variant": "注意对方的身份：对老师和对外教，语气还要更正式一些。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "No. Don't ask me again.",
+      "Thanks for asking, but I have to finish my lab report tonight.",
+      "That's a stupid idea.",
+      "Yes, I'd love to. What time shall we meet?"
+    ]
+  },
+  {
+    "id": "en-q81",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 1,
+    "knowledgeIds": [
+      "en-28"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "听短文记信息时，比较有效的做法是",
+    "answer": "A",
+    "steps": [
+      "Catch the question words (who, what, when, where, why, how) and note key facts, not every word, A. B trying to write every word often causes you to miss the next sentence. C closing your eyes and writing nothing. D answering before the recording starts."
+    ],
+    "analysis": {
+      "breakthrough": "听力先看题，再带着问题去听，记录关键词。",
+      "method": "数字、时间和专有名词是常考信息。",
+      "pitfalls": "试图把每一个词都写下来。",
+      "variant": "第一遍抓住大意和题干所需，第二遍补全。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "先看题干，边听边记下与问题有关的关键词和数字",
+      "试图把听到的每一个单词都写完整",
+      "不看题，什么也不记，听完再回忆全部内容",
+      "在录音开始前就填好所有答案"
+    ]
+  },
+  {
+    "id": "en-q82",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 1,
+    "knowledgeIds": [
+      "en-30"
+    ],
+    "methodIds": [
+      "en-m-08"
+    ],
+    "stem": "关于英语试卷的时间，比较合理的一项是",
+    "answer": "B",
+    "steps": [
+      "Leave enough time for the writing tasks, and do not stay too long on one reading item, B. A spending almost all the time on one passage. C skipping all reading to write two compositions of any topic. D not checking at all."
+    ],
+    "analysis": {
+      "breakthrough": "先保证写作有时间，阅读遇到难题可先标记。",
+      "method": "检查时看作文是否完成任务、语法填空的词形和大小写。",
+      "pitfalls": "在一篇阅读上耗掉半小时。",
+      "variant": "语法填空写完要再读一遍全文。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "把几乎全部时间用在第一篇阅读上",
+      "给应用文和读后续写留出足够时间，难题先标记再回头",
+      "不看阅读，直接写两篇与题目无关的作文",
+      "做完立刻交卷，不必检查拼写和任务是否写全"
+    ]
+  },
+  {
+    "id": "en-q83",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-32"
+    ],
+    "methodIds": [
+      "en-m-08"
+    ],
+    "stem": "要提高书面表达的语言质量，比较有效的做法是",
+    "answer": "C",
+    "steps": [
+      "Use a few accurate complex sentences and proper linkers where they help, and avoid repeating the same simple sentence all the time, C. A writing only words you are not sure of. B no punctuation. D copying a whole prepared essay that does not fit the task."
+    ],
+    "analysis": {
+      "breakthrough": "先保证正确、完成任务，再使用有把握的复杂句和衔接词。",
+      "method": "修改时先改明显的时态和一致错误。",
+      "pitfalls": "为了复杂而写没有把握的长句，错误反而增多。",
+      "variant": "开头和结尾可以准备常用句，但必须能扣住本题任务。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "尽量使用自己也拿不准的生僻词",
+      "不加任何标点，把句子写得越长越好",
+      "在正确的前提下，恰当使用衔接词和有把握的复合句",
+      "整篇照抄一篇与本题任务无关的范文"
+    ]
+  },
+  {
+    "id": "en-q84",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-34"
+    ],
+    "methodIds": [
+      "en-m-03"
+    ],
+    "stem": "It is important ______ we hand in the form on time.",
+    "answer": "A",
+    "steps": [
+      "The pattern is 'It is important that ...' (a that-clause as the real subject; 'it' is formal subject). A 'that'. After 'important', a (should) do clause may appear: 'that we (should) hand in'. B 'what' does not fit this complete clause. C 'which' is wrong. D 'who' is wrong."
+    ],
+    "analysis": {
+      "breakthrough": "'It' can be a formal subject for a that-clause or a to-infinitive.",
+      "method": "It is + adj. + that ..., or It is + adj. + to do.",
+      "pitfalls": "Using 'what' when the clause already has a complete meaning.",
+      "variant": "'It is + adj. + for sb. to do' is another common pattern."
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "that",
+      "what",
+      "which",
+      "who"
+    ]
+  },
+  {
+    "id": "en-q85",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-12"
+    ],
+    "stem": "Which word best completes the sentence: We should reduce plastic waste to protect the ______.",
+    "answer": "B",
+    "steps": [
+      "The topic is the environment. B 'environment'. A 'examination', C 'envelope', D 'entrance' are irrelevant."
+    ],
+    "analysis": {
+      "breakthrough": "话题词汇要放在句子意思里选择。",
+      "method": "环境类常见词：pollution, recycle, protect, sustainable.",
+      "pitfalls": "只看首字母相近的词。",
+      "variant": "学校、社会、科技类也要积累一组常用搭配。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "examination",
+      "environment",
+      "envelope",
+      "entrance"
+    ]
+  },
+  {
+    "id": "en-q86",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-07"
+    ],
+    "methodIds": [
+      "en-m-03"
+    ],
+    "stem": "This is the school ______ my father used to teach.",
+    "answer": "C",
+    "steps": [
+      "'Teach' is intransitive here and needs 'in' or a relative adverb 'where'. C 'where'. A 'which' would need a preposition: 'which my father used to teach in'. B 'who' is for people. D 'what' is not used this way."
+    ],
+    "analysis": {
+      "breakthrough": "定语从句：先行词是地点时，看从句是否缺状语。缺地点状语用 where 或 in which.",
+      "method": "先判断从句缺什么成分。",
+      "pitfalls": "地点先行词一律用 where，即使从句缺宾语。",
+      "variant": "'The school which he visited' 缺的是宾语，要用 which/that。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "who",
+      "which",
+      "where",
+      "what"
+    ]
+  },
+  {
+    "id": "en-q87",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-33"
+    ],
+    "methodIds": [
+      "en-m-01"
+    ],
+    "stem": "This room is ______ as that one.",
+    "answer": "B",
+    "steps": [
+      "The pattern is 'as + adjective + as'. The stem already ends with 'as that one', so the blank is 'as large', giving 'as large as that one'. A 'larger' would be used with 'than'. C is the superlative. D 'more large' is not the correct comparative form."
+    ],
+    "analysis": {
+      "breakthrough": "同等比较用 as + 原级 + as；差额比较用比较级 + than。",
+      "method": "倍数：three times as ... as, 或 three times the size of.",
+      "pitfalls": "写成 'more larger' 或 'as larger as'.",
+      "variant": "注意 as ... as 中间是原级。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "larger",
+      "as large",
+      "largest",
+      "more large"
+    ]
+  },
+  {
+    "id": "en-q88",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-13"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "The noun form of 'decide' is",
+    "answer": "A",
+    "steps": [
+      "decide → decision (noun). A. B 'decisive' is an adjective. C 'decidedly' is an adverb. D 'deciding' is a participle or gerund, not the usual abstract noun."
+    ],
+    "analysis": {
+      "breakthrough": "构词：动词加后缀变成名词，如 -ion, -ment, -ness.",
+      "method": "decide — decision, conclude — conclusion.",
+      "pitfalls": "把形容词当成名词。",
+      "variant": "在语法填空里，先判断空格要的词性，再变形。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "decision",
+      "decisive",
+      "decidedly",
+      "deciding"
+    ]
+  },
+  {
+    "id": "en-q89",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-24"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "短文改错：下列句子中需要改正的是",
+    "answer": "A",
+    "steps": [
+      "A should be 'has been' or 'has lived' for a period with 'for ten years' in a situation that continues, or at least 'has lived'; 'has lived' is better. 'He has live here for ten years' — missing -d on the past participle, so A is wrong and needs 'lived'. B, C, D are correct."
+    ],
+    "analysis": {
+      "breakthrough": "改错时注意完成时里要用过去分词。",
+      "method": "for + 一段时间常与完成时连用。",
+      "pitfalls": "只改拼写而漏掉动词形式。",
+      "variant": "每处错误改一处即可，不要改正确的部分。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "He has live here for ten years.",
+      "They went to the museum yesterday.",
+      "She enjoys listening to music.",
+      "There is a book on the table."
+    ]
+  },
+  {
+    "id": "en-q90",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-25"
+    ],
+    "methodIds": [
+      "en-m-03"
+    ],
+    "stem": "The sentence 'What surprised us was that the quiet student spoke first' has",
+    "answer": "B",
+    "steps": [
+      "The subject is a what-clause ('What surprised us'), and 'that the quiet student spoke first' is a that-clause as the predicative. This is a complex sentence with noun clauses, B. It is not a simple sentence, and 'what' is not a relative clause modifying a previous noun."
+    ],
+    "analysis": {
+      "breakthrough": "先找谓语动词 'was'，再看前后的从句各作什么成分。",
+      "method": "What 引导的名词性从句可以作主语。",
+      "pitfalls": "把 what 从句当成定语从句。",
+      "variant": "把句子读成两个没有连接的简单句是不对的。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "only one verb and no clause",
+      "a what-clause as the subject and a that-clause as the predicative",
+      "a relative clause modifying 'us'",
+      "a question that needs a question mark and no statement meaning"
+    ]
+  },
+  {
+    "id": "en-q91",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 1,
+    "knowledgeIds": [
+      "en-28"
+    ],
+    "methodIds": [
+      "en-m-04"
+    ],
+    "stem": "听力开始前，比较合理的准备是",
+    "answer": "C",
+    "steps": [
+      "Read the questions and options, and predict what information (time, number, reason) you need, C. A putting books away and not looking at the paper. B answering all questions before the recording. D talking to a classmate through the recording."
+    ],
+    "analysis": {
+      "breakthrough": "听前读题，可以缩小注意范围。",
+      "method": "把可能的数字和人名圈出来。",
+      "pitfalls": "录音响了还在翻其他试卷。",
+      "variant": "第一句常有场景信息，不要错过开头。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "把试卷扣过去，什么也不看",
+      "在录音开始前把所有答案都填好",
+      "先读题干和选项，预计要听的是时间、数字还是原因",
+      "边听边和同学讨论"
+    ]
+  },
+  {
+    "id": "en-q92",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 1,
+    "knowledgeIds": [
+      "en-30"
+    ],
+    "methodIds": [
+      "en-m-06"
+    ],
+    "stem": "做完语法填空后，比较有效的检查是",
+    "answer": "B",
+    "steps": [
+      "Read the whole passage again and check tense, agreement, word form and spelling, B. A only counting the number of blanks. C changing every answer without a reason. D ignoring the passage and checking only the word list."
+    ],
+    "analysis": {
+      "breakthrough": "检查时把填入的词放回全文，看是否通顺。",
+      "method": "注意单复数、过去分词和冠词。",
+      "pitfalls": "不看上下文就改答案。",
+      "variant": "书写要清楚，以免被当成错误形式。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "只数一下是不是十个空",
+      "把短文再读一遍，检查时态、一致、词形和拼写",
+      "把所有答案都改成另一个词",
+      "不看短文，只检查单词表"
+    ]
+  },
+  {
+    "id": "en-q93",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-36"
+    ],
+    "methodIds": [
+      "en-m-12"
+    ],
+    "stem": "A computer program that can learn from data is often called a form of ______. ",
+    "answer": "A",
+    "steps": [
+      "The topic word is 'artificial intelligence' (or AI). A fits. B 'agriculture' , C 'punctuation', D 'handwriting' do not."
+    ],
+    "analysis": {
+      "breakthrough": "科技类话题要认识 intelligence, data, program, online 这些词。",
+      "method": "把词放进句子，看意思是否通。",
+      "pitfalls": "只选认识的第一个词。",
+      "variant": "环境、学校、社会类也各有一组常用词。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "artificial intelligence",
+      "agriculture",
+      "punctuation",
+      "handwriting"
+    ]
+  },
+  {
+    "id": "en-q94",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-02"
+    ],
+    "methodIds": [
+      "en-m-01"
+    ],
+    "stem": "By the time we arrived, the film ______.",
+    "answer": "C",
+    "steps": [
+      "'By the time' + past, the action before that is the past perfect: 'had started' or 'had finished'. C 'had finished'. A 'finishes' is present. B 'will finish' is future. D 'is finishing' is present continuous."
+    ],
+    "analysis": {
+      "breakthrough": "By the time + 过去时间，主句常用过去完成时。",
+      "method": "先发生的用 had done，后发生的用过去时。",
+      "pitfalls": "只用过去时，看不出先后。",
+      "variant": "By the time + 现在或将来，时态要另作调整。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "finishes",
+      "will finish",
+      "had finished",
+      "is finishing"
+    ]
+  },
+  {
+    "id": "en-q95",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-05"
+    ],
+    "methodIds": [
+      "en-m-02"
+    ],
+    "stem": "The teacher made the students ______ the experiment again.",
+    "answer": "B",
+    "steps": [
+      "'Make somebody do something' takes a bare infinitive: 'do' / 'repeat'. B 'repeat'. A 'to repeat' is used after get/ask/want, not after 'make' in the active voice. C 'repeating' is wrong after make sb. D 'repeated' is a past form, not the complement here."
+    ],
+    "analysis": {
+      "breakthrough": "使役动词 make, let, have 后接不带 to 的不定式。",
+      "method": "变为被动时要加回 to: be made to do.",
+      "pitfalls": "在主动句里写成 make sb. to do.",
+      "variant": "Help 后面可以带 to，也可以不带。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "to repeat",
+      "repeat",
+      "repeating",
+      "repeated"
+    ]
+  },
+  {
+    "id": "en-q96",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-06"
+    ],
+    "methodIds": [
+      "en-m-02"
+    ],
+    "stem": "______ from the hill, the village looks quiet.",
+    "answer": "A",
+    "steps": [
+      "The logical subject of the participle is 'the village', which is seen from the hill, so the past participle 'Seen' is used (Seen from the hill). A. B 'Seeing' would mean the village is seeing. C 'See' is a bare verb and cannot be a clause opener here. D 'To see' would express purpose and does not fit."
+    ],
+    "analysis": {
+      "breakthrough": "分词作状语：先判断与主语是主动还是被动关系。",
+      "method": "Seen from ... 是常见书面表达。",
+      "pitfalls": "主语是 village 却用 seeing，造成垂悬分词。",
+      "variant": "写完以后检查：谁 seen？是村子被看。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "Seen",
+      "Seeing",
+      "See",
+      "To see"
+    ]
+  },
+  {
+    "id": "en-q97",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-12"
+    ],
+    "methodIds": [
+      "en-m-12"
+    ],
+    "stem": "Please ______ the word in a dictionary if you are not sure.",
+    "answer": "B",
+    "steps": [
+      "The phrasal verb is 'look up' a word in a dictionary. B 'look up'. A 'look after' means take care of. C 'look down on' means despise. D 'look into' means investigate."
+    ],
+    "analysis": {
+      "breakthrough": "短语动词要连在一起记意义。",
+      "method": "Look up, look after, look into, look forward to 常考。",
+      "pitfalls": "只认识 look，不看后面的介词或副词。",
+      "variant": "可以把短语放进例句里记忆。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "look after",
+      "look up",
+      "look down on",
+      "look into"
+    ]
+  },
+  {
+    "id": "en-q98",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-29"
+    ],
+    "methodIds": [
+      "en-m-12"
+    ],
+    "stem": "The two words 'borrow' and 'lend' are often mixed up. Which sentence is correct?",
+    "answer": "A",
+    "steps": [
+      "You borrow something FROM someone, and lend something TO someone. A 'May I borrow your pen?' is correct. B should be 'lend me'. C 'borrow me' is wrong. D 'lend from' is wrong."
+    ],
+    "analysis": {
+      "breakthrough": "borrow 是借入，lend 是借出，介词分别是 from 和 to。",
+      "method": "用中文「借」对一下方向再选。",
+      "pitfalls": "写成 borrow me a book.",
+      "variant": "类似易混：take 与 bring，hear 与 listen。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "May I borrow your pen?",
+      "May I lend your pen from you?",
+      "Please borrow me your pen.",
+      "She lent a book from the library."
+    ]
+  },
+  {
+    "id": "en-q99",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "en-09"
+    ],
+    "methodIds": [
+      "en-m-03"
+    ],
+    "stem": "We will start the meeting ______ everyone is here.",
+    "answer": "C",
+    "steps": [
+      "The meeting will start at the time when everyone is here: 'when' or 'as soon as' or 'once'. C 'as soon as' fits. A 'because' is reason, possible but less exact for a starting time. Among options: A although (contrast, wrong), B unless (if not — we will start if not everyone is here, opposite), C as soon as, D so that (purpose). Answer C."
+    ],
+    "analysis": {
+      "breakthrough": "状语从句先判断关系：时间、条件、让步还是目的。",
+      "method": "主句将来时，时间状语从句用现在时。",
+      "pitfalls": "在时间状语从句里再用 will.",
+      "variant": "Unless 等于 if not，意思要反过来检查。"
+    },
+    "source": "精编练习",
+    "score": 3,
+    "options": [
+      "although",
+      "unless",
+      "as soon as",
+      "so that"
+    ]
+  },
+  {
+    "id": "en-q100",
+    "subject": "english",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "en-22"
+    ],
+    "methodIds": [
+      "en-m-08"
+    ],
+    "stem": "假如你是李华，上周在学校开放日为几位来访学生做了向导。请你写一封邮件向负责老师 Ms. Wu 作简短汇报。内容包括：你带领他们参观了哪些地方、他们的反应，以及你的一点体会。词数 80 左右。对照评分细则自评。",
+    "answer": "Example:\nDear Ms. Wu,\nLast week I showed the visiting students around our classroom buildings, the laboratory and the workshop. They asked many questions and especially liked the workshop, where they tried a small woodwork task. I was nervous at first, but I learned to explain more clearly and to listen to their questions. I would be glad to help again.\nYours sincerely,\nLi Hua",
+    "steps": [
+      "Cover the places, the visitors' response, and one personal reflection.",
+      "Use a proper greeting and ending.",
+      "Keep the language polite and clear."
+    ],
+    "analysis": {
+      "breakthrough": "先列任务再写，写完对照清单检查是否写全。",
+      "method": "应用文完成任务比堆砌难词更重要。",
+      "pitfalls": "漏掉体会，或写成给来访学生的邀请信。",
+      "variant": "词数不必过长，信息完整即可。"
+    },
+    "source": "精编练习",
+    "score": 15,
+    "rubric": [
+      {
+        "point": "覆盖参观地点、来访者反应和体会（8 分）",
+        "score": 8
+      },
+      {
+        "point": "邮件格式完整，语气得体（3 分）",
+        "score": 3
+      },
+      {
+        "point": "语言准确连贯（4 分）",
+        "score": 4
+      }
+    ]
   }
 ]

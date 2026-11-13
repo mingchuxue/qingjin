@@ -20,13 +20,16 @@
     ],
     "methodIds": [
       "en-m-03",
-      "en-m-06"
+      "en-m-06",
+      "en-m-01"
     ],
     "relatedIds": [
       "en-14"
     ],
     "questionIds": [
-      "en-q25"
+      "en-q25",
+      "en-q47",
+      "en-q73"
     ]
   },
   {
@@ -61,7 +64,9 @@
     "questionIds": [
       "en-q01",
       "en-q02",
-      "en-q11"
+      "en-q11",
+      "en-q49",
+      "en-q94"
     ]
   },
   {
@@ -86,14 +91,16 @@
       "漏掉 be 或用错过去分词。"
     ],
     "methodIds": [
-      "en-m-01"
+      "en-m-01",
+      "en-m-06"
     ],
     "relatedIds": [
       "en-02"
     ],
     "questionIds": [
       "en-q02",
-      "en-q03"
+      "en-q03",
+      "en-q49"
     ]
   },
   {
@@ -124,7 +131,8 @@
       "en-13"
     ],
     "questionIds": [
-      "en-q04"
+      "en-q04",
+      "en-q74"
     ]
   },
   {
@@ -150,7 +158,8 @@
       "forget to do（忘了要做）和 forget doing（忘了做过）记反。"
     ],
     "methodIds": [
-      "en-m-02"
+      "en-m-02",
+      "en-m-06"
     ],
     "relatedIds": [
       "en-06"
@@ -158,7 +167,9 @@
     "questionIds": [
       "en-q05",
       "en-q23",
-      "en-q29"
+      "en-q29",
+      "en-q48",
+      "en-q95"
     ]
   },
   {
@@ -184,14 +195,17 @@
       "having done 与 done 不分时间先后。"
     ],
     "methodIds": [
-      "en-m-02"
+      "en-m-02",
+      "en-m-06"
     ],
     "relatedIds": [
       "en-05"
     ],
     "questionIds": [
       "en-q06",
-      "en-q29"
+      "en-q29",
+      "en-q46",
+      "en-q96"
     ]
   },
   {
@@ -224,7 +238,8 @@
     ],
     "questionIds": [
       "en-q07",
-      "en-q24"
+      "en-q24",
+      "en-q86"
     ]
   },
   {
@@ -249,13 +264,16 @@
       "把同位语从句当成定语从句，或在有成分缺失时用 that。"
     ],
     "methodIds": [
-      "en-m-03"
+      "en-m-03",
+      "en-m-06"
     ],
     "relatedIds": [
       "en-09"
     ],
     "questionIds": [
-      "en-q08"
+      "en-q08",
+      "en-q53",
+      "en-q54"
     ]
   },
   {
@@ -281,7 +299,8 @@
       "however 后直接加句子，忘记 however + 形容词 / 副词 + 主语 + 谓语。"
     ],
     "methodIds": [
-      "en-m-03"
+      "en-m-03",
+      "en-m-06"
     ],
     "relatedIds": [
       "en-08",
@@ -289,7 +308,9 @@
     ],
     "questionIds": [
       "en-q09",
-      "en-q28"
+      "en-q28",
+      "en-q50",
+      "en-q99"
     ]
   },
   {
@@ -321,7 +342,8 @@
       "en-13"
     ],
     "questionIds": [
-      "en-q12"
+      "en-q12",
+      "en-q75"
     ]
   },
   {
@@ -353,7 +375,8 @@
     ],
     "questionIds": [
       "en-q13",
-      "en-q14"
+      "en-q14",
+      "en-q76"
     ]
   },
   {
@@ -377,13 +400,18 @@
     ],
     "methodIds": [
       "en-m-06",
-      "en-m-12"
+      "en-m-12",
+      "en-m-07"
     ],
     "relatedIds": [
       "en-05"
     ],
     "questionIds": [
-      "en-q27"
+      "en-q27",
+      "en-q55",
+      "en-q58",
+      "en-q64",
+      "en-q97"
     ]
   },
   {
@@ -414,7 +442,9 @@
       "en-24"
     ],
     "questionIds": [
-      "en-q10"
+      "en-q10",
+      "en-q51",
+      "en-q88"
     ]
   },
   {
@@ -436,12 +466,17 @@
       "带有 seldom 的句子再用否定的反意疑问。"
     ],
     "methodIds": [
-      "en-m-03"
+      "en-m-03",
+      "en-m-07",
+      "en-m-02"
     ],
     "relatedIds": [
       "en-10"
     ],
-    "questionIds": []
+    "questionIds": [
+      "en-q65",
+      "en-q77"
+    ]
   },
   {
     "id": "en-15",
@@ -472,7 +507,9 @@
       "en-17"
     ],
     "questionIds": [
-      "en-q15"
+      "en-q15",
+      "en-q33",
+      "en-q37"
     ]
   },
   {
@@ -504,7 +541,9 @@
     ],
     "questionIds": [
       "en-q15",
-      "en-q16"
+      "en-q16",
+      "en-q34",
+      "en-q38"
     ]
   },
   {
@@ -535,7 +574,10 @@
       "en-15",
       "en-18"
     ],
-    "questionIds": []
+    "questionIds": [
+      "en-q35",
+      "en-q39"
+    ]
   },
   {
     "id": "en-18",
@@ -565,7 +607,9 @@
       "en-16"
     ],
     "questionIds": [
-      "en-q16"
+      "en-q16",
+      "en-q36",
+      "en-q40"
     ]
   },
   {
@@ -597,7 +641,12 @@
     ],
     "questionIds": [
       "en-q17",
-      "en-q18"
+      "en-q18",
+      "en-q41",
+      "en-q42",
+      "en-q43",
+      "en-q44",
+      "en-q45"
     ]
   },
   {
@@ -628,7 +677,22 @@
       "en-12"
     ],
     "questionIds": [
-      "en-q19"
+      "en-q19",
+      "en-q58",
+      "en-q59",
+      "en-q60",
+      "en-q61",
+      "en-q62",
+      "en-q63",
+      "en-q64",
+      "en-q65",
+      "en-q66",
+      "en-q67",
+      "en-q68",
+      "en-q69",
+      "en-q70",
+      "en-q71",
+      "en-q72"
     ]
   },
   {
@@ -652,7 +716,8 @@
       "把该用非谓语的地方写成了谓语，造成一个句子两个谓语。"
     ],
     "methodIds": [
-      "en-m-06"
+      "en-m-06",
+      "en-m-02"
     ],
     "relatedIds": [
       "en-02",
@@ -662,7 +727,10 @@
       "en-q10",
       "en-q11",
       "en-q25",
-      "en-q31"
+      "en-q31",
+      "en-q46",
+      "en-q47",
+      "en-q48"
     ]
   },
   {
@@ -693,7 +761,9 @@
     ],
     "questionIds": [
       "en-q20",
-      "en-q32"
+      "en-q32",
+      "en-q56",
+      "en-q100"
     ]
   },
   {
@@ -726,7 +796,8 @@
     ],
     "questionIds": [
       "en-q21",
-      "en-q22"
+      "en-q22",
+      "en-q57"
     ]
   },
   {
@@ -753,7 +824,10 @@
     "relatedIds": [
       "en-21"
     ],
-    "questionIds": []
+    "questionIds": [
+      "en-q78",
+      "en-q89"
+    ]
   },
   {
     "id": "en-25",
@@ -776,12 +850,16 @@
       "把从句里的动词当成主句的谓语，造成结构混乱。"
     ],
     "methodIds": [
-      "en-m-04"
+      "en-m-04",
+      "en-m-03"
     ],
     "relatedIds": [
       "en-07"
     ],
-    "questionIds": []
+    "questionIds": [
+      "en-q79",
+      "en-q90"
+    ]
   },
   {
     "id": "en-26",
@@ -801,12 +879,17 @@
       "把 however 和 therefore 用反；或每句都以 Besides 开头。"
     ],
     "methodIds": [
-      "en-m-08"
+      "en-m-08",
+      "en-m-06",
+      "en-m-07"
     ],
     "relatedIds": [
       "en-22"
     ],
-    "questionIds": []
+    "questionIds": [
+      "en-q52",
+      "en-q70"
+    ]
   },
   {
     "id": "en-27",
@@ -832,7 +915,8 @@
       "en-22"
     ],
     "questionIds": [
-      "en-q32"
+      "en-q32",
+      "en-q80"
     ]
   },
   {
@@ -852,11 +936,16 @@
     "pitfalls": [
       "被第一个出现的数字吸引，忽略后来的更正。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "en-m-04"
+    ],
     "relatedIds": [
       "en-16"
     ],
-    "questionIds": []
+    "questionIds": [
+      "en-q81",
+      "en-q91"
+    ]
   },
   {
     "id": "en-29",
@@ -883,7 +972,10 @@
       "en-12"
     ],
     "questionIds": [
-      "en-q19"
+      "en-q19",
+      "en-q60",
+      "en-q62",
+      "en-q98"
     ]
   },
   {
@@ -903,11 +995,17 @@
     "pitfalls": [
       "把时间耗在阅读的一道难题上，压缩续写时间。"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "en-m-08",
+      "en-m-06"
+    ],
     "relatedIds": [
       "en-23"
     ],
-    "questionIds": []
+    "questionIds": [
+      "en-q82",
+      "en-q92"
+    ]
   },
   {
     "id": "en-31",
@@ -932,7 +1030,10 @@
     "relatedIds": [
       "en-15"
     ],
-    "questionIds": []
+    "questionIds": [
+      "en-q33",
+      "en-q37"
+    ]
   },
   {
     "id": "en-32",
@@ -952,12 +1053,16 @@
       "为了使用从句而写出结构混乱的长句。"
     ],
     "methodIds": [
-      "en-m-09"
+      "en-m-09",
+      "en-m-08"
     ],
     "relatedIds": [
       "en-23"
     ],
-    "questionIds": []
+    "questionIds": [
+      "en-q56",
+      "en-q83"
+    ]
   },
   {
     "id": "en-33",
@@ -977,13 +1082,16 @@
       "在已经是比较级的 taller 前再加 more。"
     ],
     "methodIds": [
-      "en-m-06"
+      "en-m-06",
+      "en-m-01"
     ],
     "relatedIds": [
       "en-13"
     ],
     "questionIds": [
-      "en-q26"
+      "en-q26",
+      "en-q51",
+      "en-q87"
     ]
   },
   {
@@ -1004,14 +1112,16 @@
       "I find difficult to... 漏掉 it。"
     ],
     "methodIds": [
-      "en-m-11"
+      "en-m-11",
+      "en-m-03"
     ],
     "relatedIds": [
       "en-10",
       "en-08"
     ],
     "questionIds": [
-      "en-q30"
+      "en-q30",
+      "en-q84"
     ]
   },
   {
@@ -1040,7 +1150,8 @@
       "en-23"
     ],
     "questionIds": [
-      "en-q21"
+      "en-q21",
+      "en-q57"
     ]
   },
   {
@@ -1061,11 +1172,15 @@
       "用中式英语硬译，如把「学习知识」写成 learn knowledge（更自然的是 learn / acquire knowledge 要谨慎，常用 learn about, study）。"
     ],
     "methodIds": [
-      "en-m-08"
+      "en-m-08",
+      "en-m-12"
     ],
     "relatedIds": [
       "en-22"
     ],
-    "questionIds": []
+    "questionIds": [
+      "en-q85",
+      "en-q93"
+    ]
   }
 ]
