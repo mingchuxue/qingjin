@@ -51,6 +51,7 @@
 
   function ic(name, s=18) {
     const p = {
+      play: '<path d="M8 5.5v13l10.5-6.5z"/>',
       home: '<path d="M4 11.5 12 4l8 7.5"/><path d="M6.5 10.5V20h11v-9.5"/>',
       book: '<path d="M5 5.5A2.5 2.5 0 0 1 7.5 3H19v16H7.5A2.5 2.5 0 0 0 5 21.5V5.5z"/><path d="M5 21.5A2.5 2.5 0 0 1 7.5 19H19"/>',
       pen: '<path d="M4 20h4L19.5 8.5a2 2 0 0 0 0-2.8L17.3 3.5a2 2 0 0 0-2.8 0L4 14v6z"/><path d="M13.5 4.5l5 5"/>',
@@ -437,6 +438,7 @@
       view.innerHTML = html;
       renderMath(view);
       bindPage(current);
+      initListen(view);
     }
     highlightNav();
     const main = document.getElementById("main");
@@ -596,6 +598,74 @@
     return `<div class="empty card card-pad"><h3>${esc(title)}</h3><p>${esc(desc||"")}</p>${href?`<p style="margin-top:16px"><a class="btn btn-primary" href="${href}">${esc(cta||"去看看")}</a></p>`:""}</div>`;
   }
 
+
+
+  /* ---------- listening (speechSynthesis) ---------- */
+  const LISTEN = { rate: 1, playing: null };
+  function hasTTS(){ return typeof window!=="undefined" && "speechSynthesis" in window && typeof SpeechSynthesisUtterance!=="undefined"; }
+  function enVoices(){ if(!hasTTS()) return []; return speechSynthesis.getVoices().filter(v=>/^en(-|_|$)/i.test(v.lang)); }
+  function scriptHTML(L){
+    return `<div class="listen-script">${(L.script||[]).map(([sp,tx])=>`<p>${sp?`<b>${esc(sp)}:</b> `:""}${esc(tx)}</p>`).join("")}</div>`;
+  }
+  function listenBlock(q, reveal){
+    const L=q.listen; if(!L) return "";
+    return `<div class="listen" data-lq="${esc(q.id)}">
+      <div class="listen-head"><span class="listen-title">${esc(L.title||"听力材料")}</span><span class="muted listen-note">${esc(L.note||"")}</span></div>
+      <div class="listen-ctrl">
+        <button type="button" class="btn btn-primary btn-sm" data-listen="play">${ic("play",16)} 播放</button>
+        <button type="button" class="btn btn-ghost btn-sm" data-listen="stop">停止</button>
+        <label class="muted listen-rate">语速
+          <select class="field" data-listen="rate">${[[0.8,"慢"],[1,"标准"],[1.15,"快"]].map(([v,n])=>`<option value="${v}" ${LISTEN.rate==v?"selected":""}>${n}</option>`).join("")}</select>
+        </label>
+        <span class="muted listen-status" aria-live="polite"></span>
+      </div>
+      <div class="listen-fallback" hidden><p class="muted">此设备没有可用的英文语音，请直接阅读下面的听力原文作答。</p>${scriptHTML(L)}</div>
+      ${reveal?`<details class="listen-reveal"><summary>查看听力原文</summary>${scriptHTML(L)}</details>`:""}
+    </div>`;
+  }
+  function listenFallback(box){
+    const fb=$(".listen-fallback",box); if(fb) fb.hidden=false;
+    $$("[data-listen]",box).forEach(b=>{ if(b.tagName==="BUTTON") b.disabled=true; });
+  }
+  function initListen(root){
+    const boxes=$$(".listen",root); if(!boxes.length) return;
+    if(!hasTTS()){ boxes.forEach(listenFallback); return; }
+    const check=()=>{ if(!enVoices().length) boxes.forEach(listenFallback); };
+    if(speechSynthesis.getVoices().length) check(); else setTimeout(check,1200);
+  }
+  function stopListen(){ if(hasTTS()) speechSynthesis.cancel(); LISTEN.playing=null; $$(".listen-status").forEach(s=>s.textContent=""); }
+  function playListen(box){
+    const q=DATA.qIndex[box.dataset.lq]; if(!q||!q.listen) return;
+    const vs=enVoices(); if(!vs.length){ listenFallback(box); return; }
+    stopListen();
+    const us=vs.filter(v=>/en[-_]US/i.test(v.lang));
+    const pool=us.length?us:vs;
+    const vA=pool[0], vB=pool.find(v=>v!==vA && /female|samantha|zira|aria|jenny/i.test(v.name))||pool[1]||pool[0];
+    const speakers={}; let n=0;
+    const lines=q.listen.script||[];
+    const status=$(".listen-status",box);
+    const token={}; LISTEN.playing=token;
+    lines.forEach(([sp,tx],i)=>{
+      if(sp && !(sp in speakers)) speakers[sp]=n++;
+      const k=sp?speakers[sp]:0;
+      const u=new SpeechSynthesisUtterance(tx);
+      u.lang="en-US"; u.voice=k%2?vB:vA; u.rate=LISTEN.rate; u.pitch=(k%2&&vB===vA)?1.25:(k%2?1.05:0.95);
+      u.onstart=()=>{ if(LISTEN.playing===token&&status) status.textContent=`正在播放 ${i+1}/${lines.length}`; };
+      if(i===lines.length-1) u.onend=()=>{ if(LISTEN.playing===token){ LISTEN.playing=null; if(status) status.textContent="播放完毕，可以重播"; } };
+      speechSynthesis.speak(u);
+    });
+  }
+  document.addEventListener("click", ev=>{
+    const b=ev.target.closest("[data-listen]"); if(!b||b.tagName==="SELECT") return;
+    const box=b.closest(".listen"); if(!box) return;
+    if(b.dataset.listen==="play") playListen(box);
+    if(b.dataset.listen==="stop") stopListen();
+  });
+  document.addEventListener("change", ev=>{
+    const s=ev.target.closest("select[data-listen='rate']"); if(!s) return;
+    LISTEN.rate=Number(s.value)||1;
+  });
+  window.addEventListener("hashchange", stopListen);
 
   /* ---------- onboarding ---------- */
   function pageOnboard() {
@@ -1081,6 +1151,7 @@
           <div class="meta-row" style="margin-bottom:10px">${tagType(q.type)} ${tagDiff(q.difficulty)} <span class="tag">${esc(subjName(q.subject))}</span>
             ${(q.knowledgeIds||[]).slice(0,2).map(id=>DATA.kpIndex[id]?`<span class="tag">${esc(DATA.kpIndex[id].title)}</span>`:"").join("")}
           </div>
+          ${listenBlock(q, !!answered)}
           ${q.passage?`<div class="passage" id="passage"><div class="passage-title">${esc(q.passageTitle||"阅读材料")}</div><div class="passage-body">${trusted(q.passage)}</div></div>`:""}
           <div class="stem" id="stem">${trusted(q.stem)}</div>
           ${renderInput(q, answered)}
@@ -1151,6 +1222,7 @@
     }
     return `<div class="solution" id="solution">
       ${head}
+      ${q.listen?`<h3>听力原文</h3>${scriptHTML(q.listen)}`:""}
       <h3>逐步解答</h3>
       <ol class="sol-steps">${(q.steps||[]).map(s=>`<li>${trusted(s)}</li>`).join("")}</ol>
       <h3>方法分析</h3>
@@ -1288,6 +1360,7 @@
           </div>
           <div class="card card-pad">
             <div class="meta-row" style="margin-bottom:10px">第 ${examSess.idx+1} 题 ${tagType(q.type)} · ${q.score||5} 分</div>
+            ${listenBlock(q, false)}
             ${q.passage?`<div class="passage"><div class="passage-title">${esc(q.passageTitle||"阅读材料")}</div><div class="passage-body">${trusted(q.passage)}</div></div>`:""}
             <div class="stem">${trusted(q.stem)}</div>
             ${renderInput(q, answered ? {user:answered.user, result:null} : null)}

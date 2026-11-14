@@ -219,7 +219,7 @@ img, svg { max-width: 100%; display: block; }
   outline: none;
 }
 .search-box input:focus { border-color: var(--teal-3); box-shadow: var(--focus); }
-.search-box .ic-search {
+.search-box > .ic {
   position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
   width: 16px; height: 16px; color: var(--faint); pointer-events: none;
 }
@@ -845,3 +845,17 @@ hr.sep { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
 }
 .passage-body p { margin: 0 0 10px; }
 .passage-body p:last-child { margin-bottom: 0; }
+
+/* listening */
+.listen { border:1px solid var(--line); border-radius:14px; background:var(--paper); padding:14px 16px; margin-bottom:14px; }
+.listen-head { display:flex; flex-wrap:wrap; gap:8px; align-items:baseline; margin-bottom:10px; }
+.listen-title { font-weight:650; }
+.listen-ctrl { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.listen-ctrl .btn .ic { margin-right:2px; }
+.listen-rate { display:inline-flex; align-items:center; gap:6px; font-size:13px; }
+.listen-rate select { width:auto; height:32px; padding:0 8px; }
+.listen-status { font-size:13px; }
+.listen-fallback { margin-top:10px; }
+.listen-script { font-size:14.5px; line-height:1.7; background:var(--teal-faint); border-radius:10px; padding:10px 12px; margin-top:6px; }
+.listen-script p { margin:0 0 6px; } .listen-script p:last-child { margin:0; }
+.listen-reveal { margin-top:10px; } .listen-reveal summary { cursor:pointer; color:var(--teal-3); font-size:14px; }
