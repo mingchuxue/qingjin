@@ -2079,6 +2079,7 @@
     else stopClock();
 
     $("#wp-print")?.addEventListener("click", () => window.print());
+    $$(".hm-scroll").forEach(el => { el.scrollLeft = el.scrollWidth; });
     $("#daily-go")?.addEventListener("click", ev => {
       state.dailyDone = {[todayStr()]: ev.currentTarget.dataset.qid};
       save();
