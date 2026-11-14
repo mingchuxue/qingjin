@@ -859,3 +859,39 @@ hr.sep { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
 .listen-script { font-size:14.5px; line-height:1.7; background:var(--teal-faint); border-radius:10px; padding:10px 12px; margin-top:6px; }
 .listen-script p { margin:0 0 6px; } .listen-script p:last-child { margin:0; }
 .listen-reveal { margin-top:10px; } .listen-reveal summary { cursor:pointer; color:var(--teal-3); font-size:14px; }
+
+/* 每日一题 */
+.daily-card { padding: 18px 20px; margin: 18px 0 4px; }
+.daily-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.daily-kicker { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--teal); font-size: 14px; }
+.daily-stem { max-height: 9.5em; overflow: hidden; position: relative; }
+.daily-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 10px; font-size: 13px; flex-wrap: wrap; }
+
+/* 模拟卷分项得分 */
+.breakdown { margin-bottom: 18px; }
+.bd-list { display: grid; gap: 10px; margin-top: 10px; }
+.bd-row { display: grid; grid-template-columns: 6.5em 1fr auto; gap: 10px; align-items: center; font-size: 14px; }
+.bd-row .mastery-bar { margin: 0; }
+.bd-num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bd-num em { font-style: normal; font-size: 12px; }
+@media (max-width: 560px) { .bd-row { grid-template-columns: 5.5em 1fr; } .bd-num { grid-column: 2; } }
+
+/* 学习热力图 */
+.hm-scroll { overflow-x: auto; padding-bottom: 4px; }
+.hm-scroll svg { display: block; max-width: none; }
+.study-heat rect.hm, .hm-l { fill: var(--bg-2); background: var(--bg-2); }
+.study-heat .l1 { fill: #cfe0d6; background: #cfe0d6; }
+.study-heat .l2 { fill: #8fbea6; background: #8fbea6; }
+.study-heat .l3 { fill: #4d9474; background: #4d9474; }
+.study-heat .l4 { fill: #1e5c52; background: #1e5c52; }
+.hm-legend { display: flex; align-items: center; gap: 4px; font-size: 12px; margin-top: 6px; justify-content: flex-end; }
+.hm-l { display: inline-block; width: 11px; height: 11px; border-radius: 3px; }
+
+/* 错题单 */
+.wp-item { padding: 14px 0; border-bottom: 1px dashed var(--line); break-inside: avoid; }
+.wp-item:last-child { border-bottom: 0; }
+.wp-item .prose { margin-top: 6px; }
+.wp-opts { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4px 16px; }
+.wp-space { height: 56px; }
+.wp-ans { margin-top: 8px; padding: 8px 12px; background: var(--bg-2); border-radius: 8px; font-size: 14px; }
+@media print { .no-print-head .lead, .crumb { display: none !important; } .wp-sheet { border: 0; padding: 0; } }

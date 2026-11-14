@@ -470,7 +470,7 @@
         if (p[1]==="run") return pageExamRun();
         if (p[1]) return pageExamStart(p[1]);
         return pageExams();
-      case "wrong": return pageWrong();
+      case "wrong": return p[1]==="print" ? pageWrongPrint() : pageWrong();
       case "review": return pageReview();
       case "stats": return pageStats();
       case "plan": return pagePlan();
@@ -739,6 +739,7 @@
           <div class="muted" style="font-size:12.5px">${done}/${tasks.length} 已完成</div>
         </div>
       </div>
+      ${dailyCard()}
       <div class="section-title"><h2>我的科目</h2><a href="#/settings">更改选科</a></div>
       <div class="subject-row">
         ${SUBJECT_IDS.map(s => {
@@ -765,6 +766,29 @@
         </div>
       </div>
     `;
+  }
+
+  function dailyQuestion() {
+    const sel = selectedSubjects();
+    const pool = sel.flatMap(s => subjectQuestions(s)).filter(q =>
+      ["single","multi","fill"].includes(q.type) && !q.passage && !q.listen && String(q.stem||"").length <= 260);
+    if (!pool.length) return null;
+    const key = todayStr();
+    let h = 7;
+    for (const ch of key + sel.join("")) h = (h * 31 + ch.charCodeAt(0)) % 1000003;
+    return pool[h % pool.length];
+  }
+  function dailyCard() {
+    const q = dailyQuestion();
+    if (!q) return "";
+    const done = (state.dailyDone||{})[todayStr()]===q.id;
+    return `<div class="card daily-card">
+      <div class="daily-head"><span class="daily-kicker">${ic("lamp",14)} 每日一题</span>
+        <span class="meta-row">${tagType(q.type)} ${tagDiff(q.difficulty)} <span class="tag">${esc(subjName(q.subject))}</span></span></div>
+      <div class="prose daily-stem">${trusted(q.stem)}</div>
+      <div class="daily-foot"><span class="muted">${done?"今天这道已经做过了":"每天换一道，选科范围内随机抽取"}</span>
+        <a class="btn btn-primary btn-sm" id="daily-go" data-qid="${q.id}" href="#/practice/setup?mode=one&qid=${q.id}">${done?"再看一遍":"去做这道题"}</a></div>
+    </div>`;
   }
 
   function kpCard(k) {
@@ -1422,6 +1446,7 @@
           <div class="score">${score}<span style="font-size:20px">/${e.full}</span></div>
           <div class="sub">${esc(e.title)} · 用时 ${Math.round(((log.end||Date.now())-log.start)/60000)} 分钟</div>
         </div>
+        ${examBreakdown(e, log)}
         <div class="card card-pad">
           ${(log.details||examSess?.items||[]).map((d,i)=>{
             const qid = d.qid||d;
@@ -1440,6 +1465,32 @@
   }
 
 
+  function examBreakdown(e, log) {
+    const det = log.details || [];
+    if (!det.length || !(e.sections||[]).length) return "";
+    let k = 0, pending = 0;
+    const rows = e.sections.map(s => {
+      const part = det.slice(k, k + s.count); k += s.count;
+      let got = 0, wait = 0;
+      part.forEach(d => { const r = d.result||{}; if (r.correct===null || r.correct===undefined) wait++; else got += Number(r.score)||0; });
+      pending += wait;
+      const pct = s.score ? Math.max(0, Math.min(1, got / s.score)) : 0;
+      return `<div class="bd-row"><span class="bd-name">${esc(s.name)}</span>
+        <div class="mastery-bar ${masteryClass(pct)}"><i style="width:${pct*100}%"></i></div>
+        <span class="bd-num">${+got.toFixed(1)}/${s.score}${wait?` <em class="muted">（${wait} 题待自评）</em>`:""}</span></div>`;
+    }).join("");
+    const hist = (state.examLog||[]).filter(l => l.paperId===e.id).slice(0, 6);
+    const wrongN = det.filter(d => d.result && d.result.correct===false).length;
+    return `<div class="card card-pad breakdown">
+      <h2 class="h2">分项得分</h2>
+      <div class="bd-list">${rows}</div>
+      ${pending?`<p class="muted" style="margin-top:8px">主观题未计入自动得分，请展开下方解析对照评分要点自评。</p>`:""}
+      ${hist.length>1?`<h3 class="h3" style="margin-top:14px">本卷历次成绩</h3>
+        <ul class="rec-list">${hist.map(l=>`<li>${fmtDate(l.end||l.start)} · <b>${+Number(l.score||0).toFixed(1)}</b>/${l.full||e.full}</li>`).join("")}</ul>`:""}
+      ${wrongN?`<p style="margin-top:12px"><a class="btn btn-soft btn-sm" href="#/wrong?s=${e.subject}">本卷有 ${wrongN} 道错题，已进入错题本</a></p>`:""}
+    </div>`;
+  }
+
   /* ---------- wrong book / review ---------- */
   function pageWrong() {
     const filter = current.query || {};
@@ -1450,6 +1501,7 @@
       <div class="page-head"><div>${crumb([["#/","首页"],["#/wrong","错题本"]])}<h1 class="h1">错题本</h1>
       <p class="lead">答错的题目会自动进来。加上错因后，复习队列会按间隔再推给你。</p></div>
       <div style="display:flex;gap:8px">
+        ${items.length?`<a class="btn btn-ghost btn-sm" href="#/wrong/print${filter.s?"?s="+filter.s:""}">${ic("download",14)} 错题单</a>`:""}
         ${items.length?`<a class="btn btn-primary btn-sm" href="#/practice/setup?mode=wrong">错题重练</a>`:""}
       </div></div>
       <div class="filter-bar">
@@ -1472,6 +1524,32 @@
         </a>`;
       }).join("") : empty("错题本是空的","答题正确是好事。一旦有错题，会出现在这里。","#/practice","去刷题")}
     `;
+  }
+
+  function pageWrongPrint() {
+    const f = current.query || {};
+    let items = state.wrong.filter(w => !w.mastered);
+    if (f.s) items = items.filter(w => w.subject===f.s);
+    const qs = items.map(w => DATA.qIndex[w.qid]).filter(Boolean).slice(0, 40);
+    if (!qs.length) return empty("没有可整理的错题","错题本里还没有未消化的题目。","#/wrong","返回错题本");
+    const ans = f.ans === "1";
+    const opts = q => (q.options||[]).length && ["single","multi"].includes(q.type)
+      ? `<ol class="wp-opts">${q.options.map((o,i)=>`<li><b>${String.fromCharCode(65+i)}.</b> ${trusted(o)}</li>`).join("")}</ol>` : "";
+    return `
+      <div class="page-head no-print-head"><div>${crumb([["#/","首页"],["#/wrong","错题本"],["#","错题单"]])}<h1 class="h1">错题单${f.s?" · "+esc(subjName(f.s)):""}</h1>
+      <p class="lead">整理成一页，可以打印出来或另存为 PDF 重做。共 ${qs.length} 题${items.length>qs.length?"（只取最近 40 题）":""}。</p></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="btn btn-ghost btn-sm" href="#/wrong/print?${f.s?"s="+f.s+"&":""}ans=${ans?"0":"1"}">${ans?"隐藏答案":"附上答案"}</a>
+        <button class="btn btn-primary btn-sm" id="wp-print">打印 / 存为 PDF</button>
+      </div></div>
+      <div class="card card-pad wp-sheet">
+        ${qs.map((q,i)=>`<div class="wp-item">
+          <div class="meta-row"><b>${i+1}.</b> ${tagType(q.type)} <span class="tag">${esc(subjName(q.subject))}</span></div>
+          ${q.passage?`<div class="passage prose">${trusted(q.passage)}</div>`:""}
+          <div class="prose">${trusted(q.stem)}</div>${opts(q)}
+          ${ans?`<div class="wp-ans"><b>答案：</b>${trusted(typeof q.answer==="string"?q.answer:(Array.isArray(q.answer)?q.answer.join("；"):JSON.stringify(q.answer)))}</div>`:`<div class="wp-space"></div>`}
+        </div>`).join("")}
+      </div>`;
   }
 
   function pageReview() {
@@ -1535,6 +1613,7 @@
           ${trendSVG(days)}
         </div>
       </div>
+      ${studyHeat()}
       <div class="grid grid-2" style="margin-top:14px">
         <div>
           <div class="section-title"><h2>建议下一步</h2></div>
@@ -1565,6 +1644,36 @@
         ${exams.length?`<h3 class="h3">模拟卷</h3><ul class="rec-list">${exams.slice(0,6).map(l=>`<li><a href="#/exam/${l.paperId}/result">${esc(l.title)}</a> · ${l.score}/${l.full}</li>`).join("")}</ul>`:""}
       </div>
     `;
+  }
+  function studyHeat() {
+    const per = {};
+    const add = (k, n) => { if (k) per[k] = (per[k]||0) + n; };
+    (state.practiceLog||[]).forEach(l => add(fmtDate(l.end||l.start), l.total||0));
+    (state.examLog||[]).forEach(l => add(fmtDate(l.end||l.start), (l.details||[]).length));
+    Object.entries(state.checkins||{}).forEach(([k,c]) => { if (!per[k]) per[k] = 0; per[k] += Math.round((c.minutes||0)/5) || (c.done?1:0); });
+    const weeks = 20;
+    const end = new Date(); end.setHours(0,0,0,0);
+    const start = new Date(end); start.setDate(end.getDate() - end.getDay() - (weeks-1)*7);
+    const cell = 13, gap = 3, left = 22, top = 16;
+    let rects = "", months = "", lastM = -1, activeDays = 0, totalN = 0;
+    for (let w = 0; w < weeks; w++) {
+      for (let d = 0; d < 7; d++) {
+        const day = new Date(start); day.setDate(start.getDate() + w*7 + d);
+        if (day > end) continue;
+        const k = todayStr(day), n = per[k] || 0;
+        if (n) { activeDays++; totalN += n; }
+        const lv = n===0?0 : n<5?1 : n<15?2 : n<30?3 : 4;
+        rects += `<rect x="${left + w*(cell+gap)}" y="${top + d*(cell+gap)}" width="${cell}" height="${cell}" rx="3" class="hm l${lv}"><title>${k} · ${n?n+" 题次":"未学习"}</title></rect>`;
+        if (d===0 && day.getMonth()!==lastM) { lastM = day.getMonth(); months += `<text x="${left + w*(cell+gap)}" y="10" font-size="10" fill="var(--muted)">${lastM+1}月</text>`; }
+      }
+    }
+    const lab = ["日","","二","","四","","六"].map((s,i)=>s?`<text x="0" y="${top + i*(cell+gap) + 10}" font-size="10" fill="var(--muted)">${s}</text>`:"").join("");
+    const W = left + weeks*(cell+gap), H = top + 7*(cell+gap);
+    return `<div class="card card-pad study-heat" style="margin-top:14px">
+      <div class="section-title" style="margin:0 0 8px"><h2>学习热力图</h2><span class="muted" style="font-size:13px">近 ${weeks} 周 · 学习 ${activeDays} 天 · ${totalN} 题次</span></div>
+      <div class="hm-scroll"><svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="近 ${weeks} 周学习热力图">${months}${lab}${rects}</svg></div>
+      <div class="hm-legend muted">少 <i class="hm-l l0"></i><i class="hm-l l1"></i><i class="hm-l l2"></i><i class="hm-l l3"></i><i class="hm-l l4"></i> 多</div>
+    </div>`;
   }
   function radarSVG(byS) {
     if (!byS.some(d => d.n)) return `<p class="muted" style="padding:28px 12px;text-align:center">还没有各科练习记录。先去刷题，正确率会显示在这里。</p>`;
@@ -1969,6 +2078,11 @@
     if (p==="" || p==="home") startClock();
     else stopClock();
 
+    $("#wp-print")?.addEventListener("click", () => window.print());
+    $("#daily-go")?.addEventListener("click", ev => {
+      state.dailyDone = {[todayStr()]: ev.currentTarget.dataset.qid};
+      save();
+    });
     // tasks
     $$("[data-task]").forEach(b => b.addEventListener("click", () => {
       toggleTask(b.dataset.task);
