@@ -1318,15 +1318,11 @@
       },
       {
         "point": "方向向量正确",
-        "score": 4
+        "score": 3
       },
       {
         "point": "余弦值计算正确，为 $\\dfrac{1}{2}$",
         "score": 5
-      },
-      {
-        "point": "得出所成角为 $60^\\circ$",
-        "score": 2
       }
     ]
   },
@@ -3526,7 +3522,7 @@
     "rubric": [
       {
         "point": "正确得到关于 $x$ 的二次方程",
-        "score": 4
+        "score": 3
       },
       {
         "point": "由 $\\Delta>0$ 得到 $-\\sqrt{5}<m<\\sqrt{5}$",
@@ -3538,7 +3534,7 @@
       },
       {
         "point": "弦长 $\\dfrac{4\\sqrt{10}}{5}$",
-        "score": 5
+        "score": 4
       }
     ]
   },
@@ -3918,6 +3914,178 @@
       "f(x+1)+3",
       "y=3+f(x+1)",
       "$y=3+f(x+1)$"
+    ]
+  },
+  {
+    "id": "m-q121",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-19",
+      "m-16"
+    ],
+    "methodIds": [
+      "m-mtd-08"
+    ],
+    "stem": "在 $\\triangle ABC$ 中，角 $A,B,C$ 的对边分别为 $a,b,c$，已知 $b=2$，$c=3$，$\\cos A=\\dfrac{1}{3}$。<br>（1）求 $a$；<br>（2）求 $\\sin C$；<br>（3）求 $\\triangle ABC$ 的面积。",
+    "answer": "（1）$a=3$；（2）$\\sin C=\\dfrac{2\\sqrt{2}}{3}$；（3）$S=2\\sqrt{2}$。",
+    "steps": [
+      "由余弦定理 $a^2=b^2+c^2-2bc\\cos A=4+9-2\\cdot 2\\cdot 3\\cdot\\dfrac13=9$，故 $a=3$。",
+      "$\\sin A=\\sqrt{1-\\cos^2A}=\\sqrt{1-\\dfrac19}=\\dfrac{2\\sqrt2}{3}$。",
+      "由正弦定理 $\\sin C=\\dfrac{c\\sin A}{a}=\\dfrac{3\\cdot\\frac{2\\sqrt2}{3}}{3}=\\dfrac{2\\sqrt2}{3}$（也可由 $a=c$ 得 $C=A$）。",
+      "$S=\\dfrac12 bc\\sin A=\\dfrac12\\cdot 2\\cdot 3\\cdot\\dfrac{2\\sqrt2}{3}=2\\sqrt2$。"
+    ],
+    "analysis": {
+      "breakthrough": "已知两边及夹角，先用余弦定理求第三边。",
+      "method": "边角互化：余弦定理求边，正弦定理求角，面积用 $\\frac12 bc\\sin A$。",
+      "pitfalls": "开方时漏掉 $\\sin A>0$ 的判断，或面积公式用错夹角。",
+      "variant": "若改为 $\\cos A=-\\frac13$，则 $a=\\sqrt{17}$。"
+    },
+    "source": "精编练习",
+    "score": 15,
+    "rubric": [
+      {
+        "point": "余弦定理求出 $a=3$",
+        "score": 5
+      },
+      {
+        "point": "求出 $\\sin A$ 并用正弦定理得 $\\sin C$",
+        "score": 5
+      },
+      {
+        "point": "面积 $2\\sqrt2$",
+        "score": 5
+      }
+    ]
+  },
+  {
+    "id": "m-q122",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-41",
+      "m-42"
+    ],
+    "methodIds": [
+      "m-mtd-10"
+    ],
+    "stem": "已知数列 $\\{a_n\\}$ 满足 $a_1=1$，$a_{n+1}=2a_n+1$。<br>（1）证明：数列 $\\{a_n+1\\}$ 是等比数列；<br>（2）求 $a_n$；<br>（3）求 $\\{a_n\\}$ 的前 $n$ 项和 $S_n$。",
+    "answer": "（1）略（公比为 $2$）；（2）$a_n=2^n-1$；（3）$S_n=2^{n+1}-n-2$。",
+    "steps": [
+      "$a_{n+1}+1=2a_n+2=2(a_n+1)$，且 $a_1+1=2\\ne 0$，故 $\\{a_n+1\\}$ 是首项 $2$、公比 $2$ 的等比数列。",
+      "$a_n+1=2\\cdot 2^{n-1}=2^n$，所以 $a_n=2^n-1$。",
+      "$S_n=(2+2^2+\\cdots+2^n)-n=\\dfrac{2(2^n-1)}{2-1}-n=2^{n+1}-2-n$。"
+    ],
+    "analysis": {
+      "breakthrough": "递推式 $a_{n+1}=pa_n+q$ 常配成 $a_{n+1}+t=p(a_n+t)$。",
+      "method": "构造等比数列求通项，再分组求和。",
+      "pitfalls": "证明等比时漏写首项不为零。",
+      "variant": "若 $a_{n+1}=3a_n+2$，则 $\\{a_n+1\\}$ 公比为 $3$。"
+    },
+    "source": "精编练习",
+    "score": 15,
+    "rubric": [
+      {
+        "point": "配凑并说明首项不为零，证明等比",
+        "score": 5
+      },
+      {
+        "point": "求出 $a_n=2^n-1$",
+        "score": 4
+      },
+      {
+        "point": "分组求和得 $S_n=2^{n+1}-n-2$",
+        "score": 6
+      }
+    ]
+  },
+  {
+    "id": "m-q123",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 4,
+    "knowledgeIds": [
+      "m-47",
+      "m-48"
+    ],
+    "methodIds": [
+      "m-mtd-02",
+      "m-mtd-01"
+    ],
+    "stem": "已知函数 $f(x)=\\ln x-ax+1$（$x>0$）。<br>（1）当 $a=1$ 时，求 $f(x)$ 的单调区间和极值；<br>（2）若 $f(x)\\le 0$ 对一切 $x>0$ 恒成立，求 $a$ 的取值范围；<br>（3）证明：对任意 $x>0$，$\\ln x\\le x-1$。",
+    "answer": "（1）增区间 $(0,1)$，减区间 $(1,+\\infty)$，极大值 $f(1)=0$，无极小值；（2）$a\\ge 1$；（3）由（1）得证。",
+    "steps": [
+      "$a=1$ 时 $f'(x)=\\dfrac1x-1=\\dfrac{1-x}{x}$，$0<x<1$ 时 $f'>0$，$x>1$ 时 $f'<0$，极大值 $f(1)=0$。",
+      "$f(x)\\le 0\\iff a\\ge \\dfrac{\\ln x+1}{x}$ 对 $x>0$ 恒成立。令 $g(x)=\\dfrac{\\ln x+1}{x}$，$g'(x)=\\dfrac{-\\ln x}{x^2}$。",
+      "$g$ 在 $(0,1)$ 增、$(1,+\\infty)$ 减，最大值 $g(1)=1$，所以 $a\\ge 1$。",
+      "由（1），$a=1$ 时 $f(x)\\le f(1)=0$，即 $\\ln x-x+1\\le 0$，所以 $\\ln x\\le x-1$，当且仅当 $x=1$ 时取等号。"
+    ],
+    "analysis": {
+      "breakthrough": "恒成立问题先分离参数，转化为求函数最值。",
+      "method": "分离参数法 + 求导求最值。",
+      "pitfalls": "分离参数时忽略 $x>0$ 的符号，或把最大值当成最小值。",
+      "variant": "不等式 $\\ln x\\le x-1$ 是常用放缩，可直接用于后续证明。"
+    },
+    "source": "精编练习",
+    "score": 17,
+    "rubric": [
+      {
+        "point": "求导并写出单调区间、极值",
+        "score": 5
+      },
+      {
+        "point": "分离参数并求出 $g(x)$ 的最大值，得 $a\\ge 1$",
+        "score": 8
+      },
+      {
+        "point": "利用（1）的结论完成证明",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "m-q124",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "m-55",
+      "m-54"
+    ],
+    "methodIds": [
+      "m-mtd-13"
+    ],
+    "stem": "某射击选手每次射击命中的概率为 $\\dfrac23$，各次是否命中相互独立。该选手射击 $3$ 次，记命中次数为 $X$。<br>（1）求 $X$ 的分布列；<br>（2）求 $E(X)$ 与 $D(X)$；<br>（3）规定至少命中 $2$ 次为合格，求合格的概率。",
+    "answer": "（1）$P(X=0)=\\dfrac1{27}$，$P(X=1)=\\dfrac29$，$P(X=2)=\\dfrac49$，$P(X=3)=\\dfrac8{27}$；（2）$E(X)=2$，$D(X)=\\dfrac23$；（3）$\\dfrac{20}{27}$。",
+    "steps": [
+      "$X\\sim B\\left(3,\\dfrac23\\right)$，$P(X=k)=\\mathrm{C}_3^k\\left(\\dfrac23\\right)^k\\left(\\dfrac13\\right)^{3-k}$。",
+      "$P(X=0)=\\dfrac1{27}$，$P(X=1)=\\dfrac{6}{27}=\\dfrac29$，$P(X=2)=\\dfrac{12}{27}=\\dfrac49$，$P(X=3)=\\dfrac8{27}$，和为 $1$。",
+      "$E(X)=np=2$，$D(X)=np(1-p)=3\\cdot\\dfrac23\\cdot\\dfrac13=\\dfrac23$。",
+      "$P(X\\ge 2)=\\dfrac{12}{27}+\\dfrac8{27}=\\dfrac{20}{27}$。"
+    ],
+    "analysis": {
+      "breakthrough": "独立重复试验、只关心成功次数，就是二项分布。",
+      "method": "先判断分布类型，再套公式，最后检验概率和为 1。",
+      "pitfalls": "组合数漏乘，或把至少两次算成恰好两次。",
+      "variant": "若命中率为 $p$，合格概率为 $3p^2-2p^3$。"
+    },
+    "source": "精编练习",
+    "score": 17,
+    "rubric": [
+      {
+        "point": "判断为二项分布并写出分布列",
+        "score": 8
+      },
+      {
+        "point": "期望与方差",
+        "score": 5
+      },
+      {
+        "point": "合格概率 $\\frac{20}{27}$",
+        "score": 4
+      }
     ]
   }
 ]

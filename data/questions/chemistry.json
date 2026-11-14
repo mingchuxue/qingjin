@@ -244,7 +244,7 @@
       "variant": "把二氧化硫水溶液的电离写成可逆：$\\mathrm{SO_2+H_2O\\rightleftharpoons H^++HSO_3^-}$。"
     },
     "source": "精编练习",
-    "score": 6,
+    "score": 4,
     "options": [
       "$\\mathrm{Fe(OH)_3+3H^+=Fe^{3+}+3H_2O}$",
       "$\\mathrm{SO_2+H_2O=SO_3^{2-}+2H^+}$",
@@ -1011,7 +1011,7 @@
       "variant": "铜的基态是 $3d^{10}4s^1$。"
     },
     "source": "精编练习",
-    "score": 6,
+    "score": 4,
     "options": [
       "基态铬原子的电子排布式为 $[\\mathrm{Ar}]3d^4 4s^2$",
       "同一主族元素从上到下，原子半径逐渐增大",
@@ -3286,6 +3286,160 @@
       },
       {
         "point": "判断测定结果偏高并说明盐酸被稀释、体积偏大",
+        "score": 5
+      }
+    ]
+  },
+  {
+    "id": "hx-q104",
+    "subject": "chemistry",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-19",
+      "hx-18"
+    ],
+    "methodIds": [
+      "hx-m-06"
+    ],
+    "stem": "关于 $0.1\\,\\mathrm{mol/L}$ $\\mathrm{NH_4Cl}$ 溶液，下列说法正确的是",
+    "answer": "ABC",
+    "steps": [
+      "$\\mathrm{NH_4^+}$ 水解使溶液呈酸性，A 正确；水解消耗部分 $\\mathrm{NH_4^+}$，故 $c(\\mathrm{Cl^-})>c(\\mathrm{NH_4^+})$，B 正确；C 为电荷守恒，正确；加水稀释，$c(\\mathrm{H^+})$ 减小，$\\mathrm{pH}$ 增大，D 错误。"
+    ],
+    "analysis": {
+      "breakthrough": "强酸弱碱盐水解显酸性。",
+      "method": "用电荷守恒、物料守恒检验浓度关系。",
+      "pitfalls": "误以为稀释促进水解后酸性增强。",
+      "variant": "$\\mathrm{CH_3COONa}$ 溶液则显碱性。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "溶液呈酸性",
+      "$c(\\mathrm{Cl^-})>c(\\mathrm{NH_4^+})$",
+      "$c(\\mathrm{NH_4^+})+c(\\mathrm{H^+})=c(\\mathrm{Cl^-})+c(\\mathrm{OH^-})$",
+      "加水稀释后溶液 $\\mathrm{pH}$ 减小"
+    ]
+  },
+  {
+    "id": "hx-q105",
+    "subject": "chemistry",
+    "type": "multi",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-14",
+      "hx-35"
+    ],
+    "methodIds": [
+      "hx-m-05"
+    ],
+    "stem": "对于反应 $\\mathrm{2NO_2(g)\\rightleftharpoons N_2O_4(g)}$ $\\Delta H<0$，下列说法正确的是",
+    "answer": "AB",
+    "steps": [
+      "正反应放热，升温平衡逆移，红棕色 $\\mathrm{NO_2}$ 增多，颜色加深，A 正确；压缩体积增大压强，平衡向气体分子数减少的正方向移动，B 正确；催化剂不改变平衡，C 错误；恒容充入 He，各物质浓度不变，平衡不移动，D 错误。"
+    ],
+    "analysis": {
+      "breakthrough": "用勒夏特列原理逐项判断。",
+      "method": "温度看热效应，压强看气体分子数，惰性气体看浓度是否改变。",
+      "pitfalls": "把恒容充入惰性气体当成增大压强。",
+      "variant": "恒压充入 He，相当于减压，平衡逆移。"
+    },
+    "source": "精编练习",
+    "score": 4,
+    "options": [
+      "升高温度，气体颜色加深",
+      "压缩容器体积，平衡向正反应方向移动",
+      "加入催化剂，可提高 $\\mathrm{N_2O_4}$ 的平衡产率",
+      "恒容条件下充入 He，平衡向逆反应方向移动"
+    ]
+  },
+  {
+    "id": "hx-q106",
+    "subject": "chemistry",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "hx-22",
+      "hx-03"
+    ],
+    "methodIds": [
+      "hx-m-07",
+      "hx-m-01"
+    ],
+    "stem": "工业上用电解饱和食盐水的方法制取烧碱和氯气（使用阳离子交换膜）。<br>（1）写出阳极的电极反应式；<br>（2）写出阴极的电极反应式；<br>（3）写出电解的总反应化学方程式；<br>（4）当电路中通过 $0.2\\,\\mathrm{mol}$ 电子时，阳极产生的气体在标准状况下的体积是多少？生成 $\\mathrm{NaOH}$ 的质量是多少？<br>（5）阳离子交换膜的主要作用是什么？",
+    "answer": "（1）$\\mathrm{2Cl^- -2e^- = Cl_2\\uparrow}$；（2）$\\mathrm{2H_2O+2e^- = H_2\\uparrow+2OH^-}$；（3）$\\mathrm{2NaCl+2H_2O \\xlongequal{电解} 2NaOH+H_2\\uparrow+Cl_2\\uparrow}$；（4）$2.24\\,\\mathrm{L}$，$8.0\\,\\mathrm{g}$；（5）只允许 $\\mathrm{Na^+}$ 通过，防止 $\\mathrm{Cl_2}$ 与 $\\mathrm{NaOH}$ 反应，并避免 $\\mathrm{H_2}$ 与 $\\mathrm{Cl_2}$ 混合。",
+    "steps": [
+      "阳极发生氧化反应，$\\mathrm{Cl^-}$ 失电子生成 $\\mathrm{Cl_2}$。",
+      "阴极水电离出的 $\\mathrm{H^+}$ 得电子：$\\mathrm{2H_2O+2e^-=H_2\\uparrow+2OH^-}$。",
+      "$n(\\mathrm{Cl_2})=\\dfrac{0.2}{2}=0.1\\,\\mathrm{mol}$，$V=0.1\\times22.4=2.24\\,\\mathrm{L}$。",
+      "每转移 $1\\,\\mathrm{mol}\\,e^-$ 生成 $1\\,\\mathrm{mol}\\,\\mathrm{NaOH}$，$m=0.2\\times40=8.0\\,\\mathrm{g}$。"
+    ],
+    "analysis": {
+      "breakthrough": "阳极氧化、阴极还原，按得失电子守恒计算。",
+      "method": "电极反应 → 总反应 → 电子守恒计算。",
+      "pitfalls": "阴极写成 $\\mathrm{Na^+}$ 得电子，或忽略标况条件。",
+      "variant": "若改用铁作阳极，阳极反应变为铁失电子。"
+    },
+    "source": "精编练习",
+    "score": 14,
+    "rubric": [
+      {
+        "point": "两个电极反应式",
+        "score": 4
+      },
+      {
+        "point": "总反应方程式",
+        "score": 2
+      },
+      {
+        "point": "气体体积与 NaOH 质量",
+        "score": 5
+      },
+      {
+        "point": "交换膜作用",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "hx-q107",
+    "subject": "chemistry",
+    "type": "essay",
+    "difficulty": 2,
+    "knowledgeIds": [
+      "hx-07",
+      "hx-03"
+    ],
+    "methodIds": [
+      "hx-m-01"
+    ],
+    "stem": "将 $2.3\\,\\mathrm{g}$ 金属钠投入 $97.8\\,\\mathrm{g}$ 水中，充分反应。<br>（1）写出反应的化学方程式；<br>（2）求生成氢气的质量；<br>（3）求所得溶液中溶质的质量分数。",
+    "answer": "（1）$\\mathrm{2Na+2H_2O=2NaOH+H_2\\uparrow}$；（2）$0.1\\,\\mathrm{g}$；（3）$4.0\\%$。",
+    "steps": [
+      "$n(\\mathrm{Na})=\\dfrac{2.3}{23}=0.1\\,\\mathrm{mol}$，生成 $0.05\\,\\mathrm{mol}\\,\\mathrm{H_2}$，质量 $0.1\\,\\mathrm{g}$。",
+      "生成 $\\mathrm{NaOH}$ $0.1\\,\\mathrm{mol}$，质量 $4.0\\,\\mathrm{g}$。",
+      "溶液质量 $=2.3+97.8-0.1=100\\,\\mathrm{g}$，质量分数 $=\\dfrac{4.0}{100}\\times100\\%=4.0\\%$。"
+    ],
+    "analysis": {
+      "breakthrough": "溶液质量要减去逸出的氢气。",
+      "method": "质量守恒求溶液质量，物质的量求溶质。",
+      "pitfalls": "把溶液质量算成 $2.3+97.8=100.1\\,\\mathrm{g}$。",
+      "variant": "若投入 $4.6\\,\\mathrm{g}$ Na，溶质为 $8.0\\,\\mathrm{g}$。"
+    },
+    "source": "精编练习",
+    "score": 12,
+    "rubric": [
+      {
+        "point": "方程式正确",
+        "score": 3
+      },
+      {
+        "point": "氢气质量",
+        "score": 4
+      },
+      {
+        "point": "溶液质量扣除氢气并得 4.0%",
         "score": 5
       }
     ]

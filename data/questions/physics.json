@@ -3132,5 +3132,48 @@
       "0.00004",
       "4\\times 10^{-5}"
     ]
+  },
+  {
+    "id": "p-q101",
+    "subject": "physics",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "p-29",
+      "p-30"
+    ],
+    "methodIds": [
+      "p-m-04"
+    ],
+    "stem": "光滑水平面上，质量 $m_1=1\\,\\mathrm{kg}$ 的小球 A 以 $v_0=6\\,\\mathrm{m/s}$ 的速度与静止的、质量 $m_2=2\\,\\mathrm{kg}$ 的小球 B 发生正碰。<br>（1）若碰撞为弹性碰撞，求碰后 A、B 的速度；<br>（2）验证（1）中碰撞前后系统动能相等；<br>（3）若碰后两球粘在一起，求共同速度及损失的动能。",
+    "answer": "（1）$v_A=-2\\,\\mathrm{m/s}$（反弹），$v_B=4\\,\\mathrm{m/s}$；（2）均为 $18\\,\\mathrm{J}$；（3）$2\\,\\mathrm{m/s}$，损失 $12\\,\\mathrm{J}$。",
+    "steps": [
+      "动量守恒 $m_1v_0=m_1v_A+m_2v_B$，动能守恒 $\\frac12m_1v_0^2=\\frac12m_1v_A^2+\\frac12m_2v_B^2$。",
+      "解得 $v_A=\\dfrac{m_1-m_2}{m_1+m_2}v_0=-2\\,\\mathrm{m/s}$，$v_B=\\dfrac{2m_1}{m_1+m_2}v_0=4\\,\\mathrm{m/s}$。",
+      "碰前 $E_k=\\frac12\\times1\\times6^2=18\\,\\mathrm{J}$；碰后 $\\frac12\\times1\\times2^2+\\frac12\\times2\\times4^2=2+16=18\\,\\mathrm{J}$。",
+      "完全非弹性：$v=\\dfrac{m_1v_0}{m_1+m_2}=2\\,\\mathrm{m/s}$，$E_k'=\\frac12\\times3\\times2^2=6\\,\\mathrm{J}$，损失 $18-6=12\\,\\mathrm{J}$。"
+    ],
+    "analysis": {
+      "breakthrough": "碰撞问题先列动量守恒，再看能量条件。",
+      "method": "弹性碰撞：动量 + 动能两守恒；完全非弹性：共速、动能损失最大。",
+      "pitfalls": "速度方向不规定正方向，或把反弹速度写成正值。",
+      "variant": "若 $m_1=m_2$ 弹性正碰，两球交换速度。"
+    },
+    "source": "精编练习",
+    "score": 13,
+    "rubric": [
+      {
+        "point": "列出动量与动能守恒并解出两球速度（含方向）",
+        "score": 6
+      },
+      {
+        "point": "验证动能相等",
+        "score": 2
+      },
+      {
+        "point": "求出共同速度与损失动能",
+        "score": 5
+      }
+    ]
   }
 ]

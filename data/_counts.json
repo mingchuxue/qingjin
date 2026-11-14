@@ -1,47 +1,47 @@
 {
   "math": {
     "knowledge": 60,
-    "questions": 120,
+    "questions": 124,
     "methods": 18
   },
   "chinese": {
     "knowledge": 36,
-    "questions": 100,
+    "questions": 122,
     "methods": 12
   },
   "english": {
     "knowledge": 36,
-    "questions": 147,
+    "questions": 260,
     "methods": 12
   },
   "physics": {
     "knowledge": 40,
-    "questions": 100,
+    "questions": 101,
     "methods": 12
   },
   "chemistry": {
     "knowledge": 36,
-    "questions": 103,
+    "questions": 107,
     "methods": 12
   },
   "biology": {
     "knowledge": 36,
-    "questions": 100,
+    "questions": 105,
     "methods": 12
   },
   "politics": {
     "knowledge": 36,
-    "questions": 100,
+    "questions": 102,
     "methods": 12
   },
   "history": {
     "knowledge": 36,
-    "questions": 100,
+    "questions": 103,
     "methods": 12
   },
   "geography": {
     "knowledge": 36,
-    "questions": 100,
+    "questions": 103,
     "methods": 12
   }
 }

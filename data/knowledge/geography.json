@@ -137,7 +137,8 @@
       "dl-q06",
       "dl-q29",
       "dl-q57",
-      "dl-q90"
+      "dl-q90",
+      "dl-q103"
     ]
   },
   {
@@ -327,14 +328,16 @@
       "看见山地就当成背斜，看见谷地就当成向斜。"
     ],
     "methodIds": [
-      "dl-m-06"
+      "dl-m-06",
+      "dl-m-10"
     ],
     "relatedIds": [
       "dl-11"
     ],
     "questionIds": [
       "dl-q13",
-      "dl-q62"
+      "dl-q62",
+      "dl-q102"
     ]
   },
   {
@@ -528,7 +531,8 @@
     "questionIds": [
       "dl-q21",
       "dl-q68",
-      "dl-q80"
+      "dl-q80",
+      "dl-q101"
     ]
   },
   {
@@ -681,7 +685,8 @@
     ],
     "methodIds": [
       "dl-m-10",
-      "dl-m-03"
+      "dl-m-03",
+      "dl-m-06"
     ],
     "relatedIds": [
       "dl-05"
@@ -689,7 +694,8 @@
     "questionIds": [
       "dl-q39",
       "dl-q40",
-      "dl-q81"
+      "dl-q81",
+      "dl-q102"
     ]
   },
   {
@@ -814,7 +820,8 @@
     ],
     "questionIds": [
       "dl-q41",
-      "dl-q42"
+      "dl-q42",
+      "dl-q101"
     ]
   },
   {
@@ -886,7 +893,8 @@
       "dl-q08",
       "dl-q74",
       "dl-q75",
-      "dl-q79"
+      "dl-q79",
+      "dl-q103"
     ]
   },
   {
