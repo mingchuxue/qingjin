@@ -936,3 +936,27 @@ hr.sep { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
   .tree-nav .mod { display: none; }
   .tree-nav .ch { flex: 0 0 auto; width: auto; white-space: nowrap; padding: 6px 12px; border-radius: 99px; background: var(--bg-2); font-size: 13px; }
 }
+
+/* 古诗文默写 */
+.po-modes { justify-content: center; margin: 0 0 12px; }
+.po-line { margin: 2px 0; }
+.po-gap { margin: 6px 0; }
+.blank { height: auto; min-height: 1.4em; max-width: 100%; }
+.blank input, .blank textarea { color: inherit; }
+.blank.long { display: block; width: 100%; max-width: 30em; margin: 4px auto; height: auto; }
+.blank textarea { width: 100%; border: 0; background: transparent; resize: none; font-family: var(--serif); font-size: 17px; line-height: 1.7; text-align: center; outline: none; padding: 2px 0; display: block; }
+.blank input::placeholder, .blank textarea::placeholder { color: var(--faint, #b9b2a3); font-size: 13px; }
+.blank:focus-within { border-bottom-color: var(--teal); }
+.blank.po-empty { border-bottom-style: dashed; }
+.po-ref { font-size: 14px; color: var(--cinnabar, #b4473e); line-height: 1.6; margin: 2px 0 6px; font-family: var(--serif); }
+.po-result { min-height: 1.4em; margin: 14px 0 0; text-align: center; font-size: 14.5px; }
+.po-result .ok-text { color: var(--ok); }
+.po-actions { margin-top: 12px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.po-tip { margin-top: 10px; text-align: center; font-size: 12.5px; }
+.po-badge { display: inline-block; margin: 2px auto 0; font-size: 12px; padding: 1px 8px; border-radius: 99px; background: var(--bg-2); color: var(--muted); }
+.poetry-card .po-badge { display: table; }
+.po-badge.ok { background: var(--teal-soft, #dcebe5); color: var(--teal); }
+.po-badge.no { background: #f6e3df; color: var(--cinnabar, #b4473e); }
+.po-weak { margin-bottom: 16px; }
+.po-head > div { flex: 1; min-width: 0; }
+.po-head .crumb { text-align: left; }

@@ -105,6 +105,7 @@
       wrong: [],
       favorites: { knowledge: [], questions: [], methods: [], poetry: [], writing: [] },
       notes: {},
+      poetryProgress: {},
       viewed: {},
       practiceLog: [],
       examLog: [],
@@ -2004,53 +2005,88 @@
       </div>`).join("");
   }
 
+  /* 默写判分：去掉标点、空格，全角转半角，繁体与常见异体字按同一字处理 */
+  const PO_T2S = {"萬": "万", "與": "与", "醜": "丑", "專": "专", "業": "业", "叢": "丛", "東": "东", "絲": "丝", "兩": "两", "個": "个", "豐": "丰", "臨": "临", "爲": "为", "舉": "举", "烏": "乌", "樂": "乐", "喬": "乔", "鄉": "乡", "書": "书", "亂": "乱", "爭": "争", "於": "于", "雲": "云", "畝": "亩", "親": "亲", "從": "从", "倉": "仓", "會": "会", "傳": "传", "傷": "伤", "體": "体", "餘": "余", "侶": "侣", "傾": "倾", "兒": "儿", "蘭": "兰", "關": "关", "興": "兴", "獸": "兽", "內": "内", "農": "农", "馮": "冯", "悽": "凄", "涼": "凉", "幾": "几", "憑": "凭", "擊": "击", "則": "则", "創": "创", "別": "别", "劍": "剑", "動": "动", "勢": "势", "華": "华", "盧": "卢", "衛": "卫", "卻": "却", "壓": "压", "厭": "厌", "廚": "厨", "參": "参", "發": "发", "變": "变", "敘": "叙", "臺": "台", "葉": "叶", "嘆": "叹", "後": "后", "聽": "听", "嗚": "呜", "詠": "咏", "諮": "咨", "鹹": "咸", "響": "响", "嘯": "啸", "園": "园", "國": "国", "圓": "圆", "場": "场", "壘": "垒", "聲": "声", "處": "处", "復": "复", "頭": "头", "孌": "娈", "娛": "娱", "嬋": "婵", "孫": "孙", "學": "学", "宮": "宫", "賓": "宾", "對": "对", "尋": "寻", "將": "将", "塵": "尘", "嘗": "尝", "盡": "尽", "層": "层", "歲": "岁", "豈": "岂", "島": "岛", "嶺": "岭", "嶽": "岳", "崢": "峥", "峯": "峰", "嶸": "嵘", "師": "师", "帳": "帐", "簾": "帘", "帶": "带", "幹": "干", "莊": "庄", "廬": "庐", "應": "应", "廢": "废", "開": "开", "異": "异", "彈": "弹", "歸": "归", "當": "当", "憶": "忆", "憂": "忧", "懷": "怀", "悵": "怅", "憐": "怜", "總": "总", "懌": "怿", "戀": "恋", "驚": "惊", "慘": "惨", "懲": "惩", "願": "愿", "戶": "户", "託": "托", "執": "执", "揚": "扬", "護": "护", "報": "报", "攏": "拢", "撥": "拨", "掛": "挂", "挾": "挟", "揮": "挥", "損": "损", "攜": "携", "搖": "摇", "敵": "敌", "數": "数", "鬥": "斗", "斷": "断", "無": "无", "舊": "旧", "時": "时", "晝": "昼", "曉": "晓", "曖": "暧", "術": "术", "樸": "朴", "雜": "杂", "權": "权", "來": "来", "楊": "杨", "傑": "杰", "極": "极", "楓": "枫", "欄": "栏", "樹": "树", "橋": "桥", "夢": "梦", "樓": "楼", "橫": "横", "檣": "樯", "櫓": "橹", "歡": "欢", "殤": "殇", "殘": "残", "畢": "毕", "氣": "气", "漢": "汉", "淪": "沦", "滄": "沧", "淚": "泪", "澤": "泽", "淺": "浅", "濁": "浊", "濟": "济", "渾": "浑", "濃": "浓", "潯": "浔", "湧": "涌", "濤": "涛", "淵": "渊", "漸": "渐", "遊": "游", "濺": "溅", "滾": "滚", "滿": "满", "灘": "滩", "滅": "灭", "燈": "灯", "靈": "灵", "燦": "灿", "煒": "炜", "點": "点", "爛": "烂", "煙": "烟", "煩": "烦", "愛": "爱", "猶": "犹", "獨": "独", "瓊": "琼", "畫": "画", "暢": "畅", "盞": "盏", "蓋": "盖", "盤": "盘", "礪": "砺", "離": "离", "種": "种", "積": "积", "窮": "穷", "窺": "窥", "競": "竞", "籠": "笼", "簡": "简", "簫": "箫", "籬": "篱", "類": "类", "糞": "粪", "紅": "红", "纖": "纤", "紗": "纱", "縱": "纵", "綸": "纶", "線": "线", "細": "细", "終": "终", "經": "经", "繞": "绕", "絕": "绝", "繡": "绣", "緒": "绪", "續": "续", "綺": "绮", "繩": "绳", "網": "网", "羅": "罗", "羈": "羁", "羨": "羡", "羣": "群", "勝": "胜", "腦": "脑", "臘": "腊", "輿": "舆", "艱": "艰", "節": "节", "葦": "苇", "蒼": "苍", "蘇": "苏", "蘋": "苹", "薺": "荠", "蕩": "荡", "蔭": "荫", "藥": "药", "營": "营", "蕭": "萧", "藍": "蓝", "虛": "虚", "雖": "虽", "蠶": "蚕", "蠟": "蜡", "蟬": "蝉", "見": "见", "觀": "观", "規": "规", "覓": "觅", "視": "视", "覺": "觉", "觴": "觞", "計": "计", "認": "认", "討": "讨", "記": "记", "許": "许", "設": "设", "識": "识", "訴": "诉", "詞": "词", "詩": "诗", "誠": "诚", "誕": "诞", "語": "语", "誤": "误", "說": "说", "誦": "诵", "諸": "诸", "誰": "谁", "調": "调", "談": "谈", "謀": "谋", "賢": "贤", "賤": "贱", "貴": "贵", "貽": "贻", "賊": "贼", "賦": "赋", "賞": "赏", "贏": "赢", "躕": "蹰", "轉": "转", "輪": "轮", "軸": "轴", "輕": "轻", "載": "载", "邊": "边", "達": "达", "過": "过", "還": "还", "這": "这", "遠": "远", "連": "连", "適": "适", "遞": "递", "遺": "遗", "遙": "遥", "採": "采", "裏": "里", "鑑": "鉴", "釣": "钓", "錢": "钱", "鐵": "铁", "銅": "铜", "銀": "银", "銷": "销", "鎖": "锁", "錯": "错", "錦": "锦", "鏡": "镜", "長": "长", "門": "门", "問": "问", "閒": "闲", "間": "间", "聞": "闻", "閣": "阁", "闊": "阔", "闕": "阙", "陽": "阳", "陰": "阴", "階": "阶", "際": "际", "陸": "陆", "隨": "随", "難": "难", "靂": "雳", "霧": "雾", "靄": "霭", "靜": "静", "韻": "韵", "頂": "顶", "頃": "顷", "順": "顺", "須": "须", "顧": "顾", "頗": "颇", "潁": "颍", "頻": "频", "頹": "颓", "顏": "颜", "顛": "颠", "風": "风", "飄": "飘", "飛": "飞", "飯": "饭", "飲": "饮", "馬": "马", "馳": "驰", "驅": "驱", "駐": "驻", "騁": "骋", "騎": "骑", "驟": "骤", "鬢": "鬓", "魚": "鱼", "鳥": "鸟", "雞": "鸡", "鳴": "鸣", "鴉": "鸦", "鸝": "鹂", "鵑": "鹃", "鵲": "鹊", "鷹": "鹰", "麥": "麦", "黃": "黄", "齊": "齐", "裡": "里"};
+  const PO_VARIANT = { "樽":"尊", "䜩":"讌", "宴":"讌", "彩":"采", "樗":"摴", "蒲":"蒱", "漫":"曼", "消":"销", "栏":"阑", "欄":"阑" };
+  function poNorm(s) {
+    let x = String(s ?? "");
+    try { x = x.normalize("NFKC"); } catch (e) {}
+    try { x = x.replace(/[\s\p{P}\p{S}]/gu, ""); } catch (e) { x = x.replace(/[\s，。？！、；：,.!?;:'"“”‘’《》〈〉「」『』（）()【】\[\]…—\-·～~]/g, ""); }
+    return Array.from(x).map(c => { const s2 = PO_T2S[c] || c; return PO_VARIANT[s2] || s2; }).join("");
+  }
+  function poProgress(id) { return (state.poetryProgress || {})[id] || null; }
   function pagePoetry(pid) {
     const list = DATA.poetry||[];
     if (pid) {
       const p = list.find(x=>x.id===pid);
-      if (!p) return empty("没有找到这篇","","#/poetry","返回");
+      if (!p) return empty("没有找到这篇","可能链接有误，回到篇目列表重新选择。","#/poetry","返回篇目");
       return poetryPractice(p);
     }
-    const dyn = list.filter(x=>x.dynasty);
     const groups = [...new Set(list.map(x=>x.dynasty||"其他"))];
+    const weak = list.filter(p => { const g = poProgress(p.id); return g && g.wrongLines && g.wrongLines.length; });
+    const doneN = list.filter(p => { const g = poProgress(p.id); return g && g.mastered; }).length;
+    const badge = p => {
+      const g = poProgress(p.id);
+      if (!g) return `<span class="po-badge">未默写</span>`;
+      if (g.mastered && !(g.wrongLines||[]).length) return `<span class="po-badge ok">已掌握</span>`;
+      return `<span class="po-badge no">上次 ${g.last.ok}/${g.last.total}</span>`;
+    };
     return `
       <div class="page-head"><div>${crumb([["#/","首页"],["#/poetry","古诗文默写"]])}<h1 class="h1">古诗文默写</h1>
-      <p class="lead">篇目取自新课标推荐背诵范围，点击进入填空默写。文句以通行版本为准。</p></div></div>
+      <p class="lead">篇目取自新课标推荐背诵范围，点击进入填空默写。文句以通行版本为准。已掌握 ${doneN}/${list.length} 篇。</p></div></div>
+      ${weak.length?`<div class="card card-pad po-weak"><h2 class="h2" style="margin:0 0 8px">需要巩固</h2>
+        <div class="chip-row">${weak.map(p=>`<a class="chip" href="#/poetry/${p.id}">《${esc(p.title)}》 ${poProgress(p.id).wrongLines.length} 句</a>`).join("")}</div></div>`:""}
       ${groups.map(g=>`<h2 class="h2">${esc(g)}</h2>
         <div class="grid grid-3" style="margin-bottom:16px">
           ${list.filter(x=>(x.dynasty||"其他")===g).map(p=>`<a class="card card-hover poetry-card" href="#/poetry/${p.id}">
-            <h3>${esc(p.title)}</h3><div class="author">${esc(p.author||"")} · ${esc(p.dynasty||"")}</div>
+            <h3>${esc(p.title)}</h3><div class="author">${esc(p.author||"")} · ${esc(p.dynasty||"")}</div>${badge(p)}
           </a>`).join("")}
         </div>`).join("") || empty("篇目准备中","","#/","返回")}
     `;
   }
+  function poBlanks(p, mode) {
+    const lines = p.lines||[];
+    if (mode==="all") return lines.map((_,i)=>i);
+    if (mode==="weak") { const g = poProgress(p.id); const w = (g && g.wrongLines||[]).filter(i => i < lines.length); if (w.length) return w; }
+    const b = (p.blanks||[]).filter(i => Number.isInteger(i) && i>=0 && i<lines.length);
+    return b.length ? b : defaultBlanks(lines);
+  }
+  function poDraftKey(p, mode) { return "qingjin-po-" + p.id + "-" + mode; }
   function poetryPractice(p) {
-    // blanks: hide some sentences or chunks
+    const mode = ["all","weak"].includes(current.query.mode) ? current.query.mode : "key";
+    const g = poProgress(p.id);
+    const hasWeak = g && (g.wrongLines||[]).length;
+    const modes = [["key","重点句"],["all","全篇默写"]].concat(hasWeak?[["weak","只默错句"]]:[]);
     return `
-      <div class="page-head"><div>${crumb([["#/","首页"],["#/poetry","古诗文默写"],["#",p.title]])}
+      <div class="page-head po-head"><div>${crumb([["#/","首页"],["#/poetry","古诗文默写"],["#",p.title]])}
         <h1 class="h1" style="text-align:center;width:100%">${esc(p.title)}</h1>
         <p class="lead" style="text-align:center">${esc(p.author||"")} ${esc(p.dynasty||"")}</p></div></div>
-      <div class="card poetry-card" id="poetry-box" data-id="${p.id}">
-        ${renderVerse(p)}
-        <div style="margin-top:18px;display:flex;gap:8px;justify-content:center">
+      <div class="chip-row po-modes">${modes.map(([m,n])=>`<a class="chip ${m===mode?"on":""}" href="#/poetry/${p.id}${m==="key"?"":"?mode="+m}">${n}</a>`).join("")}</div>
+      <div class="card poetry-card" id="poetry-box" data-id="${p.id}" data-mode="${mode}">
+        ${renderVerse(p, poBlanks(p, mode))}
+        <p class="po-result" id="po-result" aria-live="polite"></p>
+        <div class="po-actions">
           <button class="btn btn-primary" id="po-check">核对</button>
           <button class="btn btn-ghost" id="po-reveal">显示全文</button>
           <button class="btn btn-ghost" id="po-retry">再默一次</button>
         </div>
-        <p class="muted" style="margin-top:14px;text-align:left">${esc(p.note||"")}</p>
+        <p class="muted po-tip">标点、空格不计入判分，繁体与常见异体字按同一字处理。输入完一句按回车跳到下一句。</p>
+        ${g?`<p class="muted po-tip">已默 ${g.times} 次，最好成绩 ${g.best.ok}/${g.best.total}。</p>`:""}
+        <p class="muted" style="margin-top:10px;text-align:left">${esc(p.note||"")}</p>
       </div>`;
   }
-  function renderVerse(p, reveal=false) {
+  function renderVerse(p, hide) {
     const lines = p.lines||[];
-    const hide = p.blanks || defaultBlanks(lines);
     return `<div class="verse">${lines.map((ln,i)=>{
-      if (reveal || !hide.includes(i)) return `<div>${esc(ln)}</div>`;
-      const chars = ln.replace(/[，。？！、；：,.!?]/g,"");
-      return `<div><span class="blank"><input data-i="${i}" data-ans="${esc(chars)}" aria-label="第${i+1}句"></span></div>`;
+      if (!hide.includes(i)) return `<div class="po-line">${esc(ln)}</div>`;
+      const n = Array.from(poNorm(ln)).length;
+      const attrs = `class="po-in" data-i="${i}" data-line="${esc(ln)}" aria-label="第${i+1}句，共 ${n} 字" placeholder="${n} 字" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="next"`;
+      const field = n > 14 ? `<textarea ${attrs} rows="${Math.min(3, Math.ceil(n/18))}"></textarea>` : `<input ${attrs}>`;
+      return `<div class="po-line po-gap"><span class="blank ${n>14?"long":""}">${field}</span><div class="po-ref" hidden>${esc(ln)}</div></div>`;
     }).join("")}</div>`;
   }
   function defaultBlanks(lines) {
-    if (lines.length<=2) return [0];
+    if (lines.length<=2) return [lines.length-1];
     const n = Math.max(1, Math.ceil(lines.length/3));
     const idx=[];
     for (let i=1;i<lines.length && idx.length<n;i+=2) idx.push(i);
@@ -2592,20 +2628,81 @@
   }
 
   function bindPoetry() {
-    $("#po-check")?.addEventListener("click", () => {
-      $$("#poetry-box input").forEach(inp => {
-        const ok = normAns(inp.value) === normAns(inp.dataset.ans);
-        inp.parentElement.classList.toggle("ok", ok);
-        inp.parentElement.classList.toggle("no", !ok);
+    const box = $("#poetry-box");
+    if (!box) return;
+    const id = box.dataset.id, mode = box.dataset.mode || "key";
+    const p = (DATA.poetry||[]).find(x=>x.id===id);
+    if (!p) return;
+    const key = poDraftKey(p, mode);
+    const ins = $$("#poetry-box .po-in");
+    let draft = {};
+    try { draft = JSON.parse(sessionStorage.getItem(key) || "{}") || {}; } catch (e) {}
+    ins.forEach((inp, k) => {
+      if (draft[inp.dataset.i] != null) inp.value = draft[inp.dataset.i];
+      inp.addEventListener("input", () => {
+        draft[inp.dataset.i] = inp.value;
+        try { sessionStorage.setItem(key, JSON.stringify(draft)); } catch (e) {}
+        const b = inp.parentElement; b.classList.remove("ok","no","po-empty");
+      });
+      inp.addEventListener("keydown", e => {
+        if (e.key !== "Enter" || e.isComposing || e.keyCode === 229) return;
+        e.preventDefault();
+        if (ins[k+1]) ins[k+1].focus(); else { inp.blur(); $("#po-check")?.click(); }
       });
     });
-    $("#po-reveal")?.addEventListener("click", () => {
-      const id = $("#poetry-box")?.dataset.id;
-      const p = (DATA.poetry||[]).find(x=>x.id===id);
-      if (!p) return;
-      $(".verse").outerHTML = renderVerse(p, true);
+    $("#po-check")?.addEventListener("click", () => {
+      let ok = 0, filled = 0;
+      const wrong = [];
+      ins.forEach(inp => {
+        const v = poNorm(inp.value), a = poNorm(inp.dataset.line);
+        const good = v === a;
+        const b = inp.parentElement, ref = b.parentElement.querySelector(".po-ref");
+        b.classList.toggle("ok", good);
+        b.classList.toggle("no", !good);
+        b.classList.toggle("po-empty", !v);
+        if (v) filled++;
+        if (good) ok++; else wrong.push(Number(inp.dataset.i));
+        if (ref) { ref.hidden = good; ref.innerHTML = good ? "" : (v ? "正确：" : "未作答，正确：") + esc(inp.dataset.line); }
+      });
+      const total = ins.length;
+      const res = $("#po-result");
+      if (res) res.innerHTML = ok===total ? `<b class="ok-text">全部正确，${total} 句都默对了。</b>` : `答对 <b>${ok}</b>/${total} 句${filled<total?`，有 ${total-filled} 句未作答`:""}。错的句子已标出正确写法。`;
+      if (!filled) return;
+      // 记录进度：错句进入「需要巩固」，全部正确且是全篇或重点句时记为掌握
+      state.poetryProgress = state.poetryProgress || {};
+      const g = state.poetryProgress[id] || { times:0, best:{ok:0,total}, wrongLines:[], mastered:false };
+      g.times = (g.times||0) + 1;
+      g.last = { ok, total, mode };
+      g.at = Date.now();
+      if (!g.best || ok/total > g.best.ok/(g.best.total||1)) g.best = { ok, total };
+      const prevWrong = new Set(g.wrongLines||[]);
+      ins.forEach(inp => prevWrong.delete(Number(inp.dataset.i)));
+      wrong.forEach(i => prevWrong.add(i));
+      g.wrongLines = [...prevWrong].sort((a,b)=>a-b);
+      if (ok===total && !g.wrongLines.length) g.mastered = true;
+      state.poetryProgress[id] = g;
+      if (ok===total) {
+        try { sessionStorage.removeItem(key); } catch (e) {}
+        const day = todayStr(), checked = new Set(((state.plan.checked||{})[day])||[]);
+        const t = todayTasks().find(x => x.id==="po" && x.href===`#/poetry/${id}`);
+        if (t && !checked.has("po")) { checked.add("po"); state.plan.checked = state.plan.checked||{}; state.plan.checked[day] = [...checked]; checkinToday(0); }
+      }
+      save();
     });
-    $("#po-retry")?.addEventListener("click", () => route());
+    $("#po-reveal")?.addEventListener("click", ev => {
+      const show = ev.currentTarget.dataset.on !== "1";
+      ev.currentTarget.dataset.on = show ? "1" : "0";
+      ev.currentTarget.textContent = show ? "隐藏全文" : "显示全文";
+      $$("#poetry-box .po-ref").forEach(r => {
+        const b = r.parentElement.querySelector(".blank");
+        if (show) { r.hidden = false; if (!b.classList.contains("no")) r.textContent = r.parentElement.querySelector(".po-in").dataset.line; }
+        else if (!b.classList.contains("no")) r.hidden = true;
+      });
+    });
+    $("#po-retry")?.addEventListener("click", () => {
+      try { sessionStorage.removeItem(key); } catch (e) {}
+      route();
+    });
   }
 
   let wordSess=null;
