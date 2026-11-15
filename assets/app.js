@@ -1037,10 +1037,12 @@
     try { if (session) sessionStorage.setItem("qingjin-session", JSON.stringify(session)); else sessionStorage.removeItem("qingjin-session"); } catch(e){}
   }
 
-  function pickQuestions({mode, subject, kid, mid, qid, n=10, diff}) {
+  function pickQuestions({mode, subject, kid, mid, qid, ids, n=10, diff}) {
     let pool;
     if (qid) {
       pool = allQuestions().filter(q => q.id===qid);
+    } else if (ids) {
+      pool = ids.map(id => DATA.qIndex[id]).filter(Boolean);
     } else {
       pool = subject && subject!=="all" ? subjectQuestions(subject) : allQuestions().filter(q => isSelected(q.subject));
       if (kid) pool = pool.filter(q => (q.knowledgeIds||[]).includes(kid));
@@ -1053,6 +1055,27 @@
     }
     const take = Math.min(n||10, arr.length);
     return arr.slice(0, take);
+  }
+
+  function weakSet(n=10) {
+    const kps = weakKnowledge(5);
+    const recent = new Set((state.practiceLog||[]).slice(0,3).flatMap(l => l.qids||[]));
+    const per = new Map();
+    kps.forEach(k => {
+      const qs = allQuestions().filter(q => (q.knowledgeIds||[]).includes(k.id) && ["single","multi","fill"].includes(q.type) && !q.listen);
+      qs.sort((a,b) => (recent.has(a.id)?1:0) - (recent.has(b.id)?1:0) || Math.random()-0.5);
+      per.set(k.id, qs);
+    });
+    const ids = [], seen = new Set();
+    for (let round = 0; ids.length < n && round < 10; round++) {
+      let added = false;
+      for (const k of kps) {
+        const q = (per.get(k.id)||[])[round];
+        if (q && !seen.has(q.id) && ids.length < n) { ids.push(q.id); seen.add(q.id); added = true; }
+      }
+      if (!added) break;
+    }
+    return { ids, kps };
   }
 
   function startSession(opts) {
@@ -1079,6 +1102,7 @@
     if (o.mode==="kp" && o.kid && DATA.kpIndex[o.kid]) return "知识点 · " + DATA.kpIndex[o.kid].title;
     if (o.mode==="method" && o.mid && DATA.mIndex[o.mid]) return "方法 · " + DATA.mIndex[o.mid].name;
     if (o.mode==="wrong") return "错题重练";
+    if (o.mode==="weak") return "薄弱点专项";
     if (o.mode==="quiz") return "限时小测";
     if (o.mode==="one") return "单题练习";
     if (o.subject && o.subject!=="all") return subjName(o.subject) + " · 练习";
@@ -1092,6 +1116,7 @@
       ["rand","综合随机","在你的选科范围内混合出题，模拟日常小练。","#/practice/setup?mode=rand&n=10", "pen"],
       ["quiz","限时小测","给定题量和时间，做完自动统计。","#/practice/setup?mode=quiz&n=8&limit=20", "clock"],
       ["wrong","错题重练","把错过的题按间隔再做一遍。","#/practice/setup?mode=wrong", "wrong"],
+      ["weak","薄弱点专项","按你的正确率找出最弱的几个知识点，一键组一套针对练习。","#/practice/setup?mode=weak", "fire"],
       ["exam","模拟卷","按试卷结构计时作答，客观题自动判分。","#/exam", "exam"],
     ];
     return `
@@ -1113,6 +1138,12 @@
       const ok = startSession({mode:"one", qid:q.qid, n:1, title:"单题练习"});
       if (!ok) return empty("没有找到这道题","题目可能已调整，或数据尚未载入。","#/practice","返回刷题");
       return `<div class="empty">正在打开题目…</div>`;
+    }
+    if (mode==="weak") {
+      const set = weakSet(10);
+      if (!set.ids.length) return empty("还找不出薄弱点","先做几组练习，有了正确率记录后，这里会自动挑出最需要补的知识点。","#/practice/setup?mode=rand&n=10","先做一组综合练习");
+      startSession({mode:"weak", ids:set.ids, n:set.ids.length, title:"薄弱点专项 · " + set.kps.slice(0,2).map(k=>k.title).join("、") + (set.kps.length>2?" 等":"")});
+      return `<div class="empty">正在组题…</div>`;
     }
     if (mode==="wrong") {
       const ids = state.wrong.filter(w=>!w.mastered).map(w=>w.qid);
@@ -1509,6 +1540,7 @@
         ${selectedSubjects().map(s=>`<a class="chip ${filter.s===s?"on":""}" href="#/wrong?s=${s}">${subjName(s)}</a>`).join("")}
         ${REASONS.map(([id,n])=>`<a class="chip ${filter.r===id?"on":""}" href="#/wrong?r=${id}${filter.s?"&s="+filter.s:""}">${n}</a>`).join("")}
       </div>
+      ${wrongSummary()}
       ${items.length? items.map(w => {
         const q = DATA.qIndex[w.qid];
         if (!q) return "";
@@ -1524,6 +1556,33 @@
         </a>`;
       }).join("") : empty("错题本是空的","答题正确是好事。一旦有错题，会出现在这里。","#/practice","去刷题")}
     `;
+  }
+
+  function wrongSummary() {
+    const all = state.wrong.filter(w => !w.mastered && DATA.qIndex[w.qid]);
+    if (all.length < 2) return "";
+    const rc = {}, sc = {};
+    all.forEach(w => {
+      const rs = (w.reasons && w.reasons.length) ? w.reasons : (w.reason ? [w.reason] : ["none"]);
+      rs.forEach(r => rc[r] = (rc[r]||0) + 1);
+      const s = w.subject || DATA.qIndex[w.qid].subject;
+      sc[s] = (sc[s]||0) + 1;
+    });
+    const name = id => id==="none" ? "未标错因" : ((REASONS.find(r=>r[0]===id)||[])[1] || id);
+    const bars = (obj, label, href) => {
+      const arr = Object.entries(obj).sort((a,b)=>b[1]-a[1]);
+      const max = arr[0] ? arr[0][1] : 1;
+      return arr.map(([k,v]) => `<a class="ws-row" href="${href(k)}"><span>${esc(label(k))}</span><i><b style="width:${v/max*100}%"></b></i><em>${v}</em></a>`).join("");
+    };
+    const top = Object.entries(rc).filter(([k])=>k!=="none").sort((a,b)=>b[1]-a[1])[0];
+    const tips = { concept:"回到知识点页把定义和适用条件再过一遍", calc:"做题时把关键步骤写全，算完代回检验", read:"先圈出题干里的条件和设问再动笔", method:"去「解题方法」里专门练对应的通法", careless:"交卷前留两分钟逐题核对", time:"多做几次限时小测，练节奏", express:"对照解析里的规范表述写一遍" };
+    return `<div class="card card-pad wrong-sum">
+      <div class="grid grid-2">
+        <div><h3 class="h3">错因分布</h3>${bars(rc, name, k => k==="none" ? "#/wrong" : `#/wrong?r=${k}`)}</div>
+        <div><h3 class="h3">科目分布</h3>${bars(sc, s => subjName(s), s => `#/wrong?s=${s}`)}</div>
+      </div>
+      ${top?`<p class="muted" style="margin-top:10px;font-size:13.5px">最常见的是「${esc(name(top[0]))}」：${tips[top[0]]||"针对这类问题集中练一练"}。</p>`:`<p class="muted" style="margin-top:10px;font-size:13.5px">给错题标上错因，这里会告诉你最该改的习惯。</p>`}
+    </div>`;
   }
 
   function pageWrongPrint() {
@@ -1613,6 +1672,7 @@
           ${trendSVG(days)}
         </div>
       </div>
+      ${gapPanel()}
       ${studyHeat()}
       <div class="grid grid-2" style="margin-top:14px">
         <div>
@@ -1644,6 +1704,74 @@
         ${exams.length?`<h3 class="h3">模拟卷</h3><ul class="rec-list">${exams.slice(0,6).map(l=>`<li><a href="#/exam/${l.paperId}/result">${esc(l.title)}</a> · ${l.score}/${l.full}</li>`).join("")}</ul>`:""}
       </div>
     `;
+  }
+  function subjectTargets() {
+    const sel = selectedSubjects();
+    const fullSum = sum(sel.map(s => SUBJECT_META[s].full)) || 750;
+    const total = Number(state.profile.targetScore) || 600;
+    const own = state.profile.targetBySubject || {};
+    const out = {}, rest = [];
+    sel.forEach(s => {
+      const v = Number(own[s]);
+      if (Number.isFinite(v) && v > 0) out[s] = Math.min(v, SUBJECT_META[s].full);
+      else { const raw = total * SUBJECT_META[s].full / fullSum; out[s] = Math.floor(raw); rest.push([s, raw - Math.floor(raw)]); }
+    });
+    // 按最大余数补齐，让各科默认目标之和等于总目标
+    let left = Math.round(sum(rest.map(r => r[1])));
+    rest.sort((a,b) => b[1]-a[1]).forEach(([s]) => { if (left > 0 && out[s] < SUBJECT_META[s].full) { out[s]++; left--; } });
+    return out;
+  }
+  function subjectHistory(s) {
+    const mocks = (state.mockScores||[]).filter(m => m.subjects && Number.isFinite(Number(m.subjects[s])))
+      .map(m => ({ v:Number(m.subjects[s]), t: m.date ? Date.parse(m.date) || m.at : m.at, src:"mock", name:m.name }));
+    const exams = (state.examLog||[]).filter(l => DATA.exams && (DATA.exams.find(e=>e.id===l.paperId)||{}).subject===s && l.full)
+      .map(l => ({ v: Math.round(Number(l.score||0) / l.full * SUBJECT_META[s].full), t: l.end||l.start, src:"paper", name:l.title }));
+    return [...mocks, ...exams].sort((a,b) => a.t - b.t);
+  }
+  function sparkSVG(vals, full, target) {
+    if (vals.length < 2) return "";
+    const w = 96, h = 28, y = v => h - 3 - (v/full)*(h-6);
+    const pts = vals.map((v,i) => `${(i/(vals.length-1))*(w-6)+3},${y(v)}`).join(" ");
+    return `<svg class="spark" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true">
+      <line x1="0" x2="${w}" y1="${y(target)}" y2="${y(target)}" stroke="var(--line)" stroke-dasharray="3 3"/>
+      <polyline points="${pts}" fill="none" stroke="var(--teal)" stroke-width="1.8"/></svg>`;
+  }
+  function gapPanel() {
+    const sel = selectedSubjects();
+    const tg = subjectTargets();
+    const rows = sel.map(s => {
+      const hist = subjectHistory(s);
+      const last = hist.length ? hist[hist.length-1] : null;
+      return { s, target: tg[s], last, hist, gap: last ? tg[s] - last.v : null };
+    });
+    const known = rows.filter(r => r.last);
+    const curTotal = sum(known.map(r => r.last.v));
+    const tgTotal = sum(rows.map(r => r.target));
+    const order = [...known].sort((a,b) => (b.gap/SUBJECT_META[b.s].full) - (a.gap/SUBJECT_META[a.s].full));
+    const focus = order.filter(r => r.gap > 0).slice(0, 2);
+    return `<div class="card card-pad gap-panel" style="margin-top:14px">
+      <div class="section-title" style="margin:0 0 6px"><h2>目标与差距</h2><span class="muted" style="font-size:13px">目标总分 ${tgTotal}${known.length===rows.length&&rows.length?` · 最近合计 ${curTotal}`:""}</span></div>
+      ${known.length ? "" : `<p class="muted">记一次模考分数，或做完一套模拟卷，这里会按科目算出离目标还差多少。</p>`}
+      <div class="gap-list">${rows.map(r => {
+        const full = SUBJECT_META[r.s].full;
+        const cur = r.last ? r.last.v : 0;
+        return `<div class="gap-row">
+          <span class="gap-name">${esc(subjName(r.s))}</span>
+          <div class="gap-bar"><i style="width:${Math.min(100, cur/full*100)}%"></i><b style="left:${r.target/full*100}%" title="目标 ${r.target}"></b></div>
+          <span class="gap-num">${r.last ? `${cur}<span class="muted">/${r.target}</span>` : `<span class="muted">— /${r.target}</span>`}</span>
+          <span class="gap-diff ${r.gap==null?"":r.gap>0?"neg":"pos"}">${r.gap==null?"":r.gap>0?`差 ${r.gap}`:`超 ${-r.gap}`}</span>
+          ${sparkSVG(r.hist.slice(-6).map(x=>x.v), full, r.target)}
+        </div>`;
+      }).join("")}</div>
+      ${focus.length?`<p class="gap-tip">按差距占满分的比例看，优先补 ${focus.map(r=>`<a href="#/practice/setup?mode=weak">${esc(subjName(r.s))}</a>`).join("、")}。</p>`:""}
+      <details class="gap-edit"><summary>调整各科目标分</summary>
+        <form id="gap-form" class="mock-form" style="margin-top:10px">
+          ${sel.map(s=>`<div class="row"><label class="lbl">${subjName(s)}</label><input class="field" name="tg-${s}" type="number" min="0" max="${SUBJECT_META[s].full}" value="${(state.profile.targetBySubject||{})[s]??""}" placeholder="默认 ${tg[s]}"></div>`).join("")}
+          <button class="btn btn-primary btn-sm" type="submit">保存目标</button>
+        </form>
+      </details>
+      <p class="muted" style="font-size:12.5px;margin-top:8px">分数取每科最近一次记录：优先用登记的模考分，也包括站内模拟卷（按满分折算）。未单独设定时，按总目标分按满分比例分到各科。</p>
+    </div>`;
   }
   function studyHeat() {
     const per = {};
@@ -2368,6 +2496,17 @@
   }
 
   function bindStats() {
+    $("#gap-form")?.addEventListener("submit", ev => {
+      ev.preventDefault();
+      const fd = new FormData(ev.target);
+      const own = {};
+      selectedSubjects().forEach(s => {
+        const raw = fd.get("tg-"+s); const v = Number(raw);
+        if (raw !== "" && Number.isFinite(v) && v > 0) own[s] = Math.min(Math.round(v), SUBJECT_META[s].full);
+      });
+      state.profile.targetBySubject = own;
+      save(); toast("目标已保存"); route();
+    });
     $("#mock-form")?.addEventListener("submit", ev => {
       ev.preventDefault();
       const fd = new FormData(ev.target);
