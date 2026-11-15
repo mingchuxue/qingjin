@@ -62,6 +62,8 @@
       chart: '<path d="M4 20h16"/><path d="M7 16v-5M12 16V8M17 16v-8"/>',
       plan: '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/>',
       formula: '<path d="M6 5h12M12 5v14M8 19h8"/>',
+      cards: '<rect x="4" y="6" width="13" height="14" rx="2"/><path d="M8 3h10a2 2 0 0 1 2 2v12"/>',
+      map: '<circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M8 11l8-4M8 13l8 4"/>',
       poetry: '<path d="M6 4h10v16H6z"/><path d="M16 7h3v10h-3"/><path d="M9 8h4M9 12h4"/>',
       word: '<path d="M5 17 8 7h2l3 10"/><path d="M6.2 14h5.6M16 7v10h3"/>',
       write: '<path d="M5 19h14"/><path d="M7 15.5 16.5 6a1.5 1.5 0 0 1 2 2L9 17.5H7v-2z"/>',
@@ -106,6 +108,7 @@
       favorites: { knowledge: [], questions: [], methods: [], poetry: [], writing: [] },
       notes: {},
       poetryProgress: {},
+      cardProgress: {},
       viewed: {},
       practiceLog: [],
       examLog: [],
@@ -453,8 +456,10 @@
     const a = p[0];
     switch (a) {
       case "onboard": return pageOnboard();
+      case "cards": return pageCards();
       case "knowledge":
         if (p[2]) return pageKnowledgeDetail(p[1], p[2]);
+        if (p[1] && r.query.view==="map") return pageKnowledgeMap(p[1]);
         if (p[1]) return pageKnowledgeSubject(p[1]);
         return pageKnowledge();
       case "practice":
@@ -502,6 +507,7 @@
   }
   const toolItems = [
     ["/formulas", "formula", "公式速查"],
+    ["/cards", "cards", "结论自测"],
     ["/poetry", "poetry", "古诗文默写"],
     ["/words", "word", "英语词句"],
     ["/writing", "write", "作文素材"],
@@ -859,7 +865,8 @@
     const sel = selectedSubjects();
     return `
       <div class="page-head"><div>${crumb([["#/","首页"],["#/knowledge","知识点"]])}<h1 class="h1">知识点</h1>
-      <p class="lead">按新课标模块梳理，点进去看要点、易错和相关练习。</p></div></div>
+      <p class="lead">按新课标模块梳理，点进去看要点、易错和相关练习。</p></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-soft btn-sm" href="#/cards">${ic("cards",15)} 结论自测</a></div></div>
       <div class="grid grid-3">
         ${SUBJECT_IDS.map(s => {
           const ks = DATA.knowledge[s]||[];
@@ -891,7 +898,9 @@
     return `
       <div class="page-head"><div>${crumb([["#/","首页"],["#/knowledge","知识点"],["#/knowledge/"+sid, subjName(sid)]])}
         <h1 class="h1">${subjName(sid)}</h1></div>
-        <div class="chip-row"><input class="field" id="kp-filter" placeholder="筛选本章知识点" style="max-width:240px"></div>
+        <div class="chip-row"><input class="field" id="kp-filter" placeholder="筛选本章知识点" style="max-width:240px">
+          <a class="btn btn-ghost btn-sm" href="#/knowledge/${sid}?view=map">${ic("map",15)} 知识导图</a>
+          <a class="btn btn-ghost btn-sm" href="#/cards?s=${sid}">${ic("cards",15)} 结论自测</a></div>
       </div>
       <div class="tree">
         <div class="card tree-nav" id="tree-nav">
@@ -916,6 +925,146 @@
         </div>
       </div>`;
   }
+  /* ---------- 知识导图 ---------- */
+  function pageKnowledgeMap(sid) {
+    const ks = subjectKnowledge(sid);
+    if (!ks.length) return empty("这一科的内容还在整理", "可以先看看其他科目。", "#/knowledge", "返回");
+    const mods = [];
+    ks.forEach(k => {
+      let m = mods.find(x => x.name===k.module); if (!m) { m = {name:k.module, chs:[]}; mods.push(m); }
+      let c = m.chs.find(x => x.name===k.chapter); if (!c) { c = {name:k.chapter, items:[]}; m.chs.push(c); }
+      c.items.push(k);
+    });
+    const lv = k => { const m = state.mastery[k.id]; if (!m || !(m.correct+m.wrong)) return "none"; const v = masteryOf(k.id); return v>=0.75?"good":v>=0.4?"mid":"low"; };
+    const cnt = {good:0, mid:0, low:0, none:0}; ks.forEach(k => cnt[lv(k)]++);
+    return `
+      <div class="page-head"><div>${crumb([["#/","首页"],["#/knowledge","知识点"],["#/knowledge/"+sid, subjName(sid)],["#","知识导图"]])}
+        <h1 class="h1">${esc(subjName(sid))} · 知识导图</h1>
+        <p class="lead">模块 → 章节 → 知识点，颜色表示你的掌握情况。点知识点进入详情。</p></div>
+        <div class="chip-row">${SUBJECT_IDS.filter(s => (DATA.knowledge[s]||[]).length).map(s=>`<a class="chip ${s===sid?"on":""}" href="#/knowledge/${s}?view=map">${esc(SUBJECT_META[s].short)}</a>`).join("")}</div></div>
+      <div class="km-legend"><span><i class="km-dot good"></i>较熟 ${cnt.good}</span><span><i class="km-dot mid"></i>一般 ${cnt.mid}</span><span><i class="km-dot low"></i>薄弱 ${cnt.low}</span><span><i class="km-dot none"></i>未练 ${cnt.none}</span>
+        <a class="btn btn-ghost btn-sm" href="#/knowledge/${sid}">列表视图</a></div>
+      <div class="card km-wrap"><div class="km">
+        <div class="km-root">${esc(subjName(sid))}<small>${ks.length} 个知识点</small></div>
+        <ul class="km-mods">${mods.map(m => `<li class="km-mod"><div class="km-node km-m">${esc(m.name)}</div>
+          <ul class="km-chs">${m.chs.map(c => `<li class="km-ch"><div class="km-node km-c">${esc(c.name)}</div>
+            <ul class="km-kps">${c.items.map(k => `<li><a class="km-node km-k ${lv(k)}" href="#/knowledge/${sid}/${k.id}" title="${esc(k.summary||"")}">${esc(k.title)}${k.freq==="high"?`<em>高频</em>`:""}</a></li>`).join("")}</ul></li>`).join("")}</ul></li>`).join("")}</ul>
+      </div></div>`;
+  }
+
+  /* ---------- 结论自测（翻卡片，按记忆程度安排复习） ---------- */
+  let cardSess = null;
+  const CARD_GAP = [0, 1, 3, 7, 16]; // 天
+  function cardDeck(sub, scope) {
+    let ks = (sub==="all" ? selectedSubjects().flatMap(s => subjectKnowledge(s)) : subjectKnowledge(sub))
+      .filter(k => (k.points||[]).length || (k.formulas||[]).length);
+    if (scope==="high") ks = ks.filter(k => k.freq==="high");
+    if (scope==="weak") ks = ks.filter(k => { const c = (state.cardProgress||{})[k.id]; return c && c.box<=1 && c.seen; });
+    return ks;
+  }
+  function cardStats(sub) {
+    const ks = cardDeck(sub, "all"), cp = state.cardProgress||{}, now = Date.now();
+    let due=0, fresh=0, solid=0;
+    ks.forEach(k => { const c = cp[k.id]; if (!c) fresh++; else { if (c.due<=now) due++; if (c.box>=3) solid++; } });
+    return {total:ks.length, due, fresh, solid};
+  }
+  function pageCards() {
+    const q = current.query||{};
+    const sel = selectedSubjects();
+    const sub = q.s && (q.s==="all" || SUBJECT_IDS.includes(q.s)) ? q.s : "all";
+    if (cardSess && q.run==="1") return cardRun();
+    const st = cardStats(sub);
+    const weak = cardDeck(sub, "weak");
+    return `
+      <div class="page-head"><div>${crumb([["#/","首页"],["#/cards","结论自测"]])}<h1 class="h1">结论自测</h1>
+      <p class="lead">看知识点标题先在心里说出结论，再翻面核对。记住的隔几天再出现，没记住的明天再来。</p></div></div>
+      <div class="chip-row" style="margin-bottom:14px"><a class="chip ${sub==="all"?"on":""}" href="#/cards">全部选科</a>${sel.map(s=>`<a class="chip ${sub===s?"on":""}" href="#/cards?s=${s}">${esc(subjName(s))}</a>`).join("")}</div>
+      <div class="stat-nums">
+        <div class="card stat-num"><div class="n">${st.due}</div><div class="l">今天到期</div></div>
+        <div class="card stat-num"><div class="n">${st.fresh}</div><div class="l">还没看过</div></div>
+        <div class="card stat-num"><div class="n">${st.solid}</div><div class="l">已记牢</div></div>
+        <div class="card stat-num"><div class="n">${st.total}</div><div class="l">卡片总数</div></div>
+      </div>
+      <div class="card card-pad" style="margin-top:14px">
+        <h2 class="h2" style="margin-top:0">开始一组</h2>
+        <div class="cd-starts">
+          <button class="btn btn-primary" data-cd-start="due">到期 + 新卡（10 张）</button>
+          <button class="btn btn-soft" data-cd-start="high">只看高频（10 张）</button>
+          ${weak.length?`<button class="btn btn-ghost" data-cd-start="weak">没记住的 ${weak.length} 张</button>`:""}
+        </div>
+        <p class="muted" style="margin-top:10px">卡片内容来自各知识点的关键结论与公式，翻面后按「记住了 / 有点模糊 / 没记住」自评。</p>
+      </div>
+      ${weak.length?`<div class="card card-pad" style="margin-top:14px"><h2 class="h2" style="margin-top:0">需要回看</h2>
+        <div class="chip-row">${weak.slice(0,24).map(k=>`<a class="chip" href="#/knowledge/${k.subject}/${k.id}">${esc(k.title)}</a>`).join("")}</div></div>`:""}`;
+  }
+  function startCards(sub, kind) {
+    const cp = state.cardProgress||{}, now = Date.now();
+    let ks = cardDeck(sub, kind==="weak" ? "weak" : kind==="high" ? "high" : "all");
+    const shuffle = a => { for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+    let pick;
+    if (kind==="due") {
+      const due = shuffle(ks.filter(k => cp[k.id] && cp[k.id].due<=now));
+      const fresh = shuffle(ks.filter(k => !cp[k.id])).sort((a,b) => (a.freq==="high"?0:1)-(b.freq==="high"?0:1));
+      pick = due.concat(fresh).slice(0, 10);
+    } else pick = shuffle(ks).slice(0, 10);
+    if (!pick.length) { toast(kind==="due" ? "今天没有到期卡片，可以选「只看高频」" : "这一类暂时没有卡片"); return; }
+    cardSess = { sub, ids: pick.map(k=>k.id), idx: 0, flipped: false, res: {good:0, fuzzy:0, bad:0} };
+    go("/cards?s=" + sub + "&run=1");
+  }
+  function cardRun() {
+    const s = cardSess, total = s.ids.length;
+    if (s.idx >= total) {
+      return `<div class="quiz-shell"><div class="card result-hero">
+        <div class="score">${s.res.good}<span style="font-size:20px">/${total}</span></div>
+        <div class="sub">记住 ${s.res.good} 张 · 模糊 ${s.res.fuzzy} 张 · 没记住 ${s.res.bad} 张</div></div>
+        <p style="text-align:center"><a class="btn btn-primary" href="#/cards?s=${s.sub}">返回结论自测</a></p></div>`;
+    }
+    const k = DATA.kpIndex[s.ids[s.idx]];
+    if (!k) { s.idx++; return cardRun(); }
+    return `
+      <div class="quiz-shell">
+        <div class="quiz-top"><a class="icon-btn" href="#/cards?s=${s.sub}" title="退出">${ic("close")}</a>
+          <div class="quiz-meta">结论自测 · ${s.idx+1}/${total}</div></div>
+        <div class="progress-line"><i style="width:${s.idx/total*100}%"></i></div>
+        <div class="card cd-card ${s.flipped?"flipped":""}" id="cd-card">
+          <div class="meta-row" style="margin-top:0"><span class="tag">${esc(subjName(k.subject))}</span><span class="tag">${esc(k.chapter)}</span>${tagFreq(k.freq)}</div>
+          <h2 class="cd-title">${esc(k.title)}</h2>
+          ${s.flipped ? `<div class="prose cd-back">
+              ${(k.points||[]).length?`<h3>关键结论</h3><ul>${k.points.map(x=>`<li>${trusted(x)}</li>`).join("")}</ul>`:""}
+              ${(k.formulas||[]).length?`<h3>公式</h3><div class="formula-box">${k.formulas.map(f=>`<div>${trusted(f)}</div>`).join("")}</div>`:""}
+              ${(k.pitfalls||[]).length?`<h3>易错</h3><ul>${k.pitfalls.slice(0,2).map(x=>`<li>${trusted(x)}</li>`).join("")}</ul>`:""}
+              <p><a href="#/knowledge/${k.subject}/${k.id}">查看完整知识点</a></p>
+            </div>
+            <div class="cd-rate">
+              <button class="btn btn-ghost" data-cd-rate="bad">没记住</button>
+              <button class="btn btn-soft" data-cd-rate="fuzzy">有点模糊</button>
+              <button class="btn btn-primary" data-cd-rate="good">记住了</button>
+            </div>`
+          : `<p class="cd-prompt">先在心里说出这个知识点的关键结论${(k.formulas||[]).length?"和公式":""}，再翻面核对。</p>
+            <div class="cd-rate"><button class="btn btn-primary btn-lg" id="cd-flip">翻面</button></div>`}
+        </div>
+      </div>`;
+  }
+  function bindCards() {
+    $$("[data-cd-start]").forEach(b => b.addEventListener("click", () => startCards((current.query||{}).s || "all", b.dataset.cdStart)));
+    $("#cd-flip")?.addEventListener("click", () => { if (cardSess) { cardSess.flipped = true; route(); } });
+    $$("[data-cd-rate]").forEach(b => b.addEventListener("click", () => {
+      const s = cardSess; if (!s) return;
+      const id = s.ids[s.idx], r = b.dataset.cdRate;
+      state.cardProgress = state.cardProgress || {};
+      const c = state.cardProgress[id] || { box: 0, seen: 0 };
+      c.box = r==="good" ? Math.min(4, (c.seen ? c.box : 1) + 1) : r==="fuzzy" ? Math.max(1, Math.min(c.box, 2)) : 0;
+      c.seen = (c.seen||0) + 1; c.last = r; c.at = Date.now();
+      const gap = r==="bad" ? 1 : r==="fuzzy" ? 1 : CARD_GAP[c.box] || 1;
+      const d = new Date(); d.setHours(4,0,0,0); d.setDate(d.getDate() + gap);
+      c.due = d.getTime();
+      state.cardProgress[id] = c;
+      s.res[r]++;
+      s.idx++; s.flipped = false;
+      checkinToday(0); save(); route();
+    }));
+  }
+
   function pageKnowledgeDetail(sid, kid) {
     const k = DATA.kpIndex[kid];
     if (!k) return empty("没有找到这个知识点", "", "#/knowledge/"+sid, "返回");
@@ -2284,6 +2433,7 @@
     if (p==="stats") bindStats();
     if (p==="plan") bindPlan();
     if (p==="poetry") bindPoetry();
+    if (p==="cards") bindCards();
     if (p==="words") bindWords();
     if (p==="writing") {
       $("#fav-wr")?.addEventListener("click", ev => toggleFav("writing", r.parts[1], ev.currentTarget));
