@@ -84,6 +84,10 @@
       clock: '<circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/>',
       fire: '<path d="M12 21c4 0 6-2.6 6-6 0-4-3-6-3-9 0 0-2 2-2 4-1-3-2.2-5-5-7 0 3-2 5.5-2 9 0 3.4 2 6 6 6z"/>',
       heart: '<path d="M12 19s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/>',
+      ai: '<path d="M12 3.5l1.6 4.1 4.1 1.6-4.1 1.6L12 15l-1.6-4.2-4.1-1.6 4.1-1.6z"/><path d="M18.5 14.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/><path d="M5.5 15.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z"/>',
+      eye: '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
+      eyeoff: '<path d="M4 4l16 16"/><path d="M9.9 5.8A9.6 9.6 0 0 1 12 5.5c6 0 9.5 6.5 9.5 6.5a17 17 0 0 1-2.9 3.7M6.3 7.4A16.7 16.7 0 0 0 2.5 12s3.5 6.5 9.5 6.5a9.3 9.3 0 0 0 4.2-1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>',
+      tb: '<path d="M4 5.5C6.5 4.3 9.5 4.3 12 6c2.5-1.7 5.5-1.7 8-.5V19c-2.5-1.2-5.5-1.2-8 .5-2.5-1.7-5.5-1.7-8-.5z"/><path d="M12 6v13.5"/>',
       more: '<circle cx="6" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="18" cy="12" r="1.3"/>'
     };
     return `<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${p[name]||""}</svg>`;
@@ -105,7 +109,8 @@
       mastery: {},
       sm2: {},
       wrong: [],
-      favorites: { knowledge: [], questions: [], methods: [], poetry: [], writing: [] },
+      favorites: { knowledge: [], questions: [], methods: [], poetry: [], writing: [], conclusions: [] },
+      aiQuestions: [],
       notes: {},
       poetryProgress: {},
       cardProgress: {},
@@ -184,6 +189,7 @@
     exams: [], formulas: {}, poetry: [], words: [], writing: [],
     ready: false,
     kpIndex: {}, qIndex: {}, mIndex: {},
+    textbook: {}, conclusions: {}, clIndex: {}, secIndex: {}, kpSections: {},
     meta: null
   };
 
@@ -204,13 +210,21 @@
     jobs.push(fetchJSON("data/poetry.json").then(d => (DATA.poetry=d)).catch(() => (DATA.poetry=[])));
     jobs.push(fetchJSON("data/words.json").then(d => (DATA.words=d)).catch(() => (DATA.words=[])));
     jobs.push(fetchJSON("data/writing.json").then(d => (DATA.writing=d)).catch(() => (DATA.writing=[])));
+    jobs.push(fetchJSON("data/textbook.json").then(d => (DATA.textbook=d||{})).catch(() => (DATA.textbook={})));
+    for (const s of SUBJECT_IDS) jobs.push(fetchJSON(`data/conclusions/${s}.json`).then(d => (DATA.conclusions[s]=d)).catch(() => (DATA.conclusions[s]=[])));
     const res = await Promise.all(jobs);
     DATA.meta = res[0];
     for (const s of SUBJECT_IDS) {
       for (const k of DATA.knowledge[s]||[]) DATA.kpIndex[k.id] = k;
       for (const q of DATA.questions[s]||[]) DATA.qIndex[q.id] = q;
       for (const m of DATA.methods[s]||[]) DATA.mIndex[m.id] = m;
+      for (const c of DATA.conclusions[s]||[]) DATA.clIndex[c.id] = c;
+      for (const b of DATA.textbook[s]||[]) for (const ch of b.chapters||[]) for (const sec of ch.sections||[]) {
+        DATA.secIndex[sec.id] = { book:b, ch, sec };
+        for (const k of sec.kpIds||[]) (DATA.kpSections[k] = DATA.kpSections[k] || []).push(sec.id);
+      }
     }
+    for (const q of state.aiQuestions||[]) if (q && q.id && !DATA.qIndex[q.id]) DATA.qIndex[q.id] = q;
     DATA.ready = true;
   }
   const allKnowledge = () => SUBJECT_IDS.flatMap(s => DATA.knowledge[s]||[]);
@@ -457,6 +471,9 @@
     switch (a) {
       case "onboard": return pageOnboard();
       case "cards": return pageCards();
+      case "textbook": return pageTextbook(p[1], p[2]);
+      case "conclusions": return pageConclusions(p[1], p[2]);
+      case "ai": return pageAI(p[1]);
       case "knowledge":
         if (p[2]) return pageKnowledgeDetail(p[1], p[2]);
         if (p[1] && r.query.view==="map") return pageKnowledgeMap(p[1]);
@@ -506,6 +523,9 @@
     ];
   }
   const toolItems = [
+    ["/ai", "ai", "AI 助手"],
+    ["/textbook", "tb", "教材目录"],
+    ["/conclusions", "formula", "二级结论"],
     ["/formulas", "formula", "公式速查"],
     ["/cards", "cards", "结论自测"],
     ["/poetry", "poetry", "古诗文默写"],
@@ -548,7 +568,7 @@
             <button class="menu-btn" id="menu-btn" aria-label="打开菜单">${ic("menu",20)}</button>
             <form class="search-box" id="search-form" action="#/search" role="search">
               ${ic("search")}
-              <input type="search" name="q" id="q-input" placeholder="搜索知识点、题目、方法" aria-label="搜索" autocomplete="off">
+              <input type="search" name="q" id="q-input" placeholder="搜索知识点、结论、教材、题目" aria-label="搜索" autocomplete="off">
             </form>
             <div class="top-actions">
               ${streak?`<span class="streak-pill" title="连续打卡 ${streak} 天">${ic("fire",16)} ${streak} <span>天</span></span>`:""}
@@ -561,6 +581,7 @@
           <main id="main" tabindex="-1"><div id="view"></div></main>
         </div>
       </div>
+      <button type="button" class="ai-fab" id="ai-fab" aria-label="问AI" hidden>${ic("ai",20)}<span>问AI</span></button>
       <nav class="bottom-nav" aria-label="移动导航">
         <a href="#/" data-bn="home">${ic("home",22)}首页</a>
         <a href="#/knowledge" data-bn="knowledge">${ic("book",22)}知识</a>
@@ -591,6 +612,7 @@
     const map = {"":"home", knowledge:"knowledge", practice:"practice", wrong:"wrong", review:"wrong", plan:"me", stats:"me", settings:"me", exam:"practice"};
     const key = map[current.parts[0]||""] || "";
     $$(".bottom-nav a").forEach(a => a.classList.toggle("active", a.dataset.bn===key));
+    const fab = $("#ai-fab"); if (fab) fab.hidden = !aiFabVisible();
   }
 
   function crumb(items) {
@@ -943,12 +965,12 @@
         <p class="lead">模块 → 章节 → 知识点，颜色表示你的掌握情况。点知识点进入详情。</p></div>
         <div class="chip-row">${SUBJECT_IDS.filter(s => (DATA.knowledge[s]||[]).length).map(s=>`<a class="chip ${s===sid?"on":""}" href="#/knowledge/${s}?view=map">${esc(SUBJECT_META[s].short)}</a>`).join("")}</div></div>
       <div class="km-legend"><span><i class="km-dot good"></i>较熟 ${cnt.good}</span><span><i class="km-dot mid"></i>一般 ${cnt.mid}</span><span><i class="km-dot low"></i>薄弱 ${cnt.low}</span><span><i class="km-dot none"></i>未练 ${cnt.none}</span>
-        <a class="btn btn-ghost btn-sm" href="#/knowledge/${sid}">列表视图</a></div>
+        <a class="btn btn-ghost btn-sm" href="#/knowledge/${sid}">列表视图</a>${(DATA.textbook[sid]||[]).length?`<a class="btn btn-ghost btn-sm" href="#/textbook/${sid}">教材目录</a>`:""}${(DATA.conclusions[sid]||[]).length?`<a class="btn btn-ghost btn-sm" href="#/conclusions?s=${sid}">二级结论</a>`:""}</div>
       <div class="card km-wrap"><div class="km">
         <div class="km-root">${esc(subjName(sid))}<small>${ks.length} 个知识点</small></div>
         <ul class="km-mods">${mods.map(m => `<li class="km-mod"><div class="km-node km-m">${esc(m.name)}</div>
           <ul class="km-chs">${m.chs.map(c => `<li class="km-ch"><div class="km-node km-c">${esc(c.name)}</div>
-            <ul class="km-kps">${c.items.map(k => `<li><a class="km-node km-k ${lv(k)}" href="#/knowledge/${sid}/${k.id}" title="${esc(k.summary||"")}">${esc(k.title)}${k.freq==="high"?`<em>高频</em>`:""}</a></li>`).join("")}</ul></li>`).join("")}</ul></li>`).join("")}</ul>
+            <ul class="km-kps">${c.items.map(k => { const ncl = allConclusions().filter(x => (x.kpIds||[]).includes(k.id)).length; const src = (DATA.kpSections[k.id]||[]).map(id => DATA.secIndex[id]?.sec.name.split("/")[0]).filter(Boolean).slice(0,2).join("、"); return `<li><a class="km-node km-k ${lv(k)}" href="#/knowledge/${sid}/${k.id}" title="${esc((k.summary||"") + (src?"\n教材："+src:""))}">${esc(k.title)}${k.freq==="high"?`<em>高频</em>`:""}${ncl?`<em class="km-cl">结论 ${ncl}</em>`:""}</a></li>`; }).join("")}</ul></li>`).join("")}</ul></li>`).join("")}</ul>
       </div></div>`;
   }
 
@@ -956,8 +978,9 @@
   let cardSess = null;
   const CARD_GAP = [0, 1, 3, 7, 16]; // 天
   function cardDeck(sub, scope) {
-    let ks = (sub==="all" ? selectedSubjects().flatMap(s => subjectKnowledge(s)) : subjectKnowledge(sub))
-      .filter(k => (k.points||[]).length || (k.formulas||[]).length);
+    const subs = sub==="all" ? selectedSubjects() : [sub];
+    let ks = scope==="concl" ? [] : subs.flatMap(s => subjectKnowledge(s)).filter(k => (k.points||[]).length || (k.formulas||[]).length);
+    if (scope!=="kp") ks = ks.concat(subs.flatMap(s => DATA.conclusions[s]||[]));
     if (scope==="high") ks = ks.filter(k => k.freq==="high");
     if (scope==="weak") ks = ks.filter(k => { const c = (state.cardProgress||{})[k.id]; return c && c.box<=1 && c.seen; });
     return ks;
@@ -990,19 +1013,20 @@
         <div class="cd-starts">
           <button class="btn btn-primary" data-cd-start="due">到期 + 新卡（10 张）</button>
           <button class="btn btn-soft" data-cd-start="high">只看高频（10 张）</button>
+          ${cardDeck(sub, "concl").length?`<button class="btn btn-soft" data-cd-start="concl">二级结论（10 张）</button>`:""}
           ${weak.length?`<button class="btn btn-ghost" data-cd-start="weak">没记住的 ${weak.length} 张</button>`:""}
         </div>
-        <p class="muted" style="margin-top:10px">卡片内容来自各知识点的关键结论与公式，翻面后按「记住了 / 有点模糊 / 没记住」自评。</p>
+        <p class="muted" style="margin-top:10px">卡片来自各知识点的关键结论与公式，以及二级结论库（共 ${cardDeck(sub, "concl").length} 条结论），翻面后按「记住了 / 有点模糊 / 没记住」自评。</p>
       </div>
       ${weak.length?`<div class="card card-pad" style="margin-top:14px"><h2 class="h2" style="margin-top:0">需要回看</h2>
-        <div class="chip-row">${weak.slice(0,24).map(k=>`<a class="chip" href="#/knowledge/${k.subject}/${k.id}">${esc(k.title)}</a>`).join("")}</div></div>`:""}`;
+        <div class="chip-row">${weak.slice(0,24).map(k=>`<a class="chip" href="${k.kpIds?`#/conclusions/${k.subject}/${k.id}`:`#/knowledge/${k.subject}/${k.id}`}">${esc(k.title)}</a>`).join("")}</div></div>`:""}`;
   }
   function startCards(sub, kind) {
     const cp = state.cardProgress||{}, now = Date.now();
-    let ks = cardDeck(sub, kind==="weak" ? "weak" : kind==="high" ? "high" : "all");
+    let ks = cardDeck(sub, kind==="weak" ? "weak" : kind==="high" ? "high" : kind==="concl" ? "concl" : "all");
     const shuffle = a => { for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
     let pick;
-    if (kind==="due") {
+    if (kind==="due" || kind==="concl") {
       const due = shuffle(ks.filter(k => cp[k.id] && cp[k.id].due<=now));
       const fresh = shuffle(ks.filter(k => !cp[k.id])).sort((a,b) => (a.freq==="high"?0:1)-(b.freq==="high"?0:1));
       pick = due.concat(fresh).slice(0, 10);
@@ -1019,6 +1043,7 @@
         <div class="sub">记住 ${s.res.good} 张 · 模糊 ${s.res.fuzzy} 张 · 没记住 ${s.res.bad} 张</div></div>
         <p style="text-align:center"><a class="btn btn-primary" href="#/cards?s=${s.sub}">返回结论自测</a></p></div>`;
     }
+    if (DATA.clIndex[s.ids[s.idx]]) return clCardRun(s, DATA.clIndex[s.ids[s.idx]]);
     const k = DATA.kpIndex[s.ids[s.idx]];
     if (!k) { s.idx++; return cardRun(); }
     return `
@@ -1041,6 +1066,33 @@
               <button class="btn btn-primary" data-cd-rate="good">记住了</button>
             </div>`
           : `<p class="cd-prompt">先在心里说出这个知识点的关键结论${(k.formulas||[]).length?"和公式":""}，再翻面核对。</p>
+            <div class="cd-rate"><button class="btn btn-primary btn-lg" id="cd-flip">翻面</button></div>`}
+        </div>
+      </div>`;
+  }
+  function clCardRun(s, c) {
+    const total = s.ids.length;
+    return `
+      <div class="quiz-shell">
+        <div class="quiz-top"><a class="icon-btn" href="#/cards?s=${s.sub}" title="退出">${ic("close")}</a>
+          <div class="quiz-meta">结论自测 · ${s.idx+1}/${total}</div></div>
+        <div class="progress-line"><i style="width:${s.idx/total*100}%"></i></div>
+        <div class="card cd-card ${s.flipped?"flipped":""}" id="cd-card">
+          <div class="meta-row"><span class="tag">二级结论</span><span class="tag">${esc(subjName(c.subject))}</span>${tagFreq(c.freq)}</div>
+          <h2 class="cd-title">${esc(c.title)}</h2>
+          ${s.flipped ? `<div class="prose cd-back">
+              <h3>结论</h3><div class="formula-box">${trusted(c.statement)}</div>
+              <h3>适用条件</h3><p>${trusted(c.conditions)}</p>
+              <details><summary>推理过程</summary><ol>${(c.derivation||[]).map(d=>`<li>${trusted(d)}</li>`).join("")}</ol></details>
+              ${(c.pitfalls||[]).length?`<h3>易错</h3><ul>${c.pitfalls.slice(0,2).map(x=>`<li>${trusted(x)}</li>`).join("")}</ul>`:""}
+              <p><a href="#/conclusions/${c.subject}/${c.id}">查看完整结论与例题</a></p>
+            </div>
+            <div class="cd-rate">
+              <button class="btn btn-ghost" data-cd-rate="bad">没记住</button>
+              <button class="btn btn-soft" data-cd-rate="fuzzy">有点模糊</button>
+              <button class="btn btn-primary" data-cd-rate="good">记住了</button>
+            </div>`
+          : `<p class="cd-prompt">先说出这条结论的内容和适用条件，最好能口述推导思路，再翻面核对。</p>
             <div class="cd-rate"><button class="btn btn-primary btn-lg" id="cd-flip">翻面</button></div>`}
         </div>
       </div>`;
@@ -1079,9 +1131,11 @@
         ${crumb([["#/","首页"],["#/knowledge","知识点"],["#/knowledge/"+sid, subjName(sid)],["#", k.title]])}
         <h1 class="h1">${esc(k.title)}</h1>
         <div class="meta-row">${tagFreq(k.freq)}<span class="tag">${esc(k.module)}</span><span class="tag">${esc(k.chapter)}</span></div>
+        ${(DATA.kpSections[kid]||[]).length?`<div class="kp-src"><span class="muted">教材出处</span>${DATA.kpSections[kid].slice(0,6).map(id=>secLink(id, true)).join("")}${DATA.kpSections[kid].length>6?`<span class="muted">等 ${DATA.kpSections[kid].length} 节</span>`:""}</div>`:""}
       </div>
       <div style="display:flex;gap:8px">
         <button class="btn btn-ghost btn-sm fav ${fav?"on":""}" id="fav-kp">${ic("star",16)} ${fav?"已收藏":"收藏"}</button>
+        <button class="btn btn-ghost btn-sm" data-ai="kp:${kid}">${ic("ai",16)} 问AI</button>
         <a class="btn btn-primary btn-sm" href="#/practice/setup?mode=kp&subject=${sid}&kid=${kid}">练习本题组</a>
       </div></div>
       <div class="kd-layout">
@@ -1104,6 +1158,7 @@
             <div class="mastery-bar ${masteryClass(masteryOf(kid))}" style="height:8px"><i style="width:${masteryOf(kid)*100}%"></i></div>
             <p class="muted" style="margin-top:8px">${(()=>{const m=state.mastery[kid]; return m?`对 ${m.correct} · 错 ${m.wrong}`:"还没有相关练习记录";})()}</p>
           </div>
+          ${(()=>{ const cl = allConclusions().filter(c => (c.kpIds||[]).includes(kid)); return cl.length?`<div class="card side-box"><h3>二级结论 ${cl.length}</h3><ul class="link-list">${cl.map(c=>`<li><a href="#/conclusions/${c.subject}/${c.id}">${esc(c.title)}</a></li>`).join("")}</ul></div>`:""; })()}
           ${ms.length?`<div class="card side-box"><h3>相关方法</h3><ul class="link-list">${ms.map(x=>`<li><a href="#/methods/${x.subject}/${x.id}">${esc(x.name)}</a></li>`).join("")}</ul></div>`:""}
           ${qs.length?`<div class="card side-box"><h3>相关练习 ${qs.length}</h3><ul class="link-list">${qs.slice(0,12).map(x=>`<li><a href="#/practice/setup?mode=one&qid=${x.id}">${tagType(x.type)} ${esc(stripHtml(x.stem).slice(0,36))}…</a></li>`).join("")}</ul>
             <a class="btn btn-soft btn-sm btn-block" style="margin-top:8px" href="#/practice/setup?mode=kp&subject=${sid}&kid=${kid}">开始练习</a></div>`:""}
@@ -1201,7 +1256,7 @@
   function pickQuestions({mode, subject, kid, mid, qid, ids, n=10, diff}) {
     let pool;
     if (qid) {
-      pool = allQuestions().filter(q => q.id===qid);
+      pool = DATA.qIndex[qid] ? [DATA.qIndex[qid]] : [];
     } else if (ids) {
       pool = ids.map(id => DATA.qIndex[id]).filter(Boolean);
     } else {
@@ -1455,6 +1510,12 @@
         ${(q.methodIds||[]).map(id=>DATA.mIndex[id]?`<a class="chip" href="#/methods/${DATA.mIndex[id].subject}/${id}">${esc(DATA.mIndex[id].name)}</a>`:"").join("")}
         <button class="icon-btn fav ${(state.favorites.questions||[]).includes(q.id)?"on":""}" id="fav-q" title="收藏">${ic("star")}</button>
       </div>
+      <div class="ai-quick">
+        <button type="button" class="btn btn-ghost btn-sm" data-ai="q:${q.id}">${ic("ai",15)} 问AI讲这题</button>
+        ${ok===false?`<button type="button" class="btn btn-ghost btn-sm" data-ai="wrong:${q.id}">AI 错题分析</button>`:""}
+        ${(q.type==="essay"||q.type==="write") && answered.user && answered.user.text ? `<button type="button" class="btn btn-ghost btn-sm" data-ai="grade:${q.id}">AI 批改我的答案</button>`:""}
+        ${["single","multi","fill"].includes(q.type)?`<button type="button" class="btn btn-ghost btn-sm" data-ai="similar:${q.id}">AI 出同类题</button>`:""}
+      </div>
     </div>`;
   }
 
@@ -1707,14 +1768,14 @@
         if (!q) return "";
         const due = state.sm2[w.qid];
         const isDue = due && due.due <= Date.now();
-        return `<a class="card card-hover wrong-item" href="#/practice/setup?mode=one&qid=${w.qid}" style="margin-bottom:10px;display:block">
+        return `<div class="wrong-wrap"><a class="card card-hover wrong-item" href="#/practice/setup?mode=one&qid=${w.qid}" style="margin-bottom:0;display:block">
           <div class="meta-row">${tagType(q.type)} ${tagDiff(q.difficulty)} <span class="tag">${esc(subjName(q.subject))}</span>
             ${w.reason||(w.reasons||[])[0]?`<span class="tag">${esc((REASONS.find(r=>r[0]===(w.reason||w.reasons[0]))||[])[1]||"")}</span>`:""}
             ${isDue?`<span class="tag due-badge">待复习</span>`:""}
             <span class="muted">错 ${w.times||1} 次</span>
           </div>
           <div class="stem-s">${esc(stripHtml(q.stem).slice(0,110))}</div>
-        </a>`;
+        </a><div class="wrong-ai"><button type="button" class="btn btn-ghost btn-sm" data-ai="wrong:${w.qid}">${ic("ai",14)} AI 分析</button>${["single","multi","fill"].includes(q.type)?`<button type="button" class="btn btn-ghost btn-sm" data-ai="similar:${w.qid}">同类题</button>`:""}${q.ai?`<span class="tag">AI 生成</span>`:""}</div></div>`;
       }).join("") : empty("错题本是空的","答题正确是好事。一旦有错题，会出现在这里。","#/practice","去刷题")}
     `;
   }
@@ -1816,7 +1877,8 @@
     });
     return `
       <div class="page-head"><div>${crumb([["#/","首页"],["#/stats","成绩"]])}<h1 class="h1">成绩与分析</h1>
-      <p class="lead">正确率、薄弱点和模考走势都在这里。目标分可以在设置里改。</p></div></div>
+      <p class="lead">正确率、薄弱点和模考走势都在这里。目标分可以在设置里改。</p></div>
+      <button type="button" class="btn btn-primary btn-sm" data-ai="plan">${ic("ai",16)} AI 学习计划</button></div>
       <div class="stat-nums">
         <div class="card stat-num"><div class="n">${answered?`${Math.round(acc*100)}<span style="font-size:16px">%</span>`:"—"}</div><div class="l">练习正确率</div></div>
         <div class="card stat-num"><div class="n">${answered}</div><div class="l">已做题次</div></div>
@@ -2063,7 +2125,8 @@
     const cal = calendarHTML();
     return `
       <div class="page-head"><div>${crumb([["#/","首页"],["#/plan","冲刺计划"]])}<h1 class="h1">冲刺计划</h1>
-      <p class="lead">现在处于「${phase}」阶段（距高考 ${cd.days} 天）。每天完成任务会自动打卡。</p></div></div>
+      <p class="lead">现在处于「${phase}」阶段（距高考 ${cd.days} 天）。每天完成任务会自动打卡。</p></div>
+      <button type="button" class="btn btn-soft btn-sm" data-ai="plan">${ic("ai",16)} 让 AI 定制计划</button></div>
       <div class="grid grid-2">
         <div class="card card-pad">
           <div class="h2">今日任务 <span class="muted">${done}/${tasks.length}</span></div>
@@ -2218,6 +2281,7 @@
           <button class="btn btn-primary" id="po-check">核对</button>
           <button class="btn btn-ghost" id="po-reveal">显示全文</button>
           <button class="btn btn-ghost" id="po-retry">再默一次</button>
+          <button class="btn btn-ghost" data-ai="poem:${p.id}">${ic("ai",16)} 问AI</button>
         </div>
         <p class="muted po-tip">标点、空格不计入判分，繁体与常见异体字按同一字处理。输入完一句按回车跳到下一句。</p>
         ${g?`<p class="muted po-tip">已默 ${g.times} 次，最好成绩 ${g.best.ok}/${g.best.total}。</p>`:""}
@@ -2280,7 +2344,8 @@
     const themes = [...new Set(list.map(w=>w.theme||"综合"))];
     return `
       <div class="page-head"><div>${crumb([["#/","首页"],["#/writing","作文素材"]])}<h1 class="h1">作文素材</h1>
-      <p class="lead">按主题整理的事实与角度，用来打开思路，不要整段照搬。</p></div></div>
+      <p class="lead">按主题整理的事实与角度，用来打开思路，不要整段照搬。</p></div>
+      <a class="btn btn-soft btn-sm" href="#/ai/grade">${ic("ai",16)} AI 批改作文</a></div>
       ${themes.map(t=>`<h2 class="h2">${esc(t)}</h2>
         <div class="grid grid-2" style="margin-bottom:16px">
           ${list.filter(w=>(w.theme||"综合")===t).map(w=>`<a class="card card-hover writing-card" href="#/writing/${w.id}">
@@ -2295,8 +2360,11 @@
     const fk = (state.favorites.knowledge||[]).map(id=>DATA.kpIndex[id]).filter(Boolean);
     const fq = (state.favorites.questions||[]).map(id=>DATA.qIndex[id]).filter(Boolean);
     const fm = (state.favorites.methods||[]).map(id=>DATA.mIndex[id]).filter(Boolean);
+    const fc = (state.favorites.conclusions||[]).map(id=>DATA.clIndex[id]).filter(Boolean);
     return `
       <div class="page-head"><div>${crumb([["#/","首页"],["#/favorites","收藏"]])}<h1 class="h1">收藏</h1></div></div>
+      <h2 class="h2">二级结论</h2>
+      ${fc.length?`<div class="cl-list">${fc.map(clRow).join("")}</div>`:"<p class='muted'>还没有收藏的二级结论。</p>"}
       <h2 class="h2">知识点</h2>
       ${fk.length?fk.map(k=>kpCard(k)).join(""):"<p class='muted'>还没有收藏的知识点。</p>"}
       <h2 class="h2">方法</h2>
@@ -2312,13 +2380,17 @@
     const kps = allKnowledge().filter(k => (k.title+k.summary+k.chapter+(k.points||[]).join("")).toLowerCase().includes(qq));
     const mds = allMethods().filter(m => (m.name+m.when+m.explanation).toLowerCase().includes(qq));
     const qs = allQuestions().filter(x => (stripHtml(x.stem)+" "+stripHtml(x.passage||"")+" "+(x.passageTitle||"")).toLowerCase().includes(qq));
+    const cls = allConclusions().filter(c => (c.title+" "+stripHtml(c.statement)).toLowerCase().includes(qq));
+    const secs = Object.entries(DATA.secIndex).filter(([,x]) => x.sec.name.toLowerCase().includes(qq)).map(([id]) => id);
     return `
       <div class="page-head"><h1 class="h1">搜索「${esc(q)}」</h1>
-      <p class="lead">知识点 ${kps.length} · 方法 ${mds.length} · 题目 ${qs.length}</p></div>
+      <p class="lead">知识点 ${kps.length} · 二级结论 ${cls.length} · 教材小节 ${secs.length} · 方法 ${mds.length} · 题目 ${qs.length}</p></div>
+      ${secs.length?`<div class="chip-row" style="margin-bottom:12px">${secs.slice(0,20).map(id=>secLink(id, true)).join("")}</div>`:""}
       ${kps.slice(0,20).map(k=>kpCard(k)).join("")}
+      ${cls.length?`<div class="cl-list" style="margin-bottom:12px">${cls.slice(0,12).map(clRow).join("")}</div>`:""}
       ${mds.slice(0,10).map(m=>`<a class="card method-card" href="#/methods/${m.subject}/${m.id}" style="display:block;margin-bottom:8px"><h3>${esc(m.name)}</h3><p>${esc(m.when)}</p></a>`).join("")}
       ${qs.slice(0,15).map(x=>`<a class="card card-pad" href="#/practice/setup?mode=one&qid=${x.id}" style="display:block;margin-bottom:8px">${tagType(x.type)} ${esc(stripHtml(x.stem).slice(0,90))}…</a>`).join("")}
-      ${!kps.length&&!mds.length&&!qs.length?empty("没有找到相关内容","换个关键词试试。"):""}
+      ${!kps.length&&!mds.length&&!qs.length&&!cls.length&&!secs.length?empty("没有找到相关内容","换个关键词试试。"):""}
     `;
   }
 
@@ -2363,9 +2435,10 @@
           <span>${["sm","md","lg"].map(s=>`<button class="chip ${p.fontSize===s?"on":""}" data-sz="${s}">${s==="sm"?"小":s==="lg"?"大":"中"}</button>`).join("")}</span>
         </div>
       </div>
+      ${aiSettingsCard()}
       <div class="card settings-sec">
         <h2>数据备份</h2>
-        <p class="muted">进度保存在这个浏览器里。换设备或清理缓存前，请先导出。</p>
+        <p class="muted">进度保存在这个浏览器里。换设备或清理缓存前，请先导出。导出文件不包含 AI 的 API Key。</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
           <button class="btn btn-primary" id="st-export">${ic("download",16)} 导出 JSON</button>
           <label class="btn btn-ghost">${ic("upload",16)} 导入<input type="file" id="st-import" accept="application/json" hidden></label>
@@ -2434,6 +2507,10 @@
     if (p==="plan") bindPlan();
     if (p==="poetry") bindPoetry();
     if (p==="cards") bindCards();
+    if (p==="textbook") bindTextbook();
+    if (p==="conclusions") bindConclusions(r);
+    if (p==="ai") bindAI(r);
+    if (p==="settings") { bindAISettings(); if (r.query.ai==="1") setTimeout(() => $("#ai-settings")?.scrollIntoView({ block:"start" }), 30); }
     if (p==="words") bindWords();
     if (p==="writing") {
       $("#fav-wr")?.addEventListener("click", ev => toggleFav("writing", r.parts[1], ev.currentTarget));
@@ -2958,6 +3035,726 @@
     });
   }
 
+
+  /* ---------- 教材目录（人教版 / 统编版 册→章→节） ---------- */
+  function secLink(sid, short) {
+    const x = DATA.secIndex[sid]; if (!x) return "";
+    const label = short ? `${x.book.name.replace("选择性必修","选必").replace(/\s+/g,"")} · ${x.sec.name.split("/")[0]}` : x.sec.name;
+    return `<a class="chip tb-chip" href="#/textbook/${x.book.subject}/${sid}" title="${esc(x.book.edition+" "+x.book.name+" "+x.ch.name)}">${esc(label)}</a>`;
+  }
+  function kpLevel(kid) { const m = state.mastery[kid]; if (!m || !(m.correct+m.wrong)) return "none"; const v = masteryOf(kid); return v>=0.75?"good":v>=0.4?"mid":"low"; }
+  function secStat(sec) {
+    const ids = sec.kpIds||[]; let c=0, w=0;
+    ids.forEach(id => { const m = state.mastery[id]; if (m) { c += m.correct; w += m.wrong; } });
+    const ms = ids.length ? sum(ids.map(masteryOf))/ids.length : 0;
+    const lv = (c+w) ? (ms>=0.75?"good":ms>=0.4?"mid":"low") : "none";
+    return { n:c+w, acc:(c+w)?c/(c+w):null, mastery:ms, lv };
+  }
+  function tbSubjects() { return SUBJECT_IDS.filter(s => (DATA.textbook[s]||[]).length); }
+  function pageTextbook(sid, secId) {
+    if (secId) return pageTextbookSection(sid, secId);
+    const subs = tbSubjects();
+    if (!subs.length) return empty("教材目录还没有载入","请检查网络后刷新。","#/","返回首页");
+    const s = subs.includes(sid) ? sid : (selectedSubjects().find(x => subs.includes(x)) || subs[0]);
+    const books = DATA.textbook[s]||[];
+    const nSec = sum(books.map(b => sum(b.chapters.map(c => c.sections.length))));
+    const weakSecs = [];
+    books.forEach(b => b.chapters.forEach(c => c.sections.forEach(x => { const st = secStat(x); if (st.lv==="low" || (st.acc!=null && st.acc<0.6)) weakSecs.push({b, c, x, st}); })));
+    const ed = books[0]?.edition || "";
+    return `
+      <div class="page-head"><div>${crumb([["#/","首页"],["#/textbook","教材目录"],["#",subjName(s)]])}
+        <h1 class="h1">教材目录 · ${esc(subjName(s))}</h1>
+        <p class="lead">${esc(ed)}，${books.length} 册 · ${nSec} 节。每节挂上对应的知识点、二级结论和练习，颜色表示你在这一节的掌握情况。</p></div>
+        <div class="chip-row">${subs.map(x=>`<a class="chip ${x===s?"on":""}" href="#/textbook/${x}">${esc(SUBJECT_META[x].short)}</a>`).join("")}</div></div>
+      <div class="km-legend"><span><i class="km-dot good"></i>较熟</span><span><i class="km-dot mid"></i>一般</span><span><i class="km-dot low"></i>薄弱</span><span><i class="km-dot none"></i>未练</span>
+        <a class="btn btn-ghost btn-sm" href="#/knowledge/${s}?view=map">知识导图</a><a class="btn btn-ghost btn-sm" href="#/conclusions?s=${s}">二级结论</a></div>
+      ${weakSecs.length?`<div class="card card-pad tb-weak"><h2 class="h2" style="margin:0 0 8px">薄弱小节</h2><div class="chip-row">${weakSecs.slice(0,16).map(o=>secLink(o.x.id, true)).join("")}</div></div>`:""}
+      ${s==="chinese"||s==="politics"||s==="history"?`<p class="muted tb-note">说明：语文、思想政治、历史全国现行教材为教育部统编版（人民教育出版社出版），没有单独的“人教版”，这里按统编版目录录入。</p>`:""}
+      ${s==="english"?`<p class="muted tb-note">英语按册列出单元。语法、阅读、写作等知识点不专属某一单元，可在「知识点」里按专题查看。</p>`:""}
+      <div class="tb-books">${books.map((b, bi) => `
+        <details class="card tb-book" ${bi===0?"open":""}>
+          <summary><span class="tb-bname">${esc(b.name)}</span><span class="muted">${b.chapters.length} 章 · ${sum(b.chapters.map(c=>c.sections.length))} 节</span></summary>
+          ${b.chapters.map(c => `<div class="tb-ch"><div class="tb-chname">${esc(c.name)}</div>
+            <ul class="tb-secs">${c.sections.map(x => { const st = secStat(x); return `<li><a class="tb-sec" href="#/textbook/${s}/${x.id}">
+              <i class="km-dot ${st.lv}"></i><span class="tb-sname">${esc(x.name)}</span>
+              <span class="tb-meta">${(x.kpIds||[]).length?`<em>${x.kpIds.length} 知识点</em>`:""}${(x.conclIds||[]).length?`<em>${x.conclIds.length} 结论</em>`:""}${st.acc!=null?`<em>${Math.round(st.acc*100)}%</em>`:""}</span></a></li>`; }).join("")}</ul></div>`).join("")}
+          <p class="muted tb-src">目录来源：<a href="${esc(b.src)}" target="_blank" rel="noopener">${esc(b.src.replace(/^https?:\/\//,"").split("/")[0])}</a>，已与多家教材目录站点核对。</p>
+        </details>`).join("")}</div>`;
+  }
+  function pageTextbookSection(sid, secId) {
+    const x = DATA.secIndex[secId];
+    if (!x) return empty("没有找到这一节","目录可能已更新，回到教材目录重新选择。","#/textbook/"+sid,"返回教材目录");
+    const kps = (x.sec.kpIds||[]).map(id => DATA.kpIndex[id]).filter(Boolean);
+    const cls = (x.sec.conclIds||[]).map(id => DATA.clIndex[id]).filter(Boolean);
+    const poems = (x.sec.poetryIds||[]).map(id => (DATA.poetry||[]).find(p => p.id===id)).filter(Boolean);
+    const qids = [...new Set(kps.flatMap(k => k.questionIds||[]))].filter(id => DATA.qIndex[id]);
+    const st = secStat(x.sec);
+    const sibs = x.ch.sections, i = sibs.findIndex(s => s.id===secId);
+    return `
+      <div class="page-head"><div>${crumb([["#/","首页"],["#/textbook/"+x.book.subject,"教材目录 · "+subjName(x.book.subject)],["#",x.book.name]])}
+        <h1 class="h1">${esc(x.sec.name)}</h1>
+        <div class="meta-row"><span class="tag">${esc(x.book.edition)}</span><span class="tag">${esc(x.book.name)}</span><span class="tag">${esc(x.ch.name)}</span></div></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-ghost btn-sm" data-ai="sec:${secId}">${ic("ai",16)} 问AI讲本节</button>
+          ${qids.length?`<button class="btn btn-primary btn-sm" id="sec-practice" data-sec="${secId}">练习本节（${Math.min(qids.length,10)} 题）</button>`:""}
+        </div></div>
+      <div class="kd-layout">
+        <div>
+          <div class="card card-pad"><h2 class="h2" style="margin-top:0">本节知识点</h2>
+            ${kps.length?kps.map(k=>kpCard(k)).join(""):`<p class="muted">这一节还没有对应的详细知识点。可以点上方「问AI讲本节」让 AI 梳理本节要点。</p>`}
+          </div>
+          ${cls.length?`<div class="card card-pad" style="margin-top:14px"><h2 class="h2" style="margin-top:0">本节二级结论 ${cls.length}</h2>
+            <div class="cl-list">${cls.map(c=>clRow(c)).join("")}</div></div>`:""}
+          ${poems.length?`<div class="card card-pad" style="margin-top:14px"><h2 class="h2" style="margin-top:0">本篇默写</h2>
+            <div class="chip-row">${poems.map(p=>`<a class="chip" href="#/poetry/${p.id}">《${esc(p.title)}》默写</a>`).join("")}</div></div>`:""}
+        </div>
+        <div>
+          <div class="card side-box"><h3>本节掌握</h3>
+            <div class="mastery-bar ${masteryClass(st.mastery)}" style="height:8px"><i style="width:${st.mastery*100}%"></i></div>
+            <p class="muted" style="margin-top:8px">${st.n?`相关题目作答 ${st.n} 次，正确率 ${Math.round(st.acc*100)}%`:"还没有相关练习记录"}</p></div>
+          <div class="card side-box"><h3>${esc(x.ch.name)}</h3><ul class="link-list">${sibs.map(s=>`<li><a href="#/textbook/${x.book.subject}/${s.id}" ${s.id===secId?'class="on" aria-current="page"':""}>${esc(s.name)}</a></li>`).join("")}</ul>
+            <div class="tb-pn">${i>0?`<a class="btn btn-ghost btn-sm" href="#/textbook/${x.book.subject}/${sibs[i-1].id}">上一节</a>`:"<span></span>"}${i<sibs.length-1?`<a class="btn btn-ghost btn-sm" href="#/textbook/${x.book.subject}/${sibs[i+1].id}">下一节</a>`:""}</div></div>
+        </div>
+      </div>`;
+  }
+  function bindTextbook() {
+    $("#sec-practice")?.addEventListener("click", ev => {
+      const x = DATA.secIndex[ev.currentTarget.dataset.sec]; if (!x) return;
+      const kps = (x.sec.kpIds||[]).map(id => DATA.kpIndex[id]).filter(Boolean);
+      const ids = [...new Set(kps.flatMap(k => k.questionIds||[]))].filter(id => DATA.qIndex[id]);
+      for (let i=ids.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [ids[i],ids[j]]=[ids[j],ids[i]]; }
+      startSession({ mode:"sec", ids: ids.slice(0,10), n: Math.min(10, ids.length), subject: x.book.subject, title: "教材 · " + x.sec.name.split("/")[0] });
+    });
+  }
+
+  /* ---------- 二级结论库 ---------- */
+  const allConclusions = () => SUBJECT_IDS.flatMap(s => DATA.conclusions[s]||[]);
+  function clRow(c) {
+    const fav = (state.favorites.conclusions||[]).includes(c.id);
+    const cp = (state.cardProgress||{})[c.id];
+    return `<a class="cl-row" href="#/conclusions/${c.subject}/${c.id}" data-text="${esc((c.title+" "+stripHtml(c.statement)+" "+(c.kpIds||[]).map(k=>DATA.kpIndex[k]?.title||"").join(" ")).toLowerCase())}">
+      <div class="cl-row-head"><b>${esc(c.title)}</b>${tagFreq(c.freq)}${fav?`<span class="cl-star" title="已收藏">${ic("star",14)}</span>`:""}${cp?`<span class="tag ${cp.box>=3?"tag-high":""}">${cp.box>=3?"已记牢":"自测过"}</span>`:""}</div>
+      <div class="cl-row-st prose">${trusted(c.statement)}</div></a>`;
+  }
+  function pageConclusions(sid, cid) {
+    if (cid) return pageConclusionDetail(sid, cid);
+    const q = current.query||{};
+    const subs = SUBJECT_IDS.filter(s => (DATA.conclusions[s]||[]).length);
+    const s = q.s && subs.includes(q.s) ? q.s : (q.fav==="1" ? "" : (subs.includes(sid) ? sid : ""));
+    let list = s ? (DATA.conclusions[s]||[]) : allConclusions();
+    if (q.fav==="1") list = list.filter(c => (state.favorites.conclusions||[]).includes(c.id));
+    const groups = [];
+    list.forEach(c => { const k = DATA.kpIndex[c.kpIds[0]]; const name = (s?"":subjName(c.subject)+" · ") + (k ? k.chapter : "其他"); let g = groups.find(x => x.name===name); if (!g) { g = {name, items:[]}; groups.push(g); } g.items.push(c); });
+    const total = allConclusions().length;
+    return `
+      <div class="page-head"><div>${crumb([["#/","首页"],["#/conclusions","二级结论"]])}<h1 class="h1">二级结论</h1>
+        <p class="lead">高考常用的二级结论 ${total} 条，每条都有表述、适用条件、完整推导、例题和易错点，挂在对应知识点与教材小节下，也会进入「结论自测」。</p></div>
+        <div style="display:flex;gap:8px"><a class="btn btn-primary btn-sm" href="#/cards?s=${s||"all"}">结论自测</a></div></div>
+      <div class="chip-row" style="margin-bottom:10px"><a class="chip ${!s&&q.fav!=="1"?"on":""}" href="#/conclusions">全部 ${total}</a>
+        ${subs.map(x=>`<a class="chip ${s===x&&q.fav!=="1"?"on":""}" href="#/conclusions?s=${x}">${esc(subjName(x))} ${(DATA.conclusions[x]||[]).length}</a>`).join("")}
+        <a class="chip ${q.fav==="1"?"on":""}" href="#/conclusions?fav=1">${ic("star",14)} 收藏 ${(state.favorites.conclusions||[]).length}</a></div>
+      <div class="cl-search"><input class="field" id="cl-search" type="search" placeholder="搜索结论，如：焦点三角形、等时圆、盖斯定律" value="${esc(q.q||"")}" autocomplete="off"><span class="muted" id="cl-count">${list.length} 条</span></div>
+      ${list.length ? groups.map(g => `<section class="cl-group"><h2 class="h2">${esc(g.name)}</h2><div class="cl-list">${g.items.map(clRow).join("")}</div></section>`).join("")
+        : empty(q.fav==="1"?"还没有收藏的结论":"没有结论", q.fav==="1"?"在结论详情页点「收藏」，常用的就会出现在这里。":"", "#/conclusions", "看全部结论")}
+      <p class="muted" id="cl-none" hidden>没有匹配的结论，换个关键词试试。</p>`;
+  }
+  function pageConclusionDetail(sid, cid) {
+    const c = DATA.clIndex[cid];
+    if (!c) return empty("没有找到这条结论","","#/conclusions","返回二级结论");
+    const fav = (state.favorites.conclusions||[]).includes(cid);
+    const list = DATA.conclusions[c.subject]||[], i = list.findIndex(x => x.id===cid);
+    const kps = (c.kpIds||[]).map(id => DATA.kpIndex[id]).filter(Boolean);
+    state.viewed[cid] = Date.now(); save();
+    return `
+      <div class="page-head"><div>${crumb([["#/","首页"],["#/conclusions","二级结论"],["#/conclusions?s="+c.subject, subjName(c.subject)],["#", c.title]])}
+        <h1 class="h1">${esc(c.title)}</h1>
+        <div class="meta-row">${tagFreq(c.freq)}<span class="tag">${esc(subjName(c.subject))}</span>${kps.map(k=>`<a class="tag" href="#/knowledge/${k.subject}/${k.id}">${esc(k.title)}</a>`).join("")}</div></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-ghost btn-sm fav ${fav?"on":""}" id="fav-cl">${ic("star",16)} ${fav?"已收藏":"收藏"}</button>
+          <button class="btn btn-ghost btn-sm" data-ai="cl:${cid}">${ic("ai",16)} 问AI</button>
+        </div></div>
+      <div class="kd-layout">
+        <div class="card card-pad prose cl-detail">
+          <h3>结论</h3><div class="formula-box cl-statement">${trusted(c.statement)}</div>
+          <h3>适用条件</h3><p>${trusted(c.conditions)}</p>
+          <h3>推理过程</h3><ol class="cl-deriv">${(c.derivation||[]).map(d=>`<li>${trusted(d)}</li>`).join("")}</ol>
+          <h3>例题</h3><div class="cl-ex"><p>${trusted(c.example.q)}</p>
+            <details class="cl-ans"><summary>查看解答</summary><p>${trusted(c.example.a)}</p></details></div>
+          ${(c.pitfalls||[]).length?`<h3>易错点</h3><div class="pitfall"><ul style="margin:0">${c.pitfalls.map(p=>`<li>${trusted(p)}</li>`).join("")}</ul></div>`:""}
+        </div>
+        <div>
+          ${(c.sectionIds||[]).length?`<div class="card side-box"><h3>教材出处</h3><div class="chip-row">${c.sectionIds.slice(0,8).map(id=>secLink(id, true)).join("")}</div></div>`:""}
+          ${kps.length?`<div class="card side-box"><h3>所属知识点</h3><ul class="link-list">${kps.map(k=>`<li><a href="#/knowledge/${k.subject}/${k.id}">${esc(k.title)}</a></li>`).join("")}</ul></div>`:""}
+          <div class="card side-box"><h3>自测</h3><p class="muted">这条结论已在「结论自测」的卡片里，按记忆程度自动安排复习。</p>
+            <a class="btn btn-soft btn-sm btn-block" href="#/cards?s=${c.subject}">去自测</a></div>
+          <div class="tb-pn">${i>0?`<a class="btn btn-ghost btn-sm" href="#/conclusions/${c.subject}/${list[i-1].id}">上一条</a>`:"<span></span>"}${i<list.length-1?`<a class="btn btn-ghost btn-sm" href="#/conclusions/${c.subject}/${list[i+1].id}">下一条</a>`:""}</div>
+        </div>
+      </div>`;
+  }
+  function bindConclusions(r) {
+    $("#fav-cl")?.addEventListener("click", ev => toggleFav("conclusions", r.parts[2], ev.currentTarget));
+    const inp = $("#cl-search");
+    if (inp) {
+      const run = () => {
+        const v = inp.value.trim().toLowerCase(); let n = 0;
+        $$(".cl-row").forEach(a => { const ok = !v || v.split(/\s+/).every(w => (a.dataset.text||"").includes(w)); a.style.display = ok ? "" : "none"; if (ok) n++; });
+        $$(".cl-group").forEach(g => { g.style.display = $$(".cl-row", g).some(a => a.style.display!=="none") ? "" : "none"; });
+        const cnt = $("#cl-count"); if (cnt) cnt.textContent = n + " 条";
+        const none = $("#cl-none"); if (none) none.hidden = n>0;
+      };
+      inp.addEventListener("input", debounce(run, 120));
+      if (inp.value) run();
+    }
+  }
+
+  /* ---------- AI 辅助（调用用户自己填写的 OpenAI 兼容接口） ---------- */
+  const AI_KEY = "qingjin-ai-v1";
+  const AI_PRESETS = [
+    { id:"deepseek", name:"DeepSeek", base:"https://api.deepseek.com/v1", models:["deepseek-chat","deepseek-reasoner"], site:"platform.deepseek.com" },
+    { id:"qwen", name:"通义千问", base:"https://dashscope.aliyuncs.com/compatible-mode/v1", models:["qwen-plus","qwen-turbo","qwen-max"], site:"bailian.console.aliyun.com" },
+    { id:"kimi", name:"Kimi", base:"https://api.moonshot.cn/v1", models:["moonshot-v1-8k","moonshot-v1-32k","kimi-latest"], site:"platform.moonshot.cn" },
+    { id:"zhipu", name:"智谱", base:"https://open.bigmodel.cn/api/paas/v4", models:["glm-4-flash","glm-4-plus","glm-4-air"], site:"open.bigmodel.cn" },
+    { id:"siliconflow", name:"硅基流动", base:"https://api.siliconflow.cn/v1", models:["deepseek-ai/DeepSeek-V3","Qwen/Qwen2.5-7B-Instruct","THUDM/glm-4-9b-chat"], site:"cloud.siliconflow.cn" },
+    { id:"openai", name:"OpenAI", base:"https://api.openai.com/v1", models:["gpt-4o-mini","gpt-4o"], site:"platform.openai.com" },
+    { id:"custom", name:"自定义", base:"", models:[], site:"" }
+  ];
+  const AI_SYS = "你是「青衿」高考冲刺 App 里的学习助手，面向中国高三学生，熟悉人教版（数学人教A版）与统编版现行高中教材和新高考题型。要求：用简体中文回答；先给结论或思路要点，再分步骤讲清楚；数学、物理、化学公式一律用 LaTeX，行内用 $...$，独立公式用 $$...$$；化学式可写成 $\\mathrm{H_2O}$ 形式；适当使用 Markdown 小标题、列表和表格；不确定的内容要明确说明，不编造教材内容或数据。";
+  let AI = { cfg: { preset:"deepseek", baseUrl:"https://api.deepseek.com/v1", apiKey:"", model:"deepseek-chat", temperature:0.7, timeout:60 }, chats: [], cur: null };
+  function aiLoad() {
+    try { const raw = localStorage.getItem(AI_KEY); if (raw) { const s = JSON.parse(raw); AI = { cfg: Object.assign({}, AI.cfg, s.cfg||{}), chats: Array.isArray(s.chats) ? s.chats : [], cur: s.cur||null }; } } catch (e) { console.warn("ai load", e); }
+  }
+  function aiSave() {
+    AI.chats = AI.chats.slice(0, 30);
+    try { localStorage.setItem(AI_KEY, JSON.stringify(AI)); }
+    catch (e) { AI.chats = AI.chats.slice(0, 10); try { localStorage.setItem(AI_KEY, JSON.stringify(AI)); } catch (e2) { toast("本地存储已满，请删除一些 AI 对话"); } }
+  }
+  const aiReady = () => !!(AI.cfg.baseUrl && AI.cfg.apiKey && AI.cfg.model);
+  const aiEndpoint = () => AI.cfg.baseUrl.trim().replace(/\/+$/, "").replace(/\/chat\/completions$/, "") + "/chat/completions";
+  function aiPresetName() { const p = AI_PRESETS.find(x => x.id===AI.cfg.preset); return p ? p.name : "自定义"; }
+
+  class AIError extends Error { constructor(msg, kind) { super(msg); this.kind = kind||"error"; } }
+  function aiHttpError(status, body) {
+    let detail = "";
+    try { const j = JSON.parse(body); detail = (j.error && (j.error.message || j.error.msg || j.error.code)) || j.message || j.msg || ""; } catch (e) { detail = String(body||"").slice(0, 160); }
+    detail = detail ? `（服务商返回：${String(detail).slice(0,160)}）` : "";
+    if (status===401 || status===403) return new AIError(`API Key 无效或没有权限（${status}）。请到「设置 → AI 辅助」检查 Key 是否完整、是否属于当前服务商。${detail}`, "auth");
+    if (status===402) return new AIError(`账户余额不足（402），请到服务商控制台充值。${detail}`, "quota");
+    if (status===404) return new AIError(`接口地址或模型名称不对（404）。请确认 Base URL（一般以 /v1 结尾）和模型名填写正确。${detail}`, "notfound");
+    if (status===429) return new AIError(`请求太频繁或额度已用完（429），请稍后再试或检查账户余额。${detail}`, "quota");
+    if (status===400) return new AIError(`请求被拒绝（400），可能是模型名称不对或内容太长。${detail}`, "bad");
+    if (status>=500) return new AIError(`服务商暂时出错（${status}），请稍后再试。${detail}`, "server");
+    return new AIError(`请求失败（${status}）。${detail}`, "error");
+  }
+  const AI_NET_MSG = "连不上 AI 服务：请检查网络和 Base URL。若在浏览器网页里使用，也可能是该服务商不允许网页直接跨域调用（CORS），可改用青衿安卓 App，或换用允许跨域的接口/代理地址。";
+  // 原生壳提供的流式 HTTP（绕开 WebView 跨域限制）
+  const HTTP_CB = {};
+  window.__appHttp = (id, type, data) => { const h = HTTP_CB[id]; if (h) h(type, data); };
+  function nativeHttp() { const b = window.__AppBridge; return b && typeof b.httpStream === "function" ? b : null; }
+  function aiTransport(url, headers, body, signal, onChunk) {
+    const nb = nativeHttp();
+    if (nb) {
+      return new Promise((resolve, reject) => {
+        const id = uid(); let status = 0, errBody = "", done = false;
+        const fin = (fn, v) => { if (done) return; done = true; delete HTTP_CB[id]; fn(v); };
+        HTTP_CB[id] = (type, data) => {
+          if (type==="status") status = Number(data)||0;
+          else if (type==="data") { if (status>=400) errBody += data; else onChunk(data); }
+          else if (type==="end") { status>=400 ? fin(reject, aiHttpError(status, errBody)) : fin(resolve, status); }
+          else if (type==="error") fin(reject, new AIError(AI_NET_MSG + (data?`（${data}）`:""), "network"));
+        };
+        signal.addEventListener("abort", () => { try { nb.httpAbort(id); } catch (e) {} fin(reject, new DOMException("aborted", "AbortError")); });
+        try { nb.httpStream(id, url, "POST", JSON.stringify(headers), body); }
+        catch (e) { fin(reject, new AIError(AI_NET_MSG, "network")); }
+      });
+    }
+    return fetch(url, { method:"POST", headers, body, signal, mode:"cors", credentials:"omit", cache:"no-store" }).then(async res => {
+      if (!res.ok) { let t = ""; try { t = await res.text(); } catch (e) {} throw aiHttpError(res.status, t); }
+      if (!res.body || !res.body.getReader) { onChunk(await res.text()); return res.status; }
+      const rd = res.body.getReader(), dec = new TextDecoder();
+      for (;;) { const { value, done } = await rd.read(); if (done) break; onChunk(dec.decode(value, { stream:true })); }
+      return res.status;
+    }, e => { if (e && e.name==="AbortError") throw e; throw new AIError(AI_NET_MSG, "network"); });
+  }
+  /* 发送一次对话请求。onDelta(全文) 在流式过程中反复回调；返回最终全文。 */
+  async function aiChat(messages, { onDelta, signal, stream=true, maxTokens, temperature } = {}) {
+    if (!aiReady()) throw new AIError("还没有配置 AI。请先到「设置 → AI 辅助」填写 Base URL、API Key 和模型。", "config");
+    const ctrl = new AbortController(); let timedOut = false, timer;
+    const kick = () => { clearTimeout(timer); timer = setTimeout(() => { timedOut = true; ctrl.abort(); }, (Number(AI.cfg.timeout)||60)*1000); };
+    if (signal) { if (signal.aborted) ctrl.abort(); signal.addEventListener("abort", () => ctrl.abort()); }
+    const payload = { model: AI.cfg.model.trim(), messages, stream, temperature: temperature ?? (Number(AI.cfg.temperature) || 0.7) };
+    if (maxTokens) payload.max_tokens = maxTokens;
+    const headers = { "Content-Type":"application/json", "Authorization":"Bearer " + AI.cfg.apiKey.trim(), "Accept": stream ? "text/event-stream" : "application/json" };
+    let buf = "", raw = "", text = "", sse = false, reasoning = "";
+    const feed = chunk => {
+      kick(); raw += chunk; buf += chunk;
+      let nl;
+      while ((nl = buf.indexOf("\n")) >= 0) {
+        const line = buf.slice(0, nl).replace(/\r$/, ""); buf = buf.slice(nl+1);
+        if (!line.startsWith("data:")) continue;
+        sse = true;
+        const d = line.slice(5).trim();
+        if (!d || d==="[DONE]") continue;
+        let j; try { j = JSON.parse(d); } catch (e) { continue; }
+        if (j.error) throw new AIError("服务商返回错误：" + (j.error.message || JSON.stringify(j.error)).slice(0,200), "server");
+        const ch = j.choices && j.choices[0];
+        const piece = ch && ((ch.delta && ch.delta.content) || (ch.message && ch.message.content) || ch.text) || "";
+        const rs = ch && ch.delta && ch.delta.reasoning_content || "";
+        if (rs) reasoning += rs;
+        if (piece) { text += piece; onDelta && onDelta(text); }
+        else if (rs && !text && onDelta) onDelta("", reasoning);
+      }
+    };
+    kick();
+    try {
+      await aiTransport(aiEndpoint(), headers, JSON.stringify(payload), ctrl.signal, feed);
+      if (buf.trim()) feed("\n");
+    } catch (e) {
+      clearTimeout(timer);
+      if (e && e.name==="AbortError") {
+        if (timedOut) throw new AIError(`请求超时：${AI.cfg.timeout||60} 秒内没有收到回复。请检查网络，或在设置里把超时时间调长。`, "timeout");
+        const err = new AIError("已停止生成", "abort"); err.partial = text; throw err;
+      }
+      throw e instanceof AIError ? e : new AIError(AI_NET_MSG, "network");
+    }
+    clearTimeout(timer);
+    if (!sse) {
+      try { const j = JSON.parse(raw); if (j.error) throw new AIError("服务商返回错误：" + (j.error.message||"").slice(0,200), "server"); text = (j.choices && j.choices[0] && (j.choices[0].message?.content || j.choices[0].text)) || ""; onDelta && onDelta(text); }
+      catch (e) { if (e instanceof AIError) throw e; throw new AIError("返回内容无法识别，请确认 Base URL 指向 OpenAI 兼容接口（…/v1）。", "format"); }
+    }
+    if (!text && reasoning) text = reasoning;
+    if (!text) throw new AIError("AI 没有返回内容，请重试或换个模型。", "empty");
+    return text;
+  }
+
+  /* 轻量 Markdown → HTML（先转义，再保护公式与代码，最后交给 KaTeX） */
+  function mdToHtml(src) {
+    const keep = [];
+    const stash = html => `\u0000${keep.push(html)-1}\u0000`;
+    let s = String(src||"").replace(/\r\n?/g, "\n");
+    s = s.replace(/```([\w-]*)\n?([\s\S]*?)(```|$)/g, (_, lang, code) => stash(`<pre class="md-code"><code>${esc(code.replace(/\n$/,""))}</code></pre>`));
+    s = s.replace(/`([^`\n]+)`/g, (_, c) => stash(`<code>${esc(c)}</code>`));
+    s = s.replace(/\$\$([\s\S]+?)\$\$/g, (_, m) => stash(`<div class="md-math">$$${esc(m)}$$</div>`));
+    s = s.replace(/\\\[([\s\S]+?)\\\]/g, (_, m) => stash(`<div class="md-math">$$${esc(m)}$$</div>`));
+    s = s.replace(/\\\(([\s\S]+?)\\\)/g, (_, m) => stash(`$${esc(m)}$`));
+    s = s.replace(/\$([^\$\n]+?)\$/g, (_, m) => stash(`$${esc(m)}$`));
+    s = esc(s);
+    const inline = t => t
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>")
+      .replace(/~~([^~]+)~~/g, "<del>$1</del>")
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    const lines = s.split("\n"), out = [];
+    let list = null, para = [];
+    const flushP = () => { if (para.length) { out.push(`<p>${inline(para.join("<br>"))}</p>`); para = []; } };
+    const flushL = () => { if (list) { out.push(`<${list.t}>${list.items.map(x=>`<li>${inline(x)}</li>`).join("")}</${list.t}>`); list = null; } };
+    for (let i = 0; i < lines.length; i++) {
+      const ln = lines[i], t = ln.trim();
+      let m;
+      if (!t) { flushP(); flushL(); continue; }
+      if (/^\u0000\d+\u0000$/.test(t) && /md-(code|math)/.test(keep[Number(t.slice(1,-1))]||"")) { flushP(); flushL(); out.push(t); continue; }
+      if ((m = t.match(/^(#{1,6})\s+(.*)$/))) { flushP(); flushL(); const lv = Math.min(4, m[1].length + 1); out.push(`<h${lv}>${inline(m[2])}</h${lv}>`); continue; }
+      if (/^(-{3,}|\*{3,}|_{3,})$/.test(t)) { flushP(); flushL(); out.push("<hr>"); continue; }
+      if (t.startsWith("&gt;")) { flushP(); flushL(); out.push(`<blockquote>${inline(t.replace(/^&gt;\s?/, ""))}</blockquote>`); continue; }
+      if (t.startsWith("|") && i+1 < lines.length && /^\|?\s*:?-{2,}/.test(lines[i+1].trim())) {
+        flushP(); flushL();
+        const cells = r => r.trim().replace(/^\||\|$/g, "").split("|").map(c => inline(c.trim()));
+        const head = cells(t); i += 1; const rows = [];
+        while (i+1 < lines.length && lines[i+1].trim().startsWith("|")) { i++; rows.push(cells(lines[i])); }
+        out.push(`<div class="md-table"><table><thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`);
+        continue;
+      }
+      if ((m = t.match(/^[-*+]\s+(.*)$/)) || (m = t.match(/^\d+[.)、]\s*(.*)$/))) {
+        flushP(); const tp = /^\d/.test(t) ? "ol" : "ul";
+        if (list && list.t !== tp) flushL();
+        if (!list) list = { t: tp, items: [] };
+        list.items.push(m[1]); continue;
+      }
+      if (list && /^\s{2,}/.test(ln)) { list.items[list.items.length-1] += "<br>" + t; continue; }
+      flushL(); para.push(t);
+    }
+    flushP(); flushL();
+    let html = out.join("");
+    for (let k = 0; k < 3 && html.includes("\u0000"); k++) html = html.replace(/\u0000(\d+)\u0000/g, (_, n) => keep[Number(n)]);
+    return html;
+  }
+
+  /* ---- 上下文 ---- */
+  const plain = s => String(s||"").replace(/<br\s*\/?>/gi, "\n").replace(/<[^>]+>/g, " ").replace(/[ \t]+/g, " ").trim();
+  function qText(q, withAns=true) {
+    if (!q) return "";
+    const opts = (q.options||[]).map((o,i)=>`${String.fromCharCode(65+i)}. ${plain(o)}`).join("\n");
+    const ans = typeof q.answer==="string" ? q.answer : (Array.isArray(q.answer) ? q.answer.join("；") : JSON.stringify(q.answer||""));
+    const kps = (q.knowledgeIds||[]).map(id => DATA.kpIndex[id]?.title).filter(Boolean).join("、");
+    return `【题目】（${subjName(q.subject)} · ${TYPES[q.type]||q.type}${kps?" · 知识点："+kps:""}）\n${q.passage?"阅读材料：\n"+plain(q.passage).slice(0,1800)+"\n":""}${plain(q.stem)}${opts?"\n"+opts:""}`
+      + (withAns ? `\n【参考答案】${plain(ans)}${(q.steps||[]).length?"\n【参考解析】"+q.steps.map(plain).join("\n"):""}` : "");
+  }
+  function kpText(k) {
+    return `【知识点】${k.title}（${subjName(k.subject)} · ${k.module} · ${k.chapter}）\n要点：${plain(k.summary)}\n关键结论：\n${(k.points||[]).map(p=>"- "+plain(p)).join("\n")}${(k.formulas||[]).length?"\n公式：\n"+k.formulas.map(f=>"- "+plain(f)).join("\n"):""}${(k.pitfalls||[]).length?"\n易错：\n"+k.pitfalls.map(f=>"- "+plain(f)).join("\n"):""}`;
+  }
+  function clText(c) {
+    return `【二级结论】${c.title}（${subjName(c.subject)}）\n结论：${plain(c.statement)}\n适用条件：${plain(c.conditions)}\n推导：\n${(c.derivation||[]).map((d,i)=>`${i+1}. ${plain(d)}`).join("\n")}\n例题：${plain(c.example.q)}\n解答：${plain(c.example.a)}`;
+  }
+  function secText(x) {
+    const kps = (x.sec.kpIds||[]).map(id => DATA.kpIndex[id]).filter(Boolean);
+    return `【教材小节】${x.book.edition} ${subjName(x.book.subject)} ${x.book.name} ${x.ch.name} · ${x.sec.name}\n本 App 中关联的知识点：${kps.map(k=>k.title).join("、")||"（暂无）"}\n关联二级结论：${(x.sec.conclIds||[]).map(id=>DATA.clIndex[id]?.title).filter(Boolean).join("、")||"（暂无）"}`;
+  }
+  function poemText(p) { return `【古诗文】《${p.title}》${p.author?" "+p.author:""}${p.dynasty?"（"+p.dynasty+"）":""}\n${(p.lines||[]).join("\n")}`; }
+  function routeContext() {
+    const p = current.parts, a = p[0];
+    if (a==="knowledge" && p[2] && DATA.kpIndex[p[2]]) { const k = DATA.kpIndex[p[2]]; return { label:"知识点 · "+k.title, text:kpText(k) }; }
+    if (a==="conclusions" && p[2] && DATA.clIndex[p[2]]) { const c = DATA.clIndex[p[2]]; return { label:"二级结论 · "+c.title, text:clText(c) }; }
+    if (a==="textbook" && p[2] && DATA.secIndex[p[2]]) { const x = DATA.secIndex[p[2]]; return { label:"教材 · "+x.sec.name.split("/")[0], text:secText(x) }; }
+    if (a==="poetry" && p[1]) { const po = (DATA.poetry||[]).find(x=>x.id===p[1]); if (po) return { label:"默写 · 《"+po.title+"》", text:poemText(po) }; }
+    if (a==="methods" && p[2] && DATA.mIndex[p[2]]) { const m = DATA.mIndex[p[2]]; return { label:"方法 · "+m.name, text:`【解题方法】${m.name}\n何时用：${plain(m.when)}\n${plain(m.explanation).slice(0,1500)}` }; }
+    if (a==="practice" && p[1]==="run") {
+      loadSession(); const q = session && DATA.qIndex[session.items[session.idx]];
+      if (q) { const done = !!session.answers[q.id]; return { label:"当前题目", text: qText(q, done) + (done ? "" : "\n（我还没做完这道题，请先给提示和思路，不要直接给出最终答案。）") }; }
+    }
+    if (a==="writing" && p[1]) { const w = (DATA.writing||[]).find(x=>x.id===p[1]); if (w) return { label:"作文素材 · "+w.title, text:`【作文素材】${w.title}（${w.theme||""}）\n${(w.points||[]).map(plain).join("\n")}` }; }
+    return null;
+  }
+  function studyContext() {
+    const sel = selectedSubjects(), cd = countdown();
+    const rows = sel.map(s => { let c=0,w=0; subjectKnowledge(s).forEach(k => { const m = state.mastery[k.id]; if (m) { c+=m.correct; w+=m.wrong; } }); return `${subjName(s)}：作答 ${c+w} 次${c+w?`，正确率 ${Math.round(c/(c+w)*100)}%`:""}`; });
+    const weak = weakKnowledge(10).map(k => { const m = state.mastery[k.id]; return `${subjName(k.subject)}·${k.title}（${m.correct}/${m.correct+m.wrong}）`; });
+    const rc = {}; state.wrong.filter(w=>!w.mastered).forEach(w => (w.reasons&&w.reasons.length?w.reasons:(w.reason?[w.reason]:[])).forEach(r => rc[r]=(rc[r]||0)+1));
+    const reasons = Object.entries(rc).sort((a,b)=>b[1]-a[1]).map(([r,n]) => `${(REASONS.find(x=>x[0]===r)||[])[1]||r} ${n}`).join("、");
+    const mins = sum(Object.values(state.checkins).slice(-7).map(c=>c.minutes||0));
+    const mocks = (state.mockScores||[]).slice(-3).map(m => `${m.date||""} ${m.total||""}`).join("；");
+    return `【我的学习数据】\n距 2027 年高考 ${cd.days} 天；选科：${sel.map(subjName).join("、")}（${state.profile.mode}）；目标总分 ${state.profile.targetScore||600}${state.profile.province?"；省份 "+state.profile.province:""}\n各科：\n${rows.join("\n")}\n薄弱知识点：${weak.join("、")||"暂无记录"}\n未消化错题 ${state.wrong.filter(w=>!w.mastered).length} 道；主要错因：${reasons||"未标注"}\n待复习 ${dueReviews().length} 题；最近 7 天学习约 ${mins} 分钟${mocks?"\n最近模考："+mocks:""}`;
+  }
+
+  /* ---- 会话 ---- */
+  let aiRun = null; // { chatId, ctrl }
+  function aiNewChat(title, ctx) {
+    const c = { id: uid(), title: title||"新对话", at: Date.now(), messages: [], ctx: ctx||null };
+    AI.chats.unshift(c); AI.cur = c.id; aiSave(); return c;
+  }
+  const aiChatById = id => AI.chats.find(c => c.id===id);
+  function aiStartAction(title, prompt, ctx, kind, extra) {
+    const c = aiNewChat(title, ctx);
+    c.messages.push({ role:"user", content: prompt, ts: Date.now() });
+    if (kind) c.kind = kind; if (extra) c.extra = extra;
+    aiSave();
+    if (!aiReady()) { go("/ai/" + c.id); return; }
+    go("/ai/" + c.id);
+    setTimeout(() => aiGenerate(c.id), 30);
+  }
+  function aiApiMessages(c) {
+    const msgs = [{ role:"system", content: AI_SYS }];
+    if (c.ctx && c.ctx.text) msgs.push({ role:"system", content: "以下是学生当前正在看的内容，回答时结合它：\n" + c.ctx.text });
+    c.messages.filter(m => !m.err).slice(-16).forEach(m => msgs.push({ role:m.role, content:m.content }));
+    return msgs;
+  }
+  async function aiGenerate(chatId) {
+    const c = aiChatById(chatId); if (!c) return;
+    if (aiRun) { toast("上一条还在生成，请先停止或稍候"); return; }
+    if (!aiReady()) { aiRefresh(chatId); return; }
+    const msg = { role:"assistant", content:"", ts: Date.now(), pending:true };
+    c.messages.push(msg); c.at = Date.now(); aiSave();
+    const ctrl = new AbortController(); aiRun = { chatId, ctrl };
+    aiRefresh(chatId);
+    let last = 0;
+    try {
+      const text = await aiChat(aiApiMessages({ ...c, messages: c.messages.slice(0, -1) }), { signal: ctrl.signal, onDelta: (t, rs) => {
+        msg.content = t; msg.thinking = !t && !!rs;
+        const now = Date.now(); if (now - last > 60) { last = now; aiPaintMsg(chatId, c.messages.length-1); }
+      }});
+      msg.content = text;
+      if (c.kind==="similar") aiParseSimilar(c, msg);
+    } catch (e) {
+      if (e.kind==="abort") { msg.content = (e.partial||msg.content||""); msg.stopped = true; if (!msg.content) { msg.err = true; msg.content = "已停止生成。"; } }
+      else { msg.err = true; msg.errKind = e.kind; msg.content = e.message || String(e); }
+    }
+    delete msg.pending; delete msg.thinking;
+    aiRun = null; c.at = Date.now();
+    if (c.title==="新对话") { const u = c.messages.find(m => m.role==="user"); if (u) c.title = u.content.replace(/\s+/g," ").slice(0, 18); }
+    aiSave(); aiRefresh(chatId);
+  }
+  function aiStop() { if (aiRun) aiRun.ctrl.abort(); }
+
+  /* ---- 同类题生成 ---- */
+  // AI 返回的文字要当作 HTML 插入：公式外整体转义，公式内把 < > & 换成 KaTeX 能识别的写法
+  function safeTex(t) {
+    return String(t ?? "").split(/(\$\$[\s\S]+?\$\$|\$[^$]+?\$)/).map((part, i) =>
+      i % 2 ? part.replace(/&/g, "&amp;").replace(/</g, "\\lt ").replace(/>/g, "\\gt ") : esc(part)).join("");
+  }
+  function aiParseSimilar(c, msg) {
+    const src = DATA.qIndex[c.extra && c.extra.qid];
+    let t = msg.content, j = null;
+    const m = t.match(/```(?:json)?\s*([\s\S]*?)```/); if (m) t = m[1];
+    const a = t.indexOf("{"), b = t.lastIndexOf("}");
+    try { j = JSON.parse(t.slice(a, b+1)); } catch (e) { const a2 = t.indexOf("["), b2 = t.lastIndexOf("]"); try { j = { questions: JSON.parse(t.slice(a2, b2+1)) }; } catch (e2) { j = null; } }
+    const arr = (j && (j.questions || j.items)) || [];
+    const ids = [];
+    state.aiQuestions = state.aiQuestions || [];
+    arr.slice(0, 5).forEach(x => {
+      if (!x || !x.stem) return;
+      const type = ["single","multi","fill"].includes(x.type) ? x.type : ((x.options||[]).length ? "single" : "fill");
+      const opts = (x.options||[]).map(o => safeTex(String(o).replace(/^[A-H][.、．:：]\s*/, "")));
+      let ans = String(x.answer ?? "").trim();
+      if (type!=="fill") ans = ans.toUpperCase().replace(/[^A-H]/g, "");
+      if (!ans) return;
+      const q = { id: "ai-" + uid(), subject: src?.subject || c.extra?.subject || "math", type, stem: safeTex(x.stem), options: type==="fill" ? undefined : opts,
+        answer: type==="fill" ? safeTex(ans) : ans, alt: (Array.isArray(x.alt) ? x.alt : []).map(safeTex), steps: (Array.isArray(x.steps) ? x.steps : [x.steps||x.analysis||""]).map(v => safeTex(String(v))).filter(Boolean),
+        analysis: { breakthrough: safeTex(x.breakthrough||""), method: safeTex(x.method||x.analysis||""), pitfalls: safeTex(x.pitfalls||""), variant: "" },
+        difficulty: src?.difficulty || 2, knowledgeIds: src?.knowledgeIds || c.extra?.kids || [], methodIds: src?.methodIds || [], score: 5, ai: true, from: src?.id || "", at: Date.now() };
+      state.aiQuestions.unshift(q); DATA.qIndex[q.id] = q; ids.push(q.id);
+    });
+    state.aiQuestions = state.aiQuestions.slice(0, 200);
+    msg.qids = ids; save();
+  }
+  function aiQCard(q) {
+    if (!q) return "";
+    const inWrong = state.wrong.some(w => w.qid===q.id && !w.mastered);
+    return `<div class="ai-q card">
+      <div class="meta-row">${tagType(q.type)} <span class="tag">AI 生成</span> <span class="tag">${esc(subjName(q.subject))}</span></div>
+      <div class="prose">${trusted(q.stem)}</div>
+      ${(q.options||[]).length?`<ol class="wp-opts">${q.options.map((o,i)=>`<li><b>${String.fromCharCode(65+i)}.</b> ${trusted(o)}</li>`).join("")}</ol>`:""}
+      <details><summary>答案与解析</summary><p><b>答案：</b>${trusted(q.answer)}</p>${q.steps.map(s=>`<p>${trusted(s)}</p>`).join("")}</details>
+      <div class="ai-q-acts"><a class="btn btn-primary btn-sm" href="#/practice/setup?mode=one&qid=${q.id}">去做这道题</a>
+        <button class="btn btn-ghost btn-sm" data-ai-wrong="${q.id}" ${inWrong?"disabled":""}>${inWrong?"已在错题本":"记入错题本"}</button></div>
+    </div>`;
+  }
+
+  /* ---- 页面 ---- */
+  function aiMsgHtml(c, m, i) {
+    const isLast = i === c.messages.length-1;
+    if (m.role==="user") return `<div class="ai-msg user" data-i="${i}"><div class="ai-bubble">${esc(m.content).replace(/\n/g,"<br>")}</div>
+      <div class="ai-acts"><button class="ai-act" data-ai-copy="${i}" title="复制">复制</button></div></div>`;
+    const body = m.err ? `<div class="ai-err" role="alert"><b>${m.errKind==="config"?"还没有配置 AI":"出错了"}</b><p>${esc(m.content)}</p>${["auth","notfound","config","network","bad"].includes(m.errKind)?`<a class="btn btn-soft btn-sm" href="#/settings?ai=1">去设置检查</a>`:""}</div>`
+      : m.pending && !m.content ? `<div class="ai-typing"><i></i><i></i><i></i>${m.thinking?"<span>模型思考中…</span>":""}</div>`
+      : (m.qids && m.qids.length) ? `<p>已按原题生成 ${m.qids.length} 道同类练习题：</p>${m.qids.map(id=>aiQCard(DATA.qIndex[id])).join("")}`
+      : mdToHtml(m.content);
+    return `<div class="ai-msg bot ${m.pending?"pending":""}" data-i="${i}"><div class="ai-bubble prose md">${body}${m.stopped?`<p class="muted ai-stopped">（已停止）</p>`:""}</div>
+      ${m.pending?"":`<div class="ai-acts"><button class="ai-act" data-ai-copy="${i}">复制</button>${isLast?`<button class="ai-act" data-ai-regen="${i}">重新生成</button>`:""}</div>`}</div>`;
+  }
+  function aiPaintMsg(chatId, i) {
+    const box = document.querySelector(`#ai-msgs[data-chat="${chatId}"]`); if (!box) return;
+    const c = aiChatById(chatId); if (!c) return;
+    const el = box.querySelector(`.ai-msg[data-i="${i}"]`);
+    const html = aiMsgHtml(c, c.messages[i], i);
+    if (el) el.outerHTML = html; else box.insertAdjacentHTML("beforeend", html);
+    const nel = box.querySelector(`.ai-msg[data-i="${i}"]`); if (nel) renderMath(nel);
+    const nearBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 160;
+    if (nearBottom) window.scrollTo(0, document.body.scrollHeight);
+    aiSyncBtns();
+  }
+  function aiSyncBtns() {
+    const busy = !!aiRun;
+    const s = $("#ai-send"), st = $("#ai-stop");
+    if (s) s.hidden = busy; if (st) st.hidden = !busy;
+  }
+  function aiRefresh(chatId) {
+    if (current.parts[0]==="ai" && (current.parts[1]===chatId || (!current.parts[1] && AI.cur===chatId))) {
+      const box = $("#ai-msgs");
+      if (box) {
+        const c = aiChatById(chatId);
+        box.innerHTML = c.messages.map((m,i)=>aiMsgHtml(c,m,i)).join("") || aiEmptyHtml();
+        renderMath(box); aiSyncBtns();
+        window.scrollTo(0, document.body.scrollHeight);
+        return;
+      }
+    }
+  }
+  function aiEmptyHtml() {
+    const tips = ["帮我梳理导数压轴题的常见题型和通法", "用例子讲清楚动量守恒的适用条件", "化学平衡常数 K 和 Q 怎么比较判断移动方向？", "给我一份 30 天英语作文提分计划"];
+    return `<div class="ai-empty"><div class="ai-empty-ic">${ic("ai",34)}</div><h2>有什么想问的？</h2>
+      <p class="muted">可以问知识点、让它讲题、批改作文、做学习计划。在知识点、题目、错题、二级结论、默写页点「问AI」会自动带上当前内容。</p>
+      <div class="ai-tips">${tips.map(t=>`<button class="chip" data-ai-tip="${esc(t)}">${esc(t)}</button>`).join("")}</div></div>`;
+  }
+  function pageAI(id) {
+    if (id==="settings") return pageAISettings();
+    if (id==="grade") return pageAIGrade();
+    let c = id ? aiChatById(id) : (AI.cur && aiChatById(AI.cur));
+    if (id && !c) return empty("这个对话已不存在","可能已被删除。","#/ai","回到 AI 助手");
+    if (c) AI.cur = c.id;
+    const pend = AI.pendingCtx; // FAB 带来的上下文
+    return `
+      <div class="ai-page">
+        <aside class="ai-side card" id="ai-side">
+          <button class="btn btn-primary btn-block" id="ai-new">${ic("pen",16)} 新对话</button>
+          <div class="ai-side-links"><a href="#/ai/grade">${ic("write",16)} AI 批改作文/主观题</a><button type="button" data-ai="plan">${ic("plan",16)} AI 学习计划</button></div>
+          <div class="ai-hist-label">历史对话</div>
+          <ul class="ai-hist">${AI.chats.map(x=>`<li class="${c&&x.id===c.id?"on":""}"><a href="#/ai/${x.id}">${esc(x.title||"对话")}</a><button class="ai-del" data-ai-del="${x.id}" title="删除" aria-label="删除对话">${ic("close",14)}</button></li>`).join("") || `<li class="muted" style="padding:6px 10px">还没有对话</li>`}</ul>
+        </aside>
+        <section class="ai-main">
+          <div class="ai-head">
+            <button class="icon-btn ai-side-btn" id="ai-side-btn" aria-label="历史对话">${ic("menu",18)}</button>
+            <div class="ai-title"><b>${esc(c ? c.title : "AI 助手")}</b><span class="muted">${aiReady()?`${esc(aiPresetName())} · ${esc(AI.cfg.model)}`:"未配置"}</span></div>
+            <button type="button" class="icon-btn ai-new-btn" id="ai-new2" title="新对话" aria-label="新对话">${ic("pen",18)}</button>
+            <a class="icon-btn" href="#/settings?ai=1" title="AI 设置" aria-label="AI 设置">${ic("gear",18)}</a>
+          </div>
+          ${aiReady()?"":`<div class="ai-guide card"><b>先连上你的 AI 服务</b><p>青衿本身离线可用；AI 功能需要你在设置里填写自己的 OpenAI 兼容接口（DeepSeek、通义千问、Kimi、智谱、硅基流动、OpenAI 等都可以），Key 只保存在本机。</p><a class="btn btn-primary btn-sm" href="#/settings?ai=1">去填写</a></div>`}
+          <div class="ai-msgs" id="ai-msgs" data-chat="${c?c.id:""}" aria-live="polite">${c && c.messages.length ? c.messages.map((m,i)=>aiMsgHtml(c,m,i)).join("") : aiEmptyHtml()}</div>
+          <form class="ai-input card" id="ai-form">
+            ${(c && c.ctx) || pend ? `<div class="ai-ctx"><span>${ic("book",14)} 已附带：${esc(((c&&c.ctx)||pend).label)}</span><button type="button" id="ai-ctx-x" aria-label="去掉附带内容">${ic("close",14)}</button></div>`:""}
+            <div class="ai-input-row">
+              <textarea id="ai-text" rows="1" placeholder="${aiReady()?"输入问题，点「发送」提问":"先到设置里配置 AI 再提问"}" enterkeyhint="send"></textarea>
+              <button type="submit" class="btn btn-primary" id="ai-send">发送</button>
+              <button type="button" class="btn btn-danger" id="ai-stop" hidden>停止</button>
+            </div>
+          </form>
+        </section>
+      </div>`;
+  }
+  function bindAI(r) {
+    const id = r.parts[1];
+    if (id==="settings") return bindAISettings();
+    if (id==="grade") return bindAIGrade();
+    aiSyncBtns();
+    const box = $("#ai-msgs"); if (box && box.dataset.chat) window.scrollTo(0, document.body.scrollHeight);
+    const newChat = () => { AI.cur = null; AI.pendingCtx = null; aiSave(); if (current.path==="/ai") route(); else go("/ai"); };
+    $("#ai-new")?.addEventListener("click", newChat);
+    $("#ai-new2")?.addEventListener("click", newChat);
+    $("#ai-side-btn")?.addEventListener("click", () => $("#ai-side")?.classList.toggle("open"));
+    $("#ai-ctx-x")?.addEventListener("click", () => { const c = aiChatById(box?.dataset.chat); if (c) { c.ctx = null; aiSave(); } AI.pendingCtx = null; $(".ai-ctx")?.remove(); });
+    $$("[data-ai-del]").forEach(b => b.addEventListener("click", ev => {
+      ev.preventDefault(); const did = b.dataset.aiDel;
+      if (aiRun && aiRun.chatId===did) aiStop();
+      AI.chats = AI.chats.filter(x => x.id!==did); if (AI.cur===did) AI.cur = null; aiSave();
+      if (current.parts[1]===did) go("/ai"); else route();
+    }));
+    const ta = $("#ai-text");
+    const grow = () => { ta.style.height = "auto"; ta.style.height = Math.min(180, ta.scrollHeight) + "px"; };
+    ta?.addEventListener("input", grow);
+    const enterSends = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    ta?.addEventListener("keydown", e => { if (enterSends && e.key==="Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); $("#ai-form").requestSubmit(); } });
+    $$("[data-ai-tip]").forEach(b => b.addEventListener("click", () => { ta.value = b.dataset.aiTip; grow(); ta.focus(); }));
+    $("#ai-form")?.addEventListener("submit", e => {
+      e.preventDefault();
+      const t = ta.value.trim(); if (!t) return;
+      if (aiRun) { toast("正在生成，请先停止"); return; }
+      if (!aiReady()) { toast("请先在设置里配置 AI"); go("/settings?ai=1"); return; }
+      let c = aiChatById(box.dataset.chat);
+      if (!c) { c = aiNewChat(t.slice(0, 18), AI.pendingCtx); AI.pendingCtx = null; }
+      c.messages.push({ role:"user", content:t, ts:Date.now() }); aiSave();
+      if (current.parts[1]!==c.id) { history.replaceState(null, "", "#/ai/" + c.id); current = parseHash(); box.dataset.chat = c.id; }
+      ta.value = ""; grow();
+      aiGenerate(c.id);
+    });
+    $("#ai-stop")?.addEventListener("click", aiStop);
+  }
+
+  function pageAISettings() {
+    return `<div class="page-head"><div>${crumb([["#/","首页"],["#/settings","设置"],["#","AI 辅助"]])}<h1 class="h1">AI 辅助设置</h1></div></div>${aiSettingsCard()}`;
+  }
+  function aiSettingsCard() {
+    const cfg = AI.cfg, pr = AI_PRESETS.find(p => p.id===cfg.preset) || AI_PRESETS[AI_PRESETS.length-1];
+    const models = [...new Set([...(pr.models||[]), ...AI_PRESETS.flatMap(p=>p.models)])];
+    const row = (lab, html, forId) => `<div class="ai-set-row"><label class="lbl" ${forId?`for="${forId}"`:""}>${lab}</label><div>${html}</div></div>`;
+    return `<div class="card settings-sec" id="ai-settings">
+      <h2>AI 辅助</h2>
+      <p class="muted">使用你自己的 OpenAI 兼容接口。App 其余功能完全离线；只有点「问AI」时才会把问题发给你填写的服务商。API Key 只保存在本机，不随「导出 JSON」导出。</p>
+      <div class="chip-row ai-presets" id="ai-presets">${AI_PRESETS.map(p=>`<button type="button" class="chip ${p.id===cfg.preset?"on":""}" data-preset="${p.id}">${esc(p.name)}</button>`).join("")}</div>
+      ${row("Base URL", `<input class="field" id="ai-base" type="text" inputmode="url" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${esc(cfg.baseUrl)}" placeholder="https://…/v1">`, "ai-base")}
+      ${row("API Key", `<div class="key-wrap"><input class="field key-mask" id="ai-key" name="qj-ai-token" type="text" inputmode="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other" value="${esc(cfg.apiKey)}" placeholder="sk-…（可直接粘贴）"><button type="button" class="icon-btn key-eye" id="ai-eye" aria-label="显示 Key" aria-pressed="false">${ic("eye",18)}</button></div>`, "ai-key")}
+      ${row("模型", `<input class="field" id="ai-model" type="text" list="ai-models" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${esc(cfg.model)}"><datalist id="ai-models">${models.map(m=>`<option value="${esc(m)}">`).join("")}</datalist>
+        <div class="chip-row ai-model-chips">${(pr.models||[]).map(m=>`<button type="button" class="chip ${m===cfg.model?"on":""}" data-model="${esc(m)}">${esc(m)}</button>`).join("")}</div>`, "ai-model")}
+      ${row("温度", `<input class="field" id="ai-temp" type="number" min="0" max="2" step="0.1" value="${esc(cfg.temperature)}">`, "ai-temp")}
+      ${row("超时（秒）", `<input class="field" id="ai-timeout" type="number" min="10" max="300" step="5" value="${esc(cfg.timeout)}">`, "ai-timeout")}
+      ${pr.site?`<p class="muted ai-site">在 ${esc(pr.site)} 注册并创建 API Key，复制后粘贴到上面。</p>`:""}
+      <div class="ai-set-acts">
+        <button type="button" class="btn btn-primary" id="ai-save">保存</button>
+        <button type="button" class="btn btn-soft" id="ai-test">测试连接</button>
+        <button type="button" class="btn btn-ghost" id="ai-clear">清除 Key</button>
+        <a class="btn btn-ghost" href="#/ai">打开 AI 助手</a>
+      </div>
+      <p class="ai-test-res" id="ai-test-res" aria-live="polite"></p>
+    </div>`;
+  }
+  function aiReadForm() {
+    const v = id => ($("#"+id)?.value ?? "").trim();
+    AI.cfg.baseUrl = v("ai-base"); AI.cfg.apiKey = v("ai-key").replace(/\s+/g, ""); AI.cfg.model = v("ai-model");
+    AI.cfg.temperature = clamp(Number(v("ai-temp"))||0.7, 0, 2); AI.cfg.timeout = clamp(Number(v("ai-timeout"))||60, 10, 300);
+  }
+  function bindAISettings() {
+    if (!$("#ai-settings")) return;
+    $$("[data-preset]").forEach(b => b.addEventListener("click", () => {
+      aiReadForm();
+      const p = AI_PRESETS.find(x => x.id===b.dataset.preset); AI.cfg.preset = p.id;
+      if (p.base) AI.cfg.baseUrl = p.base;
+      if (p.models.length && !p.models.includes(AI.cfg.model)) AI.cfg.model = p.models[0];
+      aiSave(); const y = window.scrollY; route(); window.scrollTo(0, y);
+      setTimeout(() => $("#ai-settings")?.scrollIntoView({ block:"start" }), 0);
+    }));
+    $$("[data-model]").forEach(b => b.addEventListener("click", () => { $("#ai-model").value = b.dataset.model; $$("[data-model]").forEach(x => x.classList.toggle("on", x===b)); }));
+    $("#ai-eye")?.addEventListener("click", ev => {
+      const k = $("#ai-key"), show = k.classList.toggle("key-mask") === false;
+      ev.currentTarget.setAttribute("aria-pressed", String(show)); ev.currentTarget.setAttribute("aria-label", show ? "隐藏 Key" : "显示 Key");
+      ev.currentTarget.innerHTML = ic(show ? "eyeoff" : "eye", 18);
+    });
+    $("#ai-save")?.addEventListener("click", () => { aiReadForm(); aiSave(); toast(aiReady() ? "AI 设置已保存" : "已保存，但 Base URL / Key / 模型还没填全"); });
+    $("#ai-clear")?.addEventListener("click", () => { AI.cfg.apiKey = ""; aiSave(); const k = $("#ai-key"); if (k) k.value = ""; toast("已清除 API Key"); });
+    $("#ai-test")?.addEventListener("click", async ev => {
+      aiReadForm(); aiSave();
+      const out = $("#ai-test-res"), btn = ev.currentTarget;
+      if (!aiReady()) { out.className = "ai-test-res bad"; out.textContent = "请先填完 Base URL、API Key 和模型。"; return; }
+      btn.disabled = true; out.className = "ai-test-res"; out.textContent = "正在连接…";
+      const t0 = Date.now();
+      try {
+        const txt = await aiChat([{ role:"user", content:"请只回复两个字：连通" }], { stream:false, maxTokens:16, temperature:0 });
+        out.className = "ai-test-res ok"; out.textContent = `连接成功（${Date.now()-t0} ms），模型回复：${txt.trim().slice(0,40)}`;
+      } catch (e) { out.className = "ai-test-res bad"; out.textContent = "连接失败：" + (e.message||e); }
+      btn.disabled = false;
+    });
+  }
+
+  function pageAIGrade() {
+    const q = current.query||{};
+    return `<div class="page-head"><div>${crumb([["#/","首页"],["#/ai","AI 助手"],["#","AI 批改"]])}<h1 class="h1">AI 批改作文 / 主观题</h1>
+      <p class="lead">贴上题目和你的答案，AI 按高考评分标准给出分档、得分点、扣分原因和修改建议。</p></div></div>
+      <div class="card card-pad ai-grade">
+        <div class="chip-row" id="gr-kind"><button type="button" class="chip ${q.k!=="sub"?"on":""}" data-k="essay">语文作文</button><button type="button" class="chip" data-k="en">英语作文</button><button type="button" class="chip ${q.k==="sub"?"on":""}" data-k="sub">主观题</button></div>
+        <label class="lbl" for="gr-topic">题目 / 写作要求</label>
+        <textarea class="field" id="gr-topic" rows="3" placeholder="粘贴作文题或主观题题干"></textarea>
+        <label class="lbl" for="gr-full">满分</label><input class="field" id="gr-full" type="number" min="1" max="150" value="60" style="max-width:120px">
+        <label class="lbl" for="gr-ans">我的答案</label>
+        <textarea class="field" id="gr-ans" rows="12" placeholder="粘贴或输入你的作文 / 答案"></textarea>
+        <p class="muted" id="gr-count">0 字</p>
+        <button class="btn btn-primary" id="gr-go">${ic("ai",16)} 开始批改</button>
+      </div>`;
+  }
+  function bindAIGrade() {
+    let kind = (current.query||{}).k==="sub" ? "sub" : "essay";
+    $$("#gr-kind [data-k]").forEach(b => b.addEventListener("click", () => { kind = b.dataset.k; $$("#gr-kind .chip").forEach(x => x.classList.toggle("on", x===b)); $("#gr-full").value = kind==="essay" ? 60 : kind==="en" ? 25 : 12; }));
+    $("#gr-ans")?.addEventListener("input", e => { $("#gr-count").textContent = e.target.value.replace(/\s/g,"").length + " 字"; });
+    $("#gr-go")?.addEventListener("click", () => {
+      const topic = $("#gr-topic").value.trim(), ans = $("#gr-ans").value.trim(), full = Number($("#gr-full").value)||60;
+      if (!ans) { toast("请先填写你的答案"); return; }
+      const what = kind==="essay" ? "高考语文作文" : kind==="en" ? "高考英语书面表达" : "高考主观题";
+      aiStartAction("AI 批改 · " + (topic||ans).slice(0, 12), `请按${what}的评分标准批改下面的答案，满分 ${full} 分。\n输出：\n1. 总评与分档、预估得分（给出分数）；\n2. 按评分维度逐条说明得分点和扣分原因（引用原文句子）；\n3. 具体修改建议（至少 3 条，给出改写示例）；\n${kind==="sub"?"4. 给出规范的满分答案要点。":"4. 给出一段升格示范。"}\n\n【题目/要求】\n${topic||"（未提供）"}\n\n【学生答案】\n${ans}`, null, "grade");
+    });
+  }
+
+  /* ---- 快捷动作 ---- */
+  function aiAction(spec) {
+    const [kind, id] = [spec.slice(0, spec.indexOf(":") < 0 ? spec.length : spec.indexOf(":")), spec.includes(":") ? spec.slice(spec.indexOf(":")+1) : ""];
+    if (kind==="q") { const q = DATA.qIndex[id]; if (!q) return; loadSession(); const a = session && session.answers && session.answers[id];
+      return aiStartAction("讲题 · " + stripHtml(q.stem).slice(0, 14), "请讲解这道题：先点出考查的知识点和突破口，再给出完整、规范的解题步骤，最后总结同类题的通法和易错点。" + (a && a.user ? `\n我的作答是：${typeof a.user==="string"?a.user:(a.user.text||"")}，请指出我的问题。` : ""), { label:"题目", text:qText(q) }); }
+    if (kind==="wrong") { const q = DATA.qIndex[id]; if (!q) return; const w = state.wrong.find(x => x.qid===id) || {};
+      const rs = (w.reasons||[]).concat(w.reason?[w.reason]:[]).map(r => (REASONS.find(x=>x[0]===r)||[])[1]).filter(Boolean);
+      return aiStartAction("错题分析 · " + stripHtml(q.stem).slice(0, 12), `这是我的错题（已错 ${w.times||1} 次${rs.length?"，我标注的错因："+rs.join("、"):""}${w.note?"，我的备注："+w.note:""}）。请帮我做错题分析：\n1. 这道题考什么、正确思路是什么；\n2. 我最可能错在哪里（结合错因）；\n3. 给出规范解答；\n4. 以后遇到同类题的检查清单；\n5. 推荐我回看哪些知识点。`, { label:"错题", text:qText(q) }); }
+    if (kind==="similar") { const q = DATA.qIndex[id]; if (!q) return;
+      return aiStartAction("同类题 · " + stripHtml(q.stem).slice(0, 12), `请仿照下面这道题，出 3 道考查同一知识点、难度相近但数据或情境不同的练习题。只能出单选题（4 个选项，type 为 "single"）或填空题（type 为 "fill"，答案尽量简短）。务必自己验算答案正确。\n只输出一个 JSON 代码块，格式：\n\`\`\`json\n{"questions":[{"type":"single","stem":"题干（公式用 $...$）","options":["选项A","选项B","选项C","选项D"],"answer":"A","steps":["解析第1步","解析第2步"]}]}\n\`\`\``, { label:"原题", text:qText(q) }, "similar", { qid:id, subject:q.subject }); }
+    if (kind==="grade") { const q = DATA.qIndex[id]; if (!q) return; loadSession(); const a = session && session.answers && session.answers[id]; const txt = a && a.user && (a.user.text||"");
+      if (!txt) { go("/ai/grade?k=sub"); return; }
+      return aiStartAction("AI 批改 · " + stripHtml(q.stem).slice(0, 12), `请按高考评分标准批改我对这道${TYPES[q.type]||"主观"}题的作答，满分 ${q.score||12} 分。给出：预估得分、逐条得分点与扣分原因、规范答案要点、表达上的改进建议。\n${(q.rubric||[]).length?"评分标准："+q.rubric.map(r=>`${r.point||r.item}（${r.score}分）`).join("；")+"\n":""}\n【我的作答】\n${txt}`, { label:"题目", text:qText(q) }, "grade"); }
+    if (kind==="kp") { const k = DATA.kpIndex[id]; if (!k) return;
+      return aiStartAction("知识点 · " + k.title, "请用高三复习的角度讲透这个知识点：核心概念与本质、必须记住的结论和适用条件、高考常见考法（各配一道小例题并给出解答）、最容易错的地方。", { label:"知识点 · "+k.title, text:kpText(k) }); }
+    if (kind==="cl") { const c = DATA.clIndex[id]; if (!c) return;
+      return aiStartAction("结论 · " + c.title, "请帮我真正理解这条二级结论：用直观的方式解释它为什么成立，补充一种不同的推导或验证方法，说明什么情况下不能用，并再出一道用到它的高考风格小题（附解答）。", { label:"二级结论 · "+c.title, text:clText(c) }); }
+    if (kind==="sec") { const x = DATA.secIndex[id]; if (!x) return;
+      return aiStartAction("教材 · " + x.sec.name.split("/")[0], "请按现行教材帮我梳理这一节：本节的核心内容与知识结构、必须掌握的概念/公式/结论、与高考的联系和常见题型、学习建议。只讲本节相关内容，不确定的地方请说明。", { label:"教材 · "+x.sec.name.split("/")[0], text:secText(x) }); }
+    if (kind==="poem") { const p = (DATA.poetry||[]).find(x => x.id===id); if (!p) return;
+      return aiStartAction("默写 · 《" + p.title + "》", "请帮我背诵和理解这篇古诗文：逐句大意、关键字词与易写错的字（列出形近字辨析）、理解性默写常考的句子及对应的提示语、一个好记的记忆方法。", { label:"《"+p.title+"》", text:poemText(p) }); }
+    if (kind==="plan") return aiStartAction("AI 学习计划", "请根据我的学习数据，为我制定接下来 14 天的冲刺计划：\n1. 先用 3~5 条点出当前最该解决的问题；\n2. 用表格列出每天的安排（时间段、科目、具体任务、对应青衿里的功能：刷题/错题重练/结论自测/默写等）；\n3. 每周的检测方式和调整规则；\n4. 针对薄弱知识点的专项建议。", { label:"我的学习数据", text:studyContext() }, "plan");
+  }
+  function aiFabVisible() {
+    const a = current.parts[0] || "";
+    return !(a==="ai" || a==="onboard" || (a==="exam" && current.parts[1]==="run"));
+  }
+
   /* ---------- clocks ---------- */
   let clockTimer;
   function startClock(){
@@ -2983,8 +3780,35 @@
   }
 
   /* ---------- boot ---------- */
+  function aiCopy(text) {
+    const b = window.__AppBridge;
+    if (b && typeof b.copy==="function") { try { b.copy(text); toast("已复制"); return; } catch (e) {} }
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(() => toast("已复制"), () => fallback()); return; }
+    fallback();
+    function fallback() { const ta = document.createElement("textarea"); ta.value = text; ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); toast("已复制"); } catch (e) { toast("复制失败，请长按选择文字"); } ta.remove(); }
+  }
+  function bindGlobalAI() {
+    document.addEventListener("click", e => {
+      const t = e.target.closest("[data-ai]");
+      if (t) { e.preventDefault(); aiAction(t.dataset.ai); return; }
+      if (e.target.closest("#ai-fab")) { AI.pendingCtx = routeContext(); AI.cur = null; aiSave(); go("/ai"); return; }
+      const box = $("#ai-msgs"), chat = box && aiChatById(box.dataset.chat);
+      const cp = e.target.closest("[data-ai-copy]");
+      if (cp && chat) { const m = chat.messages[Number(cp.dataset.aiCopy)]; if (m) aiCopy(m.content); return; }
+      const rg = e.target.closest("[data-ai-regen]");
+      if (rg && chat) { if (aiRun) return toast("正在生成，请先停止"); const i = Number(rg.dataset.aiRegen); if (chat.messages[i] && chat.messages[i].role==="assistant") { (chat.messages[i].qids||[]).forEach(id => { delete DATA.qIndex[id]; }); state.aiQuestions = (state.aiQuestions||[]).filter(q => !(chat.messages[i].qids||[]).includes(q.id)); chat.messages.splice(i, 1); aiSave(); save(); } aiGenerate(chat.id); return; }
+      const wr = e.target.closest("[data-ai-wrong]");
+      if (wr) {
+        const q = DATA.qIndex[wr.dataset.aiWrong]; if (!q) return;
+        if (!state.wrong.some(w => w.qid===q.id && !w.mastered)) { state.wrong.unshift({ id: uid(), qid: q.id, subject: q.subject, reason:"", note:"AI 生成的同类题", time: Date.now(), times:1, mastered:false }); reviewItem(q.id, 1); save(); }
+        wr.disabled = true; wr.textContent = "已在错题本"; toast("已记入错题本");
+      }
+    });
+  }
   async function boot(){
     loadState();
+    aiLoad();
+    bindGlobalAI();
     applyTheme();
     loadSession();
     try { await loadData(); }

@@ -1,5 +1,5 @@
 /* 青衿：缓存站点资源，便于再次打开和弱网使用。 */
-const VER = "qingjin-v15";
+const VER = "qingjin-v16";
 const PRECACHE = [
   "./",
   "./index.html",
@@ -13,7 +13,12 @@ const PRECACHE = [
   "./assets/katex/katex.min.js",
   "./assets/katex/contrib/auto-render.min.js",
   "./assets/katex/contrib/mhchem.min.js",
-  "./data/meta.json"
+  "./data/meta.json",
+  "./data/textbook.json",
+  "./data/conclusions/math.json",
+  "./data/conclusions/physics.json",
+  "./data/conclusions/chemistry.json",
+  "./data/conclusions/biology.json"
 ];
 
 self.addEventListener("install", ev => {
