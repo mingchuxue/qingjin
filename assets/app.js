@@ -1770,7 +1770,7 @@
           <button class="btn btn-primary btn-sm" type="submit">保存目标</button>
         </form>
       </details>
-      <p class="muted" style="font-size:12.5px;margin-top:8px">分数取每科最近一次记录：优先用登记的模考分，也包括站内模拟卷（按满分折算）。未单独设定时，按总目标分按满分比例分到各科。</p>
+      <p class="muted" style="font-size:12.5px;margin-top:8px">分数取每科最近一次记录，来源包括登记的模考分和站内模拟卷（按满分折算）。未单独设定时，按总目标分按满分比例分到各科。</p>
     </div>`;
   }
   function studyHeat() {
