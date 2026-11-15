@@ -882,6 +882,11 @@
       if (!c) { c={name:k.chapter, items:[]}; m.chs.push(c); }
       c.items.push(k);
     });
+    let chIdx = 0;
+    modules.forEach(m => m.chs.forEach(c => { c.idx = chIdx++; }));
+    const qCount = {};
+    subjectQuestions(sid).forEach(q => (q.knowledgeIds||[]).forEach(id => { qCount[id] = (qCount[id]||0) + 1; }));
+    const accText = id => { const m = state.mastery[id]; const n = m ? m.correct + m.wrong : 0; return n ? `正确率 ${Math.round(m.correct/n*100)}%（${n} 次）` : "还没练过"; };
     return `
       <div class="page-head"><div>${crumb([["#/","首页"],["#/knowledge","知识点"],["#/knowledge/"+sid, subjName(sid)]])}
         <h1 class="h1">${subjName(sid)}</h1></div>
@@ -889,17 +894,23 @@
       </div>
       <div class="tree">
         <div class="card tree-nav" id="tree-nav">
-          ${modules.map(m => `<div class="mod">${esc(m.name)}</div>`+ m.chs.map(c => `<a class="ch" href="#ch-${encodeURIComponent(c.name)}">${esc(c.name)} <span class="muted">${c.items.length}</span></a>`).join("")).join("")}
+          ${modules.map(m => `<div class="mod">${esc(m.name)}</div>`+ m.chs.map(c => `<button type="button" class="ch" data-ch="${c.idx}">${esc(c.name)} <span class="muted">${c.items.length}</span></button>`).join("")).join("")}
         </div>
         <div class="kp-list" id="kp-list">
           ${modules.map(m => m.chs.map(c => `
-            <h2 class="h2" id="ch-${esc(c.name)}" style="margin-top:8px">${esc(c.name)}</h2>
+            <h2 class="h2 ch-head" id="kp-ch-${c.idx}" style="margin-top:8px">${esc(c.name)}</h2>
             ${c.items.map(k => `
-              <a class="card card-hover kp-item" data-title="${esc(k.title)}" href="#/knowledge/${sid}/${k.id}">
-                <h3>${esc(k.title)} ${tagFreq(k.freq)}</h3>
-                <p>${esc(k.summary)}</p>
+              <div class="card card-hover kp-item" data-title="${esc(k.title)}">
+                <a class="kp-main" href="#/knowledge/${sid}/${k.id}">
+                  <h3>${esc(k.title)} ${tagFreq(k.freq)}</h3>
+                  <p>${esc(k.summary)}</p>
+                </a>
+                <div class="kp-foot">
+                  <span class="muted">${qCount[k.id]||0} 道题 · ${accText(k.id)}</span>
+                  ${qCount[k.id]?`<a class="btn btn-soft btn-sm" href="#/practice/setup?mode=kp&subject=${sid}&kid=${k.id}">练习</a>`:""}
+                </div>
                 <div class="mastery-bar ${masteryClass(masteryOf(k.id))}"><i style="width:${masteryOf(k.id)*100}%"></i></div>
-              </a>`).join("")}
+              </div>`).join("")}
           `).join("")).join("")}
         </div>
       </div>`;
@@ -2286,10 +2297,23 @@
       state.notes[current.parts[2]] = e.target.value;
       save();
     }, 400));
+    $$("#tree-nav [data-ch]").forEach(b => b.addEventListener("click", () => {
+      const h = document.getElementById("kp-ch-" + b.dataset.ch);
+      if (!h) return;
+      $$("#tree-nav .ch.on").forEach(x => x.classList.remove("on"));
+      b.classList.add("on");
+      const top = h.getBoundingClientRect().top + window.scrollY - ((document.querySelector(".topbar")||{}).offsetHeight||56) - 64;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    }));
     $("#kp-filter")?.addEventListener("input", e => {
       const q = e.target.value.trim();
       $$("#kp-list .kp-item").forEach(a => {
         a.style.display = !q || (a.dataset.title||"").includes(q) ? "" : "none";
+      });
+      $$("#kp-list .ch-head").forEach(h => {
+        let n = h.nextElementSibling, any = false;
+        while (n && !n.classList.contains("ch-head")) { if (n.classList.contains("kp-item") && n.style.display !== "none") any = true; n = n.nextElementSibling; }
+        h.style.display = any ? "" : "none";
       });
     });
   }
@@ -2719,7 +2743,18 @@
     try { await loadData(); }
     catch(e){ console.warn(e); }
     renderShell();
-    window.addEventListener("hashchange", route);
+    window.addEventListener("hashchange", () => {
+      const h = location.hash || "";
+      if (h.length > 1 && h[1] !== "/") {
+        // 页内锚点：滚到对应位置，并把地址恢复为当前页面，避免跳回首页
+        let el = null;
+        try { el = document.getElementById(decodeURIComponent(h.slice(1))); } catch (e) {}
+        if (current && current.path) history.replaceState(null, "", "#" + current.path + (Object.keys(current.query||{}).length ? "?" + new URLSearchParams(current.query).toString() : ""));
+        if (el) { el.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+        if (current && current.path) return;
+      }
+      route();
+    });
     route();
     registerSW();
   }

@@ -922,3 +922,17 @@ hr.sep { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
 .ws-row i b { display: block; height: 100%; background: var(--teal); border-radius: 99px; }
 .ws-row em { font-style: normal; text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
 .ws-row:hover span { color: var(--teal); }
+
+/* 知识点列表：章节目录按钮、题量与练习入口 */
+.tree-nav .ch { width: 100%; text-align: left; background: none; border: 0; font: inherit; cursor: pointer; }
+.kp-item { padding: 0; }
+.kp-item .kp-main { display: block; padding: 16px 18px 6px; color: inherit; text-decoration: none; }
+.kp-item .kp-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 2px 18px 10px; font-size: 12.5px; }
+.kp-item .mastery-bar { margin: 0 18px 14px; }
+.ch-head { scroll-margin-top: calc(var(--top, 56px) + 70px); }
+@media (max-width: 1024px) {
+  .tree-nav { position: sticky; top: var(--top, 56px); z-index: 5; display: flex; gap: 6px; overflow-x: auto; overflow-y: hidden; max-height: none; padding: 8px; scrollbar-width: none; }
+  .tree-nav::-webkit-scrollbar { display: none; }
+  .tree-nav .mod { display: none; }
+  .tree-nav .ch { flex: 0 0 auto; width: auto; white-space: nowrap; padding: 6px 12px; border-radius: 99px; background: var(--bg-2); font-size: 13px; }
+}
