@@ -604,6 +604,11 @@ public class MainActivity extends Activity {
 
     // ---------- bridge ----------
     class Bridge {
+        @JavascriptInterface public void releasePhotoFile(String name) {
+            if(name==null || !name.matches("[0-9a-fA-F-]{36}\\.(jpg|png|webp)")) return;
+            try { PhotoProvider.file(MainActivity.this,new Uri.Builder().scheme("content").authority(getPackageName()+".photos").appendPath(name).build()).delete(); } catch(Exception ignored) {}
+        }
+
         @JavascriptInterface public String info() { return "{\"v\":\"" + BuildConfig.VERSION_NAME + "\"}"; }
 
         @JavascriptInterface public void copy(String text) {
