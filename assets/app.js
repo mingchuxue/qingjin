@@ -341,7 +341,7 @@
     const attempt = attemptId || `practice:${session?.start||Date.now()}:${qid}`;
     const isReview = state.wrong.some(w=>w.qid===qid && !w.mastered);
     if(!correct&&(academy.store.wrongMeta(qid).mastered||state.wrong.some(w=>w.qid===qid&&w.mastered)))academy.store.wrong(qid,{mastered:false});
-    academy.answer({id:attempt,kind:isReview?'review':'answer',review:isReview,qid,correct,subject,seconds:Math.min(1800,Math.max(0,ms||0)/1000),source:'练习'});
+    academy.answer({id:attempt,kind:isReview?'review':'answer',review:isReview,qid,correct,subject,kids:kids||DATA.qIndex[qid]?.knowledgeIds||[],seconds:Math.min(1800,Math.max(0,ms||0)/1000),source:'练习'});
     rebuildStudy();saveState();
   }
   function masteryOf(kid) {
@@ -901,7 +901,7 @@
 
   function todayTasks() {
     const d=todayStr(),C=window.QingjinCore;
-    return academy.store.tasks().filter(t=>t.status!=='skip'&&((t.period==='day'&&t.date===d)||(t.period==='week'&&C.monday(t.date)===C.monday(d)))).map(t=>({id:'ac-'+t.id,title:t.title,done:academy.store.progress(t).done,href:t.kind==='focus'?'#/focus':t.kind==='review'?'#/review':t.kind==='answer'?'#/practice/setup?subject='+t.subject:'#/plan'}));
+    return academy.store.tasks().filter(t=>t.status!=='skip'&&((t.period==='day'&&t.date===d)||(t.period==='week'&&C.monday(t.date)===C.monday(d)))).map(t=>({id:'ac-'+t.id,title:t.title,done:academy.store.progress(t).done,href:t.kind==='focus'?'#/focus':t.kind==='review'?'#/review':t.kind==='answer'?'#/practice/setup?subject='+t.subject+(t.kid?'&mode=kp&kid='+t.kid:''):'#/plan'}));
   }
   function toggleTask(id) {
     const t=academy.store.tasks().find(t=>'ac-'+t.id===id);

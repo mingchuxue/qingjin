@@ -18,9 +18,9 @@ class Store{
  this.storage.setItem(k,JSON.stringify(o));return true;}
  append(type,data,opid){const last=this.ops().reduce((n,o)=>Math.max(n,o.at),0);return this.put({id:opid||id(),type,at:Math.max(this.now(),last+0.001),...data});}
  study(e){const at=e.at??this.now();if(!['answer','review','focus','card'].includes(e.kind))throw Error('未知学习事件');
- return this.put({id:text(e.id,280),type:'study',at,kind:e.kind,qid:text(e.qid,100),subject:text(e.subject,30),correct:e.correct===true,seconds:bounded(e.seconds,0,14400),day:date(at),source:text(e.source,60),review:!!e.review});}
+ return this.put({id:text(e.id,280),type:'study',at,kind:e.kind,qid:text(e.qid,100),subject:text(e.subject,30),correct:e.correct===true,seconds:bounded(e.seconds,0,14400),day:date(at),source:text(e.source,60),review:!!e.review,kids:Array.isArray(e.kids)?e.kids.filter(k=>typeof k==='string').slice(0,20):[]});}
  task(t){if(!t.id||!t.title?.trim()||!/^\d{4}-\d{2}-\d{2}$/.test(t.date))throw Error('请填写任务名称与日期');
- const value={id:text(t.id,100),title:text(t.title.trim(),100),date:t.date,period:t.period==='week'?'week':'day',kind:['answer','review','focus','manual'].includes(t.kind)?t.kind:'manual',subject:text(t.subject||'all',30),target:bounded(t.target,1,600),budget:bounded(t.budget,0,600),status:['open','done','skip','deleted'].includes(t.status)?t.status:'open',order:Number(t.order)||0,created:t.created??this.now()};
+ const value={id:text(t.id,100),title:text(t.title.trim(),100),date:t.date,period:t.period==='week'?'week':'day',kind:['answer','review','focus','manual'].includes(t.kind)?t.kind:'manual',subject:text(t.subject||'all',30),kid:text(t.kid||'',100),target:bounded(t.target,1,600),budget:bounded(t.budget,0,600),status:['open','done','skip','deleted'].includes(t.status)?t.status:'open',order:Number(t.order)||0,created:t.created??this.now()};
  this.append('task',{taskId:value.id,value});return value;}
  tasks(){const m=new Map();for(const o of this.ops())if(o.type==='task'&&o.value?.id)m.set(o.value.id,o.value);return [...m.values()].filter(t=>t.status!=='deleted').sort((a,b)=>a.order-b.order||a.created-b.created);}
  pref(key,value){if(['game','motion','quiet'].includes(key))this.append('pref',{key,value:!!value});}
@@ -29,7 +29,7 @@ class Store{
  wrongMeta(qid){let p={tags:[]};for(const o of this.ops())if(o.type==='wrong'&&o.qid===qid)p={...p,...o.patch};return p;}
  events(){return this.ops().filter(o=>o.type==='study');}
  progress(t){const end=t.period==='week'?shift(monday(t.date),7):shift(t.date,1);const start=t.period==='week'?monday(t.date):t.date;
- const events=this.events().filter(e=>e.day>=start&&e.day<end&&e.at>=t.created&&(t.subject==='all'||t.subject===e.subject));
+ const events=this.events().filter(e=>e.day>=start&&e.day<end&&e.at>=t.created&&(t.subject==='all'||t.subject===e.subject)&&(!t.kid||e.kids?.includes(t.kid)));
  let n=0;if(t.kind==='focus')n=events.filter(e=>e.kind==='focus').reduce((n,e)=>n+e.seconds/60,0);else n=new Set(events.filter(e=>e.kind===t.kind||(t.kind==='review'&&e.review)).map(e=>e.kind==='focus'?e.id:e.day+':'+e.qid)).size;
  return {value:Math.min(t.target,Math.floor(n)),done:t.status!=='skip'&&(t.status==='done'||(t.kind!=='manual'&&n>=t.target)),skipped:t.status==='skip'};}
  ledger(){const events=this.events(),out=[],seen=new Set(),focusTotals=new Map();for(const e of events){let key,points=0,label;
