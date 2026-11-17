@@ -3150,7 +3150,7 @@
   /* ---------- AI 辅助（调用用户自己填写的 OpenAI 兼容接口） ---------- */
   const AI_KEY = "qingjin-ai-v1";
   const AI_PRESETS = [
-    { id:"deepseek", name:"DeepSeek", base:"https://api.deepseek.com/v1", models:["deepseek-chat","deepseek-reasoner"], site:"platform.deepseek.com" },
+    { id:"deepseek", name:"DeepSeek", base:"https://api.deepseek.com", models:["deepseek-flash","deepseek-v4-pro"], site:"platform.deepseek.com" },
     { id:"qwen", name:"通义千问", base:"https://dashscope.aliyuncs.com/compatible-mode/v1", models:["qwen-plus","qwen-turbo","qwen-max"], site:"bailian.console.aliyun.com" },
     { id:"kimi", name:"Kimi", base:"https://api.moonshot.cn/v1", models:["moonshot-v1-8k","moonshot-v1-32k","kimi-latest"], site:"platform.moonshot.cn" },
     { id:"zhipu", name:"智谱", base:"https://open.bigmodel.cn/api/paas/v4", models:["glm-4-flash","glm-4-plus","glm-4-air"], site:"open.bigmodel.cn" },
@@ -3159,7 +3159,7 @@
     { id:"custom", name:"自定义", base:"", models:[], site:"" }
   ];
   const AI_SYS = "你是「青衿」高考冲刺 App 里的学习助手，面向中国高三学生，熟悉人教版（数学人教A版）与统编版现行高中教材和新高考题型。要求：用简体中文回答；优先给启发式提示；学生要求详解后再分步骤讲清楚；AI出题、批改分数只是参考，不得称作真题或官方标准答案；数学、物理、化学公式一律用 LaTeX，行内用 $...$，独立公式用 $$...$$；化学式可写成 $\\mathrm{H_2O}$ 形式；适当使用 Markdown 小标题、列表和表格；不确定的内容要明确说明，不编造教材内容或数据。";
-  let AI = { cfg: { preset:"deepseek", baseUrl:"https://api.deepseek.com/v1", apiKey:"", model:"deepseek-chat", temperature:0.7, timeout:60 }, chats: [], cur: null };
+  let AI = { cfg: { preset:"deepseek", baseUrl:"https://api.deepseek.com", apiKey:"", model:"deepseek-flash", temperature:0.7, timeout:60 }, chats: [], cur: null };
   function aiLoad() {
     try { const raw = localStorage.getItem(AI_KEY); if (raw) { const s = JSON.parse(raw); AI = { cfg: Object.assign({}, AI.cfg, s.cfg||{}), chats: Array.isArray(s.chats) ? s.chats : [], cur: s.cur||null }; } } catch (e) { console.warn("ai load", e); }
   }
@@ -3169,7 +3169,13 @@
     catch (e) { AI.chats = AI.chats.slice(0, 10); try { localStorage.setItem(AI_KEY, JSON.stringify(AI)); } catch (e2) { toast("本地存储已满，请删除一些 AI 对话"); } }
   }
   const aiReady = () => !!(AI.cfg.baseUrl && AI.cfg.apiKey && AI.cfg.model);
-  const aiEndpoint = () => AI.cfg.baseUrl.trim().replace(/\/+$/, "").replace(/\/chat\/completions$/, "") + "/chat/completions";
+  function aiEndpoint() {
+    let u;try{u=new URL(AI.cfg.baseUrl.trim());}catch{throw new AIError('Base URL 格式不正确，请填写完整 http(s) 接口地址。','config');}
+    if(!['https:','http:'].includes(u.protocol)||u.username||u.password)throw new AIError('Base URL 只支持不含账号密码的 http(s) 地址。','config');
+    const path=u.pathname.replace(/\/+$/,'');
+    if(/\/(anthropic|messages|responses)$/.test(path))throw new AIError('当前支持 OpenAI Chat Completions 格式，请填写其 Base URL，不能使用 Anthropic Messages 或 Responses 地址。','config');
+    u.pathname=path.endsWith('/chat/completions')?path:path+'/chat/completions';u.hash='';return u.href;
+  }
   function aiPresetName() { const p = AI_PRESETS.find(x => x.id===AI.cfg.preset); return p ? p.name : "自定义"; }
 
   const aiRedact = t => AI.cfg.apiKey ? String(t).split(AI.cfg.apiKey).join("[Key 已隐藏]") : String(t);
@@ -3180,9 +3186,9 @@
     detail = detail ? `（服务商返回：${aiRedact(String(detail)).slice(0,160)}）` : "";
     if (status===401 || status===403) return new AIError(`API Key 无效或没有权限（${status}）。请到「设置 → AI 辅助」检查 Key 是否完整、是否属于当前服务商。${detail}`, "auth");
     if (status===402) return new AIError(`账户余额不足（402），请到服务商控制台充值。${detail}`, "quota");
-    if (status===404) return new AIError(`接口地址或模型名称不对（404）。请确认 Base URL（一般以 /v1 结尾）和模型名填写正确。${detail}`, "notfound");
+    if (status===404) return new AIError(`接口地址或模型名称不对（404）。请按服务商文档核对 Base URL 和精确 model ID；DeepSeek 官方 V4.1 Flash 使用 deepseek-flash。${detail}`, "notfound");
     if (status===429) return new AIError(`请求太频繁或额度已用完（429），请稍后再试或检查账户余额。${detail}`, "quota");
-    if (status===400) return new AIError(`请求被拒绝（400），可能是模型名称不对或内容太长。${detail}`, "bad");
+    if (status===400 || status===422) return new AIError(`请求参数被拒绝（${status}），请核对模型 ID、接口格式、上下文长度和服务商返回的具体字段。${detail}`, "bad");
     if (status>=500) return new AIError(`服务商暂时出错（${status}），请稍后再试。${detail}`, "server");
     return new AIError(`请求失败（${status}）。${detail}`, "error");
   }
@@ -3199,9 +3205,9 @@
         const fin = (fn, v) => { if (done) return; done = true; delete HTTP_CB[id]; fn(v); };
         HTTP_CB[id] = (type, data) => {
           if (type==="status") status = Number(data)||0;
-          else if (type==="data") { if (status>=400) errBody += data; else onChunk(data); }
+          else if (type==="data") { if (status>=400) errBody += data; else { try{onChunk(data);}catch(e){fin(reject,e);try{nb.httpAbort(id);}catch{}} } }
           else if (type==="end") { status>=400 ? fin(reject, aiHttpError(status, errBody)) : fin(resolve, status); }
-          else if (type==="error") fin(reject, new AIError(AI_NET_MSG + (data?`（${data}）`:""), "network"));
+          else if (type==="error") fin(reject, /Timeout/i.test(String(data)) ? new AIError('原生网络连接或读取超时；这不是 Key 错误，请稍后重试。','timeout') : new AIError(AI_NET_MSG + (data?`（${data}）`:""), "network"));
         };
         signal.addEventListener("abort", () => { try { nb.httpAbort(id); } catch (e) {} fin(reject, new DOMException("aborted", "AbortError")); });
         try { nb.httpStream(id, url, "POST", JSON.stringify(headers), body); }
@@ -3222,10 +3228,10 @@
     const ctrl = new AbortController(); let timedOut = false, timer;
     const kick = () => { clearTimeout(timer); timer = setTimeout(() => { timedOut = true; ctrl.abort(); }, (Number(AI.cfg.timeout)||60)*1000); };
     if (signal) { if (signal.aborted) ctrl.abort(); signal.addEventListener("abort", () => ctrl.abort()); }
-    const payload = { model: AI.cfg.model.trim(), messages, stream, temperature: temperature ?? (Number(AI.cfg.temperature) || 0.7) };
+    const payload = { model: AI.cfg.model.trim(), messages, stream, temperature: temperature ?? (Number.isFinite(Number(AI.cfg.temperature)) ? clamp(Number(AI.cfg.temperature),0,2) : 0.7) };
     if (maxTokens) payload.max_tokens = maxTokens;
     const headers = { "Content-Type":"application/json", "Authorization":"Bearer " + AI.cfg.apiKey.trim(), "Accept": stream ? "text/event-stream" : "application/json" };
-    let buf = "", raw = "", text = "", sse = false, reasoning = "";
+    let buf = "", raw = "", text = "", sse = false, reasoning = "", finishReason = null;
     const feed = chunk => {
       kick(); raw += chunk; buf += chunk;
       let nl;
@@ -3238,6 +3244,7 @@
         let j; try { j = JSON.parse(d); } catch (e) { continue; }
         if (j.error) throw new AIError("服务商返回错误：" + (j.error.message || JSON.stringify(j.error)).slice(0,200), "server");
         const ch = j.choices && j.choices[0];
+        if(ch?.finish_reason)finishReason=ch.finish_reason;
         const piece = ch && ((ch.delta && ch.delta.content) || (ch.message && ch.message.content) || ch.text) || "";
         const rs = ch && ch.delta && ch.delta.reasoning_content || "";
         if (rs) reasoning += rs;
@@ -3259,10 +3266,10 @@
     }
     clearTimeout(timer);
     if (!sse) {
-      try { const j = JSON.parse(raw); if (j.error) throw new AIError("服务商返回错误：" + (j.error.message||"").slice(0,200), "server"); text = (j.choices && j.choices[0] && (j.choices[0].message?.content || j.choices[0].text)) || ""; onDelta && onDelta(text); }
-      catch (e) { if (e instanceof AIError) throw e; throw new AIError("返回内容无法识别，请确认 Base URL 指向 OpenAI 兼容接口（…/v1）。", "format"); }
+      try { const j = JSON.parse(raw); if (j.error) throw new AIError("服务商返回错误：" + (j.error.message||"").slice(0,200), "server"); const choice=j.choices?.[0];finishReason=choice?.finish_reason||null;reasoning=choice?.message?.reasoning_content||"";text = choice?.message?.content || choice?.text || ""; onDelta && onDelta(text); }
+      catch (e) { if (e instanceof AIError) throw e; throw new AIError("返回内容无法识别，请确认 Base URL 指向 OpenAI Chat Completions 接口。", "format"); }
     }
-    if (!text && reasoning) text = reasoning;
+    if(!text && (finishReason==='length'||reasoning))throw new AIError(finishReason==='length'?'接口已响应，但输出达到 token 上限，尚无最终答案；不能据此判断 API 未接通。请用正常对话确认或调整服务商的输出/思考预算。':'接口已响应，但只返回思考内容，没有最终答案。请重试或核对模型的思考/输出设置。','incomplete');
     if (!text) throw new AIError("AI 没有返回内容，请重试或换个模型。", "empty");
     return text;
   }
@@ -3586,10 +3593,12 @@
       <h2>AI 辅助</h2>
       <p class="muted">使用你自己的 OpenAI 兼容接口。App 其余功能完全离线；只有点「问AI」时才会把问题发给你填写的服务商。API Key 只保存在本机，不随「导出 JSON」导出。</p>
       <div class="chip-row ai-presets" id="ai-presets">${AI_PRESETS.map(p=>`<button type="button" class="chip ${p.id===cfg.preset?"on":""}" data-preset="${p.id}">${esc(p.name)}</button>`).join("")}</div>
-      ${row("Base URL", `<input class="field" id="ai-base" type="text" inputmode="url" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${esc(cfg.baseUrl)}" placeholder="https://…/v1">`, "ai-base")}
+      ${row("Base URL", `<input class="field" id="ai-base" type="text" inputmode="url" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${esc(cfg.baseUrl)}" placeholder="https://api.example.com">`, "ai-base")}
       ${row("API Key", `<div class="key-wrap"><input class="field key-mask" id="ai-key" name="qj-ai-token" type="text" inputmode="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other" value="${esc(cfg.apiKey)}" placeholder="sk-…（可直接粘贴）"><button type="button" class="icon-btn key-eye" id="ai-eye" aria-label="显示 Key" aria-pressed="false">${ic("eye",18)}</button></div>`, "ai-key")}
       ${row("模型", `<input class="field" id="ai-model" type="text" list="ai-models" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${esc(cfg.model)}"><datalist id="ai-models">${models.map(m=>`<option value="${esc(m)}">`).join("")}</datalist>
         <div class="chip-row ai-model-chips">${(pr.models||[]).map(m=>`<button type="button" class="chip ${m===cfg.model?"on":""}" data-model="${esc(m)}">${esc(m)}</button>`).join("")}</div>`, "ai-model")}
+      <p class="muted">模型栏可填写任意服务商支持的精确 model ID，不限于上方建议。DeepSeek 官方 V4.1 Flash：Base URL=https://api.deepseek.com，model=deepseek-flash；第三方需使用自己的地址、Key 和 ID，不能只填显示名。</p>
+      ${['deepseek-chat','deepseek-reasoner'].includes(cfg.model)&&/^https:\/\/api\.deepseek\.com(?:\/|$)/i.test(cfg.baseUrl)?'<p class="ac-warning">当前保存的是旧版官方模型名。DeepSeek 已公告旧名于2026-07-24停用；请核对后改为 deepseek-flash。为保护自定义配置，此处不会自动改写已保存的模型或Key。</p>':''}
       ${row("温度", `<input class="field" id="ai-temp" type="number" min="0" max="2" step="0.1" value="${esc(cfg.temperature)}">`, "ai-temp")}
       ${row("超时（秒）", `<input class="field" id="ai-timeout" type="number" min="10" max="300" step="5" value="${esc(cfg.timeout)}">`, "ai-timeout")}
       ${pr.site?`<p class="muted ai-site">在 ${esc(pr.site)} 注册并创建 API Key，复制后粘贴到上面。</p>`:""}
@@ -3605,7 +3614,7 @@
   function aiReadForm() {
     const v = id => ($("#"+id)?.value ?? "").trim();
     AI.cfg.baseUrl = v("ai-base"); AI.cfg.apiKey = v("ai-key").replace(/\s+/g, ""); AI.cfg.model = v("ai-model");
-    AI.cfg.temperature = clamp(Number(v("ai-temp"))||0.7, 0, 2); AI.cfg.timeout = clamp(Number(v("ai-timeout"))||60, 10, 300);
+    AI.cfg.temperature = v("ai-temp")==="" ? 0.7 : clamp(Number(v("ai-temp")), 0, 2); AI.cfg.timeout = clamp(Number(v("ai-timeout"))||60, 10, 300);
   }
   function bindAISettings() {
     if (!$("#ai-settings")) return;
@@ -3632,9 +3641,9 @@
       btn.disabled = true; out.className = "ai-test-res"; out.textContent = "正在连接…";
       const t0 = Date.now();
       try {
-        const txt = await aiChat([{ role:"user", content:"请只回复两个字：连通" }], { stream:false, maxTokens:16, temperature:0 });
+        const txt = await aiChat([{ role:"user", content:"请只回复两个字：连通" }], { stream:false, maxTokens:256, temperature:0 });
         out.className = "ai-test-res ok"; out.textContent = `连接成功（${Date.now()-t0} ms），模型回复：${txt.trim().slice(0,40)}`;
-      } catch (e) { out.className = "ai-test-res bad"; out.textContent = "连接失败：" + (e.message||e); }
+      } catch (e) { out.className = "ai-test-res bad"; out.textContent = (e.kind==="incomplete"?"测试未完成：":"连接失败：") + (e.message||e); }
       btn.disabled = false;
     });
   }
