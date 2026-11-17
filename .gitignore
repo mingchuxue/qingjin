@@ -6,3 +6,9 @@ __pycache__/
 vendor/
 node_modules/
 *.log
+android/.gradle/
+android/**/build/
+android/local.properties
+android/qingjin/siteAssets/
+*.keystore
+*.jks

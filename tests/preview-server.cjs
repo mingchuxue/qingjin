@@ -5,13 +5,17 @@ const server=http.createServer((req,res)=>{
  const url=new URL(req.url,'http://localhost');
  if(req.method==='OPTIONS'){res.writeHead(204,{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'Content-Type, Authorization','Access-Control-Allow-Methods':'POST, OPTIONS'});res.end();return;}
  if(req.method==='POST'&&url.pathname==='/mock/v1/chat/completions'){
-  let raw='';req.on('data',b=>{raw+=b;if(raw.length>200000)req.destroy()});req.on('end',()=>{
+  let raw='',tooLarge=false;req.on('data',b=>{if(tooLarge)return;raw+=b;if(raw.length>3*1024*1024){tooLarge=true;res.writeHead(413,{'Access-Control-Allow-Origin':'*'});res.end('{"error":{"message":"mock image too large"}}');raw='';}});req.on('end',()=>{if(tooLarge)return;
    res.setHeader('Access-Control-Allow-Origin','*');
    if(req.headers.authorization!=='Bearer sk-qingjin-mock'){res.writeHead(401,{'Content-Type':'application/json'});res.end(JSON.stringify({error:{message:'mock: Key invalid'}}));return;}
    let q;try{q=JSON.parse(raw)}catch{res.writeHead(400);res.end('{}');return;}
    if(q.model==='server-error'){res.writeHead(503);res.end('{"error":{"message":"mock temporary failure"}}');return;}
-   const prompt=(q.messages||[]).at(-1)?.content||'',subject=(q.messages||[]).map(m=>m.content).join('\n');
-   let answer=q.model==='broken'?'{"questions":[{"stem":"结构异常测试"}]}':prompt.includes('仿照')?JSON.stringify({questions:[{type:'single',stem:'若集合 A={1,2}，它的子集共有多少个？',options:['1','2','3','4'],answer:'D',analysis:'每个元素有选或不选两种状态，2×2=4。请自行核对。'},{type:'fill',stem:'计算 2+3。',answer:'5',analysis:'基础加法得 5。这是模拟服务示例，不代表真实模型能力。'}]}):prompt.includes('完整详解')?'## 完整解析（模拟）\n先列条件，再用定义与公式推导。以二元集合为例，每个元素可选或不选，所以共有 $2^2=4$ 个子集。请用原题核对过程，模型示例不保证适用于任何问题。':'## 给你一点提示（模拟）\n1. 先圈出题目条件和所求量。\n2. 回想对应定义，检查适用范围。\n\n你能先写出第一步吗？需要时再点「继续完整讲解」。';
+   if(q.model==='too-large'||q.model==='bad-params'){res.writeHead(q.model==='too-large'?413:422,{'Content-Type':'application/json'});res.end('{"error":{"message":"mock rejected"}}');return;}
+   const parts=(q.messages||[]).find(m=>Array.isArray(m.content))?.content;
+   const prompt=String((q.messages||[]).at(-1)?.content||'');
+   let answer=q.model==='broken'?'{"questions":[{"stem":"结构异常测试"}]}':(prompt.includes('仿照')||prompt.includes('只输出JSON'))?JSON.stringify({questions:[{type:'single',stem:'若集合 A={1,2}，它的子集共有多少个？',options:['1','2','3','4'],answer:'D',analysis:'每个元素有选或不选两种状态，2×2=4。请自行核对。'},{type:'fill',stem:'计算 2+3。',answer:'5',analysis:'基础加法得 5。这是模拟服务示例，不代表真实模型能力。'}]}):prompt.includes('完整详解')?'## 完整解析（模拟）\n先列条件，再用定义与公式推导。以二元集合为例，每个元素可选或不选，所以共有 $2^2=4$ 个子集。请用原题核对过程，模型示例不保证适用于任何问题。':'## 给你一点提示（模拟）\n1. 先圈出题目条件和所求量。\n2. 回想对应定义，检查适用范围。\n\n你能先写出第一步吗？需要时再点「继续完整讲解」。';
+   if(parts){if(!parts.some(p=>p.type==='image_url'&&p.image_url?.url?.startsWith('data:image/jpeg;base64,'))){res.writeHead(422);res.end('{}');return;}answer='【模拟识题，非真实OCR】已知 $2x+1=5$，求 $x$。\n手写和图形条件请自行核对。';}
+   else if(prompt.includes('请分步解题')||prompt.includes('核对学生作答'))answer='## 模拟解题 · 非真实模型\n对示例 $2x+1=5$：两边减1得 $2x=4$，再除2得 $x=2$。代回 $2×2+1=5$。仅为闭环验收示例，不代表上传图片的真实内容。';
    if(q.model==='xss')answer=JSON.stringify({questions:[{type:'fill',stem:'<img src=x onerror="alert(1)"> 计算 1+1',answer:'2',analysis:'<script>alert(1)</script>这里只应显示文字，不执行。'}]});
    if(!q.stream){res.writeHead(200,{'Content-Type':'application/json'});res.end(JSON.stringify({choices:[{message:{content:answer}}]}));return;}
    res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache'});
@@ -25,4 +29,4 @@ const server=http.createServer((req,res)=>{
  if(!file.startsWith(ROOT+path.sep)){res.writeHead(403);res.end();return;}
  fs.readFile(file,(err,b)=>{if(err){res.writeHead(404);res.end('Not found');return;}const types={'.html':'text/html;charset=utf-8','.js':'application/javascript;charset=utf-8','.css':'text/css;charset=utf-8','.json':'application/json;charset=utf-8','.svg':'image/svg+xml','.woff2':'font/woff2','.webmanifest':'application/manifest+json'};res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-cache'});res.end(req.method==='HEAD'?undefined:b)});
 });
-server.listen(port,'0.0.0.0',()=>console.log(`青衿 1.4 本地预览 http://127.0.0.1:${port}/ ; mock ${port}/mock/v1，Key: sk-qingjin-mock（仅模拟）`));
+server.listen(port,'0.0.0.0',()=>console.log(`青衿 1.4.1 本地预览 http://127.0.0.1:${port}/ ; mock ${port}/mock/v1，Key: sk-qingjin-mock（仅模拟）`));

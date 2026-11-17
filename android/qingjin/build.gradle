@@ -1,0 +1,43 @@
+plugins { id 'com.android.application' }
+
+def ksProps = new Properties()
+def ksFile = file('/workspace/android-keystore/keystore.properties')
+if (ksFile.exists()) ksFile.withInputStream { ksProps.load(it) }
+
+android {
+    namespace 'com.mingchuxue.webshell'
+    compileSdk 36
+    defaultConfig {
+        applicationId 'com.mingchuxue.qingjin'
+        minSdk 24
+        targetSdk 36
+        versionCode 10
+        versionName '1.4.1'
+        buildConfigField 'String', 'LIVE_PREFIX', '""'
+        buildConfigField 'String', 'THEME_COLOR', '"#f5f2ea"'
+        buildConfigField 'String', 'ICON_COLOR', '"#1E5C52"'
+        buildConfigField 'boolean', 'ESC_BACK', 'true'
+    }
+    signingConfigs {
+        release {
+            storeFile file(ksProps['storeFile'])
+            storePassword ksProps['storePassword']
+            keyAlias ksProps['keyAlias']
+            keyPassword ksProps['keyPassword']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), '../proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    buildFeatures { buildConfig true }
+    sourceSets { main { java.srcDirs = ['java']; manifest.srcFile 'AndroidManifest.xml'; res.srcDirs = ['res']; assets.srcDirs = ['siteAssets'] } }
+    androidResources { ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~' ; noCompress 'woff2', 'png', 'jpg', 'webp' }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    dependenciesInfo { includeInApk false; includeInBundle false }
+    lint { checkReleaseBuilds false; abortOnError false }
+}

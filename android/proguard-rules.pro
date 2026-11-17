@@ -1,0 +1,3 @@
+-keepclassmembers class com.mingchuxue.webshell.MainActivity$Bridge { @android.webkit.JavascriptInterface <methods>; }
+-keepattributes JavascriptInterface
+-renamesourcefileattribute SourceFile

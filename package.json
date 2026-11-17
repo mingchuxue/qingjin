@@ -1,1 +1,13 @@
-{"name":"qingjin","version":"1.4.0","private":true,"description":"青衿离线学习站的模型与 DOM 验证","scripts":{"test":"node --test tests/*.test.cjs"},"devDependencies":{"jsdom":"^26.1.0"}}
+{
+  "name": "qingjin",
+  "version": "1.4.1",
+  "private": true,
+  "description": "青衿离线学习站的模型与 DOM 验证",
+  "scripts": {
+    "test": "node --test tests/*.test.cjs"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "^1.1.1",
+    "jsdom": "^26.1.0"
+  }
+}
