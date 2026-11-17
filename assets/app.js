@@ -30,7 +30,18 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({
     "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"
   }[c]));
-  const trusted = (s) => String(s ?? ""); // content we author; may contain KaTeX and <br>
+  const trusted = (s) => {
+    // 先保护公式比较号，避免 a<b 被 HTML 解析器吞掉；历史备份也不能注入脚本或事件属性。
+    const html=String(s??"").replace(/\$\$[\s\S]+?\$\$|\$[^$]+?\$/g,m=>m.replace(/</g,"\\lt ").replace(/>/g,"\\gt "));
+    if(!/[<>]/.test(html))return html;
+    const t=document.createElement('template');t.innerHTML=html;
+    const allowed=new Set(['BR','B','STRONG','EM','I','U','P','DIV','SPAN','UL','OL','LI','SUB','SUP','TABLE','THEAD','TBODY','TR','TH','TD','BLOCKQUOTE','CODE','PRE']);
+    for(const el of [...t.content.querySelectorAll('*')]){
+      if(!allowed.has(el.tagName))el.replaceWith(document.createTextNode(el.textContent||''));
+      else for(const attr of [...el.attributes])el.removeAttribute(attr.name);
+    }
+    return t.innerHTML;
+  };
   const pad = (n, w=2) => String(n).padStart(w, "0");
   const todayStr = (d=new Date()) => {
     return window.QingjinCore.date(d.getTime());
@@ -200,6 +211,7 @@
     if (!src || typeof src !== "object" || Array.isArray(src) || !src.profile) throw new Error("文件格式无法识别");
     for(const k of ['wrong','practiceLog','examLog','mockScores','aiQuestions'])if(src[k]!==undefined&&!Array.isArray(src[k]))throw new Error('学习记录格式不正确');
     for(const k of ['profile','favorites','mastery','plan','settings','sm2'])if(src[k]!==undefined&&(!src[k]||typeof src[k]!=='object'||Array.isArray(src[k])))throw new Error('学习设置格式不正确');
+    if(src.aiQuestions)for(const q of src.aiQuestions)if(!q||!/^ai-[A-Za-z0-9-]+$/.test(q.id)||!SUBJECT_IDS.includes(q.subject)||typeof q.stem!=='string'||typeof q.answer!=='string')throw new Error('自建题目格式不正确');
     const forbid=(o)=>{if(!o||typeof o!=='object')return;for(const k of Object.keys(o)){if(['__proto__','constructor','prototype'].includes(k))throw new Error('备份含不安全字段');forbid(o[k]);}};forbid(obj);
     if (obj.academy && (!Array.isArray(obj.academy.ops)||!obj.academy.ops.every(window.QingjinCore.validOp))) throw new Error("成长记录格式有误，未覆盖原数据");
     // 导入前保存可恢复快照，保留 API Key 所在的独立空间。
