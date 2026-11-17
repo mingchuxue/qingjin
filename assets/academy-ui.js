@@ -50,5 +50,5 @@ function bind(){editing=null;applyPrefs();updateMini();
 }
 function answer(e){const before=store.stats().points;const added=safe(()=>store.study(e));if(added&&store.prefs().game){const gain=store.stats().points-before;if(gain>0)H.toast(`青衿书院 +${gain} 经验 · 真实学习已记账`);}return added;}
 function miniStats(){const s=store.stats();return `<section class="ac-insight card card-pad"><div><div class="ac-eyebrow">从 1.4 起 · 真实事件口径</div><h2 class="h2">今天，把一点时间交给成长</h2><p>今日有效练习 ${s.todayAnswers} 次 / ${s.uniqueToday} 道不同题 · 已记录前台专注 ${s.todayMinutes} 分钟</p><p class="muted">累计正确 ${s.correct} / ${s.answers} 次可判定提交（含自评，非真题成绩）；后台挂机、浏览时长和休息不算专注。旧版成绩仍在下方。</p></div><div class="ac-actions"><a class="btn btn-primary" href="#/plan">今日计划</a><a class="btn btn-ghost" href="#/garden">成长书院 →</a></div></section>`;}
-return {store,focus,init,bind,plan,garden,focusPage,answer,miniStats};
+return {store,focus,init,bind,plan,garden,focusPage,answer,miniStats,pause};
 }};

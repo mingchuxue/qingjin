@@ -72,6 +72,7 @@ function parseQuestions(raw,subject,allowedSubjects){let s=String(raw).trim();s=
 // 三方合并：仅提交当前标签页相对读取基线的变化，保留其它标签页的独立记录。
 function mergeState(base,local,remote,key='') {
  const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+ if(key==='studyBaseline')return remote||local;
  if(equal(local,base))return remote;
  if(equal(remote,base))return local;
  if(Array.isArray(local)&&Array.isArray(remote)){

@@ -324,7 +324,9 @@
     "knowledgeIds": [
       "m-16"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "已知 $\\sin\\theta=\\dfrac{3}{5}$，且 $\\theta$ 为第二象限角，则 $\\cos\\theta=$",
     "answer": "C",
     "steps": [
@@ -385,7 +387,9 @@
     "knowledgeIds": [
       "m-19"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "在 $\\triangle ABC$ 中，$a=2$，$b=3$，$C=60^\\circ$，则 $c=\\underline{\\qquad}$。",
     "answer": "$\\sqrt{7}$",
     "steps": [
@@ -413,7 +417,9 @@
     "knowledgeIds": [
       "m-19"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "在 $\\triangle ABC$ 中，$a=2$，$b=3$，$C=60^\\circ$，则三角形的面积是 $\\underline{\\qquad}$。",
     "answer": "$\\dfrac{3\\sqrt{3}}{2}$",
     "steps": [
@@ -500,7 +506,9 @@
     "knowledgeIds": [
       "m-22"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "复数 $z=(1+i)(2-i)$ 的虚部是",
     "answer": "B",
     "steps": [
@@ -594,7 +602,9 @@
       "m-33",
       "m-38"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "椭圆 $\\dfrac{x^2}{25}+\\dfrac{y^2}{16}=1$ 的离心率是 $\\underline{\\qquad}$。",
     "answer": "$\\dfrac{3}{5}$",
     "steps": [
@@ -677,7 +687,9 @@
     "knowledgeIds": [
       "m-34"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "双曲线 $\\dfrac{x^2}{9}-\\dfrac{y^2}{16}=1$ 的离心率是",
     "answer": "C",
     "steps": [
@@ -706,7 +718,9 @@
     "knowledgeIds": [
       "m-35"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "抛物线 $y^2=8x$ 的焦点坐标是 $\\underline{\\qquad}$。",
     "answer": "$(2,0)$",
     "steps": [
@@ -827,7 +841,9 @@
     "knowledgeIds": [
       "m-44"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "设 $f(x)=xe^{x}$，则 $f'(x)=\\underline{\\qquad}$。",
     "answer": "$(x+1)e^{x}$",
     "steps": [
@@ -956,7 +972,9 @@
     "knowledgeIds": [
       "m-53"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "$(1+x)^6$ 的展开式中 $x^4$ 的系数是 $\\underline{\\qquad}$。",
     "answer": "15",
     "steps": [
@@ -1012,7 +1030,9 @@
       "m-55",
       "m-54"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-20"
+    ],
     "stem": "将一枚均匀硬币独立抛掷 $4$ 次，恰有 $2$ 次正面向上的概率是",
     "answer": "B",
     "steps": [
@@ -1042,7 +1062,9 @@
       "m-29",
       "m-28"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-20"
+    ],
     "stem": "袋中有 $3$ 个红球、$2$ 个黑球，从中不放回地任取 $2$ 个，则两个都是红球的概率是 $\\underline{\\qquad}$。",
     "answer": "$\\dfrac{3}{10}$",
     "steps": [
@@ -1267,8 +1289,10 @@
     "knowledgeIds": [
       "m-50"
     ],
-    "methodIds": [],
-    "stem": "$\\displaystyle\\int_0^{\\pi}\\sin x\\\\,dx=\\underline{\\qquad}$。",
+    "methodIds": [
+      "m-mtd-19"
+    ],
+    "stem": "$\\displaystyle\\int_0^{\\pi}\\sin x\\,dx=\\underline{\\qquad}$。",
     "answer": "2",
     "steps": [
       "原函数为 $-\\cos x$，故 $\\bigl[-\\cos x\\bigr]_0^{\\pi}=-\\cos\\pi-(-\\cos 0)=-(-1)-(-1)=1+1=2$。"
@@ -1279,7 +1303,7 @@
       "pitfalls": "把 $-\\cos\\pi$ 算成 $-1$，得到 $0$；或上下限颠倒。",
       "variant": "$\\int_0^{\\pi}\\cos x\\\\,dx=0$。"
     },
-    "source": "精编练习",
+    "source": "精编拓展练习（定积分，非现行必修范围）",
     "score": 5
   },
   {
@@ -1338,7 +1362,9 @@
     "knowledgeIds": [
       "m-56"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-20"
+    ],
     "stem": "若随机变量 $X\\sim N(\\mu,\\sigma^2)$，$P(X<\\mu)=$",
     "answer": "B",
     "steps": [
@@ -1457,7 +1483,9 @@
     "knowledgeIds": [
       "m-58"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "某 $2\\times 2$ 列联表中 $a=30$，$b=20$，$c=20$，$d=30$，样本容量 $n=100$。则 $K^2=\\underline{\\qquad}$。",
     "answer": "4",
     "steps": [
@@ -1488,7 +1516,9 @@
     "knowledgeIds": [
       "m-22"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "复数 $z=3-4i$ 的模是",
     "answer": "C",
     "steps": [
@@ -1655,7 +1685,9 @@
       "m-52",
       "m-55"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-20"
+    ],
     "stem": "一批产品共 $10$ 件，其中 $3$ 件次品。不放回抽 $2$ 件，抽到次品件数 $X$ 的期望 $E(X)=\\underline{\\qquad}$。",
     "answer": "$\\dfrac{3}{5}$",
     "steps": [
@@ -1688,7 +1720,9 @@
       "m-12",
       "m-13"
     ],
-    "methodIds": [],
+    "methodIds": [
+      "m-mtd-19"
+    ],
     "stem": "$\\log_2 8+\\log_3 9=$",
     "answer": "C",
     "steps": [

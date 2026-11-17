@@ -37,7 +37,7 @@
   };
   const fmtDate = (ts) => {
     const d = new Date(ts);
-    return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+    return window.QingjinCore.date(d.getTime());
   };
   const uid = () => "id" + Math.random().toString(36).slice(2,10) + Date.now().toString(36);
   const clamp = (x,a,b) => Math.max(a, Math.min(b,x));
@@ -121,11 +121,43 @@
     };
   }
 
+  function normalizedState(s) {
+    const d=defaultState(),o=Object.assign(d,s||{});
+    for(const k of ['profile','favorites','settings','plan','pomodoro']) o[k]=Object.assign(defaultState()[k],s?.[k]||{});
+    return o;
+  }
   let state = defaultState();
   let academy;
   let savedBaseline = defaultState();
+  function ensureStudyBaseline(){
+    if(!state.studyBaseline)state.studyBaseline=JSON.parse(JSON.stringify({mastery:state.mastery||{},sm2:state.sm2||{},wrong:state.wrong||[]}));
+  }
+  function rebuildStudy(){
+    if(!academy||!DATA.ready)return;
+    ensureStudyBaseline();
+    const base=state.studyBaseline, mastery=JSON.parse(JSON.stringify(base.mastery||{})),cards=JSON.parse(JSON.stringify(base.sm2||{}));
+    const wrong=new Map((state.wrong||[]).map(w=>[w.qid,{...w}])),oldWrong=new Map((base.wrong||[]).map(w=>[w.qid,w]));
+    const failures={};
+    for(const e of academy.store.events()){
+      if(!['answer','review'].includes(e.kind))continue;
+      const q=DATA.qIndex[e.qid];if(!q)continue;
+      for(const kid of q.knowledgeIds||[]){const m=mastery[kid]||{correct:0,wrong:0,last:0,time:0};m[e.correct?'correct':'wrong']++;m.last=Math.max(m.last||0,e.at);m.time=(m.time||0)+e.seconds*1000;mastery[kid]=m;}
+      if(!e.correct){failures[e.qid]=(failures[e.qid]||0)+1;const w=wrong.get(e.qid)||{id:'event-wrong-'+e.qid,qid:e.qid,subject:q.subject,reason:'',note:'',time:e.at,mastered:false};w.times=(oldWrong.get(e.qid)?.times||0)+failures[e.qid];w.last=e.at;wrong.set(e.qid,w);}
+      if(!e.correct||cards[e.qid]||wrong.has(e.qid)){
+        const prev=cards[e.qid]||{},quality=e.correct?4:1;let ef=prev.ef??2.5,reps=prev.reps??0,interval=1;
+        if(quality>=3){interval=reps===0?1:reps===1?6:Math.max(1,Math.round((prev.interval||1)*ef));reps++;}else reps=0;
+        ef=Math.max(1.3,ef+(.1-(5-quality)*(.08+(5-quality)*.02)));
+        cards[e.qid]={ef,reps,interval,due:Date.parse(window.QingjinCore.shift(window.QingjinCore.date(e.at),interval)+'T00:00:00+08:00'),last:e.at,quality};
+      }
+    }
+    for(const [id,w]of wrong){const meta=academy.store.wrongMeta(id);Object.assign(w,meta);}
+    state.mastery=mastery;state.wrong=[...wrong.values()].sort((a,b)=>(b.last||b.time)-(a.last||a.time));
+    // 没有作答事件的手动加入题目仍保留旧调度；有事件的题按事件确定性重放。
+    state.sm2={...state.sm2,...cards};
+  }
   function initAcademy() {
     academy = window.QingjinAcademy.create({esc, state:()=>state, subjects:SUBJECT_IDS, subjectName:s=>s==='all'?'不限学科':subjName(s), due:dueReviews, weak:()=>weakKnowledge(3), toast, refresh:route});
+    ensureStudyBaseline();
     academy.init();
   }
 
@@ -143,8 +175,10 @@
   }
   function saveState() {
     try {
-      const remote = JSON.parse(localStorage.getItem(STORE_KEY)||'null');
+      const rawRemote = JSON.parse(localStorage.getItem(STORE_KEY)||'null');
+      const remote = rawRemote ? normalizedState(rawRemote) : null;
       if(remote) state = window.QingjinCore.mergeState(savedBaseline,state,remote);
+      rebuildStudy();
       localStorage.setItem(STORE_KEY, JSON.stringify(state));
       savedBaseline = JSON.parse(JSON.stringify(state));
     }
@@ -153,7 +187,8 @@
   const save = debounce(saveState, 80);
 
   function exportData() {
-    const blob = new Blob([JSON.stringify({ schema:2, appVersion:"1.4.0", exportedAt: new Date().toISOString(), data: state, academy:academy.store.backup(), aiPreferences:{preset:AI.cfg.preset,baseUrl:AI.cfg.baseUrl,model:AI.cfg.model,temperature:AI.cfg.temperature,timeout:AI.cfg.timeout} }, null, 2)], {type:"application/json"});
+    const backupJson = JSON.stringify({ schema:2, appVersion:"1.4.0", exportedAt: new Date().toISOString(), data: state, academy:academy.store.backup(), aiPreferences:{preset:AI.cfg.preset,baseUrl:AI.cfg.baseUrl,model:AI.cfg.model,temperature:AI.cfg.temperature,timeout:AI.cfg.timeout} }, null, 2);
+    const blob = new Blob([AI.cfg.apiKey ? backupJson.split(AI.cfg.apiKey).join("[Key 已隐藏]") : backupJson], {type:"application/json"});
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = `qingjin-backup-${todayStr()}.json`;
@@ -163,11 +198,15 @@
   function importData(obj) {
     const src = obj.data || obj;
     if (!src || typeof src !== "object" || Array.isArray(src) || !src.profile) throw new Error("文件格式无法识别");
+    for(const k of ['wrong','practiceLog','examLog','mockScores','aiQuestions'])if(src[k]!==undefined&&!Array.isArray(src[k]))throw new Error('学习记录格式不正确');
+    for(const k of ['profile','favorites','mastery','plan','settings','sm2'])if(src[k]!==undefined&&(!src[k]||typeof src[k]!=='object'||Array.isArray(src[k])))throw new Error('学习设置格式不正确');
+    const forbid=(o)=>{if(!o||typeof o!=='object')return;for(const k of Object.keys(o)){if(['__proto__','constructor','prototype'].includes(k))throw new Error('备份含不安全字段');forbid(o[k]);}};forbid(obj);
     if (obj.academy && (!Array.isArray(obj.academy.ops)||!obj.academy.ops.every(window.QingjinCore.validOp))) throw new Error("成长记录格式有误，未覆盖原数据");
     // 导入前保存可恢复快照，保留 API Key 所在的独立空间。
     localStorage.setItem("qingjin-pre-import", JSON.stringify({data:state,academy:academy.store.backup()}));
     if(obj.academy)academy.store.restore(obj.academy);
-    state = Object.assign(defaultState(), src);
+    state = normalizedState(src);
+    ensureStudyBaseline();
     state.profile = Object.assign(defaultState().profile, src.profile||{});
     state.favorites = Object.assign(defaultState().favorites, src.favorites||{});
     state.settings = Object.assign(defaultState().settings, src.settings||{});
@@ -301,27 +340,9 @@
   function recordAnswer(qid, correct, ms, subject, kids, attemptId) {
     const attempt = attemptId || `practice:${session?.start||Date.now()}:${qid}`;
     const isReview = state.wrong.some(w=>w.qid===qid && !w.mastered);
-    if (!academy.answer({id:attempt, kind:isReview?'review':'answer', review:isReview, qid, correct, subject, seconds:Math.min(1800,Math.max(0,ms||0)/1000), source:'练习'})) return;
-    const q = DATA.qIndex[qid];
-    const ks = kids || (q && q.knowledgeIds) || [];
-    for (const kid of ks) {
-      const m = state.mastery[kid] || { correct:0, wrong:0, last:0, time:0 };
-      if (correct) m.correct++; else m.wrong++;
-      m.last = Date.now();
-      m.time += ms||0;
-      state.mastery[kid] = m;
-    }
-    if (!correct) {
-      const exist = state.wrong.find(w => w.qid === qid && !w.mastered);
-      if (exist) { exist.times = (exist.times||1)+1; exist.last = Date.now(); }
-      else state.wrong.unshift({ id: uid(), qid, subject: subject||q?.subject, reason:"", note:"", time: Date.now(), times:1, mastered:false });
-      reviewItem(qid, 1);
-    } else {
-      const exist = state.wrong.find(w => w.qid === qid && !w.mastered);
-      if (exist) reviewItem(qid, 4);
-      else if (state.sm2[qid]) reviewItem(qid, 4);
-    }
-    save();
+    if(!correct&&(academy.store.wrongMeta(qid).mastered||state.wrong.some(w=>w.qid===qid&&w.mastered)))academy.store.wrong(qid,{mastered:false});
+    academy.answer({id:attempt,kind:isReview?'review':'answer',review:isReview,qid,correct,subject,seconds:Math.min(1800,Math.max(0,ms||0)/1000),source:'练习'});
+    rebuildStudy();saveState();
   }
   function masteryOf(kid) {
     const m = state.mastery[kid];
@@ -415,13 +436,14 @@
       return { correct:false, score:0, full };
     }
     if (q.type === "fill" || q.type === "recite") {
-      const ok = answersMatch(user, q.answer, q.alt);
+      const ok = answersMatch(user, q.answerRaw??q.answer, q.alt);
       return { correct: ok, score: ok ? (q.score||5) : 0, full: q.score||5 };
     }
     // essay: user is {text, selfScore}
     if (q.type === "essay" || q.type === "write") {
       const full = q.score || 12;
-      const sc = Number(user && user.selfScore);
+      const rawScore = user && user.selfScore;
+      const sc = rawScore == null || rawScore === "" ? NaN : Number(rawScore);
       const s = Number.isFinite(sc) ? clamp(sc,0,full) : null;
       return { correct: s==null ? null : s >= full*0.8, score: s, full, pending: s==null };
     }
@@ -468,6 +490,7 @@
   }
   function route() {
     current = parseHash();
+    rebuildStudy();
     closeModal();
     closeSidebar();
     const view = document.getElementById("view");
@@ -480,6 +503,7 @@
       renderMath(view);
       bindPage(current);
       academy.bind();
+      bindWrongUpgrade();
       if (!current.parts.length || current.parts[0]==='stats') view.insertAdjacentHTML('afterbegin', academy.miniStats());
       initListen(view);
     }
@@ -498,6 +522,7 @@
       case "cards": return pageCards();
       case "textbook": return pageTextbook(p[1], p[2]);
       case "conclusions": return pageConclusions(p[1], p[2]);
+      case "generated": return pageGenerated();
       case "ai": return pageAI(p[1]);
       case "knowledge":
         if (p[2]) return pageKnowledgeDetail(p[1], p[2]);
@@ -552,7 +577,8 @@
     ];
   }
   const toolItems = [
-    ["/ai", "ai", "AI 助手"],
+    ["/ai", "ai", "AI 导师"],
+    ["/generated", "pen", "AI 自建练习"],
     ["/textbook", "tb", "教材目录"],
     ["/conclusions", "formula", "二级结论"],
     ["/formulas", "formula", "公式速查"],
@@ -668,7 +694,7 @@
   function listenBlock(q, reveal){
     const L=q.listen; if(!L) return "";
     return `<div class="listen" data-lq="${esc(q.id)}">
-      <div class="listen-head"><span class="listen-title">${esc(L.title||"听力材料")}</span><span class="muted listen-note">${esc(L.note||"")}</span></div>
+      <p class="muted">设备语音合成朗读 · 非原声录音，无预置音频</p><div class="listen-head"><span class="listen-title">${esc(L.title||"听力材料")}</span><span class="muted listen-note">${esc(L.note||"")}</span></div>
       <div class="listen-ctrl">
         <button type="button" class="btn btn-primary btn-sm" data-listen="play">${ic("play",16)} 播放</button>
         <button type="button" class="btn btn-ghost btn-sm" data-listen="stop">停止</button>
@@ -1061,7 +1087,7 @@
       pick = due.concat(fresh).slice(0, 10);
     } else pick = shuffle(ks).slice(0, 10);
     if (!pick.length) { toast(kind==="due" ? "今天没有到期卡片，可以选「只看高频」" : "这一类暂时没有卡片"); return; }
-    cardSess = { sub, ids: pick.map(k=>k.id), idx: 0, flipped: false, res: {good:0, fuzzy:0, bad:0} };
+    cardSess = { id:uid(), sub, ids: pick.map(k=>k.id), idx: 0, flipped: false, res: {good:0, fuzzy:0, bad:0} };
     go("/cards?s=" + sub + "&run=1");
   }
   function cardRun() {
@@ -1132,13 +1158,14 @@
     $$("[data-cd-rate]").forEach(b => b.addEventListener("click", () => {
       const s = cardSess; if (!s) return;
       const id = s.ids[s.idx], r = b.dataset.cdRate;
+      if(!id||!s.flipped)return;
+      academy.answer({id:`card:${s.id}:${id}`,kind:"card",qid:id,subject:DATA.clIndex[id]?.subject||DATA.kpIndex[id]?.subject,correct:r==="good"});
       state.cardProgress = state.cardProgress || {};
       const c = state.cardProgress[id] || { box: 0, seen: 0 };
       c.box = r==="good" ? Math.min(4, (c.seen ? c.box : 1) + 1) : r==="fuzzy" ? Math.max(1, Math.min(c.box, 2)) : 0;
       c.seen = (c.seen||0) + 1; c.last = r; c.at = Date.now();
       const gap = r==="bad" ? 1 : r==="fuzzy" ? 1 : CARD_GAP[c.box] || 1;
-      const d = new Date(); d.setHours(4,0,0,0); d.setDate(d.getDate() + gap);
-      c.due = d.getTime();
+      c.due = Date.parse(window.QingjinCore.shift(todayStr(),gap)+"T00:00:00+08:00");
       state.cardProgress[id] = c;
       s.res[r]++;
       s.idx++; s.flipped = false;
@@ -1263,6 +1290,7 @@
       <div class="card card-pad prose" id="md-prose">
         <h3>方法说明</h3>
         <p>${trusted(m.explanation)}</p>
+        ${m.example?.q?`<h3>示例与核对</h3><p>${trusted(m.example.q)}</p><p>${trusted(m.example.a)}</p>`:""}
         <h3>操作步骤</h3>
         <ol>${(m.steps||[]).map(s=>`<li>${trusted(s)}</li>`).join("")}</ol>
         ${(m.tips||[]).length?`<h3>使用提醒</h3><div class="pitfall"><ul style="margin:0">${(m.tips||[]).map(t=>`<li>${trusted(t)}</li>`).join("")}</ul></div>`:""}
@@ -1777,7 +1805,9 @@
   /* ---------- wrong book / review ---------- */
   function pageWrong() {
     const filter = current.query || {};
-    let items = state.wrong.filter(w => !w.mastered || filter.all==="1");
+    let items = state.wrong.map(w=>({...w,...academy.store.wrongMeta(w.qid)})).filter(w => !w.mastered || filter.all==="1");
+    if(filter.q) { const needle=filter.q.toLocaleLowerCase();items=items.filter(w=>[stripHtml(DATA.qIndex[w.qid]?.stem||''),w.note,(w.tags||[]).join(' ')].join(' ').toLocaleLowerCase().includes(needle)); }
+    if(filter.due==='1')items=items.filter(w=>!w.mastered&&(!state.sm2[w.qid]||state.sm2[w.qid].due<=Date.now()));
     if (filter.s) items = items.filter(w => w.subject===filter.s);
     if (filter.r) items = items.filter(w => w.reason===filter.r || (w.reasons||[]).includes(filter.r));
     return `
@@ -1792,6 +1822,8 @@
         ${selectedSubjects().map(s=>`<a class="chip ${filter.s===s?"on":""}" href="#/wrong?s=${s}">${subjName(s)}</a>`).join("")}
         ${REASONS.map(([id,n])=>`<a class="chip ${filter.r===id?"on":""}" href="#/wrong?r=${id}${filter.s?"&s="+filter.s:""}">${n}</a>`).join("")}
       </div>
+      <form id="ac-wrong-search" class="ac-filter"><input class="field" name="q" aria-label="搜索错题题干、标签与备注" value="${esc(filter.q||'')}" placeholder="搜索题干、标签、备注"><input type="hidden" name="s" value="${esc(filter.s||'')}"><button class="btn btn-soft">搜索</button><a class="btn btn-ghost" href="#/wrong?due=1">到期队列</a><a class="btn btn-ghost" href="#/wrong?all=1">含已掌握历史</a></form>
+      <details class="card card-pad" style="margin-bottom:16px"><summary>透明复习规则</summary><p>首次答错安排次日；复习答对后依次为 1 天、6 天，再乘难度系数（最低 1.3）；答错重置为 1 天。到期日从上海时间零点开始。每次真实重做保留事件；标为已掌握会移出队列，恢复后重新显示。旧版只有汇总，没有凭空补造历史。</p></details>
       ${wrongSummary()}
       ${items.length? items.map(w => {
         const q = DATA.qIndex[w.qid];
@@ -1801,15 +1833,22 @@
         return `<div class="wrong-wrap"><a class="card card-hover wrong-item" href="#/practice/setup?mode=one&qid=${w.qid}" style="margin-bottom:0;display:block">
           <div class="meta-row">${tagType(q.type)} ${tagDiff(q.difficulty)} <span class="tag">${esc(subjName(q.subject))}</span>
             ${w.reason||(w.reasons||[])[0]?`<span class="tag">${esc((REASONS.find(r=>r[0]===(w.reason||w.reasons[0]))||[])[1]||"")}</span>`:""}
-            ${isDue?`<span class="tag due-badge">待复习</span>`:""}
+            ${isDue?`<span class="tag due-badge">待复习</span>`:""}${w.mastered?`<span class="tag">已掌握</span>`:""}${due?`<span class="muted">下次 ${fmtDate(due.due)} · 间隔 ${due.interval} 天</span>`:""}${(w.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}
             <span class="muted">错 ${w.times||1} 次</span>
           </div>
           <div class="stem-s">${esc(stripHtml(q.stem).slice(0,110))}</div>
-        </a><div class="wrong-ai"><button type="button" class="btn btn-ghost btn-sm" data-ai="wrong:${w.qid}">${ic("ai",14)} AI 分析</button>${["single","multi","fill"].includes(q.type)?`<button type="button" class="btn btn-ghost btn-sm" data-ai="similar:${w.qid}">同类题</button>`:""}${q.ai?`<span class="tag">AI 生成</span>`:""}</div></div>`;
+        </a><div class="wrong-ai"><button type="button" class="btn btn-ghost btn-sm" data-ai="wrong:${w.qid}">${ic("ai",14)} AI 分析</button>${["single","multi","fill"].includes(q.type)?`<button type="button" class="btn btn-ghost btn-sm" data-ai="similar:${w.qid}">同类题</button>`:""}${q.ai?`<span class="tag">AI 生成 · 答案需核对</span>`:""}</div>
+        <details><summary style="padding:10px 16px">错因、标签与重做历史</summary><form class="ac-wrong-form" data-ac-wrong="${esc(w.qid)}"><label>主要错因<select class="field" name="reason"><option value="">尚未分类</option>${REASONS.map(([id,t])=>`<option value="${id}" ${w.reason===id?'selected':''}>${t}</option>`).join('')}</select></label><label>标签（空格或逗号分隔，最多 8 个）<input class="field" name="tags" maxlength="180" value="${esc((w.tags||[]).join(' '))}"></label><label>反思与检查清单<textarea class="field" name="note" maxlength="2000">${esc(w.note||'')}</textarea></label><label class="ac-switch"><input type="checkbox" name="mastered" ${w.mastered?'checked':''}> 已掌握（保留记录，移出到期队列）</label><button class="btn btn-soft btn-sm">保存错因</button></form><div class="ac-wrong-history">${academy.store.ops().filter(e=>e.qid===w.qid&&(e.type==='study'||e.type==='wrong')).slice(-25).reverse().map(e=>`<div>${fmtDate(e.at)} · ${e.type==='wrong'?'更新错因/标签/掌握状态':e.correct?'重做正确（含自评）':'重做错误'}${e.patch?.reason?' · '+esc((REASONS.find(r=>r[0]===e.patch.reason)||[])[1]||''):''}</div>`).join('')||'旧版汇总记录保留；从 1.4 起逐次记录。'}</div></details></div>`;
       }).join("") : empty("错题本是空的","答题正确是好事。一旦有错题，会出现在这里。","#/practice","去刷题")}
     `;
   }
 
+  function bindWrongUpgrade() {
+    $('#ac-wrong-search')?.addEventListener('submit',e=>{e.preventDefault();const p=new URLSearchParams(new FormData(e.target));go('/wrong?'+p.toString());});
+    $$('[data-ac-wrong]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const v=Object.fromEntries(new FormData(f)),qid=f.dataset.acWrong;
+      try { academy.store.wrong(qid,{...v,mastered:!!v.mastered});const m=academy.store.wrongMeta(qid);state.wrong.filter(w=>w.qid===qid).forEach(w=>Object.assign(w,m));saveState();toast('错因与历史已保存');route(); }catch{toast('保存失败，请先导出备份后重试');}
+    }));
+  }
   function wrongSummary() {
     const all = state.wrong.filter(w => !w.mastered && DATA.qIndex[w.qid]);
     if (all.length < 2) return "";
@@ -1884,36 +1923,34 @@
     const logs = state.practiceLog||[];
     const exams = state.examLog||[];
     const mocks = state.mockScores||[];
-    const answered = sum(Object.values(state.mastery).map(m=>m.correct+m.wrong));
-    const correct = sum(Object.values(state.mastery).map(m=>m.correct));
+    const events=academy.store.events().filter(e=>["answer","review"].includes(e.kind));
+    const answered = events.length;
+    const correct = events.filter(e=>e.correct).length;
     const acc = answered? correct/answered : 0;
-    const minutes = sum(Object.values(state.checkins).map(c=>c.minutes||0));
+    const minutes = academy.store.stats().minutes;
     const sel = selectedSubjects();
     // by subject accuracy
     const byS = sel.map(s => {
-      const ks = subjectKnowledge(s);
-      let c=0,w=0;
-      ks.forEach(k => { const m=state.mastery[k.id]; if(m){c+=m.correct;w+=m.wrong;} });
+      const es=events.filter(e=>e.subject===s);
+      const c=es.filter(e=>e.correct).length,w=es.length-c;
       return {s, acc: (c+w)?c/(c+w):0, n:c+w};
     });
     const weak = weakKnowledge(8);
     // trend last 14 days
     const days = Array.from({length:14},(_,i)=>{
-      const d=new Date(); d.setDate(d.getDate()-(13-i));
-      const k=todayStr(d);
-      const ls = logs.filter(l => fmtDate(l.end||l.start)===k);
-      const n = sum(ls.map(l=>l.total||0)), c=sum(ls.map(l=>l.correct||0));
-      return {k, acc:n?c/n:null, n, min:(state.checkins[k]||{}).minutes||0};
+      const k=window.QingjinCore.shift(todayStr(),-(13-i));
+      const ls=events.filter(e=>e.day===k),n=ls.length,c=ls.filter(e=>e.correct).length;
+      return {k,acc:n?c/n:null,n,min:academy.store.stats(k).todayMinutes};
     });
     return `
       <div class="page-head"><div>${crumb([["#/","首页"],["#/stats","成绩"]])}<h1 class="h1">成绩与分析</h1>
-      <p class="lead">正确率、薄弱点和模考走势都在这里。目标分可以在设置里改。</p></div>
+      <p class="lead">正确率以 1.4 起可判定提交次数为分母（含自评），不重复按知识点数计数。旧版掌握度与成绩保留在知识点和历史记录中；旧版挂机/题组时长不混入前台专注。</p></div>
       <button type="button" class="btn btn-primary btn-sm" data-ai="plan">${ic("ai",16)} AI 学习计划</button></div>
       <div class="stat-nums">
         <div class="card stat-num"><div class="n">${answered?`${Math.round(acc*100)}<span style="font-size:16px">%</span>`:"—"}</div><div class="l">练习正确率</div></div>
-        <div class="card stat-num"><div class="n">${answered}</div><div class="l">已做题次</div></div>
+        <div class="card stat-num"><div class="n">${answered}</div><div class="l">有效提交（含自评）</div></div>
         <div class="card stat-num"><div class="n">${state.wrong.filter(w=>!w.mastered).length}</div><div class="l">未消化错题</div></div>
-        <div class="card stat-num"><div class="n">${minutes}</div><div class="l">累计学习分钟</div></div>
+        <div class="card stat-num"><div class="n">${minutes}</div><div class="l">已记录前台专注分钟</div></div>
       </div>
       <div class="grid grid-2">
         <div class="card chart-box">
@@ -2029,29 +2066,27 @@
   function studyHeat() {
     const per = {};
     const add = (k, n) => { if (k) per[k] = (per[k]||0) + n; };
-    (state.practiceLog||[]).forEach(l => add(fmtDate(l.end||l.start), l.total||0));
-    (state.examLog||[]).forEach(l => add(fmtDate(l.end||l.start), (l.details||[]).length));
-    Object.entries(state.checkins||{}).forEach(([k,c]) => { if (!per[k]) per[k] = 0; per[k] += Math.round((c.minutes||0)/5) || (c.done?1:0); });
-    const weeks = 20;
-    const end = new Date(); end.setHours(0,0,0,0);
-    const start = new Date(end); start.setDate(end.getDate() - end.getDay() - (weeks-1)*7);
+    academy.store.events().filter(e=>['answer','review'].includes(e.kind)).forEach(e=>add(e.day,1));
+    const weeks=20;
+    const end=new Date(todayStr()+'T12:00:00Z');
+    const start=new Date(end);start.setUTCDate(end.getUTCDate()-end.getUTCDay()-(weeks-1)*7);
     const cell = 13, gap = 3, left = 22, top = 16;
     let rects = "", months = "", lastM = -1, activeDays = 0, totalN = 0;
     for (let w = 0; w < weeks; w++) {
       for (let d = 0; d < 7; d++) {
-        const day = new Date(start); day.setDate(start.getDate() + w*7 + d);
+        const day = new Date(start); day.setUTCDate(start.getUTCDate() + w*7 + d);
         if (day > end) continue;
-        const k = todayStr(day), n = per[k] || 0;
+        const k = day.toISOString().slice(0,10), n = per[k] || 0;
         if (n) { activeDays++; totalN += n; }
         const lv = n===0?0 : n<5?1 : n<15?2 : n<30?3 : 4;
         rects += `<rect x="${left + w*(cell+gap)}" y="${top + d*(cell+gap)}" width="${cell}" height="${cell}" rx="3" class="hm l${lv}"><title>${k} · ${n?n+" 题次":"未学习"}</title></rect>`;
-        if (d===0 && day.getMonth()!==lastM) { lastM = day.getMonth(); months += `<text x="${left + w*(cell+gap)}" y="10" font-size="10" fill="var(--muted)">${lastM+1}月</text>`; }
+        if (d===0 && day.getUTCMonth()!==lastM) { lastM = day.getUTCMonth(); months += `<text x="${left + w*(cell+gap)}" y="10" font-size="10" fill="var(--muted)">${lastM+1}月</text>`; }
       }
     }
     const lab = ["日","","二","","四","","六"].map((s,i)=>s?`<text x="0" y="${top + i*(cell+gap) + 10}" font-size="10" fill="var(--muted)">${s}</text>`:"").join("");
     const W = left + weeks*(cell+gap), H = top + 7*(cell+gap);
     return `<div class="card card-pad study-heat" style="margin-top:14px">
-      <div class="section-title" style="margin:0 0 8px"><h2>学习热力图</h2><span class="muted" style="font-size:13px">近 ${weeks} 周 · 学习 ${activeDays} 天 · ${totalN} 题次</span></div>
+      <div class="section-title" style="margin:0 0 8px"><h2>学习热力图</h2><span class="muted" style="font-size:13px">近 ${weeks} 周 · 学习 ${activeDays} 天 · ${totalN} 次有效提交（1.4 起）</span></div>
       <div class="hm-scroll"><svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="近 ${weeks} 周学习热力图">${months}${lab}${rects}</svg></div>
       <div class="hm-legend muted">少 <i class="hm-l l0"></i><i class="hm-l l1"></i><i class="hm-l l2"></i><i class="hm-l l3"></i><i class="hm-l l4"></i> 多</div>
     </div>`;
@@ -2404,6 +2439,10 @@
     `;
   }
 
+  function pageGenerated(){
+    const qs=state.aiQuestions||[];
+    return `<div class="page-head"><div><div class="ac-eyebrow">MY PRACTICE / 本机采纳</div><h1 class="h1">AI 自建练习</h1><p class="lead">${qs.length} 道已保存练习。AI 内容不是真题，答案和解析需自行核对；旧版自动保存题也保留在这里。</p></div><a class="btn btn-soft" href="#/ai">问导师</a></div>${qs.map(aiQCard).join('')||empty('尚未采纳练习','在题目解析里选择「AI 出同类题」，先预览再采纳。','#/practice','先去练习')}`;
+  }
   function pageSearch(q) {
     const qq = (q||"").trim().toLowerCase();
     if (!qq) return `<div class="page-head"><h1 class="h1">搜索</h1><p class="lead">输入知识点、方法或题目中的关键词。</p></div>`;
@@ -2411,10 +2450,14 @@
     const mds = allMethods().filter(m => (m.name+m.when+m.explanation).toLowerCase().includes(qq));
     const qs = allQuestions().filter(x => (stripHtml(x.stem)+" "+stripHtml(x.passage||"")+" "+(x.passageTitle||"")).toLowerCase().includes(qq));
     const cls = allConclusions().filter(c => (c.title+" "+stripHtml(c.statement)).toLowerCase().includes(qq));
+    const words=(DATA.words||[]).filter(w=>(w.w+' '+w.m).toLowerCase().includes(qq));
+    const formulas=Object.entries(DATA.formulas||{}).flatMap(([sid,pack])=>(pack.sections||[]).flatMap(sec=>(sec.items||[]).map(f=>({...f,sid,section:sec.title})))).filter(f=>(f.name+' '+f.note+' '+f.formula).toLowerCase().includes(qq));
     const secs = Object.entries(DATA.secIndex).filter(([,x]) => x.sec.name.toLowerCase().includes(qq)).map(([id]) => id);
     return `
       <div class="page-head"><h1 class="h1">搜索「${esc(q)}」</h1>
-      <p class="lead">知识点 ${kps.length} · 二级结论 ${cls.length} · 教材小节 ${secs.length} · 方法 ${mds.length} · 题目 ${qs.length}</p></div>
+      <p class="lead">知识点 ${kps.length} · 二级结论 ${cls.length} · 教材小节 ${secs.length} · 方法 ${mds.length} · 题目 ${qs.length} · 公式 ${formulas.length} · 单词 ${words.length}</p></div>
+      ${formulas.length?`<section class="card card-pad ac-gap"><h2 class="h2">公式与条件</h2>${formulas.slice(0,20).map(f=>`<div class="ac-preview"><a href="#/formulas/${f.sid}">${esc(f.name)} · ${esc(f.section)}</a><p>${trusted(f.formula)}</p><p class="muted">${esc(f.note||'请结合知识点页核对适用条件')}</p></div>`).join('')}</section>`:''}
+      ${words.length?`<section class="card card-pad ac-gap"><h2 class="h2">英语词汇（展示前 30 项）</h2>${words.slice(0,30).map(w=>`<div class="ac-record"><b>${esc(w.w)}</b><span>${esc(w.uk||w.us||'音标暂未收录')}</span><span>${esc(w.m)}</span></div>`).join('')}<a href="#/words">进入词汇练习 →</a></section>`:''}
       ${secs.length?`<div class="chip-row" style="margin-bottom:12px">${secs.slice(0,20).map(id=>secLink(id, true)).join("")}</div>`:""}
       ${kps.slice(0,20).map(k=>kpCard(k)).join("")}
       ${cls.length?`<div class="cl-list" style="margin-bottom:12px">${cls.slice(0,12).map(clRow).join("")}</div>`:""}
@@ -2472,7 +2515,8 @@
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
           <button class="btn btn-primary" id="st-export">${ic("download",16)} 导出 JSON</button>
           <label class="btn btn-ghost">${ic("upload",16)} 导入<input type="file" id="st-import" accept="application/json" hidden></label>
-          <button class="btn btn-danger" id="st-reset">清空本地数据</button>
+          <button class="btn btn-ghost" id="st-restore-last">恢复导入前快照</button>
+          <button class="btn btn-danger" id="st-reset">清空学习记录</button>
         </div>
       </div>
       <div class="card settings-sec">
@@ -2986,7 +3030,7 @@
       const zh = (w.m||w.zh||"").toString();
       if (wordSess.mode==="en2zh") {
         slot.innerHTML = `<div class="en">${esc(w.w||w.en)}</div>
-          <div class="ipa">${esc(w.us||w.uk||w.ipa||"")}</div>
+          <div class="ipa">${esc(w.us||w.uk||w.ipa||"音标暂未收录")}</div>
           <p class="muted">想一想中文意思，再点击显示</p>
           <button class="btn btn-soft" id="wd-show">显示释义</button>`;
         $("#wd-show")?.addEventListener("click", () => {
@@ -3051,14 +3095,20 @@
       rd.onload=()=>{ try{ importData(JSON.parse(rd.result)); toast("导入成功"); route(); } catch(e){ toast("导入失败，请检查文件"); } };
       rd.readAsText(f);
     });
+    $("#st-restore-last")?.addEventListener("click",()=>{
+      try{const raw=localStorage.getItem('qingjin-pre-import');if(!raw){toast('尚无导入前快照');return;}importData(JSON.parse(raw));toast('已恢复导入前学习数据；成长事件采用合并，避免丢记录');route();}catch{toast('快照无法读取，请使用导出文件恢复');}
+    });
     $("#st-reset")?.addEventListener("click", () => {
-      modal(`<h3>清空所有本地数据？</h3><p>练习记录、错题、收藏和模考分数都会删除，且无法恢复。建议先导出备份。</p>
+      modal(`<h3>清空所有本地数据？</h3><p>练习记录、错题、收藏、计划、成长账本、专注记录和模考分数都会删除。AI 配置与聊天单独保存，不在此删除。建议先导出备份。</p>
         <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px">
           <button class="btn btn-ghost" id="m-no">取消</button>
           <button class="btn btn-danger" id="m-yes">确认清空</button>
         </div>`, bg=>{
           $("#m-no",bg).onclick=closeModal;
           $("#m-yes",bg).onclick=()=>{
+            academy.pause();
+            const keys=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k.startsWith(window.QingjinCore.PREFIX))keys.push(k);}keys.forEach(k=>localStorage.removeItem(k));localStorage.removeItem('qingjin-pre-import');
+            academy.focus.state=null;
             state=defaultState(); state.profile.onboarded=true; saveState(); applyTheme(); closeModal(); toast("已清空"); route();
           };
         });
@@ -3248,7 +3298,7 @@
     { id:"openai", name:"OpenAI", base:"https://api.openai.com/v1", models:["gpt-4o-mini","gpt-4o"], site:"platform.openai.com" },
     { id:"custom", name:"自定义", base:"", models:[], site:"" }
   ];
-  const AI_SYS = "你是「青衿」高考冲刺 App 里的学习助手，面向中国高三学生，熟悉人教版（数学人教A版）与统编版现行高中教材和新高考题型。要求：用简体中文回答；先给结论或思路要点，再分步骤讲清楚；数学、物理、化学公式一律用 LaTeX，行内用 $...$，独立公式用 $$...$$；化学式可写成 $\\mathrm{H_2O}$ 形式；适当使用 Markdown 小标题、列表和表格；不确定的内容要明确说明，不编造教材内容或数据。";
+  const AI_SYS = "你是「青衿」高考冲刺 App 里的学习助手，面向中国高三学生，熟悉人教版（数学人教A版）与统编版现行高中教材和新高考题型。要求：用简体中文回答；优先给启发式提示；学生要求详解后再分步骤讲清楚；AI出题、批改分数只是参考，不得称作真题或官方标准答案；数学、物理、化学公式一律用 LaTeX，行内用 $...$，独立公式用 $$...$$；化学式可写成 $\\mathrm{H_2O}$ 形式；适当使用 Markdown 小标题、列表和表格；不确定的内容要明确说明，不编造教材内容或数据。";
   let AI = { cfg: { preset:"deepseek", baseUrl:"https://api.deepseek.com/v1", apiKey:"", model:"deepseek-chat", temperature:0.7, timeout:60 }, chats: [], cur: null };
   function aiLoad() {
     try { const raw = localStorage.getItem(AI_KEY); if (raw) { const s = JSON.parse(raw); AI = { cfg: Object.assign({}, AI.cfg, s.cfg||{}), chats: Array.isArray(s.chats) ? s.chats : [], cur: s.cur||null }; } } catch (e) { console.warn("ai load", e); }
@@ -3262,7 +3312,8 @@
   const aiEndpoint = () => AI.cfg.baseUrl.trim().replace(/\/+$/, "").replace(/\/chat\/completions$/, "") + "/chat/completions";
   function aiPresetName() { const p = AI_PRESETS.find(x => x.id===AI.cfg.preset); return p ? p.name : "自定义"; }
 
-  class AIError extends Error { constructor(msg, kind) { super(msg); this.kind = kind||"error"; } }
+  const aiRedact = t => AI.cfg.apiKey ? String(t).split(AI.cfg.apiKey).join("[Key 已隐藏]") : String(t);
+  class AIError extends Error { constructor(msg, kind) { super(aiRedact(msg)); this.kind = kind||"error"; } }
   function aiHttpError(status, body) {
     let detail = "";
     try { const j = JSON.parse(body); detail = (j.error && (j.error.message || j.error.msg || j.error.code)) || j.message || j.msg || ""; } catch (e) { detail = String(body||"").slice(0, 160); }
@@ -3487,10 +3538,10 @@
     let last = 0;
     try {
       const text = await aiChat(aiApiMessages({ ...c, messages: c.messages.slice(0, -1) }), { signal: ctrl.signal, onDelta: (t, rs) => {
-        msg.content = t; msg.thinking = !t && !!rs;
+        msg.content = aiRedact(t); msg.thinking = !t && !!rs;
         const now = Date.now(); if (now - last > 60) { last = now; aiPaintMsg(chatId, c.messages.length-1); }
       }});
-      msg.content = text;
+      msg.content = aiRedact(text);
       if (c.kind==="similar") aiParseSimilar(c, msg);
     } catch (e) {
       if (e.kind==="abort") { msg.content = (e.partial||msg.content||""); msg.stopped = true; if (!msg.content) { msg.err = true; msg.content = "已停止生成。"; } }
@@ -3510,35 +3561,31 @@
       i % 2 ? part.replace(/&/g, "&amp;").replace(/</g, "\\lt ").replace(/>/g, "\\gt ") : esc(part)).join("");
   }
   function aiParseSimilar(c, msg) {
-    const src = DATA.qIndex[c.extra && c.extra.qid];
-    let t = msg.content, j = null;
-    const m = t.match(/```(?:json)?\s*([\s\S]*?)```/); if (m) t = m[1];
-    const a = t.indexOf("{"), b = t.lastIndexOf("}");
-    try { j = JSON.parse(t.slice(a, b+1)); } catch (e) { const a2 = t.indexOf("["), b2 = t.lastIndexOf("]"); try { j = { questions: JSON.parse(t.slice(a2, b2+1)) }; } catch (e2) { j = null; } }
-    const arr = (j && (j.questions || j.items)) || [];
-    const ids = [];
-    state.aiQuestions = state.aiQuestions || [];
-    arr.slice(0, 5).forEach(x => {
-      if (!x || !x.stem) return;
-      const type = ["single","multi","fill"].includes(x.type) ? x.type : ((x.options||[]).length ? "single" : "fill");
-      const opts = (x.options||[]).map(o => safeTex(String(o).replace(/^[A-H][.、．:：]\s*/, "")));
-      let ans = String(x.answer ?? "").trim();
-      if (type!=="fill") ans = ans.toUpperCase().replace(/[^A-H]/g, "");
-      if (!ans) return;
-      const q = { id: "ai-" + uid(), subject: src?.subject || c.extra?.subject || "math", type, stem: safeTex(x.stem), options: type==="fill" ? undefined : opts,
-        answer: type==="fill" ? safeTex(ans) : ans, alt: (Array.isArray(x.alt) ? x.alt : []).map(safeTex), steps: (Array.isArray(x.steps) ? x.steps : [x.steps||x.analysis||""]).map(v => safeTex(String(v))).filter(Boolean),
-        analysis: { breakthrough: safeTex(x.breakthrough||""), method: safeTex(x.method||x.analysis||""), pitfalls: safeTex(x.pitfalls||""), variant: "" },
-        difficulty: src?.difficulty || 2, knowledgeIds: src?.knowledgeIds || c.extra?.kids || [], methodIds: src?.methodIds || [], score: 5, ai: true, from: src?.id || "", at: Date.now() };
-      state.aiQuestions.unshift(q); DATA.qIndex[q.id] = q; ids.push(q.id);
-    });
-    state.aiQuestions = state.aiQuestions.slice(0, 200);
-    msg.qids = ids; save();
+    const src = DATA.qIndex[c.extra?.qid];
+    try { msg.preview = window.QingjinCore.parseQuestions(msg.content,src?.subject||c.extra?.subject||"math",SUBJECT_IDS); }
+    catch(e) { msg.previewError = e.message + "。未写入题库，可重新生成。"; }
+  }
+  function aiPreview(c,m,mi) {
+    return `<p class="ac-warning">AI 生成 · 仅供练习，不是真题；答案和推理可能有误，请先核对再采纳。预览不会写入练习库。</p>${m.preview.map((q,i)=>`<div class="ac-preview"><div class="tag">待核对 · ${TYPES[q.type]}</div><div class="prose">${safeTex(q.stem)}</div>${q.options.length?`<ol>${q.options.map(o=>`<li>${safeTex(o)}</li>`).join('')}</ol>`:''}<details><summary>核对参考答案与解析</summary><p>${safeTex(q.answer)}</p><p>${safeTex(q.analysis)}</p></details>${m.adopted?.[i]?`<a class="btn btn-soft btn-sm" href="#/practice/setup?mode=one&qid=${Eid(m.adopted[i])}">已采纳，去练习</a>`:`<button class="btn btn-primary btn-sm" data-ai-adopt="${c.id}:${mi}:${i}">核对后采纳</button>`}</div>`).join('')}`;
+  }
+  const Eid = s=>esc(String(s));
+  function adoptAI(chatId,mi,qi) {
+    const c=aiChatById(chatId),m=c?.messages[mi],raw=m?.preview?.[qi];if(!raw)return;
+    m.adopted=m.adopted||{};const id=`ai-${chatId}-${m.ts}-${qi}`;
+    if(!DATA.qIndex[id]) {
+      const src=DATA.qIndex[c.extra?.qid];
+      const q={...raw,id,stem:safeTex(raw.stem),options:raw.options.map(safeTex),answer:safeTex(raw.answer),answerRaw:raw.answer,
+        steps:[safeTex(raw.analysis)],analysis:{breakthrough:'AI 生成，答案需核对',method:safeTex(raw.analysis),pitfalls:'不要把模型输出当作标准答案',variant:''},
+        knowledgeIds:src?.knowledgeIds||[],methodIds:src?.methodIds||[],ai:true,from:src?.id||'',at:Date.now()};
+      state.aiQuestions=state.aiQuestions||[];if(!state.aiQuestions.some(x=>x.id===id))state.aiQuestions.push(q);DATA.qIndex[id]=q;saveState();
+    }
+    m.adopted[qi]=id;aiSave();aiRefresh(chatId);toast('已采纳到本机练习库，仍请核对答案');
   }
   function aiQCard(q) {
     if (!q) return "";
     const inWrong = state.wrong.some(w => w.qid===q.id && !w.mastered);
     return `<div class="ai-q card">
-      <div class="meta-row">${tagType(q.type)} <span class="tag">AI 生成</span> <span class="tag">${esc(subjName(q.subject))}</span></div>
+      <div class="meta-row">${tagType(q.type)} <span class="tag">AI 生成 · 答案需核对</span> <span class="tag">${esc(subjName(q.subject))}</span></div>
       <div class="prose">${trusted(q.stem)}</div>
       ${(q.options||[]).length?`<ol class="wp-opts">${q.options.map((o,i)=>`<li><b>${String.fromCharCode(65+i)}.</b> ${trusted(o)}</li>`).join("")}</ol>`:""}
       <details><summary>答案与解析</summary><p><b>答案：</b>${trusted(q.answer)}</p>${q.steps.map(s=>`<p>${trusted(s)}</p>`).join("")}</details>
@@ -3554,10 +3601,12 @@
       <div class="ai-acts"><button class="ai-act" data-ai-copy="${i}" title="复制">复制</button></div></div>`;
     const body = m.err ? `<div class="ai-err" role="alert"><b>${m.errKind==="config"?"还没有配置 AI":"出错了"}</b><p>${esc(m.content)}</p>${["auth","notfound","config","network","bad"].includes(m.errKind)?`<a class="btn btn-soft btn-sm" href="#/settings?ai=1">去设置检查</a>`:""}</div>`
       : m.pending && !m.content ? `<div class="ai-typing"><i></i><i></i><i></i>${m.thinking?"<span>模型思考中…</span>":""}</div>`
+      : m.preview ? aiPreview(c,m,i)
+      : m.previewError ? `<div class="ai-err" role="alert">${esc(m.previewError)}</div>${mdToHtml(m.content)}`
       : (m.qids && m.qids.length) ? `<p>已按原题生成 ${m.qids.length} 道同类练习题：</p>${m.qids.map(id=>aiQCard(DATA.qIndex[id])).join("")}`
       : mdToHtml(m.content);
     return `<div class="ai-msg bot ${m.pending?"pending":""}" data-i="${i}"><div class="ai-bubble prose md">${body}${m.stopped?`<p class="muted ai-stopped">（已停止）</p>`:""}</div>
-      ${m.pending?"":`<div class="ai-acts"><button class="ai-act" data-ai-copy="${i}">复制</button>${isLast?`<button class="ai-act" data-ai-regen="${i}">重新生成</button>`:""}</div>`}</div>`;
+      ${m.pending?"":`${c.kind==='tutor'&&isLast?`<button class="btn btn-soft btn-sm" data-ai-detail="${c.id}">我已思考，继续完整讲解</button>`:''}<div class="ai-acts"><button class="ai-act" data-ai-copy="${i}">复制</button>${isLast?`<button class="ai-act" data-ai-regen="${i}">重新生成</button>`:""}</div>`}</div>`;
   }
   function aiPaintMsg(chatId, i) {
     const box = document.querySelector(`#ai-msgs[data-chat="${chatId}"]`); if (!box) return;
@@ -3761,19 +3810,19 @@
   function aiAction(spec) {
     const [kind, id] = [spec.slice(0, spec.indexOf(":") < 0 ? spec.length : spec.indexOf(":")), spec.includes(":") ? spec.slice(spec.indexOf(":")+1) : ""];
     if (kind==="q") { const q = DATA.qIndex[id]; if (!q) return; loadSession(); const a = session && session.answers && session.answers[id];
-      return aiStartAction("讲题 · " + stripHtml(q.stem).slice(0, 14), "请讲解这道题：先点出考查的知识点和突破口，再给出完整、规范的解题步骤，最后总结同类题的通法和易错点。" + (a && a.user ? `\n我的作答是：${typeof a.user==="string"?a.user:(a.user.text||"")}，请指出我的问题。` : ""), { label:"题目", text:qText(q) }); }
+      return aiStartAction("讲题 · " + stripHtml(q.stem).slice(0, 14), "你是循序渐进的导师。这一轮只给 2–3 条逐层提示和一个引导问题，不给最终答案或完整推导。等我选择继续后再详细讲解。" + (a && a.user ? `\n我的作答是：${typeof a.user==="string"?a.user:(a.user.text||"")}，请指出我的问题。` : ""), { label:"题目", text:qText(q) }, "tutor"); }
     if (kind==="wrong") { const q = DATA.qIndex[id]; if (!q) return; const w = state.wrong.find(x => x.qid===id) || {};
       const rs = (w.reasons||[]).concat(w.reason?[w.reason]:[]).map(r => (REASONS.find(x=>x[0]===r)||[])[1]).filter(Boolean);
-      return aiStartAction("错题分析 · " + stripHtml(q.stem).slice(0, 12), `这是我的错题（已错 ${w.times||1} 次${rs.length?"，我标注的错因："+rs.join("、"):""}${w.note?"，我的备注："+w.note:""}）。请帮我做错题分析：\n1. 这道题考什么、正确思路是什么；\n2. 我最可能错在哪里（结合错因）；\n3. 给出规范解答；\n4. 以后遇到同类题的检查清单；\n5. 推荐我回看哪些知识点。`, { label:"错题", text:qText(q) }); }
+      return aiStartAction("错题分析 · " + stripHtml(q.stem).slice(0, 12), `这是我的错题（已错 ${w.times||1} 次${rs.length?"，我标注的错因："+rs.join("、"):""}${w.note?"，我的备注："+w.note:""}）。请帮我做错题分析：\n1. 这道题考什么、正确思路是什么；\n2. 我最可能错在哪里（结合错因）；\n3. 给出规范解答；\n4. 以后遇到同类题的检查清单；\n5. 推荐我回看哪些知识点。这一轮只诊断与给分层提示，不给最终答案或完整推导；请等待学生要求详解。`, { label:"错题", text:qText(q) }, "tutor"); }
     if (kind==="similar") { const q = DATA.qIndex[id]; if (!q) return;
-      return aiStartAction("同类题 · " + stripHtml(q.stem).slice(0, 12), `请仿照下面这道题，出 3 道考查同一知识点、难度相近但数据或情境不同的练习题。只能出单选题（4 个选项，type 为 "single"）或填空题（type 为 "fill"，答案尽量简短）。务必自己验算答案正确。\n只输出一个 JSON 代码块，格式：\n\`\`\`json\n{"questions":[{"type":"single","stem":"题干（公式用 $...$）","options":["选项A","选项B","选项C","选项D"],"answer":"A","steps":["解析第1步","解析第2步"]}]}\n\`\`\``, { label:"原题", text:qText(q) }, "similar", { qid:id, subject:q.subject }); }
+      return aiStartAction("同类题 · " + stripHtml(q.stem).slice(0, 12), `请仿照下面这道题，出 3 道考查同一知识点、难度相近但数据或情境不同的练习题。只能出单选题（4 个选项，type 为 "single"）或填空题（type 为 "fill"，答案尽量简短）。务必自己验算答案正确。\n只输出一个 JSON 代码块，格式：\n\`\`\`json\n{"questions":[{"type":"single","stem":"题干（公式用 $...$）","options":["选项A","选项B","选项C","选项D"],"answer":"A","analysis":"逐步解析与验算"}]}\n\`\`\``, { label:"原题", text:qText(q) }, "similar", { qid:id, subject:q.subject }); }
     if (kind==="grade") { const q = DATA.qIndex[id]; if (!q) return; loadSession(); const a = session && session.answers && session.answers[id]; const txt = a && a.user && (a.user.text||"");
       if (!txt) { go("/ai/grade?k=sub"); return; }
       return aiStartAction("AI 批改 · " + stripHtml(q.stem).slice(0, 12), `请按高考评分标准批改我对这道${TYPES[q.type]||"主观"}题的作答，满分 ${q.score||12} 分。给出：预估得分、逐条得分点与扣分原因、规范答案要点、表达上的改进建议。\n${(q.rubric||[]).length?"评分标准："+q.rubric.map(r=>`${r.point||r.item}（${r.score}分）`).join("；")+"\n":""}\n【我的作答】\n${txt}`, { label:"题目", text:qText(q) }, "grade"); }
     if (kind==="kp") { const k = DATA.kpIndex[id]; if (!k) return;
-      return aiStartAction("知识点 · " + k.title, "请用高三复习的角度讲透这个知识点：核心概念与本质、必须记住的结论和适用条件、高考常见考法（各配一道小例题并给出解答）、最容易错的地方。", { label:"知识点 · "+k.title, text:kpText(k) }); }
+      return aiStartAction("知识点 · " + k.title, "请用高三复习的角度讲透这个知识点：核心概念与本质、必须记住的结论和适用条件、常见考法和最容易错的地方。这一轮只给核心提示和引导问题，不直接给完整例题解答。", { label:"知识点 · "+k.title, text:kpText(k) }, "tutor"); }
     if (kind==="cl") { const c = DATA.clIndex[id]; if (!c) return;
-      return aiStartAction("结论 · " + c.title, "请帮我真正理解这条二级结论：用直观的方式解释它为什么成立，补充一种不同的推导或验证方法，说明什么情况下不能用，并再出一道用到它的高考风格小题（附解答）。", { label:"二级结论 · "+c.title, text:clText(c) }); }
+      return aiStartAction("结论 · " + c.title, "请帮我真正理解这条二级结论：用直观的方式解释它为什么成立，补充一种不同的推导或验证方法，说明什么情况下不能用，这一轮只给直观提示与适用条件，完整证明与例题解答等我要求后再给。", { label:"二级结论 · "+c.title, text:clText(c) }, "tutor"); }
     if (kind==="sec") { const x = DATA.secIndex[id]; if (!x) return;
       return aiStartAction("教材 · " + x.sec.name.split("/")[0], "请按现行教材帮我梳理这一节：本节的核心内容与知识结构、必须掌握的概念/公式/结论、与高考的联系和常见题型、学习建议。只讲本节相关内容，不确定的地方请说明。", { label:"教材 · "+x.sec.name.split("/")[0], text:secText(x) }); }
     if (kind==="poem") { const p = (DATA.poetry||[]).find(x => x.id===id); if (!p) return;
@@ -3819,6 +3868,10 @@
   }
   function bindGlobalAI() {
     document.addEventListener("click", e => {
+      const adopt = e.target.closest('[data-ai-adopt]');
+      if(adopt){const [c,m,q]=adopt.dataset.aiAdopt.split(':');adoptAI(c,Number(m),Number(q));return;}
+      const detail=e.target.closest('[data-ai-detail]');
+      if(detail){const c=aiChatById(detail.dataset.aiDetail);if(c){c.kind='detail';c.messages.push({role:'user',content:'我已根据提示思考。现在请结合上下文给出完整详解、适用条件、规范步骤和最后的核对方法。',ts:Date.now()});aiSave();aiGenerate(c.id);}return;}
       const t = e.target.closest("[data-ai]");
       if (t) { e.preventDefault(); aiAction(t.dataset.ai); return; }
       if (e.target.closest("#ai-fab")) { AI.pendingCtx = routeContext(); AI.cur = null; aiSave(); go("/ai"); return; }
@@ -3839,7 +3892,7 @@
     loadState();
     aiLoad();
     initAcademy();
-    window.addEventListener('storage',e=>{if(e.key===STORE_KEY&&e.newValue){try{const remote=JSON.parse(e.newValue);state=window.QingjinCore.mergeState(savedBaseline,state,remote);savedBaseline=remote;}catch{}}});
+    window.addEventListener('storage',e=>{if(e.key===STORE_KEY&&e.newValue){try{const remote=normalizedState(JSON.parse(e.newValue));state=window.QingjinCore.mergeState(savedBaseline,state,remote);savedBaseline=remote;}catch{}}});
     window.addEventListener('pagehide',saveState);
     bindGlobalAI();
     applyTheme();
