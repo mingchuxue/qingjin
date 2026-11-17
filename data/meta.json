@@ -212,5 +212,8 @@
       "pick": 3,
       "note": "在六门中任选三门计入总分（多数省份等级赋分；上海、海南计分方式不同）。"
     }
-  }
+  },
+  "appVersion": "1.4.0",
+  "versionCode": 9,
+  "cacheVersion": "qingjin-v18"
 }

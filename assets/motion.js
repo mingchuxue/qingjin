@@ -14,7 +14,7 @@
   var numBusy = new WeakSet();
   var sizeObs = null;
 
-  function still() { return RM.matches || !CAN; }
+  function still() { return RM.matches || document.documentElement.dataset.motion === "off" || !CAN; }
   function arr(x) { return Array.prototype.slice.call(x || []); }
   function each(sel, fn) { if (sel) arr(document.querySelectorAll(sel)).forEach(fn); }
 
@@ -349,6 +349,7 @@
   function release(el, pop) {
     if (!el) return;
     el._mAnim && el._mAnim.cancel();
+    if (still()) return;
     el._mAnim = el.animate(pop ? [{ scale: 0.92 }, { scale: 1.06 }, { scale: 1 }] : [{ scale: cfg.pressScale || 0.95 }, { scale: 1.02 }, { scale: 1 }], { duration: pop ? 320 : 260, easing: EASE });
   }
   function onUp() {
@@ -417,6 +418,7 @@
     root.classList.add("m-on");
     var lastTheme = themeSig();
     new MutationObserver(function (muts) {
+      if (typeof document === "undefined" || !document.body) return;
       for (var i = 0; i < muts.length; i++) {
         var m = muts[i];
         if (m.target === root || m.target === document.body) {

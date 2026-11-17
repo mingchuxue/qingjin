@@ -31,10 +31,10 @@ class Store{
  progress(t){const end=t.period==='week'?shift(monday(t.date),7):shift(t.date,1);const start=t.period==='week'?monday(t.date):t.date;
  const events=this.events().filter(e=>e.day>=start&&e.day<end&&e.at>=t.created&&(t.subject==='all'||t.subject===e.subject));
  let n=0;if(t.kind==='focus')n=events.filter(e=>e.kind==='focus').reduce((n,e)=>n+e.seconds/60,0);else n=new Set(events.filter(e=>e.kind===t.kind||(t.kind==='review'&&e.review)).map(e=>e.kind==='focus'?e.id:e.day+':'+e.qid)).size;
- return {value:Math.min(t.target,Math.floor(n)),done:t.status==='done'||(t.kind!=='manual'&&n>=t.target),skipped:t.status==='skip'};}
- ledger(){const events=this.events(),out=[],seen=new Set();for(const e of events){let key,points=0,label;
+ return {value:Math.min(t.target,Math.floor(n)),done:t.status!=='skip'&&(t.status==='done'||(t.kind!=='manual'&&n>=t.target)),skipped:t.status==='skip'};}
+ ledger(){const events=this.events(),out=[],seen=new Set(),focusTotals=new Map();for(const e of events){let key,points=0,label;
  if(e.kind==='answer'||e.kind==='review'){key=e.day+':answer:'+e.qid;points=5;label='有效练习';}
- else if(e.kind==='focus'){key=e.id;points=Math.floor(e.seconds/60);label='前台专注';}
+ else if(e.kind==='focus'){key=e.id;const session=e.id.startsWith('focus:')?e.id.slice(0,e.id.lastIndexOf(':')):e.id;const before=focusTotals.get(session)||0;points=Math.floor((before+e.seconds)/60)-Math.floor(before/60);focusTotals.set(session,before+e.seconds);label='前台专注';}
  else {key=e.day+':card:'+e.qid;points=2;label='结论回顾';}
  if(!seen.has(key)&&points>0){seen.add(key);out.push({id:key,at:e.at,day:e.day,points,label,source:e.qid||e.source});}}
  // 挑战只看真实事件，同一日/周确定性领取，无额外写入和可重复领取按钮。
@@ -42,7 +42,7 @@ class Store{
  for(const w of [...new Set(days.map(monday))]){const min=events.filter(e=>e.kind==='focus'&&monday(e.day)===w).reduce((s,e)=>s+e.seconds/60,0);if(min>=120)out.push({id:'weekly:'+w,day:w,at:Date.parse(w+'T12:00:00+08:00'),points:30,label:'周挑战 · 静心两小时'});}
  return out.sort((a,b)=>b.at-a.at);}
  stats(day=date(this.now())){const events=this.events(),daily=events.filter(e=>e.day===day),answers=events.filter(e=>e.kind==='answer'||e.kind==='review'),points=this.ledger().reduce((s,e)=>s+e.points,0);return {points,level:1+Math.floor(Math.sqrt(points/50)),answers:answers.length,correct:answers.filter(e=>e.correct).length,todayAnswers:daily.filter(e=>['answer','review'].includes(e.kind)).length,uniqueToday:new Set(daily.filter(e=>['answer','review'].includes(e.kind)).map(e=>e.qid)).size,minutes:Math.floor(events.filter(e=>e.kind==='focus').reduce((s,e)=>s+e.seconds,0)/60),todayMinutes:Math.floor(daily.filter(e=>e.kind==='focus').reduce((s,e)=>s+e.seconds,0)/60)};}
- migrate(state){for(const t of state.plan?.custom||[]){if(!t.id||!t.title)continue;this.put({id:'migrate:task:'+t.id,type:'task',at:1,taskId:t.id,value:{id:t.id,title:t.title,date:t.date||date(),period:'day',kind:'manual',subject:'all',target:1,budget:0,status:state.plan?.checked?.[(t.date||date())+':'+t.id]?'done':'open',order:0,created:1}});}}
+ migrate(state){for(const t of state.plan?.custom||[]){if(!t.id||!t.title)continue;this.put({id:'migrate:task:'+t.id,type:'task',at:1,taskId:t.id,value:{id:t.id,title:t.title,date:t.date||date(),period:'day',kind:'manual',subject:'all',target:1,budget:0,status:(state.plan?.checked?.[t.date||date()]||[]).includes('c-'+t.id)?'done':'open',order:0,created:1}});}}
  backup(){return {schema:1,ops:this.ops(),focus:this.readFocus()};}
  restore(b){if(!b||b.schema!==1||!Array.isArray(b.ops)||b.ops.length>100000||!b.ops.every(validOp))throw Error('成长备份不完整，未导入');
  for(const o of b.ops)this.put(o); // 合并，不覆盖其它标签页和已有事件
@@ -57,7 +57,7 @@ class Focus{
  start(now){if(!this.state||this.state.done)this.create();this.last=now;this.running=true;}
  tick(now,visible=true){if(!this.running||!this.state||this.state.done)return false;const dt=now-this.last;this.last=now;
  if(!visible||dt<0||dt>2500){this.pause();return false;} // 系统休眠/后台不计入，要求手动恢复
- const f=this.state,add=Math.min(dt/1000,f.target-f.elapsed);f.elapsed+=add;f.lastAt=now;const day=date(now);f.buckets[day]=(f.buckets[day]||0)+add;this.store.writeFocus(f);if(f.elapsed>=f.target){this.finish();return true;}return false;}
+ const f=this.state,add=Math.min(dt/1000,f.target-f.elapsed);f.elapsed+=add;f.lastAt=now;let cursor=now-add*1000;while(cursor<now){const day=date(cursor),edge=Date.parse(shift(day,1)+'T00:00:00+08:00'),end=Math.min(now,edge);f.buckets[day]=(f.buckets[day]||0)+(end-cursor)/1000;cursor=end;}this.store.writeFocus(f);if(f.elapsed>=f.target){this.finish();return true;}return false;}
  pause(){this.running=false;if(this.state)this.store.writeFocus(this.state);}
  finish(){const f=this.state;if(!f||f.done)return false;this.running=false; // 先写事件再写结束标志，崩溃后重试同一 id 也不会重复
  if(f.mode==='focus')for(const [day,seconds]of Object.entries(f.buckets)){if(seconds>=1)this.store.study({id:'focus:'+f.id+':'+day,kind:'focus',subject:f.subject,seconds,at:Math.min(f.lastAt||this.store.now(),Date.parse(day+'T23:59:59+08:00')),source:'专注阶段'});}

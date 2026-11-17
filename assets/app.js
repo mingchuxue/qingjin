@@ -364,12 +364,9 @@
     return { days, hours, mins, secs, past:false };
   }
   function streakCount() {
-    let n = 0;
-    const d = new Date();
-    // if today not checked, start from yesterday
-    if (!state.checkins[todayStr(d)]) d.setDate(d.getDate()-1);
-    while (state.checkins[todayStr(d)]) { n++; d.setDate(d.getDate()-1); }
-    return n;
+    let d=todayStr(),n=0;const C=window.QingjinCore;
+    if(!state.checkins[d])d=C.shift(d,-1);
+    while(state.checkins[d]){n++;d=C.shift(d,-1);}return n;
   }
   function checkinToday(minutes=0) {
     const k = todayStr();
@@ -903,38 +900,12 @@
   }
 
   function todayTasks() {
-    const key = todayStr();
-    const checked = (state.plan.checked||{})[key] || [];
-    // generate stable daily tasks from date seed
-    const seed = Number(key.replace(/-/g,""));
-    const due = dueReviews();
-    const weak = weakKnowledge(4);
-    const tasks = [];
-    if (due.length) tasks.push({ id:"rev", title:`复习 ${Math.min(due.length,10)} 道到期题目`, href:"#/review" });
-    weak.slice(0,2).forEach(k => tasks.push({ id:"wk-"+k.id, title:`巩固「${k.title}」`, href:`#/knowledge/${k.subject}/${k.id}` }));
-    const sel = selectedSubjects();
-    const sub = sel[seed % sel.length] || "math";
-    tasks.push({ id:"pr-"+sub, title:`练习 ${subjName(sub)} 10 题`, href:`#/practice/setup?mode=rand&subject=${sub}&n=10` });
-    if (DATA.poetry && DATA.poetry.length) {
-      const po = DATA.poetry[seed % DATA.poetry.length];
-      tasks.push({ id:"po", title:`默写《${po.title}》`, href:`#/poetry/${po.id}` });
-    }
-    if (sel.includes("english") && DATA.words && DATA.words.length) {
-      tasks.push({ id:"wd", title:"英语单词快速复习 15 个", href:"#/words" });
-    }
-    const days = countdown().days;
-    if (days <= 45) tasks.push({ id:"ex", title:"做一套限时小测或模拟卷", href:"#/exam" });
-    (state.plan.custom||[]).filter(t => !t.date || t.date===key).forEach(t => tasks.push({ id:"c-"+t.id, title:t.title, href:t.href||"#/plan" }));
-    return tasks.map(t => ({...t, done: checked.includes(t.id)}));
+    const d=todayStr(),C=window.QingjinCore;
+    return academy.store.tasks().filter(t=>t.status!=='skip'&&((t.period==='day'&&t.date===d)||(t.period==='week'&&C.monday(t.date)===C.monday(d)))).map(t=>({id:'ac-'+t.id,title:t.title,done:academy.store.progress(t).done,href:t.kind==='focus'?'#/focus':t.kind==='review'?'#/review':t.kind==='answer'?'#/practice/setup?subject='+t.subject:'#/plan'}));
   }
   function toggleTask(id) {
-    const key = todayStr();
-    const set = new Set((state.plan.checked||{})[key]||[]);
-    if (set.has(id)) set.delete(id); else set.add(id);
-    state.plan.checked = state.plan.checked||{};
-    state.plan.checked[key] = [...set];
-    if (set.size) checkinToday(0);
-    save();
+    const t=academy.store.tasks().find(t=>'ac-'+t.id===id);
+    if(t){if(t.kind==='manual')academy.store.task({...t,status:academy.store.progress(t).done?'open':'done'});else toast('完成实际学习后自动更新，不用手动打勾');}route();
   }
 
   /* ---------- knowledge ---------- */
@@ -2177,83 +2148,6 @@
     }).join("") || "<p class='muted'>暂无</p>";
   }
 
-  /* ---------- plan / pomodoro ---------- */
-  let pomo = { running:false, mode:"focus", remain:25*60, timer:null, started:0 };
-  function pagePlan() {
-    const tasks = todayTasks();
-    const done = tasks.filter(t=>t.done).length;
-    const cd = countdown();
-    let phase = "系统巩固";
-    if (cd.days<=7) phase="回看与调整";
-    else if (cd.days<=30) phase="模拟冲刺";
-    else if (cd.days<=90) phase="专项突破";
-    const cal = calendarHTML();
-    return `
-      <div class="page-head"><div>${crumb([["#/","首页"],["#/plan","冲刺计划"]])}<h1 class="h1">冲刺计划</h1>
-      <p class="lead">现在处于「${phase}」阶段（距高考 ${cd.days} 天）。每天完成任务会自动打卡。</p></div>
-      <button type="button" class="btn btn-soft btn-sm" data-ai="plan">${ic("ai",16)} 让 AI 定制计划</button></div>
-      <div class="grid grid-2">
-        <div class="card card-pad">
-          <div class="h2">今日任务 <span class="muted">${done}/${tasks.length}</span></div>
-          <ul class="task-list">${tasks.map(t=>`
-            <li><button class="check ${t.done?"on":""}" data-task="${esc(t.id)}">${t.done?ic("check",12):""}</button>
-            <a href="${t.href}">${esc(t.title)}</a></li>`).join("")}</ul>
-          <form id="add-task" style="margin-top:12px;display:flex;gap:8px">
-            <input class="field" name="title" placeholder="添加一项自己的任务" required>
-            <button class="btn btn-soft btn-sm" type="submit">添加</button>
-          </form>
-        </div>
-        <div class="card pomo" id="pomo">
-          <div class="pomo-ring">
-            ${pomoRing(pomo.remain, pomo.mode==="focus"?25*60:5*60)}
-            <div class="pomo-time" id="pomo-time">${fmtRemain(pomo.remain)}</div>
-          </div>
-          <div class="muted" style="margin-bottom:12px">${pomo.mode==="focus"?"专注 25 分钟":"休息 5 分钟"}</div>
-          <div style="display:flex;gap:8px">
-            <button class="btn btn-primary" id="pomo-tog">${pomo.running?"暂停":"开始"}</button>
-            <button class="btn btn-ghost" id="pomo-reset">重置</button>
-          </div>
-          <p class="muted" style="margin-top:12px">今日专注 ${todayPomoMin()} 分钟 · 目标 ${state.pomodoro.goalMin||90} 分钟</p>
-        </div>
-      </div>
-      <div class="card card-pad" style="margin-top:14px">
-        <h2 class="h2">打卡日历</h2>
-        ${cal}
-        <p class="muted" style="margin-top:8px">连续打卡 ${streakCount()} 天</p>
-      </div>
-    `;
-  }
-  function pomoRing(remain, total) {
-    const r=96, c=2*Math.PI*r, p=remain/total;
-    const dash = c*p;
-    return `<svg viewBox="0 0 220 220" aria-hidden="true">
-      <circle cx="110" cy="110" r="${r}" fill="none" stroke="var(--bg-2)" stroke-width="10"/>
-      <circle cx="110" cy="110" r="${r}" fill="none" stroke="var(--teal)" stroke-width="10"
-        stroke-linecap="round" stroke-dasharray="${dash} ${c-dash}"/>
-    </svg>`;
-  }
-  function todayPomoMin(){
-    const k=todayStr();
-    return sum((state.pomodoro.logs||[]).filter(l=>l.date===k).map(l=>l.minutes||0));
-  }
-  function calendarHTML() {
-    const now=new Date();
-    const y=now.getFullYear(), m=now.getMonth();
-    const first=new Date(y,m,1);
-    const start = first.getDay(); // 0 sun
-    const days = new Date(y,m+1,0).getDate();
-    const cells=[];
-    for(let i=0;i<start;i++) cells.push(`<div class="d mute"></div>`);
-    for(let d=1;d<=days;d++){
-      const key=`${y}-${pad(m+1)}-${pad(d)}`;
-      const on=!!state.checkins[key];
-      const today=key===todayStr();
-      cells.push(`<div class="d ${on?"on":""} ${today?"today":""}" title="${key}">${d}</div>`);
-    }
-    const hd=["日","一","二","三","四","五","六"].map(x=>`<div class="hd">${x}</div>`).join("");
-    return `<div class="cal">${hd}${cells.join("")}</div>`;
-  }
-
   /* ---------- extras: formulas, poetry, words, writing ---------- */
   function pageFormulas(sid) {
     const data = DATA.formulas||{};
@@ -2470,7 +2364,7 @@
   function pageSettings() {
     const p = state.profile;
     return `
-      <div class="page-head"><div>${crumb([["#/","首页"],["#/settings","设置"]])}<h1 class="h1">设置</h1></div></div>
+      <div class="page-head"><div>${crumb([["#/","首页"],["#/settings","设置"]])}<h1 class="h1">设置 <span class="tag">1.4.0 · VC9</span></h1></div></div>
       <div class="card settings-sec">
         <h2>个人与选科</h2>
         <div class="row" style="display:grid;grid-template-columns:120px 1fr;gap:8px;align-items:center;margin-bottom:8px">
@@ -2578,7 +2472,6 @@
       });
     }
     if (p==="stats") bindStats();
-    if (p==="plan") void 0;
     if (p==="poetry") bindPoetry();
     if (p==="cards") bindCards();
     if (p==="textbook") bindTextbook();
@@ -2756,7 +2649,7 @@
       if (a.reasons.includes(id)) a.reasons=a.reasons.filter(x=>x!==id); else a.reasons.push(id);
       // write back to wrong book
       const w = state.wrong.find(x=>x.qid===q.id && !x.mastered);
-      if (w) { w.reasons=a.reasons; w.reason=a.reasons[0]||""; }
+      if (w) { w.reasons=a.reasons; w.reason=a.reasons[0]||""; academy.store.wrong(q.id,{reason:w.reason}); }
       save(); saveSession();
       b.classList.toggle("on");
     }));
@@ -2764,7 +2657,7 @@
       const a = session.answers[q.id];
       if (a) a.note=e.target.value;
       const w = state.wrong.find(x=>x.qid===q.id && !x.mastered);
-      if (w) w.note=e.target.value;
+      if (w) { w.note=e.target.value; academy.store.wrong(q.id,{note:w.note}); }
       save(); saveSession();
     });
     $("#fav-q")?.addEventListener("click", ev => {
@@ -2881,51 +2774,6 @@
       state.mockScores = state.mockScores.filter(m=>m.id!==b.dataset.delMock);
       save(); route();
     }));
-  }
-
-  function bindPlanLegacy() {
-    $("#add-task")?.addEventListener("submit", ev => {
-      ev.preventDefault();
-      const title = ev.target.title.value.trim();
-      if (!title) return;
-      state.plan.custom.push({ id:uid(), title, date:todayStr() });
-      save(); route();
-    });
-    $("#pomo-tog")?.addEventListener("click", togglePomo);
-    $("#pomo-reset")?.addEventListener("click", () => {
-      stopPomo(); pomo.remain = pomo.mode==="focus"?25*60:5*60; pomo.running=false; route();
-    });
-    if (pomo.running) tickPomo();
-  }
-  function togglePomo() {
-    pomo.running = !pomo.running;
-    if (pomo.running) { pomo.started = Date.now(); tickPomo(); }
-    else stopPomo();
-    const btn=$("#pomo-tog"); if(btn) btn.textContent=pomo.running?"暂停":"开始";
-  }
-  function stopPomo(){ clearTimeout(pomo.timer); }
-  function tickPomo(){
-    const el=$("#pomo-time");
-    if (!pomo.running) return;
-    pomo.remain = Math.max(0, pomo.remain-1);
-    if (el) el.textContent=fmtRemain(pomo.remain);
-    const ring = $(".pomo-ring");
-    if (ring) ring.innerHTML = pomoRing(pomo.remain, pomo.mode==="focus"?25*60:5*60) + `<div class="pomo-time" id="pomo-time">${fmtRemain(pomo.remain)}</div>`;
-    if (pomo.remain<=0) {
-      pomo.running=false;
-      if (pomo.mode==="focus") {
-        state.pomodoro.logs = state.pomodoro.logs||[];
-        state.pomodoro.logs.push({date:todayStr(), minutes:25, at:Date.now()});
-        checkinToday(25); save();
-        toast("专注结束，休息五分钟");
-        pomo.mode="break"; pomo.remain=5*60;
-      } else {
-        toast("休息结束，可以开始下一组");
-        pomo.mode="focus"; pomo.remain=25*60;
-      }
-      route(); return;
-    }
-    pomo.timer=setTimeout(tickPomo,1000);
   }
 
   function bindPoetry() {
@@ -3317,7 +3165,7 @@
   function aiHttpError(status, body) {
     let detail = "";
     try { const j = JSON.parse(body); detail = (j.error && (j.error.message || j.error.msg || j.error.code)) || j.message || j.msg || ""; } catch (e) { detail = String(body||"").slice(0, 160); }
-    detail = detail ? `（服务商返回：${String(detail).slice(0,160)}）` : "";
+    detail = detail ? `（服务商返回：${aiRedact(String(detail)).slice(0,160)}）` : "";
     if (status===401 || status===403) return new AIError(`API Key 无效或没有权限（${status}）。请到「设置 → AI 辅助」检查 Key 是否完整、是否属于当前服务商。${detail}`, "auth");
     if (status===402) return new AIError(`账户余额不足（402），请到服务商控制台充值。${detail}`, "quota");
     if (status===404) return new AIError(`接口地址或模型名称不对（404）。请确认 Base URL（一般以 /v1 结尾）和模型名填写正确。${detail}`, "notfound");
@@ -3854,7 +3702,7 @@
 
   /* ---------- service worker ---------- */
   function registerSW(){
-    if (!("serviceWorker" in navigator)) return;
+    if (!("serviceWorker" in navigator) || location.hostname==="appassets.androidplatform.net" || location.protocol==="file:" || nativeHttp()) return;
     navigator.serviceWorker.register("sw.js").catch(()=>{});
   }
 

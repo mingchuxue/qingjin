@@ -17,15 +17,18 @@
           },
           {
             "name": "对数换底",
-            "formula": "$\\log_a b=\\dfrac{\\ln b}{\\ln a}=\\dfrac{1}{\\log_b a}$"
+            "formula": "$\\log_a b=\\dfrac{\\ln b}{\\ln a}=\\dfrac{1}{\\log_b a}$",
+            "note": "$a>0,a\\ne1,b>0$；写成倒数 $1/\\log_b a$ 还要求 $b\\ne1$。"
           },
           {
             "name": "指数与对数互化",
-            "formula": "$a^{\\log_a x}=x,\\quad\\log_a(a^x)=x$"
+            "formula": "$a^{\\log_a x}=x,\\quad\\log_a(a^x)=x$",
+            "note": "$a>0,a\\ne1$；$a^{\\log_a x}=x$ 要求 $x>0$。"
           },
           {
             "name": "辅助角",
-            "formula": "$a\\sin x+b\\cos x=\\sqrt{a^2+b^2}\\sin(x+\\varphi)$"
+            "formula": "$a\\sin x+b\\cos x=\\sqrt{a^2+b^2}\\sin(x+\\varphi)$",
+            "note": "$R=\\sqrt{a^2+b^2}>0$，取 $\\cos\\varphi=a/R,\\sin\\varphi=b/R$，不能只用 $\\tan\\varphi=b/a$ 决定象限。"
           }
         ]
       },
@@ -50,7 +53,8 @@
           },
           {
             "name": "周期",
-            "formula": "$y=A\\sin(\\omega x+\\varphi)$ 的周期 $T=\\dfrac{2\\pi}{|\\omega|}$"
+            "formula": "$y=A\\sin(\\omega x+\\varphi)$ 的周期 $T=\\dfrac{2\\pi}{|\\omega|}$",
+            "note": "$A\\ne0,\\omega\\ne0$，此式为最小正周期；常值函数无最小正周期。"
           }
         ]
       },
@@ -59,7 +63,8 @@
         "items": [
           {
             "name": "点到直线",
-            "formula": "$d=\\dfrac{|ax_0+by_0+c|}{\\sqrt{a^2+b^2}}$"
+            "formula": "$d=\\dfrac{|ax_0+by_0+c|}{\\sqrt{a^2+b^2}}$",
+            "note": "直线 $ax+by+c=0$，要求 $a^2+b^2>0$。"
           },
           {
             "name": "椭圆",
@@ -106,7 +111,8 @@
           },
           {
             "name": "牛顿-莱布尼茨",
-            "formula": "$\\int_a^b f(x)\\,dx=F(b)-F(a)$"
+            "formula": "$\\int_a^b f(x)\\,dx=F(b)-F(a)$",
+            "note": "拓展内容，不代表现行必修范围；$f$ 在 $[a,b]$ 连续，$F$ 为其原函数。"
           }
         ]
       },
