@@ -16,7 +16,7 @@ class Store{
  return a.sort((a,b)=>a.at-b.at||a.id.localeCompare(b.id));}
  put(o){if(!validOp(o))throw Error('学习事件格式不正确');const k=PREFIX+'op:'+o.id;if(this.storage.getItem(k))return false;
  this.storage.setItem(k,JSON.stringify(o));return true;}
- append(type,data,opid){return this.put({id:opid||id(),type,at:this.now(),...data});}
+ append(type,data,opid){const last=this.ops().reduce((n,o)=>Math.max(n,o.at),0);return this.put({id:opid||id(),type,at:Math.max(this.now(),last+0.001),...data});}
  study(e){const at=e.at??this.now();if(!['answer','review','focus','card'].includes(e.kind))throw Error('未知学习事件');
  return this.put({id:text(e.id,280),type:'study',at,kind:e.kind,qid:text(e.qid,100),subject:text(e.subject,30),correct:e.correct===true,seconds:bounded(e.seconds,0,14400),day:date(at),source:text(e.source,60),review:!!e.review});}
  task(t){if(!t.id||!t.title?.trim()||!/^\d{4}-\d{2}-\d{2}$/.test(t.date))throw Error('请填写任务名称与日期');
@@ -50,17 +50,17 @@ class Store{
  readFocus(){try{return normalizeFocus(JSON.parse(this.storage.getItem(PREFIX+'focus')||'null'));}catch{return null;}}
  writeFocus(f){this.storage.setItem(PREFIX+'focus',JSON.stringify(f));}
 }
-function normalizeFocus(f){if(!f||typeof f!=='object'||!f.id)return null;return {id:text(f.id,100),mode:f.mode==='break'?'break':'focus',subject:text(f.subject||'all',30),target:bounded(f.target,60,3600),elapsed:bounded(f.elapsed,0,3600),buckets:Object.fromEntries(Object.entries(f.buckets||{}).filter(([k,v])=>/^\d{4}-\d{2}-\d{2}$/.test(k)&&Number.isFinite(v)&&v>=0).map(([k,v])=>[k,Math.min(v,3600)])),done:!!f.done};}
+function normalizeFocus(f){if(!f||typeof f!=='object'||!f.id)return null;return {id:text(f.id,100),mode:f.mode==='break'?'break':'focus',subject:text(f.subject||'all',30),target:bounded(f.target,60,3600),elapsed:bounded(f.elapsed,0,3600),lastAt:Number(f.lastAt)||0,buckets:Object.fromEntries(Object.entries(f.buckets||{}).filter(([k,v])=>/^\d{4}-\d{2}-\d{2}$/.test(k)&&Number.isFinite(v)&&v>=0).map(([k,v])=>[k,Math.min(v,3600)])),done:!!f.done};}
 class Focus{
  constructor(store){this.store=store;this.state=store.readFocus();this.running=false;this.last=0;}
  create(minutes=25,subject='all',mode='focus'){this.state={id:id(),mode,subject,target:bounded(minutes,1,60)*60,elapsed:0,buckets:{},done:false};this.running=false;this.store.writeFocus(this.state);}
  start(now){if(!this.state||this.state.done)this.create();this.last=now;this.running=true;}
  tick(now,visible=true){if(!this.running||!this.state||this.state.done)return false;const dt=now-this.last;this.last=now;
  if(!visible||dt<0||dt>2500){this.pause();return false;} // 系统休眠/后台不计入，要求手动恢复
- const f=this.state,add=Math.min(dt/1000,f.target-f.elapsed);f.elapsed+=add;const day=date(now);f.buckets[day]=(f.buckets[day]||0)+add;this.store.writeFocus(f);if(f.elapsed>=f.target){this.finish();return true;}return false;}
+ const f=this.state,add=Math.min(dt/1000,f.target-f.elapsed);f.elapsed+=add;f.lastAt=now;const day=date(now);f.buckets[day]=(f.buckets[day]||0)+add;this.store.writeFocus(f);if(f.elapsed>=f.target){this.finish();return true;}return false;}
  pause(){this.running=false;if(this.state)this.store.writeFocus(this.state);}
  finish(){const f=this.state;if(!f||f.done)return false;this.running=false; // 先写事件再写结束标志，崩溃后重试同一 id 也不会重复
- if(f.mode==='focus')for(const [day,seconds]of Object.entries(f.buckets)){if(seconds>=1)this.store.study({id:'focus:'+f.id+':'+day,kind:'focus',subject:f.subject,seconds,at:Date.parse(day+'T23:59:59+08:00'),source:'专注阶段'});}
+ if(f.mode==='focus')for(const [day,seconds]of Object.entries(f.buckets)){if(seconds>=1)this.store.study({id:'focus:'+f.id+':'+day,kind:'focus',subject:f.subject,seconds,at:Math.min(f.lastAt||this.store.now(),Date.parse(day+'T23:59:59+08:00')),source:'专注阶段'});}
  f.done=true;this.store.writeFocus(f);return true;}
  remaining(){return Math.max(0,Math.ceil((this.state?.target||1500)-(this.state?.elapsed||0)));}
 }
@@ -69,5 +69,31 @@ function parseQuestions(raw,subject,allowedSubjects){let s=String(raw).trim();s=
  return arr.map(q=>{if(!q||!['single','fill'].includes(q.type)||typeof q.stem!=='string'||!q.stem.trim()||q.stem.length>8000||typeof q.answer!=='string'||!q.answer.trim()||q.answer.length>2000)throw Error('题型、题干或答案结构不完整');
  if(q.type==='single'&&(!Array.isArray(q.options)||q.options.length!==4||!q.options.every(o=>typeof o==='string'&&o.length<2000)||!/^([A-D])$/.test(q.answer)))throw Error('单选题须有四个选项与 A–D 答案');
  if(!allowedSubjects.includes(subject))throw Error('未知学科');return {subject,type:q.type,stem:q.stem,options:q.type==='single'?q.options:[],answer:q.answer,analysis:typeof q.analysis==='string'?q.analysis:'请自行核对答案与推理。',knowledgeIds:[],methodIds:[],difficulty:2,score:5};});}
-return {Store,Focus,date,shift,monday,id,PREFIX,parseQuestions,validOp};
+// 三方合并：仅提交当前标签页相对读取基线的变化，保留其它标签页的独立记录。
+function mergeState(base,local,remote,key='') {
+ const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+ if(equal(local,base))return remote;
+ if(equal(remote,base))return local;
+ if(Array.isArray(local)&&Array.isArray(remote)){
+  const b=Array.isArray(base)?base:[];
+  if([...local,...remote].every(x=>typeof x==='string'))return [...new Set([...remote.filter(x=>!b.includes(x)||local.includes(x)),...local.filter(x=>!b.includes(x))])];
+  const identity=x=>x&&typeof x==='object'&&(x.id||x.qid||x.at);
+  if([...b,...local,...remote].every(identity)){
+   const bm=new Map(b.map(x=>[identity(x),x])),lm=new Map(local.map(x=>[identity(x),x])),rm=new Map(remote.map(x=>[identity(x),x]));
+   for(const [k,v] of lm)rm.set(k,mergeState(bm.get(k),v,rm.get(k)));
+   for(const k of bm.keys())if(!lm.has(k))rm.delete(k);
+   return [...rm.values()];
+  }
+  return local;
+ }
+ if(local&&remote&&typeof local==='object'&&typeof remote==='object'&&!Array.isArray(local)&&!Array.isArray(remote)){
+  const out={...remote};for(const k of new Set([...Object.keys(base||{}),...Object.keys(local)])){
+   if(!(k in local)){if(base&&k in base)delete out[k];}
+   else out[k]=mergeState(base?.[k],local[k],remote[k],k);
+  }return out;
+ }
+ if(['correct','wrong','time','times'].includes(key)&&[local,remote].every(Number.isFinite))return Math.max(0,remote+local-(Number(base)||0));
+ return local;
+}
+return {Store,Focus,date,shift,monday,id,PREFIX,parseQuestions,validOp,mergeState};
 });

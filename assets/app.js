@@ -33,8 +33,7 @@
   const trusted = (s) => String(s ?? ""); // content we author; may contain KaTeX and <br>
   const pad = (n, w=2) => String(n).padStart(w, "0");
   const todayStr = (d=new Date()) => {
-    const y = d.getFullYear(), m = pad(d.getMonth()+1), dd = pad(d.getDate());
-    return `${y}-${m}-${dd}`;
+    return window.QingjinCore.date(d.getTime());
   };
   const fmtDate = (ts) => {
     const d = new Date(ts);
@@ -123,6 +122,12 @@
   }
 
   let state = defaultState();
+  let academy;
+  let savedBaseline = defaultState();
+  function initAcademy() {
+    academy = window.QingjinAcademy.create({esc, state:()=>state, subjects:SUBJECT_IDS, subjectName:s=>s==='all'?'不限学科':subjName(s), due:dueReviews, weak:()=>weakKnowledge(3), toast, refresh:route});
+    academy.init();
+  }
 
   function loadState() {
     try {
@@ -133,16 +138,22 @@
       state.profile = Object.assign(defaultState().profile, s.profile||{});
       state.favorites = Object.assign(defaultState().favorites, s.favorites||{});
       state.settings = Object.assign(defaultState().settings, s.settings||{});
+      savedBaseline = JSON.parse(JSON.stringify(state));
     } catch (e) { console.warn("load state failed", e); }
   }
   function saveState() {
-    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); }
+    try {
+      const remote = JSON.parse(localStorage.getItem(STORE_KEY)||'null');
+      if(remote) state = window.QingjinCore.mergeState(savedBaseline,state,remote);
+      localStorage.setItem(STORE_KEY, JSON.stringify(state));
+      savedBaseline = JSON.parse(JSON.stringify(state));
+    }
     catch (e) { toast("本地存储已满，请先导出并清理数据"); }
   }
   const save = debounce(saveState, 80);
 
   function exportData() {
-    const blob = new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), data: state }, null, 2)], {type:"application/json"});
+    const blob = new Blob([JSON.stringify({ schema:2, appVersion:"1.4.0", exportedAt: new Date().toISOString(), data: state, academy:academy.store.backup(), aiPreferences:{preset:AI.cfg.preset,baseUrl:AI.cfg.baseUrl,model:AI.cfg.model,temperature:AI.cfg.temperature,timeout:AI.cfg.timeout} }, null, 2)], {type:"application/json"});
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = `qingjin-backup-${todayStr()}.json`;
@@ -151,10 +162,19 @@
   }
   function importData(obj) {
     const src = obj.data || obj;
-    if (!src || typeof src !== "object") throw new Error("文件格式无法识别");
+    if (!src || typeof src !== "object" || Array.isArray(src) || !src.profile) throw new Error("文件格式无法识别");
+    if (obj.academy && (!Array.isArray(obj.academy.ops)||!obj.academy.ops.every(window.QingjinCore.validOp))) throw new Error("成长记录格式有误，未覆盖原数据");
+    // 导入前保存可恢复快照，保留 API Key 所在的独立空间。
+    localStorage.setItem("qingjin-pre-import", JSON.stringify({data:state,academy:academy.store.backup()}));
+    if(obj.academy)academy.store.restore(obj.academy);
     state = Object.assign(defaultState(), src);
     state.profile = Object.assign(defaultState().profile, src.profile||{});
     state.favorites = Object.assign(defaultState().favorites, src.favorites||{});
+    state.settings = Object.assign(defaultState().settings, src.settings||{});
+    savedBaseline = JSON.parse(localStorage.getItem(STORE_KEY)||'{}');
+    academy.store.migrate(state);
+    if(obj.aiPreferences) { for(const k of ['preset','baseUrl','model','temperature','timeout']) if(k in obj.aiPreferences)AI.cfg[k]=obj.aiPreferences[k]; aiSave(); }
+    for(const q of state.aiQuestions||[])if(q?.id)DATA.qIndex[q.id]=q;
     saveState();
     applyTheme();
   }
@@ -263,7 +283,7 @@
       reps += 1;
     }
     ef = Math.max(1.3, ef + (0.1 - (5-quality)*(0.08+(5-quality)*0.02)));
-    return { ef, interval, reps, due: Date.now() + interval*86400000, last: Date.now(), quality };
+    return { ef, interval, reps, due: Date.parse(window.QingjinCore.shift(todayStr(),interval)+"T00:00:00+08:00"), last: Date.now(), quality };
   }
   function reviewItem(qid, quality) {
     state.sm2[qid] = sm2(state.sm2[qid]||{}, quality);
@@ -272,13 +292,16 @@
   function dueReviews() {
     const now = Date.now();
     return Object.entries(state.sm2)
-      .filter(([,c]) => (c.due||0) <= now)
+      .filter(([id,c]) => (c.due||0) <= now && !state.wrong.find(w=>w.qid===id)?.mastered && !academy?.store.wrongMeta(id).mastered)
       .map(([id,c]) => ({id, ...c}))
       .sort((a,b) => a.due - b.due);
   }
 
   /* ---------- mastery ---------- */
-  function recordAnswer(qid, correct, ms, subject, kids) {
+  function recordAnswer(qid, correct, ms, subject, kids, attemptId) {
+    const attempt = attemptId || `practice:${session?.start||Date.now()}:${qid}`;
+    const isReview = state.wrong.some(w=>w.qid===qid && !w.mastered);
+    if (!academy.answer({id:attempt, kind:isReview?'review':'answer', review:isReview, qid, correct, subject, seconds:Math.min(1800,Math.max(0,ms||0)/1000), source:'练习'})) return;
     const q = DATA.qIndex[qid];
     const ks = kids || (q && q.knowledgeIds) || [];
     for (const kid of ks) {
@@ -456,6 +479,8 @@
       view.innerHTML = html;
       renderMath(view);
       bindPage(current);
+      academy.bind();
+      if (!current.parts.length || current.parts[0]==='stats') view.insertAdjacentHTML('afterbegin', academy.miniStats());
       initListen(view);
     }
     highlightNav();
@@ -496,7 +521,9 @@
       case "wrong": return p[1]==="print" ? pageWrongPrint() : pageWrong();
       case "review": return pageReview();
       case "stats": return pageStats();
-      case "plan": return pagePlan();
+      case "plan": return academy.plan();
+      case "focus": return academy.focusPage();
+      case "garden": return academy.garden();
       case "formulas": return pageFormulas(p[1]);
       case "poetry": return pagePoetry(p[1]);
       case "words": return pageWords();
@@ -519,7 +546,9 @@
       ["/wrong", "wrong", "错题本"],
       ["/review", "review", "复习"],
       ["/stats", "chart", "成绩"],
-      ["/plan", "plan", "冲刺计划"],
+      ["/plan", "plan", "学习计划"],
+      ["/focus", "clock", "青灯专注"],
+      ["/garden", "lamp", "成长书院"],
     ];
   }
   const toolItems = [
@@ -1523,6 +1552,7 @@
     loadSession();
     const qid = session.items[session.idx];
     const q = DATA.qIndex[qid];
+    if (session.answers[qid]) return session.answers[qid].result;
     const result = checkQuestion(q, user);
     const spent = Date.now() - (session.qStart || session.start);
     session.answers[qid] = { user, result, spent, reasons:[], note:"" };
@@ -1672,7 +1702,7 @@
       const q = DATA.qIndex[id];
       const u = examSess.answers[id]?.user;
       const r = q ? checkQuestion(q, u) : {score:0,full:0};
-      if (q && r.correct!==null && u!=null) recordAnswer(id, !!r.correct, 0, q.subject, q.knowledgeIds);
+      if (q && r.correct!==null && u!=null) recordAnswer(id, !!r.correct, 0, q.subject, q.knowledgeIds, `exam:${examSess.start}:${id}`);
       if (r.score!=null) score += r.score;
       details.push({qid:id, result:r, user:u});
       if (examSess.answers[id]) examSess.answers[id].result = r;
@@ -2504,7 +2534,7 @@
       });
     }
     if (p==="stats") bindStats();
-    if (p==="plan") bindPlan();
+    if (p==="plan") void 0;
     if (p==="poetry") bindPoetry();
     if (p==="cards") bindCards();
     if (p==="textbook") bindTextbook();
@@ -2667,7 +2697,7 @@
     $$("#self-score button").forEach(b => b.addEventListener("click", () => {
       const sc = Number(b.dataset.sc);
       const a = session.answers[q.id];
-      if (!a) return;
+      if (!a || !a.result.pending) return;
       a.user = Object.assign(typeof a.user==="object"?a.user:{text:""}, {selfScore:sc});
       a.result = checkQuestion(q, a.user);
       if (a.result.correct!=null) recordAnswer(q.id, !!a.result.correct, a.spent, q.subject, q.knowledgeIds);
@@ -2809,7 +2839,7 @@
     }));
   }
 
-  function bindPlan() {
+  function bindPlanLegacy() {
     $("#add-task")?.addEventListener("submit", ev => {
       ev.preventDefault();
       const title = ev.target.title.value.trim();
@@ -3808,6 +3838,9 @@
   async function boot(){
     loadState();
     aiLoad();
+    initAcademy();
+    window.addEventListener('storage',e=>{if(e.key===STORE_KEY&&e.newValue){try{const remote=JSON.parse(e.newValue);state=window.QingjinCore.mergeState(savedBaseline,state,remote);savedBaseline=remote;}catch{}}});
+    window.addEventListener('pagehide',saveState);
     bindGlobalAI();
     applyTheme();
     loadSession();

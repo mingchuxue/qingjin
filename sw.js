@@ -1,5 +1,5 @@
 /* 青衿：缓存站点资源，便于再次打开和弱网使用。 */
-const VER = "qingjin-v16";
+const VER = "qingjin-v17";
 const PRECACHE = [
   "./",
   "./index.html",
@@ -9,6 +9,9 @@ const PRECACHE = [
   "./assets/motion.css",
   "./assets/motion.js",
   "./assets/app.js",
+  "./assets/academy-core.js",
+  "./assets/academy-ui.js",
+  "./assets/academy.css",
   "./assets/katex/katex.min.css",
   "./assets/katex/katex.min.js",
   "./assets/katex/contrib/auto-render.min.js",
