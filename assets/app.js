@@ -199,7 +199,7 @@
   const save = debounce(saveState, 80);
 
   function exportData() {
-    const backupJson = JSON.stringify({ schema:2, appVersion:"1.5.1", exportedAt: new Date().toISOString(), data: state, academy:academy.store.backup(), aiPreferences:{preset:AI.cfg.preset,baseUrl:AI.cfg.baseUrl,model:AI.cfg.model,temperature:AI.cfg.temperature,timeout:AI.cfg.timeout} }, null, 2);
+    const backupJson = JSON.stringify({ schema:2, appVersion:"1.5.2", exportedAt: new Date().toISOString(), data: state, academy:academy.store.backup(), aiPreferences:{preset:AI.cfg.preset,baseUrl:AI.cfg.baseUrl,model:AI.cfg.model,temperature:AI.cfg.temperature,timeout:AI.cfg.timeout} }, null, 2);
     const blob = new Blob([AI.cfg.apiKey ? backupJson.split(AI.cfg.apiKey).join("[Key 已隐藏]") : backupJson], {type:"application/json"});
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
@@ -669,9 +669,10 @@
             <button class="menu-btn" id="menu-btn" aria-label="打开菜单">${ic("menu",20)}</button>
             <form class="search-box" id="search-form" action="#/search" role="search">
               ${ic("search")}
-              <input type="search" name="q" id="q-input" placeholder="搜索知识、题目" aria-label="搜索知识点、结论、教材、题目" autocomplete="off">
+              <input type="search" name="q" id="q-input" placeholder="搜索知识、题目" aria-label="搜索知识、题目" autocomplete="off">
             </form>
             <div class="top-actions">
+              <button type="button" class="ai-entry" id="ai-fab" aria-label="问AI" hidden>${ic("ai",18)}<span>问AI</span></button>
               ${streak?`<span class="streak-pill" title="连续打卡 ${streak} 天">${ic("fire",16)} ${streak} <span>天</span></span>`:""}
               <a class="icon-btn" href="#/review" title="待复习" aria-label="待复习">
                 ${ic("bell")}${due?`<span class="badge">${due>99?"99+":due}</span>`:""}
@@ -682,7 +683,6 @@
           <main id="main" tabindex="-1"><div id="view"></div></main>
         </div>
       </div>
-      <button type="button" class="ai-fab" id="ai-fab" aria-label="问AI" hidden>${ic("ai",20)}<span>问AI</span></button>
       <nav class="bottom-nav" aria-label="移动导航">
         <a href="#/" data-bn="home">${ic("home",22)}首页</a>
         <a href="#/knowledge" data-bn="knowledge">${ic("book",22)}知识</a>
@@ -2432,7 +2432,7 @@
   function pageSettings() {
     const p = state.profile;
     return `
-      <div class="page-head"><div>${crumb([["#/","首页"],["#/settings","设置"]])}<h1 class="h1">设置 <span class="tag">1.5.1 · VC12</span></h1></div></div>
+      <div class="page-head"><div>${crumb([["#/","首页"],["#/settings","设置"]])}<h1 class="h1">设置 <span class="tag">1.5.2 · VC13</span></h1></div></div>
       <div class="card settings-sec">
         <h2>个人与选科</h2>
         <div class="row" style="display:grid;grid-template-columns:120px 1fr;gap:8px;align-items:center;margin-bottom:8px">
@@ -3573,7 +3573,7 @@
   function photoCancel(){PHOTO.revision++;if(PHOTO.ctrl)PHOTO.ctrl.abort();PHOTO.ctrl=null;PHOTO.busy=false;}
   function photoRefresh(){if(current.parts[0]==='ai'&&current.parts[1]==='photo')route();}
   function pagePhoto(){const v=AI.cfg.vision||{},cfg=photoVision(),cap=window.QingjinPhoto.capability(cfg);let dest='未配置';try{dest=new URL(cfg.baseUrl).host}catch{}
-    return `<div class="page-head"><div>${crumb([['#/','首页'],['#/ai','AI导师']])}<h1 class="h1">拍照 · AI识题解答 <span class="tag">1.5.1</span></h1><p class="muted">读清题目，再拆解思路。不提供联网题库命中或真题来源。</p></div><a href="#/settings?ai=1" class="btn btn-soft">模型设置</a></div>
+    return `<div class="page-head"><div>${crumb([['#/','首页'],['#/ai','AI导师']])}<h1 class="h1">拍照 · AI识题解答 <span class="tag">1.5.2</span></h1><p class="muted">读清题目，再拆解思路。不提供联网题库命中或真题来源。</p></div><a href="#/settings?ai=1" class="btn btn-soft">模型设置</a></div>
     <p id="photo-status" class="photo-status" role="status" aria-live="polite">${esc(PHOTO.busy?'正在处理，可取消…':PHOTO.status)}</p><div class="photo-layout"><div><section class="card photo-step"><div class="photo-step-title"><span>01</span><h2>把题目带进来</h2></div><p class="muted">拍一题，尽量拍清公式与图形。JPEG / PNG / WebP，原图≤12MB / 4000万像素；自动压至最长1600px、≤1.8MB并重新编码去除EXIF。图片不会进入学习备份或聊天记录，刷新后页面不保留。安卓选择器使用私有临时缓存，压缩完成即清理原文件，异常遗留在退出/下次启动清理。</p>
     <div class="photo-actions"><label class="btn btn-primary photo-file">拍照<input id="photo-camera" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" ${PHOTO.busy?'disabled':''}></label><label class="btn btn-soft photo-file">相册 / 选择图片<input id="photo-file" type="file" accept="image/jpeg,image/png,image/webp" ${PHOTO.busy?'disabled':''}></label><button class="btn btn-ghost" id="photo-remove" ${PHOTO.image?'':'disabled'}>删除图片</button></div><p class="muted">重新选图会清除本页旧识别与解答；也可不选图，直接在下方输入题目。</p>
     ${PHOTO.image?`<div class="photo-preview"><img src="${PHOTO.image.data}" alt="待识别题目预览"><span>${PHOTO.image.width} × ${PHOTO.image.height} · ${Math.ceil(PHOTO.image.bytes/1024)}KB · 仅本机暂存</span></div><div class="photo-actions"><button class="btn btn-soft" id="photo-rotate" ${PHOTO.busy?'disabled':''}>顺时针旋转90°</button><details><summary>裁掉多余边缘</summary><div class="photo-crop">${[['left','左'],['top','上'],['right','右'],['bottom','下']].map(([id,name])=>`<label>${name}侧 %<input class="field" id="photo-crop-${id}" type="number" min="0" max="45" value="0"></label>`).join('')}</div><button class="btn btn-soft" id="photo-crop" ${PHOTO.busy?'disabled':''}>应用裁剪</button><p class="muted">各边0–45%，依预览逐步裁剪；误裁请重选原图。</p></details></div>`:`<div class="photo-placeholder" aria-label="未选择图片"><b>让镜头成为草稿纸的入口</b><span>图片只在此页临时保存 · 不自动上传</span></div>`}
