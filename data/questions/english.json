@@ -9906,5 +9906,178 @@
         "score": 7
       }
     ]
+  },
+  {
+    "id": "ct-english-q-01",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-english-k-01"
+    ],
+    "methodIds": [
+      "ct-english-m-01"
+    ],
+    "stem": "Original practice: The team postponed the launch until Friday. This delay allowed a final safety check. What does “This delay” refer to?",
+    "options": [
+      "The safety check itself",
+      "Friday as a day of the week",
+      "The decision to launch earlier",
+      "Postponing the launch until Friday"
+    ],
+    "answer": "D",
+    "steps": [
+      "代入检验：允许进行最后安全检查的是“把发射推迟到周五”这一事件。",
+      "不是Friday这个名词孤立指称，也不是尚在后文出现的检查本身。"
+    ],
+    "analysis": {
+      "breakthrough": "把候选对象代回this/that后，检查语法、语义与论证关系是否都通。",
+      "method": "把照应词换回候选事件，检验语义；遇让步再判断从句是已知事实还是假设条件。",
+      "pitfalls": "最近的名词不一定是先行对象。；不要把指代范围无限扩展成全文所有信息。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
+  },
+  {
+    "id": "ct-english-q-02",
+    "subject": "english",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-english-k-01"
+    ],
+    "methodIds": [
+      "ct-english-m-01"
+    ],
+    "stem": "Original practice: “The river became cleaner after the factory installed new filters, which surprised the residents.” Explain what “which” most plausibly comments on, and why choosing the nearest noun alone may fail.",
+    "options": [],
+    "answer": "which最自然地评述前面“安装新过滤装置后河水变干净”这一情况；仅按最近名词会误选filters，须结合surprised的语义和完整事件。",
+    "steps": [
+      "非限制性which可以指前面分句而非最近名词。",
+      "惊讶的对象是前句呈现的变化/情况；若具体上下文另有交代，也须据上下文细化。",
+      "不能从这一指代题进一步断定过滤装置是水质变化的唯一原因。"
+    ],
+    "analysis": {
+      "breakthrough": "把候选对象代回this/that后，检查语法、语义与论证关系是否都通。",
+      "method": "把照应词换回候选事件，检验语义；遇让步再判断从句是已知事实还是假设条件。",
+      "pitfalls": "最近的名词不一定是先行对象。；不要把指代范围无限扩展成全文所有信息。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 6,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    },
+    "rubric": [
+      {
+        "point": "非限制性which可以指前面分句而非最近名词。",
+        "score": 2
+      },
+      {
+        "point": "惊讶的对象是前句呈现的变化/情况；若具体上下文另有交代，也须据上下文细化。",
+        "score": 2
+      },
+      {
+        "point": "不能从这一指代题进一步断定过滤装置是水质变化的唯一原因。",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "ct-english-q-03",
+    "subject": "english",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-english-k-02"
+    ],
+    "methodIds": [
+      "ct-english-m-02"
+    ],
+    "stem": "Original practice: The forecast is uncertain. I will attend the outdoor event ___ it rains. Which best expresses a commitment regardless of a possible condition?",
+    "options": [
+      "even if",
+      "because",
+      "as soon as",
+      "so that"
+    ],
+    "answer": "A",
+    "steps": [
+      "题干说预报不确定，需表达假设让步“即使下雨也去”。",
+      "even if不承诺下雨是事实；其余项分别表原因、时间、目的，不符合任务。"
+    ],
+    "analysis": {
+      "breakthrough": "Although/even though通常引入承认的事实，主句表达与通常预期不同的结果。",
+      "method": "把照应词换回候选事件，检验语义；遇让步再判断从句是已知事实还是假设条件。",
+      "pitfalls": "“即使下雨也去”不能直接推断已经下雨。；不要把所有转折词都视为可在任意位置互换。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://dictionary.cambridge.org/grammar/british-grammar/although-or-though",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-english-q-04",
+    "subject": "english",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-english-k-02"
+    ],
+    "methodIds": [
+      "ct-english-m-02"
+    ],
+    "stem": "Original practice: Correct the standard written-English sentence without changing its intended contrast: “Although the route was longer, but it was safer.” Give one correction and explain whether the original sentence presents the longer route as a fact or a mere possibility.",
+    "options": [],
+    "answer": "Although the route was longer, it was safer.（或The route was longer, but it was safer.）从句把路线更长作为已承认的事实。",
+    "steps": [
+      "原句同一组主从句重复使用although和but；规范高中书面表达删去一个连接成分。",
+      "Although引入事实让步，不是even if那种尚未确定的假设。"
+    ],
+    "analysis": {
+      "breakthrough": "Although/even though通常引入承认的事实，主句表达与通常预期不同的结果。",
+      "method": "把照应词换回候选事件，检验语义；遇让步再判断从句是已知事实还是假设条件。",
+      "pitfalls": "“即使下雨也去”不能直接推断已经下雨。；不要把所有转折词都视为可在任意位置互换。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 6,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://dictionary.cambridge.org/grammar/british-grammar/although-or-though",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    }
   }
 ]

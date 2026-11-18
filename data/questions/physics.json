@@ -3175,5 +3175,185 @@
         "score": 5
       }
     ]
+  },
+  {
+    "id": "ct-physics-q-01",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-physics-k-01"
+    ],
+    "methodIds": [
+      "ct-physics-m-01"
+    ],
+    "stem": "质量 $2\\,\\mathrm{kg}$ 的物体在光滑水平轨道上向正x方向运动，初速度 $3\\,\\mathrm{m/s}$。沿x方向的合力在 $0\\le x\\le2\\,\\mathrm m$ 时为 $4\\,\\mathrm N$，在 $2<x\\le5\\,\\mathrm m$ 时为 $-2\\,\\mathrm N$。到 $x=5\\,\\mathrm m$ 时速度大小为____。",
+    "options": [],
+    "answer": "$\\sqrt{11}\\,\\mathrm{m/s}$",
+    "steps": [
+      "两段功分别8J与-6J，总功2J。",
+      "初动能为9J，末动能11J，v²=2×11/2=11。",
+      "第二段动能从17J降至11J始终为正，可达终点。"
+    ],
+    "analysis": {
+      "breakthrough": "每一小段位移上的功按力分量与位移同号/异号区分正负，图像横轴上方与下方面积应代数相加。",
+      "method": "先按过程累计能量并检验中途可达，再区分有效输出与内部损耗；不把末态公式当全程保证。",
+      "pitfalls": "不能把横轴下方的面积也当正功。；总功能算出不意味着物体一定到达所设终点。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/7-1-work",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    },
+    "alt": [
+      "√11",
+      "sqrt(11)",
+      "√11m/s",
+      "根号11"
+    ]
+  },
+  {
+    "id": "ct-physics-q-02",
+    "subject": "physics",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-physics-k-01"
+    ],
+    "methodIds": [
+      "ct-physics-m-01"
+    ],
+    "stem": "某物体初动能为 $3\\,\\mathrm J$，沿正x方向运动。在 $0\\le x\\le1\\,\\mathrm m$ 合力为 $-4\\,\\mathrm N$，在 $1<x\\le2\\,\\mathrm m$ 合力为 $10\\,\\mathrm N$。有人把两段功相加，计算到2m的动能为9J。指出其预设的问题，并求首次停止位置。",
+    "options": [],
+    "answer": "物体先在 $x=0.75\\,\\mathrm m$ 停止，尚未到达后段；不能预设全程向正x可达。",
+    "steps": [
+      "在第一段累计动能为3-4x（J，x以m计）。",
+      "令其为0得x=0.75m，小于1m；继续沿正x的预设已失效。",
+      "后段10N的功不能在尚未到达时预支。"
+    ],
+    "analysis": {
+      "breakthrough": "每一小段位移上的功按力分量与位移同号/异号区分正负，图像横轴上方与下方面积应代数相加。",
+      "method": "先按过程累计能量并检验中途可达，再区分有效输出与内部损耗；不把末态公式当全程保证。",
+      "pitfalls": "不能把横轴下方的面积也当正功。；总功能算出不意味着物体一定到达所设终点。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 6,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/7-1-work",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    },
+    "rubric": [
+      {
+        "point": "在第一段累计动能为3-4x（J，x以m计）。",
+        "score": 2
+      },
+      {
+        "point": "令其为0得x=0.75m，小于1m；继续沿正x的预设已失效。",
+        "score": 2
+      },
+      {
+        "point": "后段10N的功不能在尚未到达时预支。",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "ct-physics-q-03",
+    "subject": "physics",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-physics-k-02"
+    ],
+    "methodIds": [
+      "ct-physics-m-02"
+    ],
+    "stem": "理想电源 $E=12\\,\\mathrm V$、$r=2\\,\\Omega$，接纯电阻R。以下正确的是",
+    "options": [
+      "R=2Ω时输出功率18W、效率50%",
+      "R越大，输出功率始终越大",
+      "R=4Ω时效率50%",
+      "电源内阻不消耗功率"
+    ],
+    "answer": "A",
+    "steps": [
+      "R=r时I=12/4=3A，外功率I²R=18W，效率R/(R+r)=1/2。",
+      "R=4Ω时效率为2/3；R很大时外功率趋0，内阻一般有I²r损耗。"
+    ],
+    "analysis": {
+      "breakthrough": "电流由总电阻R+r决定；外电路功率用电流平方乘R，不是电动势乘电流。",
+      "method": "先按过程累计能量并检验中途可达，再区分有效输出与内部损耗；不把末态公式当全程保证。",
+      "pitfalls": "不能把路端电压误写为恒定E。；结论不直接推广到内阻随电流变化的实际电池。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
+  },
+  {
+    "id": "ct-physics-q-04",
+    "subject": "physics",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-physics-k-02"
+    ],
+    "methodIds": [
+      "ct-physics-m-02"
+    ],
+    "stem": "同一理想电源 $E=12\\,\\mathrm V$、$r=2\\,\\Omega$ 接 $R=4\\,\\Omega$，外电阻功率为____W，电源效率为____。",
+    "options": [],
+    "answer": "$16$；$\\dfrac23$",
+    "steps": [
+      "I=12/(4+2)=2A，P外=2²×4=16W。",
+      "P总=EI=24W，效率16/24=2/3；效率提高但未达到最大输出18W。"
+    ],
+    "analysis": {
+      "breakthrough": "电流由总电阻R+r决定；外电路功率用电流平方乘R，不是电动势乘电流。",
+      "method": "先按过程累计能量并检验中途可达，再区分有效输出与内部损耗；不把末态公式当全程保证。",
+      "pitfalls": "不能把路端电压误写为恒定E。；结论不直接推广到内阻随电流变化的实际电池。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    },
+    "alt": [
+      "16;2/3",
+      "16,2/3",
+      "16；2/3"
+    ]
   }
 ]

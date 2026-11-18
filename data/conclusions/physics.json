@@ -1782,5 +1782,75 @@
       "wl-x3-5-3",
       "wl-x3-5-4"
     ]
+  },
+  {
+    "id": "ct-physics-c-01",
+    "subject": "physics",
+    "kpIds": [
+      "ct-physics-k-01"
+    ],
+    "title": "F-x图像：有向面积与可达性：条件化提要",
+    "statement": "每一小段位移上的功按力分量与位移同号/异号区分正负，图像横轴上方与下方面积应代数相加。 F-x面积表示功，不是冲量；F-t面积才对应沿该方向的冲量。",
+    "conditions": "质点沿同一直线从小x向大x运动，图像纵轴是沿x方向的力分量；全程可达。",
+    "derivation": [
+      "把路程切成小段，逐段按功的定义求和，几何图形可用三角形/梯形面积计算，无需把定积分作为必考前提。",
+      "功改变动能；可达性要求每个中间位置的动能不为负。"
+    ],
+    "example": {
+      "q": "质量 $2\\,\\mathrm{kg}$ 的物体在光滑水平轨道上向正x方向运动，初速度 $3\\,\\mathrm{m/s}$。沿x方向的合力在 $0\\le x\\le2\\,\\mathrm m$ 时为 $4\\,\\mathrm N$，在 $2<x\\le5\\,\\mathrm m$ 时为 $-2\\,\\mathrm N$。到 $x=5\\,\\mathrm m$ 时速度大小为____。",
+      "a": "$\\sqrt{11}\\,\\mathrm{m/s}$。解析：两段功分别8J与-6J，总功2J。；初动能为9J，末动能11J，v²=2×11/2=11。；第二段动能从17J降至11J始终为正，可达终点。"
+    },
+    "pitfalls": [
+      "不能把横轴下方的面积也当正功。",
+      "总功能算出不意味着物体一定到达所设终点。"
+    ],
+    "freq": "mid",
+    "sectionIds": [
+      "wl-b2-4-1"
+    ],
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/7-1-work",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-physics-c-02",
+    "subject": "physics",
+    "kpIds": [
+      "ct-physics-k-02"
+    ],
+    "title": "闭合电路：效率与外电阻功率的取舍：条件化提要",
+    "statement": "电流由总电阻R+r决定；外电路功率用电流平方乘R，不是电动势乘电流。 电源效率为外电功率/总电功率；增大R可提高效率，但不保证输出功率持续增加。",
+    "conditions": "理想电源电动势E、内阻r均为正且恒定，外接纯电阻R>0；忽略温度效应。",
+    "derivation": [
+      "由欧姆定律得I=E/(R+r)，进而P=E²R/(R+r)²。",
+      "由(R+r)²≥4Rr得P≤E²/(4r)，等号当且仅当R=r。"
+    ],
+    "example": {
+      "q": "理想电源 $E=12\\,\\mathrm V$、$r=2\\,\\Omega$，接纯电阻R。以下正确的是\nA. R=2Ω时输出功率18W、效率50%；B. R越大，输出功率始终越大；C. R=4Ω时效率50%；D. 电源内阻不消耗功率",
+      "a": "A：R=2Ω时输出功率18W、效率50%。解析：R=r时I=12/4=3A，外功率I²R=18W，效率R/(R+r)=1/2。；R=4Ω时效率为2/3；R很大时外功率趋0，内阻一般有I²r损耗。"
+    },
+    "pitfalls": [
+      "不能把路端电压误写为恒定E。",
+      "结论不直接推广到内阻随电流变化的实际电池。"
+    ],
+    "freq": "mid",
+    "sectionIds": [
+      "wl-b3-4-2"
+    ],
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
   }
 ]

@@ -1410,5 +1410,95 @@
       "en-q294",
       "en-q295"
     ]
+  },
+  {
+    "id": "ct-english-k-01",
+    "subject": "english",
+    "module": "条件与证据专题",
+    "chapter": "阅读与写作",
+    "title": "阅读照应：this与which指向整件事",
+    "freq": "mid",
+    "examHow": "在复杂情境中核查条件、证据与结论边界。",
+    "summary": "把候选对象代回this/that后，检查语法、语义与论证关系是否都通。",
+    "points": [
+      "把候选对象代回this/that后，检查语法、语义与论证关系是否都通。",
+      "非限制性which可评述前面整个分句，不能机械选最近的名词。",
+      "This加概括名词常把上一句信息打包，如this delay对应“推迟”这一事件。",
+      "选项只能转述文中已有事件；推断指代不等于推断作者未说的原因。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "最近的名词不一定是先行对象。",
+      "不要把指代范围无限扩展成全文所有信息。"
+    ],
+    "methodIds": [
+      "ct-english-m-01"
+    ],
+    "relatedIds": [
+      "en-19"
+    ],
+    "questionIds": [
+      "ct-english-q-01",
+      "ct-english-q-02"
+    ],
+    "conditions": "阅读给出完整前后句；照应对象可能是名词，也可能是前句命题。",
+    "derivation": [
+      "若指代词后的谓语描述一种结果，先看前句哪个事件能产生该结果。",
+      "用完整事件作替换，比只比较词距更能检验逻辑。"
+    ],
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
+  },
+  {
+    "id": "ct-english-k-02",
+    "subject": "english",
+    "module": "条件与证据专题",
+    "chapter": "阅读与写作",
+    "title": "让步关系：事实让步与假设让步",
+    "freq": "mid",
+    "examHow": "在复杂情境中核查条件、证据与结论边界。",
+    "summary": "Although/even though通常引入承认的事实，主句表达与通常预期不同的结果。",
+    "points": [
+      "Although/even though通常引入承认的事实，主句表达与通常预期不同的结果。",
+      "Even if可表示“即使”，不保证从句的情况真实发生。",
+      "常规高中规范写作避免用although与but重复连接同一对主从句；可以保留although从句配主句。",
+      "Yet可以作转折连接语；句末though可表示however，但although通常不能这样移到句末。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "“即使下雨也去”不能直接推断已经下雨。",
+      "不要把所有转折词都视为可在任意位置互换。"
+    ],
+    "methodIds": [
+      "ct-english-m-02"
+    ],
+    "relatedIds": [
+      "en-09"
+    ],
+    "questionIds": [
+      "ct-english-q-03",
+      "ct-english-q-04"
+    ],
+    "conditions": "区分已被承认为事实的让步与尚未发生/未确定的假设条件。",
+    "derivation": [
+      "事实让步让读者接受从句信息，再修正通常预期；假设让步先设条件而不承诺其真。",
+      "检验题干需要的是承认已知事实还是对未来条件的承诺。"
+    ],
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://dictionary.cambridge.org/grammar/british-grammar/although-or-though",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    }
   }
 ]

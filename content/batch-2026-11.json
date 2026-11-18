@@ -1,0 +1,223 @@
+{
+  "batch": "2026-11",
+  "status": "local-reviewed-not-published",
+  "scope": "18个细分知识点、18个方法、36道原创精编练习、18条条件化结论。不是新增高考真题。数理另行独立计算；文科限于给定语料/公开法条/史料条款，不代表外部专家审定。",
+  "subjects": {
+    "chinese": {
+      "knowledgeIds": [
+        "ct-chinese-k-01",
+        "ct-chinese-k-02"
+      ],
+      "questionIds": [
+        "ct-chinese-q-01",
+        "ct-chinese-q-02",
+        "ct-chinese-q-03",
+        "ct-chinese-q-04"
+      ],
+      "methodIds": [
+        "ct-chinese-m-01",
+        "ct-chinese-m-02"
+      ],
+      "conclusionIds": [
+        "ct-chinese-c-01",
+        "ct-chinese-c-02"
+      ],
+      "sectionIds": [
+        "yw-x1-4-1",
+        "yw-x2-5-4"
+      ]
+    },
+    "math": {
+      "knowledgeIds": [
+        "ct-math-k-01",
+        "ct-math-k-02"
+      ],
+      "questionIds": [
+        "ct-math-q-01",
+        "ct-math-q-02",
+        "ct-math-q-03",
+        "ct-math-q-04"
+      ],
+      "methodIds": [
+        "ct-math-m-01",
+        "ct-math-m-02"
+      ],
+      "conclusionIds": [
+        "ct-math-c-01",
+        "ct-math-c-02"
+      ],
+      "sectionIds": [
+        "sx-x2-2-3",
+        "sx-x3-2-1"
+      ]
+    },
+    "english": {
+      "knowledgeIds": [
+        "ct-english-k-01",
+        "ct-english-k-02"
+      ],
+      "questionIds": [
+        "ct-english-q-01",
+        "ct-english-q-02",
+        "ct-english-q-03",
+        "ct-english-q-04"
+      ],
+      "methodIds": [
+        "ct-english-m-01",
+        "ct-english-m-02"
+      ],
+      "conclusionIds": [
+        "ct-english-c-01",
+        "ct-english-c-02"
+      ],
+      "sectionIds": [
+        "en-x2-1-1",
+        "en-x1-1-2"
+      ]
+    },
+    "physics": {
+      "knowledgeIds": [
+        "ct-physics-k-01",
+        "ct-physics-k-02"
+      ],
+      "questionIds": [
+        "ct-physics-q-01",
+        "ct-physics-q-02",
+        "ct-physics-q-03",
+        "ct-physics-q-04"
+      ],
+      "methodIds": [
+        "ct-physics-m-01",
+        "ct-physics-m-02"
+      ],
+      "conclusionIds": [
+        "ct-physics-c-01",
+        "ct-physics-c-02"
+      ],
+      "sectionIds": [
+        "wl-b2-4-1",
+        "wl-b3-4-2"
+      ]
+    },
+    "chemistry": {
+      "knowledgeIds": [
+        "ct-chemistry-k-01",
+        "ct-chemistry-k-02"
+      ],
+      "questionIds": [
+        "ct-chemistry-q-01",
+        "ct-chemistry-q-02",
+        "ct-chemistry-q-03",
+        "ct-chemistry-q-04"
+      ],
+      "methodIds": [
+        "ct-chemistry-m-01",
+        "ct-chemistry-m-02"
+      ],
+      "conclusionIds": [
+        "ct-chemistry-c-01",
+        "ct-chemistry-c-02"
+      ],
+      "sectionIds": [
+        "hx-x1-3-5",
+        "hx-x1-2-2"
+      ]
+    },
+    "biology": {
+      "knowledgeIds": [
+        "ct-biology-k-01",
+        "ct-biology-k-02"
+      ],
+      "questionIds": [
+        "ct-biology-q-01",
+        "ct-biology-q-02",
+        "ct-biology-q-03",
+        "ct-biology-q-04"
+      ],
+      "methodIds": [
+        "ct-biology-m-01",
+        "ct-biology-m-02"
+      ],
+      "conclusionIds": [
+        "ct-biology-c-01",
+        "ct-biology-c-02"
+      ],
+      "sectionIds": [
+        "sw-b1-5-1",
+        "sw-b1-4-1"
+      ]
+    },
+    "politics": {
+      "knowledgeIds": [
+        "ct-politics-k-01",
+        "ct-politics-k-02"
+      ],
+      "questionIds": [
+        "ct-politics-q-01",
+        "ct-politics-q-02",
+        "ct-politics-q-03",
+        "ct-politics-q-04"
+      ],
+      "methodIds": [
+        "ct-politics-m-01",
+        "ct-politics-m-02"
+      ],
+      "conclusionIds": [
+        "ct-politics-c-01",
+        "ct-politics-c-02"
+      ],
+      "sectionIds": [
+        "zz-x2-4-1",
+        "zz-x3-6-3"
+      ]
+    },
+    "history": {
+      "knowledgeIds": [
+        "ct-history-k-01",
+        "ct-history-k-02"
+      ],
+      "questionIds": [
+        "ct-history-q-01",
+        "ct-history-q-02",
+        "ct-history-q-03",
+        "ct-history-q-04"
+      ],
+      "methodIds": [
+        "ct-history-m-01",
+        "ct-history-m-02"
+      ],
+      "conclusionIds": [
+        "ct-history-c-01",
+        "ct-history-c-02"
+      ],
+      "sectionIds": [
+        "ls-b1-6-1",
+        "ls-b1-6-1"
+      ]
+    },
+    "geography": {
+      "knowledgeIds": [
+        "ct-geography-k-01",
+        "ct-geography-k-02"
+      ],
+      "questionIds": [
+        "ct-geography-q-01",
+        "ct-geography-q-02",
+        "ct-geography-q-03",
+        "ct-geography-q-04"
+      ],
+      "methodIds": [
+        "ct-geography-m-01",
+        "ct-geography-m-02"
+      ],
+      "conclusionIds": [
+        "ct-geography-c-01",
+        "ct-geography-c-02"
+      ],
+      "sectionIds": [
+        "dl-b1-2-2",
+        "dl-b1-3-1"
+      ]
+    }
+  }
+}

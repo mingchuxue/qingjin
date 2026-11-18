@@ -334,5 +334,67 @@
       "hx-q44",
       "hx-q101"
     ]
+  },
+  {
+    "id": "ct-chemistry-m-01",
+    "subject": "chemistry",
+    "name": "滴定误差：分步检验法",
+    "category": "化学实验与平衡",
+    "when": "以已知浓度强酸滴定定量移取的强碱，1∶1反应，其他操作正确。",
+    "explanation": "将条件变成可检验的推理链：量取的是原待测液体积，锥形瓶内后加水不进入计算式分母。",
+    "steps": [
+      "先抄清任务的对象、条件与范围。",
+      "量取的是原待测液体积，锥形瓶内后加水不进入计算式分母。",
+      "误差传播应从被改变的物理量出发，而不是背“加水都偏小”。",
+      "回到题干核对结论是否超出已知，给出单位或证据边界。"
+    ],
+    "tips": [
+      "不能把“瓶中总体积变大”直接判为测得待测液浓度变小。",
+      "本条不处理挥发、反应不完全、不同化学计量比等特殊情况。"
+    ],
+    "questionIds": [
+      "ct-chemistry-q-01",
+      "ct-chemistry-q-02"
+    ],
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
+  },
+  {
+    "id": "ct-chemistry-m-02",
+    "subject": "chemistry",
+    "name": "惰性气体：分步检验法",
+    "category": "化学实验与平衡",
+    "when": "气体近似理想，温度不变，加入不反应的惰性气体，无相变；具体反应另看气体计量数。",
+    "explanation": "将条件变成可检验的推理链：把Q写为反应组分分压的幂比，惰性气体本身不写入Q。",
+    "steps": [
+      "先抄清任务的对象、条件与范围。",
+      "把Q写为反应组分分压的幂比，惰性气体本身不写入Q。",
+      "恒容时各分压不变所以Q不变；恒压时各分压同倍下降，用气体计量数判断Q与K的偏离。",
+      "回到题干核对结论是否超出已知，给出单位或证据边界。"
+    ],
+    "tips": [
+      "“总压升高必向气体少的一侧”忽略了分压是否改变。",
+      "恒压不等于各反应物分压恒定。"
+    ],
+    "questionIds": [
+      "ct-chemistry-q-03",
+      "ct-chemistry-q-04"
+    ],
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://openstax.org/books/chemistry-2e/pages/13-3-shifting-equilibria-le-chateliers-principle",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    }
   }
 ]

@@ -4125,5 +4125,183 @@
         "score": 4
       }
     ]
+  },
+  {
+    "id": "ct-math-q-01",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-math-k-01"
+    ],
+    "methodIds": [
+      "ct-math-m-01"
+    ],
+    "stem": "在区间 $[-2,3]$ 上，$f(x)=|x-1|+x^2$ 的最小值为____。",
+    "options": [],
+    "answer": "$\\dfrac34$",
+    "steps": [
+      "$x\\le1$ 时，$f=x^2-x+1=(x-\\frac12)^2+\\frac34$，分段最小点为 $x=\\frac12$。",
+      "$x\\ge1$ 时，$f=x^2+x-1$ 递增，分段最小值为 $f(1)=1$。",
+      "比较端点、接点与内部候选点，整体最小值为 $\\frac34$。"
+    ],
+    "analysis": {
+      "breakthrough": "候选点包括区间两端、各段内部导数为零的点及分段接点。",
+      "method": "函数最值列端点/接点/内部驻点，概率先圈条件样本空间；两类任务都先固定范围再运算。",
+      "pitfalls": "漏比较接点会漏掉尖点最小值。；区间端点通常不按内点极值定义处理，但能取得最值。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    },
+    "alt": [
+      "3/4",
+      "0.75",
+      "(3)/(4)"
+    ]
+  },
+  {
+    "id": "ct-math-q-02",
+    "subject": "math",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-math-k-01"
+    ],
+    "methodIds": [
+      "ct-math-m-01"
+    ],
+    "stem": "在 $[-1,2]$ 上研究 $g(x)=|x|$。下列说法正确的是",
+    "options": [
+      "因导数没有零点，故没有最小值",
+      "最小值为0，在不可导点x=0取得",
+      "最大值为1",
+      "只有端点才可能取得最小值"
+    ],
+    "answer": "B",
+    "steps": [
+      "在[-1,0]上g=-x递减，在[0,2]上g=x递增。",
+      "接点x=0处不可导但g(0)=0为最小值；端点g(-1)=1、g(2)=2，最大值2。"
+    ],
+    "analysis": {
+      "breakthrough": "候选点包括区间两端、各段内部导数为零的点及分段接点。",
+      "method": "函数最值列端点/接点/内部驻点，概率先圈条件样本空间；两类任务都先固定范围再运算。",
+      "pitfalls": "漏比较接点会漏掉尖点最小值。；区间端点通常不按内点极值定义处理，但能取得最值。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
+  },
+  {
+    "id": "ct-math-q-03",
+    "subject": "math",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-math-k-02"
+    ],
+    "methodIds": [
+      "ct-math-m-02"
+    ],
+    "stem": "纯数学假设：某批零件缺陷率为2%，检测对缺陷件报阳性的概率为90%，对合格件误报阳性的概率为10%。随机取件检测为阳性，确有缺陷的条件概率为____（最简分数）。",
+    "options": [],
+    "answer": "$\\dfrac9{58}$",
+    "steps": [
+      "以10000件为等比例计算模型：缺陷200件中阳性180件，合格9800件中误报980件。",
+      "全部阳性1160件，真阳性比例180/1160=9/58；不是90%。"
+    ],
+    "analysis": {
+      "breakthrough": "先按真实状态分组，再计算每组落入“阳性”集合的人数或概率。",
+      "method": "函数最值列端点/接点/内部驻点，概率先圈条件样本空间；两类任务都先固定范围再运算。",
+      "pitfalls": "低基率下，即使检测较灵敏，阳性也未必大多是真阳性。；医学情境只训练概率，不据此作个体诊断。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://openstax.org/books/introductory-statistics-2e/pages/3-3-two-basic-rules-of-probability",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    },
+    "alt": [
+      "9/58",
+      "(9)/(58)"
+    ]
+  },
+  {
+    "id": "ct-math-q-04",
+    "subject": "math",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-math-k-02"
+    ],
+    "methodIds": [
+      "ct-math-m-02"
+    ],
+    "stem": "教学假设：甲厂供货占60%，次品率1%；乙厂供货占40%，次品率4%。随机抽到一件次品，求其来自乙厂的概率。说明为什么分母不能直接用40%。",
+    "options": [],
+    "answer": "$\\dfrac8{11}$；分母应为两厂合计次品概率，而40%是乙厂供货比例。",
+    "steps": [
+      "甲次品概率0.6×0.01=0.006，乙次品概率0.4×0.04=0.016。",
+      "在“已为次品”的条件下重定样本空间，总概率0.022。",
+      "来自乙厂的条件概率0.016/0.022=8/11。"
+    ],
+    "analysis": {
+      "breakthrough": "先按真实状态分组，再计算每组落入“阳性”集合的人数或概率。",
+      "method": "函数最值列端点/接点/内部驻点，概率先圈条件样本空间；两类任务都先固定范围再运算。",
+      "pitfalls": "低基率下，即使检测较灵敏，阳性也未必大多是真阳性。；医学情境只训练概率，不据此作个体诊断。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 6,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://openstax.org/books/introductory-statistics-2e/pages/3-3-two-basic-rules-of-probability",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    },
+    "rubric": [
+      {
+        "point": "甲次品概率0.6×0.01=0.006，乙次品概率0.4×0.04=0.016。",
+        "score": 2
+      },
+      {
+        "point": "在“已为次品”的条件下重定样本空间，总概率0.022。",
+        "score": 2
+      },
+      {
+        "point": "来自乙厂的条件概率0.016/0.022=8/11。",
+        "score": 2
+      }
+    ]
   }
 ]

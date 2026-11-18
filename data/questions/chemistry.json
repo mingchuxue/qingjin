@@ -3443,5 +3443,183 @@
         "score": 5
       }
     ]
+  },
+  {
+    "id": "ct-chemistry-q-01",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-chemistry-k-01"
+    ],
+    "methodIds": [
+      "ct-chemistry-m-01"
+    ],
+    "stem": "用已知浓度盐酸滴定移液管量取的20.00mL氢氧化钠溶液（1∶1反应），锥形瓶预先用少量蒸馏水润洗且未完全倒干。其他操作正确、无污染和挥发，测得原待测液浓度将",
+    "options": [
+      "偏大",
+      "偏小",
+      "理论上不受影响",
+      "一定无法判断"
+    ],
+    "answer": "C",
+    "steps": [
+      "加入水不改变20.00mL待测液带入的NaOH物质的量。",
+      "达到同一计量点消耗HCl的物质的量不变，计算式分母仍为移取体积20.00mL。"
+    ],
+    "analysis": {
+      "breakthrough": "先写计算式c(待测)=c(标准)×V(标准)/V(移取)，再追问哪一个量被操作改变。",
+      "method": "写清保持不变的条件，再追踪操作改变的n、V或分压，最后代入计算式/反应商判断，避免只背方向口令。",
+      "pitfalls": "不能把“瓶中总体积变大”直接判为测得待测液浓度变小。；本条不处理挥发、反应不完全、不同化学计量比等特殊情况。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
+  },
+  {
+    "id": "ct-chemistry-q-02",
+    "subject": "chemistry",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-chemistry-k-01"
+    ],
+    "methodIds": [
+      "ct-chemistry-m-01"
+    ],
+    "stem": "按1∶1反应，用0.1000mol/L标准盐酸滴定20.00mL强碱。真实反应消耗20.00mL，但因初始滴定管尖嘴气泡在过程中排出，记录体积多了0.20mL。测得浓度为____mol/L（保留四位小数），相对真实值偏大还是偏小？",
+    "options": [],
+    "answer": "0.1010；偏大",
+    "steps": [
+      "记录标准液体积20.20mL，其中0.20mL用于补满尖嘴而非反应。",
+      "代入0.1000×20.20/20.00=0.1010mol/L；真实值0.1000mol/L，偏大1%。"
+    ],
+    "analysis": {
+      "breakthrough": "先写计算式c(待测)=c(标准)×V(标准)/V(移取)，再追问哪一个量被操作改变。",
+      "method": "写清保持不变的条件，再追踪操作改变的n、V或分压，最后代入计算式/反应商判断，避免只背方向口令。",
+      "pitfalls": "不能把“瓶中总体积变大”直接判为测得待测液浓度变小。；本条不处理挥发、反应不完全、不同化学计量比等特殊情况。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    },
+    "alt": [
+      "0.1010;偏大",
+      "0.1010,偏大",
+      "0.101；偏大"
+    ]
+  },
+  {
+    "id": "ct-chemistry-q-03",
+    "subject": "chemistry",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-chemistry-k-02"
+    ],
+    "methodIds": [
+      "ct-chemistry-m-02"
+    ],
+    "stem": "在恒温、刚性密闭容器中，理想气体反应 $\\mathrm{N_2+3H_2\\rightleftharpoons2NH_3}$ 达平衡后充入不反应的氩气。下列判断正确的是",
+    "options": [
+      "总压变大，平衡必右移",
+      "各反应组分分压不变，平衡不移动",
+      "平衡常数变大",
+      "氨的体积分数一定不变"
+    ],
+    "answer": "B",
+    "steps": [
+      "恒温恒容，各反应组分n和V不变，分压不变，Q仍等于K。",
+      "总压上升但不等于反应物分压上升；氨物质的量不变，但总体气体物质的量增大，体积分数降低。"
+    ],
+    "analysis": {
+      "breakthrough": "恒容时各反应组分物质的量和体积都未变，浓度/分压不变，虽然总压升高但平衡不因此移动。",
+      "method": "写清保持不变的条件，再追踪操作改变的n、V或分压，最后代入计算式/反应商判断，避免只背方向口令。",
+      "pitfalls": "“总压升高必向气体少的一侧”忽略了分压是否改变。；恒压不等于各反应物分压恒定。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://openstax.org/books/chemistry-2e/pages/13-3-shifting-equilibria-le-chateliers-principle",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-chemistry-q-04",
+    "subject": "chemistry",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-chemistry-k-02"
+    ],
+    "methodIds": [
+      "ct-chemistry-m-02"
+    ],
+    "stem": "理想气体反应 $\\mathrm{N_2O_4(g)\\rightleftharpoons2NO_2(g)}$ 在恒温恒压下达平衡后加入不反应的氩气。体积刚好瞬时增至原来的2倍。用反应商判断初始移动方向，并说明K是否改变。",
+    "options": [],
+    "answer": "各反应组分分压瞬时减半，$Q_p$ 变为原来的 $1/2$，小于K，向右移动；温度不变所以K不变。",
+    "steps": [
+      "$Q_p=p(\\mathrm{NO_2})^2/p(\\mathrm{N_2O_4})$。",
+      "各分压乘1/2后，分子乘1/4、分母乘1/2，总体乘1/2。",
+      "Q<K，随后净反应向右以重新达平衡；该论证依赖恒温、恒压及惰性。"
+    ],
+    "analysis": {
+      "breakthrough": "恒容时各反应组分物质的量和体积都未变，浓度/分压不变，虽然总压升高但平衡不因此移动。",
+      "method": "写清保持不变的条件，再追踪操作改变的n、V或分压，最后代入计算式/反应商判断，避免只背方向口令。",
+      "pitfalls": "“总压升高必向气体少的一侧”忽略了分压是否改变。；恒压不等于各反应物分压恒定。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 6,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://openstax.org/books/chemistry-2e/pages/13-3-shifting-equilibria-le-chateliers-principle",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    },
+    "rubric": [
+      {
+        "point": "$Q_p=p(\\mathrm{NO_2})^2/p(\\mathrm{N_2O_4})$。",
+        "score": 2
+      },
+      {
+        "point": "各分压乘1/2后，分子乘1/4、分母乘1/2，总体乘1/2。",
+        "score": 2
+      },
+      {
+        "point": "Q<K，随后净反应向右以重新达平衡；该论证依赖恒温、恒压及惰性。",
+        "score": 2
+      }
+    ]
   }
 ]

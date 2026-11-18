@@ -3282,5 +3282,193 @@
         "score": 4
       }
     ]
+  },
+  {
+    "id": "ct-politics-q-01",
+    "subject": "politics",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-politics-k-01"
+    ],
+    "methodIds": [
+      "ct-politics-m-01"
+    ],
+    "stem": "教学假设，仅讨论一般过错责任且无特别归责规则：成年甲疏忽将水泼在乙的设备上，设备当场损坏，相关事实均已证实。下列分析恰当的是",
+    "options": [
+      "甲非故意，必定不承担任何责任",
+      "可从过失、侵害财产权、损害及因果联系逐项分析一般侵权",
+      "只要乙有损失，任何在场者都担责",
+      "无需考虑行为与损害之间的联系"
+    ],
+    "answer": "B",
+    "steps": [
+      "过失也是过错；题设已交代直接损害联系，可作一般过错责任构成分析。",
+      "A把过错缩为故意，C/D丢弃行为及因果要件；不据题设之外计算具体赔偿比例。"
+    ],
+    "analysis": {
+      "breakthrough": "先识别受保护的民事权益，再按行为、过错、损害及因果联系梳理事实。",
+      "method": "先确认规则适用条件和例外，再把材料事实逐项放入条件结构，缺证据时作条件化结论。",
+      "pitfalls": "不要把全部侵权都说成必须由受害人证明过错。；给定材料不足时应指出缺少的证据，不虚构赔偿比例。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://www.spp.gov.cn/spp/ssmfdyflvdtpgz/202008/t20200831_478419.shtml",
+          "purpose": "民法典第1165/1166条公开检索条文核对；本次正文抓取超时，不是本题来源或个案法律意见",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-politics-q-02",
+    "subject": "politics",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-politics-k-01"
+    ],
+    "methodIds": [
+      "ct-politics-m-01"
+    ],
+    "stem": "教学假设，排除特别归责规则：某人称“我在店内发现手机损坏，所以店主必然侵权赔偿”，但只提供手机受损照片。请指出仅凭该证据尚缺什么；并说明为何不能把本题结论推广成“任何侵权都必须由受害人证明对方有过错”。",
+    "options": [],
+    "answer": "照片仅可支持损害存在，尚需证明相应侵害行为、因果联系及一般责任所需过错等；法律另有过错推定、无过错责任，不能一概而论。",
+    "steps": [
+      "场所关联不等于店主行为造成损坏。",
+      "应列需补充证据，而不是断言店主一定无责。",
+      "本题明确限一般过错责任，民法典1165第二款、1166等另有归责规定。"
+    ],
+    "analysis": {
+      "breakthrough": "先识别受保护的民事权益，再按行为、过错、损害及因果联系梳理事实。",
+      "method": "先确认规则适用条件和例外，再把材料事实逐项放入条件结构，缺证据时作条件化结论。",
+      "pitfalls": "不要把全部侵权都说成必须由受害人证明过错。；给定材料不足时应指出缺少的证据，不虚构赔偿比例。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 6,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://www.spp.gov.cn/spp/ssmfdyflvdtpgz/202008/t20200831_478419.shtml",
+          "purpose": "民法典第1165/1166条公开检索条文核对；本次正文抓取超时，不是本题来源或个案法律意见",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    },
+    "rubric": [
+      {
+        "point": "场所关联不等于店主行为造成损坏。",
+        "score": 2
+      },
+      {
+        "point": "应列需补充证据，而不是断言店主一定无责。",
+        "score": 2
+      },
+      {
+        "point": "本题明确限一般过错责任，民法典1165第二款、1166等另有归责规定。",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "ct-politics-q-03",
+    "subject": "politics",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-politics-k-02"
+    ],
+    "methodIds": [
+      "ct-politics-m-02"
+    ],
+    "stem": "给定严格命题“如果完成审核P，就获得许可Q”。仅由该命题与“没有获得许可（非Q）”，可以必然推出",
+    "options": [
+      "完成审核P",
+      "没有完成审核（非P）",
+      "一定完成了别的手续",
+      "无法判断P的真假"
+    ],
+    "answer": "B",
+    "steps": [
+      "P→Q排除P真Q假。",
+      "已知Q假则P不可能为真，即否定后件式；不能额外推出其他手续状态。"
+    ],
+    "analysis": {
+      "breakthrough": "肯定前件可以肯定后件；否定后件可以否定前件。",
+      "method": "先确认规则适用条件和例外，再把材料事实逐项放入条件结构，缺证据时作条件化结论。",
+      "pitfalls": "把“只有”误当“只要”，会把必要条件倒置。；自然语言中的省略条件应先澄清，不把日常近似说法当严格等价。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
+  },
+  {
+    "id": "ct-politics-q-04",
+    "subject": "politics",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-politics-k-02"
+    ],
+    "methodIds": [
+      "ct-politics-m-02"
+    ],
+    "stem": "给定“只有通过检测P，产品才可入库Q”。有人依据“产品通过检测P”就断定“产品可入库Q”。将原命题符号化，指出推理错误，并给出一种能使该结论不成立的可能情形。",
+    "options": [],
+    "answer": "原命题为Q→P，通过检测是入库的必要条件。肯定后件P不能必然推出前件Q；例如还要求包装合格，而产品包装未合格。",
+    "steps": [
+      "先把“只有P才Q”翻译成Q→P。",
+      "P真Q假不违背原命题，因此推断不必然成立。",
+      "包装要求只作逻辑反例的可能条件，不声称原材料已实际规定此手续。"
+    ],
+    "analysis": {
+      "breakthrough": "肯定前件可以肯定后件；否定后件可以否定前件。",
+      "method": "先确认规则适用条件和例外，再把材料事实逐项放入条件结构，缺证据时作条件化结论。",
+      "pitfalls": "把“只有”误当“只要”，会把必要条件倒置。；自然语言中的省略条件应先澄清，不把日常近似说法当严格等价。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 6,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    },
+    "rubric": [
+      {
+        "point": "先把“只有P才Q”翻译成Q→P。",
+        "score": 2
+      },
+      {
+        "point": "P真Q假不违背原命题，因此推断不必然成立。",
+        "score": 2
+      },
+      {
+        "point": "包装要求只作逻辑反例的可能条件，不声称原材料已实际规定此手续。",
+        "score": 2
+      }
+    ]
   }
 ]

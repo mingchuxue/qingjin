@@ -335,5 +335,67 @@
       "p-q84",
       "p-q99"
     ]
+  },
+  {
+    "id": "ct-physics-m-01",
+    "subject": "physics",
+    "name": "F-x图像：分步检验法",
+    "category": "力学和电学",
+    "when": "质点沿同一直线从小x向大x运动，图像纵轴是沿x方向的力分量；全程可达。",
+    "explanation": "将条件变成可检验的推理链：把路程切成小段，逐段按功的定义求和，几何图形可用三角形/梯形面积计算，无需把定积分作为必考前提。",
+    "steps": [
+      "先抄清任务的对象、条件与范围。",
+      "把路程切成小段，逐段按功的定义求和，几何图形可用三角形/梯形面积计算，无需把定积分作为必考前提。",
+      "功改变动能；可达性要求每个中间位置的动能不为负。",
+      "回到题干核对结论是否超出已知，给出单位或证据边界。"
+    ],
+    "tips": [
+      "不能把横轴下方的面积也当正功。",
+      "总功能算出不意味着物体一定到达所设终点。"
+    ],
+    "questionIds": [
+      "ct-physics-q-01",
+      "ct-physics-q-02"
+    ],
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/7-1-work",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-physics-m-02",
+    "subject": "physics",
+    "name": "闭合电路：分步检验法",
+    "category": "力学和电学",
+    "when": "理想电源电动势E、内阻r均为正且恒定，外接纯电阻R>0；忽略温度效应。",
+    "explanation": "将条件变成可检验的推理链：由欧姆定律得I=E/(R+r)，进而P=E²R/(R+r)²。",
+    "steps": [
+      "先抄清任务的对象、条件与范围。",
+      "由欧姆定律得I=E/(R+r)，进而P=E²R/(R+r)²。",
+      "由(R+r)²≥4Rr得P≤E²/(4r)，等号当且仅当R=r。",
+      "回到题干核对结论是否超出已知，给出单位或证据边界。"
+    ],
+    "tips": [
+      "不能把路端电压误写为恒定E。",
+      "结论不直接推广到内阻随电流变化的实际电池。"
+    ],
+    "questionIds": [
+      "ct-physics-q-03",
+      "ct-physics-q-04"
+    ],
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
   }
 ]

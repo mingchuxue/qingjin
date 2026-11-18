@@ -1360,5 +1360,95 @@
       "p-q63",
       "p-q68"
     ]
+  },
+  {
+    "id": "ct-physics-k-01",
+    "subject": "physics",
+    "module": "条件与证据专题",
+    "chapter": "力学和电学",
+    "title": "F-x图像：有向面积与可达性",
+    "freq": "mid",
+    "examHow": "在复杂情境中核查条件、证据与结论边界。",
+    "summary": "每一小段位移上的功按力分量与位移同号/异号区分正负，图像横轴上方与下方面积应代数相加。",
+    "points": [
+      "每一小段位移上的功按力分量与位移同号/异号区分正负，图像横轴上方与下方面积应代数相加。",
+      "F-x面积表示功，不是冲量；F-t面积才对应沿该方向的冲量。",
+      "由动能定理求末速前先检查累积动能是否在中途变为负；若会变负，预设路径不能全部走完。",
+      "初末位置相同不代表任意非保守力总功为零，需看完整路径与力的关系。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "不能把横轴下方的面积也当正功。",
+      "总功能算出不意味着物体一定到达所设终点。"
+    ],
+    "methodIds": [
+      "ct-physics-m-01"
+    ],
+    "relatedIds": [
+      "p-08"
+    ],
+    "questionIds": [
+      "ct-physics-q-01",
+      "ct-physics-q-02"
+    ],
+    "conditions": "质点沿同一直线从小x向大x运动，图像纵轴是沿x方向的力分量；全程可达。",
+    "derivation": [
+      "把路程切成小段，逐段按功的定义求和，几何图形可用三角形/梯形面积计算，无需把定积分作为必考前提。",
+      "功改变动能；可达性要求每个中间位置的动能不为负。"
+    ],
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/7-1-work",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-physics-k-02",
+    "subject": "physics",
+    "module": "条件与证据专题",
+    "chapter": "力学和电学",
+    "title": "闭合电路：效率与外电阻功率的取舍",
+    "freq": "mid",
+    "examHow": "在复杂情境中核查条件、证据与结论边界。",
+    "summary": "电流由总电阻R+r决定；外电路功率用电流平方乘R，不是电动势乘电流。",
+    "points": [
+      "电流由总电阻R+r决定；外电路功率用电流平方乘R，不是电动势乘电流。",
+      "电源效率为外电功率/总电功率；增大R可提高效率，但不保证输出功率持续增加。",
+      "外功率最大出现在R=r，此时效率为50%；高效率与最大输出功率不是同一个目标。",
+      "把短路与断路作为极限检查：这两种极限下外电阻消耗功率都趋近0。"
+    ],
+    "formulas": [],
+    "pitfalls": [
+      "不能把路端电压误写为恒定E。",
+      "结论不直接推广到内阻随电流变化的实际电池。"
+    ],
+    "methodIds": [
+      "ct-physics-m-02"
+    ],
+    "relatedIds": [
+      "p-17"
+    ],
+    "questionIds": [
+      "ct-physics-q-03",
+      "ct-physics-q-04"
+    ],
+    "conditions": "理想电源电动势E、内阻r均为正且恒定，外接纯电阻R>0；忽略温度效应。",
+    "derivation": [
+      "由欧姆定律得I=E/(R+r)，进而P=E²R/(R+r)²。",
+      "由(R+r)²≥4Rr得P≤E²/(4r)，等号当且仅当R=r。"
+    ],
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
   }
 ]

@@ -1,0 +1,168 @@
+{
+  "baselineCommit": "7cc292f",
+  "version": "1.5.0",
+  "versionCode": 11,
+  "cacheVersion": "qingjin-v21",
+  "subjects": {
+    "chinese": {
+      "knowledge": 38,
+      "questions": 126,
+      "methods": 14,
+      "conclusions": 2,
+      "unmappedKnowledgeIds": [
+        "yw-13",
+        "yw-21",
+        "yw-22",
+        "yw-23",
+        "yw-27",
+        "yw-28",
+        "yw-29",
+        "yw-30",
+        "yw-32",
+        "yw-34"
+      ],
+      "oldIdsNewlyAssociated": [
+        "yw-17",
+        "yw-24",
+        "yw-25"
+      ]
+    },
+    "math": {
+      "knowledge": 62,
+      "questions": 128,
+      "methods": 22,
+      "conclusions": 97,
+      "unmappedKnowledgeIds": [
+        "m-50"
+      ],
+      "oldIdsNewlyAssociated": []
+    },
+    "english": {
+      "knowledge": 38,
+      "questions": 264,
+      "methods": 14,
+      "conclusions": 5,
+      "unmappedKnowledgeIds": [
+        "en-01",
+        "en-02",
+        "en-03",
+        "en-04",
+        "en-05",
+        "en-06",
+        "en-07",
+        "en-08",
+        "en-09",
+        "en-10",
+        "en-11",
+        "en-12",
+        "en-13",
+        "en-14",
+        "en-18",
+        "en-20",
+        "en-21",
+        "en-24",
+        "en-27",
+        "en-28",
+        "en-29",
+        "en-30",
+        "en-33",
+        "en-34"
+      ],
+      "oldIdsNewlyAssociated": [
+        "en-15",
+        "en-16",
+        "en-17",
+        "en-19",
+        "en-22",
+        "en-23",
+        "en-25",
+        "en-26",
+        "en-31",
+        "en-32",
+        "en-35"
+      ]
+    },
+    "physics": {
+      "knowledge": 42,
+      "questions": 105,
+      "methods": 14,
+      "conclusions": 66,
+      "unmappedKnowledgeIds": [],
+      "oldIdsNewlyAssociated": []
+    },
+    "chemistry": {
+      "knowledge": 38,
+      "questions": 111,
+      "methods": 14,
+      "conclusions": 34,
+      "unmappedKnowledgeIds": [],
+      "oldIdsNewlyAssociated": []
+    },
+    "biology": {
+      "knowledge": 38,
+      "questions": 109,
+      "methods": 14,
+      "conclusions": 19,
+      "unmappedKnowledgeIds": [],
+      "oldIdsNewlyAssociated": []
+    },
+    "politics": {
+      "knowledge": 38,
+      "questions": 106,
+      "methods": 14,
+      "conclusions": 2,
+      "unmappedKnowledgeIds": [
+        "zz-27",
+        "zz-35",
+        "zz-36"
+      ],
+      "oldIdsNewlyAssociated": []
+    },
+    "history": {
+      "knowledge": 38,
+      "questions": 107,
+      "methods": 14,
+      "conclusions": 2,
+      "unmappedKnowledgeIds": [
+        "ls-36"
+      ],
+      "oldIdsNewlyAssociated": [
+        "ls-29",
+        "ls-30",
+        "ls-35"
+      ]
+    },
+    "geography": {
+      "knowledge": 38,
+      "questions": 107,
+      "methods": 14,
+      "conclusions": 8,
+      "unmappedKnowledgeIds": [],
+      "oldIdsNewlyAssociated": [
+        "dl-30",
+        "dl-31",
+        "dl-35"
+      ]
+    }
+  },
+  "sources": {
+    "curatedResourceCandidates": 3,
+    "collectorFetchedMetadataPages": 1,
+    "playableVerifiedExamQuestions": 0
+  },
+  "textbook": {
+    "sectionsBefore": 848,
+    "sectionsAfter": 848,
+    "mappedSectionsBefore": 690,
+    "mappedSectionsAfter": 692,
+    "associationEdgesBefore": 1051,
+    "associationEdgesAfter": 1092,
+    "note": "关联均为既有目录节；新增/补充关联有主题或技能迁移提示，不是教材全文定位",
+    "unmappedKnowledgeBefore": 59,
+    "unmappedKnowledgeAfter": 39
+  },
+  "knowledge": 370,
+  "questions": 1163,
+  "methods": 134,
+  "conclusions": 235
+}

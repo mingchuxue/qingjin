@@ -3291,5 +3291,163 @@
         "score": 3
       }
     ]
+  },
+  {
+    "id": "ct-geography-q-01",
+    "subject": "geography",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-geography-k-01"
+    ],
+    "methodIds": [
+      "ct-geography-m-01"
+    ],
+    "stem": "理想化大气图中，500hPa等压面在甲处高度5600m，乙处高度5400m；气压随高度递减。对同在5500m高度的甲乙两点，判断正确的是",
+    "options": [
+      "甲低于500hPa，乙高于500hPa",
+      "甲乙都恰为500hPa",
+      "甲高于500hPa，乙低于500hPa",
+      "因同高度所以气压必相同"
+    ],
+    "answer": "C",
+    "steps": [
+      "甲点位于其500hPa等压面之下100m，气压较500hPa高。",
+      "乙点位于其500hPa面之上100m，气压较500hPa低；须固定同一高度比较。"
+    ],
+    "analysis": {
+      "breakthrough": "同一等压面上气压处处相同，图上不同数值若为高度，就不能直接把它当作气压值。",
+      "method": "先标固定高度/固定气压面、时间范围和单位；过程图再区分瞬时峰值与累计水量，检查守恒。",
+      "pitfalls": "不能跨高度用气压数值直接判定水平高低压。；高空等压面高度的“低值”不等于同一等压面气压更低。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://www.noaa.gov/jetstream/upper-air-charts/verses",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-geography-q-02",
+    "subject": "geography",
+    "type": "essay",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-geography-k-01"
+    ],
+    "methodIds": [
+      "ct-geography-m-01"
+    ],
+    "stem": "一张高空图标注“500hPa面高度（m）”，甲为5700，乙为5500。有学生说“甲的气压5700hPa，比乙高200hPa”。指出读图层次与单位上的错误。",
+    "options": [],
+    "answer": "5700和5500的单位是米，表示同一500hPa等压面的高度；该面上甲乙气压都是500hPa，不能把高度差当气压差。",
+    "steps": [
+      "先识别标题给的是等压面高度场，而非同高度气压场。",
+      "数值差200m是高度差，无法直接转成200hPa；若要比较同高度气压，需另设比较高度与垂直关系。"
+    ],
+    "analysis": {
+      "breakthrough": "同一等压面上气压处处相同，图上不同数值若为高度，就不能直接把它当作气压值。",
+      "method": "先标固定高度/固定气压面、时间范围和单位；过程图再区分瞬时峰值与累计水量，检查守恒。",
+      "pitfalls": "不能跨高度用气压数值直接判定水平高低压。；高空等压面高度的“低值”不等于同一等压面气压更低。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 6,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": [
+        {
+          "url": "https://www.noaa.gov/jetstream/upper-air-charts/verses",
+          "purpose": "概念/条款范围核对，不是本题来源；完整结论以本条适用条件与独立推导为准",
+          "checkedAt": "2026-11-18"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ct-geography-q-03",
+    "subject": "geography",
+    "type": "single",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-geography-k-02"
+    ],
+    "methodIds": [
+      "ct-geography-m-02"
+    ],
+    "stem": "同一场降雨、同一流域出口，调蓄前后总出流量近似相等，调蓄后峰值降低、峰现推迟。下列解释最合理的是",
+    "options": [
+      "水量凭空消失",
+      "部分水先暂存、后释放，改变出流时间分配",
+      "降雨总量一定减少",
+      "年径流量必按峰值比例下降"
+    ],
+    "answer": "B",
+    "steps": [
+      "题设总出流近似相等，说明主要改变时间分配。",
+      "峰高降低不等于总量等比例减少；年尺度也不能由一次洪峰直接推出。"
+    ],
+    "analysis": {
+      "breakthrough": "径流峰值、峰现时间、总径流量是不同指标；削峰不等于水量凭空消失。",
+      "method": "先标固定高度/固定气压面、时间范围和单位；过程图再区分瞬时峰值与累计水量，检查守恒。",
+      "pitfalls": "不能因洪峰降低就直接断言年径流总量同比降低。；不同降雨事件的两条曲线，不能只凭峰值差就归因于植被变化。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
+  },
+  {
+    "id": "ct-geography-q-04",
+    "subject": "geography",
+    "type": "fill",
+    "difficulty": 3,
+    "knowledgeIds": [
+      "ct-geography-k-02"
+    ],
+    "methodIds": [
+      "ct-geography-m-02"
+    ],
+    "stem": "理想化过程：某调蓄工程在连续2小时内平均入流 $30\\,\\mathrm{m^3/s}$、平均出流 $20\\,\\mathrm{m^3/s}$，忽略其他收支。工程储水增加____ $\\mathrm{m^3}$。",
+    "options": [],
+    "answer": "72000",
+    "steps": [
+      "净流入速率30-20=10m³/s，2h=7200s。",
+      "储量变化=10×7200=72000m³；单位换算不可漏3600。"
+    ],
+    "analysis": {
+      "breakthrough": "径流峰值、峰现时间、总径流量是不同指标；削峰不等于水量凭空消失。",
+      "method": "先标固定高度/固定气压面、时间范围和单位；过程图再区分瞬时峰值与累计水量，检查守恒。",
+      "pitfalls": "不能因洪峰降低就直接断言年径流总量同比降低。；不同降雨事件的两条曲线，不能只凭峰值差就归因于植被变化。",
+      "variant": "尝试改变一个前提，并说明原结论是否仍成立。"
+    },
+    "source": "原创精编练习（非真题）",
+    "sourceKind": "original",
+    "score": 4,
+    "provenance": {
+      "batch": "2026-11",
+      "kind": "original-editorial",
+      "reviewScope": "本地条件/解析校核；未经过外部学科专家审定",
+      "references": []
+    }
   }
 ]
