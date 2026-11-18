@@ -1,0 +1,14 @@
+{
+  "reason": "首轮发现8条目录/导航链接，不是试卷或评析正文；收窄发现规则，不再抓取这些路径。无二次网络试跑。",
+  "removedUrls": [
+    "https://gaokao.neea.edu.cn/html1/folder/1509/4950-1.htm",
+    "https://gaokao.neea.edu.cn/html1/folder/1508/113-1.htm",
+    "https://gaokao.neea.edu.cn/html1/folder/1507/769-1.htm",
+    "https://gaokao.neea.edu.cn/html1/category/21123/683-1.htm",
+    "https://gaokao.neea.edu.cn/html1/category/21123/682-1.htm",
+    "https://gaokao.neea.edu.cn/html1/category/21123/681-1.htm",
+    "https://gaokao.neea.edu.cn/html1/category/21115/5139-1.htm",
+    "https://gaokao.neea.edu.cn/html1/category/21115/5138-1.htm"
+  ],
+  "remainingCandidates": 3
+}

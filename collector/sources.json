@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "userAgent": "QingjinResourceCollector/1.0",
+  "maxRequests": 6,
+  "minIntervalSeconds": 3,
+  "maxBodyBytes": 1500000,
+  "timeoutSeconds": 15,
+  "sources": [
+    {
+      "id": "neea-public",
+      "name": "教育部教育考试院高考公开评析目录",
+      "url": "https://gaokao.neea.edu.cn/html1/folder/1510/811-1.htm",
+      "host": "gaokao.neea.edu.cn",
+      "region": "全国",
+      "year": null,
+      "subject": null,
+      "sourceType": "official",
+      "resourceType": "评析目录",
+      "archivePolicy": "metadata-only",
+      "rights": {
+        "question": "unknown",
+        "explanation": "unknown"
+      },
+      "answerSource": null,
+      "questionNumber": null,
+      "verification": "metadata-only",
+      "researchNote": "公开页面人工检索确认有此资源；不是完整原卷或标准答案。版权未核清，只索引链接，不复制正文/解析。",
+      "discoveryPathPattern": "/(?:x?html1/report)/|\\.pdf(?:\\?|$)"
+    },
+    {
+      "id": "moe-2026-review",
+      "name": "2026年全国卷试题专家评析（教育部转载）",
+      "url": "http://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/2026/2026_zt08/mtbd/202606/t20260610_1440059.html",
+      "host": "www.moe.gov.cn",
+      "region": "全国",
+      "year": 2026,
+      "subject": null,
+      "sourceType": "official-reprint",
+      "resourceType": "评析报道",
+      "archivePolicy": "metadata-only",
+      "rights": {
+        "question": "unknown",
+        "explanation": "unknown"
+      },
+      "answerSource": null,
+      "questionNumber": null,
+      "verification": "metadata-only",
+      "researchNote": "公开页面人工检索确认有此资源；不是完整原卷或标准答案。版权未核清，只索引链接，不复制正文/解析。",
+      "discoveryPathPattern": "/2026/.*(?:\\.s?html?|\\.pdf)(?:\\?|$)"
+    },
+    {
+      "id": "beijing-2026-english",
+      "name": "北京考试报2026年英语试题解析版面",
+      "url": "https://bjksb.bjeea.cn/html/ksb/gaozhaozhuanban/2026/0922/88359.html",
+      "host": "bjksb.bjeea.cn",
+      "region": "北京",
+      "year": 2026,
+      "subject": "english",
+      "sourceType": "official-newspaper",
+      "resourceType": "报刊评析",
+      "archivePolicy": "metadata-only",
+      "rights": {
+        "question": "unknown",
+        "explanation": "unknown"
+      },
+      "answerSource": null,
+      "questionNumber": null,
+      "verification": "metadata-only",
+      "researchNote": "公开页面人工检索确认有此资源；不是完整原卷或标准答案。版权未核清，只索引链接，不复制正文/解析。",
+      "discoveryPathPattern": "/2026/.*(?:\\.s?html?|\\.pdf)(?:\\?|$)",
+      "pdfUrl": "https://bjksb.bjeea.cn/uploads/soft/260922/1908%E6%9C%9F13%E7%89%88.pdf",
+      "pdfVerification": "search-linked-only"
+    }
+  ]
+}
