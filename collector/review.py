@@ -10,12 +10,12 @@ def validate(item):
  if not isinstance(item,dict):return ['候选必须是JSON对象']
  answer_source=item.get('answerSource') if isinstance(item.get('answerSource'),dict) else {}
  rights=item.get('rights') if isinstance(item.get('rights'),dict) else {}
- for key in ['pageUrl','year','region','subject','questionNumber','retrievedAt','contentHash','stem','answer','steps','reviewer','reviewedAt']:
+ for key in ['pageUrl','year','region','subject','questionNumber','retrievedAt','contentHash','stem','answer','steps','reviewer','reviewedAt','sourceType']:
   if not item.get(key):errors.append('缺少 '+key)
  if item.get('subject') not in SUBJECTS:errors.append('学科不合法')
  if not isinstance(item.get('year'),int) or not 1900<=item.get('year',0)<=datetime.datetime.now().year:errors.append('年份不合法')
  if item.get('originalVerified') is not True or item.get('answerVerified') is not True:errors.append('原题及答案必须分别核验')
- if not re.fullmatch(r'[0-9a-f]{64}',item.get('contentHash','')):errors.append('缺有效原件SHA256')
+ if not isinstance(item.get('contentHash'),str) or not re.fullmatch(r'[0-9a-f]{64}',item.get('contentHash','')):errors.append('缺有效原件SHA256')
  if not answer_source.get('url'):errors.append('缺答案出处URL')
  for kind in ('question','explanation'):
   right=rights.get(kind,{})
@@ -28,7 +28,18 @@ def validate(item):
   except Exception:errors.append('来源URL无效或含认证参数')
  if not isinstance(item.get('steps'),list) or not item.get('steps') or not all(isinstance(s,str) and s.strip() for s in item.get('steps',[])):errors.append('缺完整解析步骤')
  for k in ['stem','answer','region','reviewer','reviewedAt','retrievedAt']:
-  if not isinstance(item.get(k),str):errors.append(k+'必须为文本')
+  if not isinstance(item.get(k),str) or not item.get(k,'').strip():errors.append(k+'必须为非空文本')
+ if item.get('sourceType') not in {'official','official-reprint','official-newspaper','school','third-party','open-license'}:errors.append('来源类型须明确官方/学校/第三方/开放授权')
+ for k in ('reviewedAt','retrievedAt'):
+  try:datetime.datetime.fromisoformat(item.get(k,''))
+  except (ValueError,TypeError):errors.append(k+'日期格式无效')
+ for kind in ('question','explanation'):
+  right=rights.get(kind,{})
+  if isinstance(right,dict) and right.get('evidenceUrl'):
+   try:
+    from urllib.parse import urlsplit
+    evidence=right['evidenceUrl'];canonical(evidence,{urlsplit(evidence).hostname})
+   except Exception:errors.append(kind+'授权证据URL无效或含认证信息')
  return errors
 
 def stage(item,out):

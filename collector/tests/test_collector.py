@@ -18,7 +18,7 @@ class Opener:
 
 def client(items,config=CONFIG):return Client(copy.deepcopy(config),Opener(items),lambda _:None)
 def error(code,headers=None):return urllib.error.HTTPError(URL,code,'mock',headers or {},None)
-def candidate():return {'pageUrl':URL,'year':2025,'region':'测试地区','subject':'math','questionNumber':'1','retrievedAt':'2026-11-18','contentHash':'a'*64,'stem':'仅在测试中构造的题干','answer':'1','steps':['独立核验步骤'],'reviewer':'本地测试审校','reviewedAt':'2026-11-18','originalVerified':True,'answerVerified':True,'answerSource':{'url':URL},'rights':{'question':{'status':'public-domain','evidenceUrl':URL},'explanation':{'status':'original-explanation','evidenceUrl':URL}}}
+def candidate():return {'sourceType':'official','pageUrl':URL,'year':2025,'region':'测试地区','subject':'math','questionNumber':'1','retrievedAt':'2026-11-18','contentHash':'a'*64,'stem':'仅在测试中构造的题干','answer':'1','steps':['独立核验步骤'],'reviewer':'本地测试审校','reviewedAt':'2026-11-18','originalVerified':True,'answerVerified':True,'answerSource':{'url':URL},'rights':{'question':{'status':'public-domain','evidenceUrl':URL},'explanation':{'status':'original-explanation','evidenceUrl':URL}}}
 class CollectorTest(unittest.TestCase):
  def test_default_offline_no_request_and_seed_only(self):
   with tempfile.TemporaryDirectory() as d:
@@ -62,7 +62,7 @@ class CollectorTest(unittest.TestCase):
   self.assertEqual(retry_seconds('1'),60);self.assertEqual(retry_seconds('n/a'),3600)
  def test_review_gates_schema_rights_answers_and_stage_isolation(self):
   valid=candidate();self.assertEqual(validate(valid),[])
-  for change in [{'originalVerified':False},{'answerVerified':False},{'answerSource':None},{'rights':{}},{'rights':'unknown'},{'steps':'not-list'},{'subject':'fake'},{'pageUrl':'file:///x'},{'pageUrl':URL+'?key=secret'}]:self.assertTrue(validate({**valid,**change}),change)
+  for change in [{'originalVerified':False},{'answerVerified':False},{'answerSource':None},{'rights':{}},{'rights':'unknown'},{'steps':'not-list'},{'subject':'fake'},{'pageUrl':'file:///x'},{'pageUrl':URL+'?key=secret'},{'contentHash':None},{'sourceType':None},{'reviewedAt':'bad'},{'stem':' '},{'rights':{'question':{'status':'licensed','evidenceUrl':'javascript:alert(1)'},'explanation':{'status':'original-explanation','evidenceUrl':URL}}}]:self.assertTrue(validate({**valid,**change}),change)
   with self.assertRaises(ValueError):stage(valid,ROOT.parent/'data'/'must-not-write.json')
   with tempfile.TemporaryDirectory(dir=ROOT/'reviewed',prefix='.test-') as d:
    p=pathlib.Path(d)/'item.json';r=stage(valid,p);self.assertEqual(r['reviewStatus'],'ready-for-manual-import');self.assertTrue(p.exists());self.assertEqual(r['normalizedQuestionHash'],fingerprint(valid['stem']))
