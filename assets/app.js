@@ -199,7 +199,7 @@
   const save = debounce(saveState, 80);
 
   function exportData() {
-    const backupJson = JSON.stringify({ schema:2, appVersion:"1.4.1", exportedAt: new Date().toISOString(), data: state, academy:academy.store.backup(), aiPreferences:{preset:AI.cfg.preset,baseUrl:AI.cfg.baseUrl,model:AI.cfg.model,temperature:AI.cfg.temperature,timeout:AI.cfg.timeout} }, null, 2);
+    const backupJson = JSON.stringify({ schema:2, appVersion:"1.5.0", exportedAt: new Date().toISOString(), data: state, academy:academy.store.backup(), aiPreferences:{preset:AI.cfg.preset,baseUrl:AI.cfg.baseUrl,model:AI.cfg.model,temperature:AI.cfg.temperature,timeout:AI.cfg.timeout} }, null, 2);
     const blob = new Blob([AI.cfg.apiKey ? backupJson.split(AI.cfg.apiKey).join("[Key 已隐藏]") : backupJson], {type:"application/json"});
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
@@ -240,6 +240,36 @@
     if (m) m.setAttribute("content", c);
   }
 
+  /* Public resource index: metadata is not a playable exam or a license. */
+  function resourceURL(value) {
+    try { const u=new URL(value);if(!/^https?:$/.test(u.protocol)||u.username||u.password||[...u.searchParams.keys()].some(k=>/^(token|key|auth|session|api_key)/i.test(k)))return '';return u.href; } catch{return '';}
+  }
+  function provenanceHTML(item) {
+    const p=item?.provenance;if(!p)return '';const refs=Array.isArray(p.references)?p.references.filter(r=>r&&typeof r.url==='string'):[];
+    return `<aside class="content-provenance"><strong>内容校核与来源边界</strong><p>${esc(p.reviewScope||'原创精编内容，非考试原题')}</p>${refs.map(r=>{const url=resourceURL(r.url);return url?`<p><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">概念参考：${esc(new URL(url).hostname)}</a> · ${esc(r.purpose||'概念核对，非本题来源')}（${esc(r.checkedAt||'日期未记录')}）</p>`:''}).join('')}<p>练习为原创精编，不是教材原题、真题或官方标准答案。</p></aside>`;
+  }
+  function verifiedExamIds() {
+    const permitted=new Set(['public-domain','licensed','written-permission']);
+    return [...new Set(DATA.examSources.verifiedQuestionIds||[])].filter(id=>{const q=DATA.qIndex[id],p=q?.provenance;return q?.sourceKind==='verified-exam'&&p?.originalVerified===true&&p.answerVerified===true&&p.reviewStatus==='ready-for-manual-import'&&permitted.has(p.rights?.question?.status)&&['original-explanation',...permitted].includes(p.rights?.explanation?.status)&&resourceURL(p.answerSource?.url)&&resourceURL(p.pageUrl);});
+  }
+  function pageContent() {
+    const fresh=allKnowledge().filter(k=>k.provenance?.batch==='2026-11');
+    return `<div class="page-head"><div>${crumb([['#/','首页'],['#','本轮内容更新']])}<h1 class="h1">把条件与证据学扎实</h1><p class="lead">九科细分专题：18个知识点、18种方法、18条条件化结论、36道原创精编题。不是新增36道真题。</p></div><a class="btn btn-soft" href="#/sources">真题来源索引</a></div><div class="content-banner"><strong>知道结论，更知道什么时候能用</strong><p>本轮重点补充语文、政治、历史结论及英语、地理技能迁移。只关联既有教材目录，不声称已核对教材全文或填满所有覆盖空白。</p></div><div class="grid grid-3">${SUBJECT_IDS.map(s=>`<section class="card card-pad content-subject"><h2 class="h2">${esc(subjName(s))}</h2>${fresh.filter(k=>k.subject===s).map(k=>`<div class="content-item"><a href="#/knowledge/${s}/${encodeURIComponent(k.id)}"><strong>${esc(k.title)}</strong></a><p class="muted">${esc(k.conditions)}</p><div class="chip-row"><a class="chip" href="#/methods/${s}/${k.methodIds[0]}">分步方法</a><a class="chip" href="#/conclusions/${s}/ct-${s}-c-${k.id.endsWith('01')?'01':'02'}">条件与推导</a><a class="chip" href="#/practice/setup?mode=kp&subject=${s}&kid=${k.id}">原创练习 2题</a></div></div>`).join('')}</section>`).join('')}</div>`;
+  }
+  function pageSources() {
+    const resources=DATA.examSources.resources||[],q=current.query;
+    const statusLabel={candidate:'待人工核验',verified:'已核验'},typeLabel={official:'官方考试机构','official-reprint':'官方转载','official-newspaper':'考试机构报刊'};
+    const match=(r,k)=>!q[k]||(q[k]==='unknown'?!r[k]:String(r[k]??'')===q[k]);
+    const filtered=resources.filter(r=>['year','region','subject','sourceType'].every(k=>match(r,k))&&(!q.status||r.reviewStatus===q.status)&&(!q.q||[r.name,r.observedTitle,r.pageUrl].join(' ').toLowerCase().includes(q.q.toLowerCase())));
+    const select=(key,label,values,display=v=>v)=>`<label>${label}<select name="${key}" id="source-${key}"><option value="">全部</option>${values.map(v=>`<option value="${esc(v)}" ${q[key]===String(v)?'selected':''}>${esc(display(v))}</option>`).join('')}</select></label>`;
+    const unique=k=>[...new Set(resources.map(r=>r[k]||'unknown'))];
+    const playable=verifiedExamIds();
+    return `<div class="page-head"><div>${crumb([['#/','首页'],['#','真题来源索引']])}<h1 class="h1">真题来源 · 先核验，再入库</h1><p class="lead">公开链接不等于使用授权，评析报道也不等于完整试卷。</p></div><a class="btn btn-soft" href="#/content">本轮原创练习</a></div><div class="content-banner" role="note"><strong>已核验可作答真题 <span id="verified-exam-count">${playable.length}</span> 道 · 来源资源 ${resources.length} 条</strong><p>${esc(DATA.examSources.notice||'来源索引未能加载，请重试；没有将候选当作真题。')}</p><ol class="source-flow"><li>候选发现</li><li>核对原题、题号与答案出处</li><li>核清原题/解析使用权</li><li>人工审核后才可入库</li></ol></div><form id="source-filter" class="card card-pad source-filter"><label>搜索资源<input type="search" name="q" value="${esc(q.q||'')}" placeholder="资源名称或网址"></label>${select('year','试卷年份',unique('year'),v=>v==='unknown'?'未核定/目录':v)}${select('region','地区',unique('region'),v=>v==='unknown'?'未核定':v)}${select('subject','学科',[...SUBJECT_IDS,'unknown'],v=>v==='unknown'?'综合/未核定':subjName(v))}${select('sourceType','来源类型',unique('sourceType'),v=>typeLabel[v]||v)}${select('status','校验状态',['candidate','verified'],v=>statusLabel[v])}<div class="source-actions"><button class="btn btn-primary" type="submit">筛选</button><a class="btn btn-ghost" href="#/sources">重置</a></div></form><p class="muted" id="source-result-count">显示 ${filtered.length} / ${resources.length} 条来源资源；不是试卷/题目数量。</p><div class="grid grid-2" id="source-results">${filtered.map(r=>{const u=resourceURL(r.pageUrl),fetchNames={fetched:'收集器已读取页面元数据',failed:'收集器本轮网络失败，保留人工检索链接',candidate:'待采集'};return `<article class="card card-pad source-card"><div class="meta-row"><span class="tag">${esc(typeLabel[r.sourceType]||r.sourceType||'来源待核')}</span><span class="tag">${esc(statusLabel[r.reviewStatus]||'待人工核验')}</span></div><h2 class="h2">${esc(r.name)}</h2><p>${esc(r.resourceType||'类型待核')} · ${esc(r.year||'年份未核定')} · ${esc(r.region||'地区未核定')} · ${esc(r.subject?subjName(r.subject):'综合/学科未核定')}</p><dl class="source-details"><dt>原题/题号</dt><dd>${r.originalVerified?'已人工核验':'未核验'} / ${esc(r.questionNumber||'尚未拆分题号')}</dd><dt>答案出处</dt><dd>${r.answerSource?.url&&resourceURL(r.answerSource.url)?`<a href="${esc(resourceURL(r.answerSource.url))}" target="_blank" rel="noopener noreferrer">查看答案出处（需人工核验）</a>`:'未取得可核验标准答案'}</dd><dt>权利状态</dt><dd>原题与解析分别待核；当前仅元数据/链接，不复制正文</dd><dt>获取记录</dt><dd>${esc(r.researchCheckedAt||'日期待核')} 公共页面检索；${esc(fetchNames[r.fetchStatus]||'未读取正文')} ${r.retrievedAt?`（${esc(new Date(r.retrievedAt).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false}))} UTC+8）`:''}</dd></dl>${r.pdfUrl&&resourceURL(r.pdfUrl)?`<p><a href="${esc(resourceURL(r.pdfUrl))}" target="_blank" rel="noopener noreferrer">关联报刊版面PDF（只保存链接；未核验原卷/答案）↗</a></p>`:''}${u?`<a class="btn btn-soft btn-sm" href="${esc(u)}" target="_blank" rel="noopener noreferrer">打开原始公开页面 ↗</a>`:'<p class="muted">来源网址无效，未提供外链。</p>'}<p class="muted">${esc(r.researchNote||'仅待审候选，不能直接开始作答。')}</p></article>`}).join('')||'<p class="card card-pad">没有符合条件的来源，试试重置筛选。</p>'}</div>${playable.length?`<h2 class="h2">已核验可作答真题</h2>${playable.map(id=>`<a class="card card-pad" href="#/practice/setup?mode=one&qid=${encodeURIComponent(id)}">${esc(stripHtml(DATA.qIndex[id].stem))}</a>`).join('')}`:''}`;
+  }
+  function bindSources() {
+    $('#source-filter')?.addEventListener('submit',e=>{e.preventDefault();const params=new URLSearchParams();for(const [k,v] of new FormData(e.target))if(String(v).trim())params.set(k,String(v).trim());go('/sources'+(params.size?'?'+params.toString():''));});
+  }
+
   /* ---------- selected subjects ---------- */
   function selectedSubjects() {
     const p = state.profile;
@@ -262,7 +292,7 @@
     ready: false,
     kpIndex: {}, qIndex: {}, mIndex: {},
     textbook: {}, conclusions: {}, clIndex: {}, secIndex: {}, kpSections: {},
-    meta: null
+    examSources: {resources:[],verifiedQuestionIds:[]}, meta: null
   };
 
   async function fetchJSON(path) {
@@ -284,6 +314,7 @@
     jobs.push(fetchJSON("data/writing.json").then(d => (DATA.writing=d)).catch(() => (DATA.writing=[])));
     jobs.push(fetchJSON("data/textbook.json").then(d => (DATA.textbook=d||{})).catch(() => (DATA.textbook={})));
     for (const s of SUBJECT_IDS) jobs.push(fetchJSON(`data/conclusions/${s}.json`).then(d => (DATA.conclusions[s]=d)).catch(() => (DATA.conclusions[s]=[])));
+    jobs.push(fetchJSON("data/exam-sources.json").then(d=>{if(d&&Array.isArray(d.resources)&&Array.isArray(d.verifiedQuestionIds))DATA.examSources={...d,resources:d.resources.filter(r=>r&&typeof r==='object')};}).catch(()=>{}));
     const res = await Promise.all(jobs);
     DATA.meta = res[0];
     for (const s of SUBJECT_IDS) {
@@ -533,6 +564,8 @@
       case "cards": return pageCards();
       case "textbook": return pageTextbook(p[1], p[2]);
       case "conclusions": return pageConclusions(p[1], p[2]);
+      case "content": return pageContent();
+      case "sources": return pageSources();
       case "generated": return pageGenerated();
       case "ai": return pageAI(p[1]);
       case "knowledge":
@@ -590,6 +623,8 @@
   const toolItems = [
     ["/ai", "ai", "AI 导师"],
     ["/generated", "pen", "AI 自建练习"],
+    ["/content", "book", "本轮内容更新"],
+    ["/sources", "exam", "真题来源索引"],
     ["/textbook", "tb", "教材目录"],
     ["/conclusions", "formula", "二级结论"],
     ["/formulas", "formula", "公式速查"],
@@ -879,7 +914,7 @@
     const done = (state.dailyDone||{})[todayStr()]===q.id;
     return `<div class="card daily-card">
       <div class="daily-head"><span class="daily-kicker">${ic("lamp",14)} 每日一题</span>
-        <span class="meta-row">${tagType(q.type)} ${tagDiff(q.difficulty)} <span class="tag">${esc(subjName(q.subject))}</span></span></div>
+        <span class="meta-row">${tagType(q.type)} ${tagDiff(q.difficulty)} <span class="tag">${esc(subjName(q.subject))}</span> <span class="tag">${esc(q.source||(q.ai?"AI生成 · 答案需核对":"精编练习"))}</span></span></div>
       <div class="prose daily-stem">${trusted(q.stem)}</div>
       <div class="daily-foot"><span class="muted">${done?"今天这道已经做过了":"每天换一道，选科范围内随机抽取"}</span>
         <a class="btn btn-primary btn-sm" id="daily-go" data-qid="${q.id}" href="#/practice/setup?mode=one&qid=${q.id}">${done?"再看一遍":"去做这道题"}</a></div>
@@ -926,7 +961,7 @@
   function pageKnowledge() {
     const sel = selectedSubjects();
     return `
-      <div class="page-head"><div>${crumb([["#/","首页"],["#/knowledge","知识点"]])}<h1 class="h1">知识点</h1>
+      <div class="page-head"><div>${crumb([["#/","首页"],["#/knowledge","知识点"]])}<h1 class="h1">知识点</h1><div class="chip-row"><a class="chip" href="#/content">本轮九科内容更新</a><a class="chip" href="#/sources">真题来源索引</a></div>
       <p class="lead">按新课标模块梳理，点进去看要点、易错和相关练习。</p></div>
       <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-soft btn-sm" href="#/cards">${ic("cards",15)} 结论自测</a></div></div>
       <div class="grid grid-3">
@@ -1172,15 +1207,17 @@
         ${crumb([["#/","首页"],["#/knowledge","知识点"],["#/knowledge/"+sid, subjName(sid)],["#", k.title]])}
         <h1 class="h1">${esc(k.title)}</h1>
         <div class="meta-row">${tagFreq(k.freq)}<span class="tag">${esc(k.module)}</span><span class="tag">${esc(k.chapter)}</span></div>
-        ${(DATA.kpSections[kid]||[]).length?`<div class="kp-src"><span class="muted">教材出处</span>${DATA.kpSections[kid].slice(0,6).map(id=>secLink(id, true)).join("")}${DATA.kpSections[kid].length>6?`<span class="muted">等 ${DATA.kpSections[kid].length} 节</span>`:""}</div>`:""}
+        ${(DATA.kpSections[kid]||[]).length?`<div class="kp-src"><span class="muted">教材关联（目录级）</span>${DATA.kpSections[kid].slice(0,6).map(id=>secLink(id, true)).join("")}${DATA.kpSections[kid].length>6?`<span class="muted">等 ${DATA.kpSections[kid].length} 节</span>`:""}</div>`:""}
       </div>
       <div style="display:flex;gap:8px">
         <button class="btn btn-ghost btn-sm fav ${fav?"on":""}" id="fav-kp">${ic("star",16)} ${fav?"已收藏":"收藏"}</button>
         <button class="btn btn-ghost btn-sm" data-ai="kp:${kid}">${ic("ai",16)} 问AI</button>
         <a class="btn btn-primary btn-sm" href="#/practice/setup?mode=kp&subject=${sid}&kid=${kid}">练习本题组</a>
       </div></div>
+      <p class="muted mapping-disclaimer">教材目录关联不等于教材原句或全文定位；部分为主题/技能迁移，本应用不含教材全文。</p>
       <div class="kd-layout">
         <div class="card card-pad prose" id="kp-prose">
+          ${k.conditions?`<h3>适用前提</h3><p class="condition-box">${trusted(k.conditions)}</p>`:""}
           <h3>要点简述</h3>
           <p>${trusted(k.summary)}</p>
           <h3>关键结论</h3>
@@ -1188,6 +1225,8 @@
           ${(k.formulas||[]).length?`<h3>公式与结论</h3><div class="formula-box">${(k.formulas||[]).map(f=>`<div>${trusted(f)}</div>`).join("")}</div>`:""}
           ${(k.pitfalls||[]).length?`<h3>易错点</h3><div class="pitfall"><strong>容易出错的地方</strong><ul style="margin:8px 0 0">${(k.pitfalls||[]).map(p=>`<li>${trusted(p)}</li>`).join("")}</ul></div>`:""}
           <div class="exam-how"><strong>高考怎么考</strong><p style="margin:6px 0 0">${trusted(k.examHow||"")}</p></div>
+          ${k.derivation?.length?`<h3>推理与检验</h3><ol>${k.derivation.map(p=>`<li>${trusted(p)}</li>`).join("")}</ol>`:""}
+          ${provenanceHTML(k)}
           <div class="note-box">
             <h3>我的笔记</h3>
             <textarea id="kp-note" placeholder="写一点自己的理解、老师强调的话，或易错提醒。">${esc(note)}</textarea>
@@ -1273,6 +1312,7 @@
         ${qs.length?`<a class="btn btn-primary btn-sm" href="#/practice/setup?mode=method&mid=${mid}">按方法练习</a>`:""}
       </div></div>
       <div class="card card-pad prose" id="md-prose">
+        ${provenanceHTML(m)}
         <h3>方法说明</h3>
         <p>${trusted(m.explanation)}</p>
         ${m.example?.q?`<h3>示例与核对</h3><p>${trusted(m.example.q)}</p><p>${trusted(m.example.a)}</p>`:""}
@@ -1461,7 +1501,8 @@
           ${remain!=null?`<div class="timer ${remain<60?"warn":""}" id="quiz-timer">${fmtRemain(remain)}</div>`:""}
         </div>
         <div class="card card-pad">
-          <div class="meta-row" style="margin-bottom:10px">${tagType(q.type)} ${tagDiff(q.difficulty)} <span class="tag">${esc(subjName(q.subject))}</span>
+          ${provenanceHTML(q)}
+          <div class="meta-row" style="margin-bottom:10px">${tagType(q.type)} ${tagDiff(q.difficulty)} <span class="tag">${esc(subjName(q.subject))}</span> <span class="tag">${esc(q.source||(q.ai?"AI生成 · 答案需核对":"精编练习"))}</span>
             ${(q.knowledgeIds||[]).slice(0,2).map(id=>DATA.kpIndex[id]?`<span class="tag">${esc(DATA.kpIndex[id].title)}</span>`:"").join("")}
           </div>
           ${listenBlock(q, !!answered)}
@@ -1816,7 +1857,7 @@
         const due = state.sm2[w.qid];
         const isDue = due && due.due <= Date.now();
         return `<div class="wrong-wrap"><a class="card card-hover wrong-item" href="#/practice/setup?mode=one&qid=${w.qid}" style="margin-bottom:0;display:block">
-          <div class="meta-row">${tagType(q.type)} ${tagDiff(q.difficulty)} <span class="tag">${esc(subjName(q.subject))}</span>
+          <div class="meta-row">${tagType(q.type)} ${tagDiff(q.difficulty)} <span class="tag">${esc(subjName(q.subject))}</span> <span class="tag">${esc(q.source||(q.ai?"AI生成 · 答案需核对":"精编练习"))}</span>
             ${w.reason||(w.reasons||[])[0]?`<span class="tag">${esc((REASONS.find(r=>r[0]===(w.reason||w.reasons[0]))||[])[1]||"")}</span>`:""}
             ${isDue?`<span class="tag due-badge">待复习</span>`:""}${w.mastered?`<span class="tag">已掌握</span>`:""}${due?`<span class="muted">下次 ${fmtDate(due.due)} · 间隔 ${due.interval} 天</span>`:""}${(w.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}
             <span class="muted">错 ${w.times||1} 次</span>
@@ -2378,7 +2419,7 @@
   function pageSettings() {
     const p = state.profile;
     return `
-      <div class="page-head"><div>${crumb([["#/","首页"],["#/settings","设置"]])}<h1 class="h1">设置 <span class="tag">1.4.1 · VC10</span></h1></div></div>
+      <div class="page-head"><div>${crumb([["#/","首页"],["#/settings","设置"]])}<h1 class="h1">设置 <span class="tag">1.5.0 · VC11</span></h1></div></div>
       <div class="card settings-sec">
         <h2>个人与选科</h2>
         <div class="row" style="display:grid;grid-template-columns:120px 1fr;gap:8px;align-items:center;margin-bottom:8px">
@@ -2488,6 +2529,7 @@
     if (p==="stats") bindStats();
     if (p==="poetry") bindPoetry();
     if (p==="cards") bindCards();
+    if (p==="sources") bindSources();
     if (p==="textbook") bindTextbook();
     if (p==="conclusions") bindConclusions(r);
     if (p==="ai") bindAI(r);
@@ -3020,7 +3062,7 @@
             <ul class="tb-secs">${c.sections.map(x => { const st = secStat(x); return `<li><a class="tb-sec" href="#/textbook/${s}/${x.id}">
               <i class="km-dot ${st.lv}"></i><span class="tb-sname">${esc(x.name)}</span>
               <span class="tb-meta">${(x.kpIds||[]).length?`<em>${x.kpIds.length} 知识点</em>`:""}${(x.conclIds||[]).length?`<em>${x.conclIds.length} 结论</em>`:""}${st.acc!=null?`<em>${Math.round(st.acc*100)}%</em>`:""}</span></a></li>`; }).join("")}</ul></div>`).join("")}
-          <p class="muted tb-src">目录来源：<a href="${esc(b.src)}" target="_blank" rel="noopener">${esc(b.src.replace(/^https?:\/\//,"").split("/")[0])}</a>，已与多家教材目录站点核对。</p>
+          <p class="muted tb-src">目录来源：<a href="${esc(b.src)}" target="_blank" rel="noopener">${esc(b.src.replace(/^https?:\/\//,"").split("/")[0])}</a>；原有目录索引，本轮未逐页核对教材全文。</p>
         </details>`).join("")}</div>`;
   }
   function pageTextbookSection(sid, secId) {
@@ -3042,7 +3084,7 @@
         </div></div>
       <div class="kd-layout">
         <div>
-          <div class="card card-pad"><h2 class="h2" style="margin-top:0">本节知识点</h2>
+          <div class="card card-pad"><h2 class="h2" style="margin-top:0">本节知识点</h2><p class="muted mapping-disclaimer">目录级主题关联，不含教材全文。${Object.keys(x.sec.mappingNotes||{}).length?"本节含主题/技能迁移建议，不表示教材在此专讲所有规则。":""}</p>
             ${kps.length?kps.map(k=>kpCard(k)).join(""):`<p class="muted">这一节还没有对应的详细知识点。可以点上方「问AI讲本节」让 AI 梳理本节要点。</p>`}
           </div>
           ${cls.length?`<div class="card card-pad" style="margin-top:14px"><h2 class="h2" style="margin-top:0">本节二级结论 ${cls.length}</h2>
@@ -3116,7 +3158,7 @@
           <button class="btn btn-ghost btn-sm" data-ai="cl:${cid}">${ic("ai",16)} 问AI</button>
         </div></div>
       <div class="kd-layout">
-        <div class="card card-pad prose cl-detail">
+        <div class="card card-pad prose cl-detail">${provenanceHTML(c)}
           <h3>结论</h3><div class="formula-box cl-statement">${trusted(c.statement)}</div>
           <h3>适用条件</h3><p>${trusted(c.conditions)}</p>
           <h3>推理过程</h3><ol class="cl-deriv">${(c.derivation||[]).map(d=>`<li>${trusted(d)}</li>`).join("")}</ol>
@@ -3518,7 +3560,7 @@
   function photoCancel(){PHOTO.revision++;if(PHOTO.ctrl)PHOTO.ctrl.abort();PHOTO.ctrl=null;PHOTO.busy=false;}
   function photoRefresh(){if(current.parts[0]==='ai'&&current.parts[1]==='photo')route();}
   function pagePhoto(){const v=AI.cfg.vision||{},cfg=photoVision(),cap=window.QingjinPhoto.capability(cfg);let dest='未配置';try{dest=new URL(cfg.baseUrl).host}catch{}
-    return `<div class="page-head"><div>${crumb([['#/','首页'],['#/ai','AI导师']])}<h1 class="h1">拍照 · AI识题解答 <span class="tag">1.4.1</span></h1><p class="muted">读清题目，再拆解思路。不提供联网题库命中或真题来源。</p></div><a href="#/settings?ai=1" class="btn btn-soft">模型设置</a></div>
+    return `<div class="page-head"><div>${crumb([['#/','首页'],['#/ai','AI导师']])}<h1 class="h1">拍照 · AI识题解答 <span class="tag">1.5.0</span></h1><p class="muted">读清题目，再拆解思路。不提供联网题库命中或真题来源。</p></div><a href="#/settings?ai=1" class="btn btn-soft">模型设置</a></div>
     <p id="photo-status" class="photo-status" role="status" aria-live="polite">${esc(PHOTO.busy?'正在处理，可取消…':PHOTO.status)}</p><div class="photo-layout"><div><section class="card photo-step"><div class="photo-step-title"><span>01</span><h2>把题目带进来</h2></div><p class="muted">拍一题，尽量拍清公式与图形。JPEG / PNG / WebP，原图≤12MB / 4000万像素；自动压至最长1600px、≤1.8MB并重新编码去除EXIF。图片不会进入学习备份或聊天记录，刷新后页面不保留。安卓选择器使用私有临时缓存，压缩完成即清理原文件，异常遗留在退出/下次启动清理。</p>
     <div class="photo-actions"><label class="btn btn-primary photo-file">拍照<input id="photo-camera" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" ${PHOTO.busy?'disabled':''}></label><label class="btn btn-soft photo-file">相册 / 选择图片<input id="photo-file" type="file" accept="image/jpeg,image/png,image/webp" ${PHOTO.busy?'disabled':''}></label><button class="btn btn-ghost" id="photo-remove" ${PHOTO.image?'':'disabled'}>删除图片</button></div><p class="muted">重新选图会清除本页旧识别与解答；也可不选图，直接在下方输入题目。</p>
     ${PHOTO.image?`<div class="photo-preview"><img src="${PHOTO.image.data}" alt="待识别题目预览"><span>${PHOTO.image.width} × ${PHOTO.image.height} · ${Math.ceil(PHOTO.image.bytes/1024)}KB · 仅本机暂存</span></div><div class="photo-actions"><button class="btn btn-soft" id="photo-rotate" ${PHOTO.busy?'disabled':''}>顺时针旋转90°</button><details><summary>裁掉多余边缘</summary><div class="photo-crop">${[['left','左'],['top','上'],['right','右'],['bottom','下']].map(([id,name])=>`<label>${name}侧 %<input class="field" id="photo-crop-${id}" type="number" min="0" max="45" value="0"></label>`).join('')}</div><button class="btn btn-soft" id="photo-crop" ${PHOTO.busy?'disabled':''}>应用裁剪</button><p class="muted">各边0–45%，依预览逐步裁剪；误裁请重选原图。</p></details></div>`:`<div class="photo-placeholder" aria-label="未选择图片"><b>让镜头成为草稿纸的入口</b><span>图片只在此页临时保存 · 不自动上传</span></div>`}

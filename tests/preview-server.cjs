@@ -29,4 +29,4 @@ const server=http.createServer((req,res)=>{
  if(!file.startsWith(ROOT+path.sep)){res.writeHead(403);res.end();return;}
  fs.readFile(file,(err,b)=>{if(err){res.writeHead(404);res.end('Not found');return;}const types={'.html':'text/html;charset=utf-8','.js':'application/javascript;charset=utf-8','.css':'text/css;charset=utf-8','.json':'application/json;charset=utf-8','.svg':'image/svg+xml','.woff2':'font/woff2','.webmanifest':'application/manifest+json'};res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-cache'});res.end(req.method==='HEAD'?undefined:b)});
 });
-server.listen(port,'0.0.0.0',()=>console.log(`青衿 1.4.1 本地预览 http://127.0.0.1:${port}/ ; mock ${port}/mock/v1，Key: sk-qingjin-mock（仅模拟）`));
+server.listen(port,process.env.HOST||'127.0.0.1',()=>console.log(`青衿 1.5.0 本地预览 http://127.0.0.1:${port}/ ; mock ${port}/mock/v1，Key: sk-qingjin-mock（仅模拟）`));

@@ -1,39 +1,27 @@
 {
-  "startedAt": "2026-11-18T13:52:42+08:00",
-  "network": true,
-  "requests": 5,
+  "startedAt": "2026-11-18T14:05:08+08:00",
+  "network": false,
+  "requests": 0,
   "events": [
     {
       "sourceId": "neea-public",
-      "at": "2026-11-18T13:52:42+08:00",
-      "status": "fetched",
-      "httpStatus": 200,
-      "bytes": 25115,
-      "contentHash": "ee12577bd20d19797cca32b2177763e7abdae6607eb3b52001c2fad6731a4662",
-      "robots": "robots不存在（404/410），仍仅索引元数据",
-      "discoveredLinks": 8
+      "status": "offline",
+      "message": "未启用网络，保留已有状态"
     },
     {
       "sourceId": "moe-2026-review",
-      "at": "2026-11-18T13:52:49+08:00",
-      "status": "failed",
-      "httpStatus": 500,
-      "errorType": "HTTPError",
-      "message": "网络/策略失败，保留最后成功内容；详见错误类型",
-      "retryAfterSeconds": 3600
+      "status": "offline",
+      "message": "未启用网络，保留已有状态"
     },
     {
       "sourceId": "beijing-2026-english",
-      "at": "2026-11-18T13:52:49+08:00",
-      "status": "failed",
-      "httpStatus": null,
-      "errorType": "URLError",
-      "message": "网络/策略失败，保留最后成功内容；详见错误类型",
-      "retryAfterSeconds": 3600
+      "status": "offline",
+      "message": "未启用网络，保留已有状态"
     }
   ],
-  "candidateCount": 11,
+  "candidateCount": 3,
   "contentPolicy": "只保留元数据/链接/哈希；不保存网页正文或PDF，不改生产库",
-  "finishedAt": "2026-11-18T13:53:04+08:00",
+  "finishedAt": "2026-11-18T14:05:08+08:00",
+  "uniqueCandidateCount": 3,
   "fetchedCandidateCount": 1
 }

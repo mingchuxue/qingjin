@@ -12,3 +12,6 @@ android/local.properties
 android/qingjin/siteAssets/
 *.keystore
 *.jks
+
+# 本地收集器进程锁，不入源码归档
+collector/state/.collector.lock
