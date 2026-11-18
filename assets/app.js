@@ -199,7 +199,7 @@
   const save = debounce(saveState, 80);
 
   function exportData() {
-    const backupJson = JSON.stringify({ schema:2, appVersion:"1.5.0", exportedAt: new Date().toISOString(), data: state, academy:academy.store.backup(), aiPreferences:{preset:AI.cfg.preset,baseUrl:AI.cfg.baseUrl,model:AI.cfg.model,temperature:AI.cfg.temperature,timeout:AI.cfg.timeout} }, null, 2);
+    const backupJson = JSON.stringify({ schema:2, appVersion:"1.5.1", exportedAt: new Date().toISOString(), data: state, academy:academy.store.backup(), aiPreferences:{preset:AI.cfg.preset,baseUrl:AI.cfg.baseUrl,model:AI.cfg.model,temperature:AI.cfg.temperature,timeout:AI.cfg.timeout} }, null, 2);
     const blob = new Blob([AI.cfg.apiKey ? backupJson.split(AI.cfg.apiKey).join("[Key 已隐藏]") : backupJson], {type:"application/json"});
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
@@ -303,9 +303,9 @@
   async function loadData() {
     const jobs = [fetchJSON("data/meta.json").catch(() => null)];
     for (const s of SUBJECT_IDS) {
-      jobs.push(fetchJSON(`data/knowledge/${s}.json`).then(d => (DATA.knowledge[s]=d)).catch(() => (DATA.knowledge[s]=[])));
-      jobs.push(fetchJSON(`data/questions/${s}.json`).then(d => (DATA.questions[s]=d)).catch(() => (DATA.questions[s]=[])));
-      jobs.push(fetchJSON(`data/methods/${s}.json`).then(d => (DATA.methods[s]=d)).catch(() => (DATA.methods[s]=[])));
+      jobs.push(fetchJSON(`data/knowledge/${s}.json`).then(d => (DATA.knowledge[s]=Array.isArray(d)?d:[])).catch(() => (DATA.knowledge[s]=[])));
+      jobs.push(fetchJSON(`data/questions/${s}.json`).then(d => (DATA.questions[s]=Array.isArray(d)?d:[])).catch(() => (DATA.questions[s]=[])));
+      jobs.push(fetchJSON(`data/methods/${s}.json`).then(d => (DATA.methods[s]=Array.isArray(d)?d:[])).catch(() => (DATA.methods[s]=[])));
     }
     jobs.push(fetchJSON("data/exams.json").then(d => (DATA.exams=d)).catch(() => (DATA.exams=[])));
     jobs.push(fetchJSON("data/formulas.json").then(d => (DATA.formulas=d)).catch(() => (DATA.formulas={})));
@@ -313,7 +313,7 @@
     jobs.push(fetchJSON("data/words.json").then(d => (DATA.words=d)).catch(() => (DATA.words=[])));
     jobs.push(fetchJSON("data/writing.json").then(d => (DATA.writing=d)).catch(() => (DATA.writing=[])));
     jobs.push(fetchJSON("data/textbook.json").then(d => (DATA.textbook=d||{})).catch(() => (DATA.textbook={})));
-    for (const s of SUBJECT_IDS) jobs.push(fetchJSON(`data/conclusions/${s}.json`).then(d => (DATA.conclusions[s]=d)).catch(() => (DATA.conclusions[s]=[])));
+    for (const s of SUBJECT_IDS) jobs.push(fetchJSON(`data/conclusions/${s}.json`).then(d => (DATA.conclusions[s]=Array.isArray(d)?d:[])).catch(() => (DATA.conclusions[s]=[])));
     jobs.push(fetchJSON("data/exam-sources.json").then(d=>{if(d&&Array.isArray(d.resources)&&Array.isArray(d.verifiedQuestionIds))DATA.examSources={...d,resources:d.resources.filter(r=>r&&typeof r==='object')};}).catch(()=>{}));
     const res = await Promise.all(jobs);
     DATA.meta = res[0];
@@ -669,7 +669,7 @@
             <button class="menu-btn" id="menu-btn" aria-label="打开菜单">${ic("menu",20)}</button>
             <form class="search-box" id="search-form" action="#/search" role="search">
               ${ic("search")}
-              <input type="search" name="q" id="q-input" placeholder="搜索知识点、结论、教材、题目" aria-label="搜索" autocomplete="off">
+              <input type="search" name="q" id="q-input" placeholder="搜索知识、题目" aria-label="搜索知识点、结论、教材、题目" autocomplete="off">
             </form>
             <div class="top-actions">
               ${streak?`<span class="streak-pill" title="连续打卡 ${streak} 天">${ic("fire",16)} ${streak} <span>天</span></span>`:""}
@@ -837,13 +837,36 @@
       </div>`;
   }
 
+
+  function scoredEvents() {
+    return academy.store.events().filter(e => e.kind==="answer" || e.kind==="review");
+  }
+  function logPracticeIfComplete() {
+    loadSession();
+    if (!session || session.logged) return;
+    const items = session.items.map(id => ({q:DATA.qIndex[id], a:session.answers[id]}));
+    if (!items.length || items.some(x => !x.a)) return;
+    const scored = items.filter(x => x.a && x.a.result && x.a.result.score!=null);
+    const totalFull = sum(items.map(x => x.q?.score||5));
+    const totalGot = sum(scored.map(x => x.a.result.score||0));
+    const correct = items.filter(x => x.a?.result?.correct===true).length;
+    state.practiceLog.unshift({
+      id: uid(), title: session.title, subject: session.subject,
+      start: session.start, end: Date.now(), total: items.length,
+      correct, score: totalGot, full: totalFull, qids: session.items
+    });
+    session.logged = true;
+    saveSession(); save();
+    checkinToday(Math.round((Date.now()-session.start)/60000));
+  }
+
   /* ---------- home ---------- */
   function pageHome() {
     const cd = countdown();
     const tasks = todayTasks();
     const done = tasks.filter(t => t.done).length;
     const weak = weakKnowledge(6);
-    const recent = (state.practiceLog||[]).slice(0,5);
+    const recentEvents = scoredEvents().slice().sort((a,b)=>b.at-a.at).slice(0,5);
     const sel = selectedSubjects();
     return `
       <div class="hero">
@@ -891,7 +914,7 @@
         <div>
           <div class="section-title"><h2>最近练习</h2><a href="#/stats">更多</a></div>
           <div class="card card-pad">
-            ${recent.length? `<ul class="rec-list">${recent.map(l => `<li><a href="#/practice">${esc(l.title||"练习")}</a><div class="muted">${fmtDate(l.end||l.start)} · ${l.correct||0}/${l.total||0} 对</div></li>`).join("")}</ul>` : `<p class="muted">还没有练习记录。<a href="#/practice">开始刷题</a></p>`}
+            ${recentEvents.length? `<p class="muted rec-note">按单题有效提交（含自评），不必等整组交卷。</p><ul class="rec-list">${recentEvents.map(e=>{const q=DATA.qIndex[e.qid];const href=q?`#/practice/setup?mode=one&qid=${encodeURIComponent(q.id)}`:'#/stats';const title=q?stripHtml(q.stem).slice(0,36): (e.source||'练习');return `<li><a href="${href}">${esc(title)}${title.length>=36?'…':''}</a><div class="muted">${fmtDate(e.at)} · ${e.correct?'答对':'答错'} · ${esc(subjName(e.subject||q?.subject||''))} · 有效提交</div></li>`;}).join("")}</ul>` : `<p class="muted">还没有有效提交。<a href="#/practice">开始刷题</a></p>`}
           </div>
         </div>
       </div>
@@ -1612,6 +1635,7 @@
     session.answers[qid] = { user, result, spent, reasons:[], note:"" };
     if (result.correct !== null) recordAnswer(qid, !!result.correct, spent, q.subject, q.knowledgeIds);
     saveSession();
+    logPracticeIfComplete();
     return result;
   }
 
@@ -1624,17 +1648,7 @@
     const totalGot = sum(scored.map(x => x.a.result.score||0));
     const correct = items.filter(x => x.a?.result?.correct===true).length;
     const pending = items.filter(x => x.a?.result?.pending).length;
-    // log
-    if (!session.logged) {
-      state.practiceLog.unshift({
-        id: uid(), title: session.title, subject: session.subject,
-        start: session.start, end: Date.now(), total: items.length,
-        correct, score: totalGot, full: totalFull, qids: session.items
-      });
-      session.logged = true;
-      saveSession(); save();
-      checkinToday(Math.round((Date.now()-session.start)/60000));
-    }
+    logPracticeIfComplete();
     return `
       <div class="quiz-shell">
         <div class="card result-hero">
@@ -1949,7 +1963,7 @@
     const logs = state.practiceLog||[];
     const exams = state.examLog||[];
     const mocks = state.mockScores||[];
-    const events=academy.store.events().filter(e=>["answer","review"].includes(e.kind));
+    const events=scoredEvents();
     const answered = events.length;
     const correct = events.filter(e=>e.correct).length;
     const acc = answered? correct/answered : 0;
@@ -1970,11 +1984,11 @@
     });
     return `
       <div class="page-head"><div>${crumb([["#/","首页"],["#/stats","成绩"]])}<h1 class="h1">成绩与分析</h1>
-      <p class="lead">正确率以 1.4 起可判定提交次数为分母（含自评），不重复按知识点数计数。旧版掌握度与成绩保留在知识点和历史记录中；旧版挂机/题组时长不混入前台专注。</p></div>
+      <p class="lead">「有效提交」一律以 1.4 起可判定的单题作答/复习事件为分母（含自评），与热力图同一口径；不必等整组交卷。已交卷题组另列在底部，不与有效提交混计。旧版掌握度保留在知识点和历史记录中；前台专注不含挂机时长。</p></div>
       <button type="button" class="btn btn-primary btn-sm" data-ai="plan">${ic("ai",16)} AI 学习计划</button></div>
       <div class="stat-nums">
         <div class="card stat-num"><div class="n">${answered?`${Math.round(acc*100)}<span style="font-size:16px">%</span>`:"—"}</div><div class="l">练习正确率</div></div>
-        <div class="card stat-num"><div class="n">${answered}</div><div class="l">有效提交（含自评）</div></div>
+        <div class="card stat-num" id="stat-scored"><div class="n">${answered}</div><div class="l">有效提交（单题，含自评）</div></div>
         <div class="card stat-num"><div class="n">${state.wrong.filter(w=>!w.mastered).length}</div><div class="l">未消化错题</div></div>
         <div class="card stat-num"><div class="n">${minutes}</div><div class="l">已记录前台专注分钟</div></div>
       </div>
@@ -2015,8 +2029,9 @@
         </form>
       </div>
       <div class="card card-pad" style="margin-top:14px">
-        <h2 class="h2">练习与试卷记录</h2>
-        <ul class="rec-list">${[...logs.slice(0,8),].map(l=>`<li>${esc(l.title)} · ${fmtDate(l.end||l.start)} · ${l.correct}/${l.total}</li>`).join("") || "<li class='muted'>暂无</li>"}</ul>
+        <h2 class="h2">已交卷练习组</h2>
+        <p class="muted">这是整组交卷记录，不是上方有效提交的分母。单题作答在未点「查看结果」前过去不会出现在这里，现已在全部题目提交后立即记账。</p>
+        <ul class="rec-list">${logs.slice(0,8).map(l=>`<li>${esc(l.title)} · ${fmtDate(l.end||l.start)} · ${l.correct}/${l.total}</li>`).join("") || "<li class='muted'>还没有交卷整组；若已有单题作答，请看上方有效提交。</li>"}</ul>
         ${exams.length?`<h3 class="h3">模拟卷</h3><ul class="rec-list">${exams.slice(0,6).map(l=>`<li><a href="#/exam/${l.paperId}/result">${esc(l.title)}</a> · ${l.score}/${l.full}</li>`).join("")}</ul>`:""}
       </div>
     `;
@@ -2090,29 +2105,27 @@
     </div>`;
   }
   function studyHeat() {
-    const per = {};
-    const add = (k, n) => { if (k) per[k] = (per[k]||0) + n; };
-    academy.store.events().filter(e=>['answer','review'].includes(e.kind)).forEach(e=>add(e.day,1));
-    const weeks=20;
-    const end=new Date(todayStr()+'T12:00:00Z');
-    const start=new Date(end);start.setUTCDate(end.getUTCDate()-end.getUTCDay()-(weeks-1)*7);
+    const C=window.QingjinCore, events=scoredEvents(), per={};
+    events.forEach(e=>{ if(e.day) per[e.day]=(per[e.day]||0)+1; });
+    const weeks=20, today=todayStr(), start=C.monday(C.shift(today,-(weeks-1)*7));
     const cell = 13, gap = 3, left = 22, top = 16;
     let rects = "", months = "", lastM = -1, activeDays = 0, totalN = 0;
     for (let w = 0; w < weeks; w++) {
       for (let d = 0; d < 7; d++) {
-        const day = new Date(start); day.setUTCDate(start.getUTCDate() + w*7 + d);
-        if (day > end) continue;
-        const k = day.toISOString().slice(0,10), n = per[k] || 0;
+        const k = C.shift(start, w*7 + d);
+        if (k > today) continue;
+        const n = per[k] || 0;
         if (n) { activeDays++; totalN += n; }
         const lv = n===0?0 : n<5?1 : n<15?2 : n<30?3 : 4;
-        rects += `<rect x="${left + w*(cell+gap)}" y="${top + d*(cell+gap)}" width="${cell}" height="${cell}" rx="3" class="hm l${lv}"><title>${k} · ${n?n+" 题次":"未学习"}</title></rect>`;
-        if (d===0 && day.getUTCMonth()!==lastM) { lastM = day.getUTCMonth(); months += `<text x="${left + w*(cell+gap)}" y="10" font-size="10" fill="var(--muted)">${lastM+1}月</text>`; }
+        const month = Number(k.slice(5,7));
+        rects += `<rect x="${left + w*(cell+gap)}" y="${top + d*(cell+gap)}" width="${cell}" height="${cell}" rx="3" class="hm l${lv}"><title>${k} · ${n?n+" 次有效提交":"未学习"}</title></rect>`;
+        if (d===0 && month!==lastM) { lastM = month; months += `<text x="${left + w*(cell+gap)}" y="10" font-size="10" fill="var(--muted)">${month}月</text>`; }
       }
     }
     const lab = ["日","","二","","四","","六"].map((s,i)=>s?`<text x="0" y="${top + i*(cell+gap) + 10}" font-size="10" fill="var(--muted)">${s}</text>`:"").join("");
     const W = left + weeks*(cell+gap), H = top + 7*(cell+gap);
     return `<div class="card card-pad study-heat" style="margin-top:14px">
-      <div class="section-title" style="margin:0 0 8px"><h2>学习热力图</h2><span class="muted" style="font-size:13px">近 ${weeks} 周 · 学习 ${activeDays} 天 · ${totalN} 次有效提交（1.4 起）</span></div>
+      <div class="section-title" style="margin:0 0 8px"><h2>学习热力图</h2><span class="muted" id="stat-heat-label" style="font-size:13px">近 ${weeks} 周 · 学习 ${activeDays} 天 · ${totalN} 次有效提交（与上方同一口径：1.4 起单题作答/复习；全部 ${events.length} 次）</span></div>
       <div class="hm-scroll"><svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="近 ${weeks} 周学习热力图">${months}${lab}${rects}</svg></div>
       <div class="hm-legend muted">少 <i class="hm-l l0"></i><i class="hm-l l1"></i><i class="hm-l l2"></i><i class="hm-l l3"></i><i class="hm-l l4"></i> 多</div>
     </div>`;
@@ -2419,7 +2432,7 @@
   function pageSettings() {
     const p = state.profile;
     return `
-      <div class="page-head"><div>${crumb([["#/","首页"],["#/settings","设置"]])}<h1 class="h1">设置 <span class="tag">1.5.0 · VC11</span></h1></div></div>
+      <div class="page-head"><div>${crumb([["#/","首页"],["#/settings","设置"]])}<h1 class="h1">设置 <span class="tag">1.5.1 · VC12</span></h1></div></div>
       <div class="card settings-sec">
         <h2>个人与选科</h2>
         <div class="row" style="display:grid;grid-template-columns:120px 1fr;gap:8px;align-items:center;margin-bottom:8px">
@@ -3163,7 +3176,7 @@
           <h3>适用条件</h3><p>${trusted(c.conditions)}</p>
           <h3>推理过程</h3><ol class="cl-deriv">${(c.derivation||[]).map(d=>`<li>${trusted(d)}</li>`).join("")}</ol>
           <h3>例题</h3><div class="cl-ex"><p>${trusted(c.example.q)}</p>
-            <details class="cl-ans"><summary>查看解答</summary><p>${trusted(c.example.a)}</p></details></div>
+            <details class="cl-ans" id="cl-answer"><summary>查看解答</summary><div class="cl-ans-body">${trusted(c.example.a)}</div></details></div>
           ${(c.pitfalls||[]).length?`<h3>易错点</h3><div class="pitfall"><ul style="margin:0">${c.pitfalls.map(p=>`<li>${trusted(p)}</li>`).join("")}</ul></div>`:""}
         </div>
         <div>
@@ -3560,7 +3573,7 @@
   function photoCancel(){PHOTO.revision++;if(PHOTO.ctrl)PHOTO.ctrl.abort();PHOTO.ctrl=null;PHOTO.busy=false;}
   function photoRefresh(){if(current.parts[0]==='ai'&&current.parts[1]==='photo')route();}
   function pagePhoto(){const v=AI.cfg.vision||{},cfg=photoVision(),cap=window.QingjinPhoto.capability(cfg);let dest='未配置';try{dest=new URL(cfg.baseUrl).host}catch{}
-    return `<div class="page-head"><div>${crumb([['#/','首页'],['#/ai','AI导师']])}<h1 class="h1">拍照 · AI识题解答 <span class="tag">1.5.0</span></h1><p class="muted">读清题目，再拆解思路。不提供联网题库命中或真题来源。</p></div><a href="#/settings?ai=1" class="btn btn-soft">模型设置</a></div>
+    return `<div class="page-head"><div>${crumb([['#/','首页'],['#/ai','AI导师']])}<h1 class="h1">拍照 · AI识题解答 <span class="tag">1.5.1</span></h1><p class="muted">读清题目，再拆解思路。不提供联网题库命中或真题来源。</p></div><a href="#/settings?ai=1" class="btn btn-soft">模型设置</a></div>
     <p id="photo-status" class="photo-status" role="status" aria-live="polite">${esc(PHOTO.busy?'正在处理，可取消…':PHOTO.status)}</p><div class="photo-layout"><div><section class="card photo-step"><div class="photo-step-title"><span>01</span><h2>把题目带进来</h2></div><p class="muted">拍一题，尽量拍清公式与图形。JPEG / PNG / WebP，原图≤12MB / 4000万像素；自动压至最长1600px、≤1.8MB并重新编码去除EXIF。图片不会进入学习备份或聊天记录，刷新后页面不保留。安卓选择器使用私有临时缓存，压缩完成即清理原文件，异常遗留在退出/下次启动清理。</p>
     <div class="photo-actions"><label class="btn btn-primary photo-file">拍照<input id="photo-camera" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" ${PHOTO.busy?'disabled':''}></label><label class="btn btn-soft photo-file">相册 / 选择图片<input id="photo-file" type="file" accept="image/jpeg,image/png,image/webp" ${PHOTO.busy?'disabled':''}></label><button class="btn btn-ghost" id="photo-remove" ${PHOTO.image?'':'disabled'}>删除图片</button></div><p class="muted">重新选图会清除本页旧识别与解答；也可不选图，直接在下方输入题目。</p>
     ${PHOTO.image?`<div class="photo-preview"><img src="${PHOTO.image.data}" alt="待识别题目预览"><span>${PHOTO.image.width} × ${PHOTO.image.height} · ${Math.ceil(PHOTO.image.bytes/1024)}KB · 仅本机暂存</span></div><div class="photo-actions"><button class="btn btn-soft" id="photo-rotate" ${PHOTO.busy?'disabled':''}>顺时针旋转90°</button><details><summary>裁掉多余边缘</summary><div class="photo-crop">${[['left','左'],['top','上'],['right','右'],['bottom','下']].map(([id,name])=>`<label>${name}侧 %<input class="field" id="photo-crop-${id}" type="number" min="0" max="45" value="0"></label>`).join('')}</div><button class="btn btn-soft" id="photo-crop" ${PHOTO.busy?'disabled':''}>应用裁剪</button><p class="muted">各边0–45%，依预览逐步裁剪；误裁请重选原图。</p></details></div>`:`<div class="photo-placeholder" aria-label="未选择图片"><b>让镜头成为草稿纸的入口</b><span>图片只在此页临时保存 · 不自动上传</span></div>`}

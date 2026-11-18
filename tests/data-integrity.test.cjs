@@ -3,3 +3,15 @@ const pack=dir=>subjects.flatMap(s=>read(dir+'/'+s+'.json')),kp=pack('knowledge'
 test('数据真实库存、ID唯一、跨库关联没有悬空引用',()=>{a.equal(kp.length,370);a.equal(qs.length,1163);a.equal(cls.length,235);a.equal(secs.length,848);for(const p of [kp,qs,methods,cls,secs])a.equal(new Set(p.map(x=>x.id)).size,p.length);const ks=new Set(kp.map(k=>k.id)),ms=new Set(methods.map(m=>m.id)),cs=new Set(cls.map(c=>c.id)),qi=new Set(qs.map(q=>q.id));for(const q of qs){for(const k of q.knowledgeIds||[])a.ok(ks.has(k),q.id+':'+k);for(const m of q.methodIds||[])a.ok(ms.has(m),q.id+':'+m);a.ok(q.methodIds?.length,q.id+'缺方法');a.ok(q.sourceKind!=='verified-exam'&&(!/真题/.test(q.source||'')||/非真题/.test(q.source||'')),q.id+'不应伪称真题');}for(const s of secs){for(const k of s.kpIds||[])a.ok(ks.has(k),s.id+':'+k);for(const c of s.conclIds||[])a.ok(cs.has(c),s.id+':'+c);}for(const c of cls){a.ok(c.conditions&&c.derivation?.length&&c.example?.q&&c.example?.a);for(const k of c.kpIds||[])a.ok(ks.has(k),c.id+':'+k);}for(const m of methods)for(const q of m.questionIds||[])a.ok(qi.has(q),m.id+':'+q);});
 test('已确认的数据边界不伪造覆盖',()=>{a.equal(secs.filter(s=>s.kpIds?.length).length,692);const mapped=new Set(secs.flatMap(s=>s.kpIds||[]));a.equal(kp.filter(k=>!mapped.has(k.id)).length,39);for(const s of ['chinese','politics','history'])a.equal(read('conclusions/'+s+'.json').length,2);a.equal(read('words.json').length,4330);});
 test('修正条目与物理数学关键边界数值抽检',()=>{a.match(kp.find(k=>k.id==='m-01').points[3],/2\^n-1\$ 个真子集/);for(let n=1;n<=12;n++)a.equal(2**n-2,(2**n)-1-1);const p=read('conclusions/physics.json');a.match(p.find(c=>c.id==='cl-p-17').statement,/下确界/);a.match(p.find(c=>c.id==='cl-p-49').conditions,/自感/);for(const theta of [.01,.1,.5,1]){const L=Math.hypot(3-3*Math.cos(theta),3*Math.sin(theta))/(3*Math.sin(theta));a.ok(L>1)}a.equal(10*.5*.02/2,.05);a.match(read('conclusions/biology.json').find(c=>c.id==='cl-b-13').conditions,/光合作用/);});
+test('学科方法/知识/题目/结论必须是对象数组，不能被构件校验元数据覆盖',()=>{
+  const forbidden=['apkSha256','versionCode','sourceCommit','runtimeTreeSha256','apkSiteFilesCompared'];
+  for(const dir of ['knowledge','questions','methods','conclusions']){
+    for(const s of subjects){
+      const raw=fs.readFileSync(path.join(root,dir,s+'.json'),'utf8');
+      const d=JSON.parse(raw);
+      a.ok(Array.isArray(d),dir+'/'+s+' 必须是数组');
+      a.ok(!forbidden.some(k=>Object.prototype.hasOwnProperty.call(d,k)),dir+'/'+s+' 含构件元数据字段');
+      for(const x of d){a.equal(typeof x,'object');a.equal(typeof x.id,'string');}
+    }
+  }
+});
