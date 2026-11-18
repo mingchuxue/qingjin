@@ -19,7 +19,7 @@ test('样式契约：问AI无fixed/absolute/bottom浮层，顶栏不透明且保
  const action=css.match(/\.ai-entry\s*\{([^}]+)\}/)[1],header=css.match(/\.topbar\s*\{([^}]+)\}/)[1];
  a.match(action,/position:\s*static/);a.doesNotMatch(action,/position:\s*(fixed|absolute)|\bbottom\s*:|\bz-index\s*:/);a.match(action,/min-height:\s*44px/);a.match(action,/flex:\s*0 0 auto/);a.match(css,/\.ai-entry:focus-visible/);
  a.match(header,/background:\s*var\(--bg\)/);a.match(header,/backdrop-filter:\s*none/);a.doesNotMatch(header,/background:[^;]*(transparent|color-mix)/);
- a.match(css,/\.top-actions \.streak-pill\s*\{\s*display:\s*none/);a.match(css,/flex:\s*1; min-width:\s*0; max-width:\s*460px/);a.match(css,/var\(--bottom\) \+ 24px \+ var\(--safe-b\)/);a.match(css,/scroll-padding-top:/);a.doesNotMatch(css,/--fab-space|\.ai-fab/);a.doesNotMatch(academy,/#ai-fab/);
+ a.match(css,/\.top-actions \.streak-pill\s*\{\s*display:\s*none/);a.match(css,/flex:\s*1; min-width:\s*0; max-width:\s*460px/);a.match(css,/var\(--bottom\) \+ 24px \+ var\(--safe-b\)/);a.match(css,/scroll-padding-top:/);a.match(css,/padding-left:\s*30px; font-size:\s*16px/);a.doesNotMatch(css,/--fab-space|\.ai-fab/);a.doesNotMatch(academy,/#ai-fab/);
 });
 test('知识详情问AI继续携带上下文，安静模式不删除正常导航控件',async()=>{
  const x=await app();try{await x.go('#/knowledge/math/ct-math-k-01');const d=x.w.document;x.w.document.documentElement.dataset.quiet='true';const action=d.querySelector('#ai-fab');a.equal(action.hidden,false);action.click();await new Promise(r=>setTimeout(r,60));a.match(d.querySelector('#view').textContent,/分段函数|接点|上下文/);a.deepEqual(x.errors,[]);}finally{x.dom.window.close();}

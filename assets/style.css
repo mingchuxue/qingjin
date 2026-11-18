@@ -1069,7 +1069,7 @@ hr.sep { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
 @media (max-width: 768px) {
   .topbar { gap: 8px; }
   .top-actions { flex-shrink: 0; gap: 4px; }
-  .search-box input { padding-right: 8px; padding-left: 30px; font-size: 13px; }
+  .search-box input { padding-right: 8px; padding-left: 30px; font-size: 16px; }
   .search-box > .ic { left: 9px; width: 14px; }
   .content-subject, .source-card, .card.card-pad { scroll-margin-top: calc(var(--top) + var(--safe-t) + 16px); scroll-margin-bottom: calc(var(--bottom) + var(--safe-b)); }
 }
